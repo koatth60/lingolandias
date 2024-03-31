@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+    width: auto;
+    scroll-behavior: smooth;
+  }
+  
+  .locked-textarea {
+    resize: none;
+  }
