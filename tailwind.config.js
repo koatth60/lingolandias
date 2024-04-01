@@ -7,8 +7,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        marcellus: ['Marcellus SC', 'serif'],
-        oswald : ['Oswald', 'sans-serif']
+        
+        satoshi: ['Satoshi', 'sans-serif']
       },
       
         transitionProperty: ['hover', 'focus'],

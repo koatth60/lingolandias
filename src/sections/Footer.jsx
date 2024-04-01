@@ -1,9 +1,9 @@
 
 const Footer = () => {
   return (
-    <section className="bg-[#0C0D0E] text-white py-5 flex max-lg:grid max-lg:grid-cols-2 max-md:px-8 justify-center lg:gap-x-[200px] max-md:gap-x-[146px]">
+    <section className="bg-[#0C0D0E] font-satoshi  text-white py-5 flex max-lg:grid max-lg:grid-cols-2 max-md:px-8 max-xl:px-12 justify-center gap-y-10 md:gap-x-[150px] max-md:gap-x-[60px]">
         <div>
-            <h2 className="font-bald text-xl mb-2">Company</h2>
+            <h2 className="font-bold text-xl mb-2">Company</h2>
             <ul className="text-sm">
                 <li className="hover:text-red-600"><a href="">About us</a></li>
                 <li className="hover:text-red-600"><a href="">Test</a></li>
@@ -13,15 +13,15 @@ const Footer = () => {
         </div>
 
         <div>
-            <h2 className="font-bald text-xl mb-2">Courses</h2>
+            <h2 className="font-bold text-xl mb-2">Courses</h2>
             <ul className="text-sm">
-                <li className="hover:text-red-600"><a href="">Beginner</a></li>
-                <li className="hover:text-red-600"><a href="">Intermediate</a></li>
-                <li className="hover:text-red-600"><a href="">Advanced</a></li>
+                <li className="hover:text-red-600"><a href="">English</a></li>
+                <li className="hover:text-red-600"><a href="">Spanish</a></li>
+                <li className="hover:text-red-600"><a href="">Polish</a></li>
             </ul>
         </div>
         <div>
-            <h2 className="font-bald text-xl mb-2">Our Socials</h2>
+            <h2 className="font-bold text-xl mb-2">Socials</h2>
             <ul className="text-sm">
                 <li className="hover:text-red-600"><a href="">Facebook</a></li>
                 <li className="hover:text-red-600"><a href="">Twitter</a></li>

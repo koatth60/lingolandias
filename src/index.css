@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
 html {
     width: auto;
     scroll-behavior: smooth;
@@ -10,3 +11,5 @@ html {
   .locked-textarea {
     resize: none;
   }
+
+ 

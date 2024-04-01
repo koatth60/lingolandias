@@ -7,28 +7,39 @@ import { heropic } from "../assets/export";
 
 const Hero = () => {
   return (
-    <section className="h-screen flex-col overflow-hidden font-oswald bg-[#FFFFFF] px-[250px] lg:pb-[170px] max-md:p-2 relative ">
-      <div className="flex mt-[90px]">
-        <div className="flex flex-col text-left justify-center gap-6">
-          <h1 className="text-4xl text-[#75377A] font-bold">
-            Unlock Your Language Potential with our Metodology
-          </h1>
-          <h2 className="text-xl text-[#75377A]  ">
+    <section className="h-auto flex-col font-satoshi bg-[#FFFFFF] 2xl:px-[270px] lg:px-[50px] md:px-[30px] relative lg:mb-[350px] max-lg:mb-[260px] max-md:mb-[360px] max-md:px-2">
+      <div className="lg:flex justify-around lg:mt-[90px] max-lg:mt-[80px] max-md:mt-[60px]">
+        <div className="flex flex-col text-left justify-center lg:gap-6 max-lg:gap-2 ">
+          <div >
+            <h1 className="xl:text-4xl text-[#75377A] font-satoshi font-bold lg:text-2xl max-lg:text-2xl max-lg:text-center">
+              Unlock Your Language Potential with our <span className="xl:text-4xl lg:text-2xl max-lg:text-2xl font-bold bg-orange-500 text-white xl:w-[220px] md:w-[150px] max-md:w-[130px] max-md:text-center rounded-2xl px-2 ">
+              Metodology.
+            </span>
+            </h1>
+            
+          </div>
+          <h2 className="xl:text-xl text-[#75377A] lg:text-md max-lg:text-center">
             Embark on a Journey to Master Languages with Ease: Discover Our
             Trusted and Proven Methodology for Achieving Success in Language
             Learning
           </h2>
         </div>
-        <img src={heropic} alt="hero pic" width={800} />
+        <div className="max-lg:flex justify-center">
+          <img
+            src={heropic}
+            alt="hero pic"
+            className="xl:w-[1050px] lg:w-[700px] md:w-[400px] "
+          />
+        </div>
       </div>
 
-      <div className="flex max-md:flex-col max-md:items-center  h-auto w-full justify-evenly bg-[#E7E3D8] py-12 absolute left-0 ">
+      <div className="flex max-md:items-center max-lg:flex-col-reverse h-auto w-full justify-evenly bg-[#E7E3D8] xl:py-12 lg:py-10 max-lg:py-6 md:px-[30px] absolute left-[0] xl:bottom-[-340px] lg:bottom-[-260px] max-md:gap-6">
         <QuoteAndInfo />
         <div>
-          <h3 className="font-bold text-[#75377A] text-2xl text-center">
+          <h3 className="font-semibold text-[#75377A] xl:text-2xl lg:text-xl text-center">
             Start by Learning:
           </h3>
-          <div className="flex max-lg:flex-col max-md:mt-4 justify-evenly text-ms gap-6 ">
+          <div className="flex justify-center text-ms gap-6 ">
             {levels.map((level) => (
               <Levels key={level.title} {...level} />
             ))}

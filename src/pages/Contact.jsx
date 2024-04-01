@@ -8,7 +8,7 @@ const Contact = () => {
   return (
     <div>
       <Header />
-      <section className="h-screen font-oswald flex flex-col items-center">
+      <section className="h-screen font-satoshi flex flex-col items-center">
         <div className="mt-[80px] flex items-center">
           <img src={foto2} alt="lingolandias" />
 
@@ -66,7 +66,7 @@ const Contact = () => {
           </div>
         </div>
         <div className="text-center flex flex-col items-center">
-          <h2 className=" font-semibold text-4xl text-[#75377A] font-bold mt-8">
+          <h2 className=" font-semibold text-4xl text-[#75377A]  mt-8">
             Master a new language from anywhere in the world, at your own pace!.
           </h2>
           <h3 className="bg-orange-500 text-4xl text-white p-2 m-2 max-w-[800px] rounded-lg">Gain success, while enjoying the journey!</h3>
