@@ -2,11 +2,13 @@ import React from "react";
 import agata from "../assets/agata.png";
 import agata2 from "../assets/agata2.png";
 
+
+// estaba en 270px
 const Generalnfo = () => {
   return (
-    <section className="font-oswald 2xl:px-[270px] lg:p-[50px] md:px-[30px] mt-[50px] max-md:px-2">
-      <div className="flex justify-center items-center max-lg:flex-col-reverse py-4 md:mb-[80px] gap-8 ">
-        <img src={agata} alt="our teachers" className="rounded-3xl xl:w-[500px] lg:w-[400px] md:w-[600px] "/>
+    <section className="font-satoshi 2xl:px-[330px] lg:p-[50px] md:px-[30px] mt-[50px] max-md:px-2">
+      <div className="flex justify-center items-center max-lg:flex-col-reverse py-4 md:mb-[60px] gap-8 ">
+        <img src={agata} alt="our teachers" className="rounded-e-3xl xl:w-[500px] lg:w-[400px] md:w-[600px] "/>
 
         <div className="">
           <h2 className=" font-bold text-[#23085A] xl:text-3xl lg:text-2xl max-lg:text-xl text-center border-b-4 my-8 pb-3">
@@ -48,7 +50,7 @@ const Generalnfo = () => {
           </p>
         
         </div>
-        <img src={agata2} alt="our teachers" className="rounded-3xl xl:w-[500px] lg:w-[400px]  md:w-[600px] "/>
+        <img src={agata2} alt="our teachers" className="rounded-s-3xl xl:w-[500px] lg:w-[400px]  md:w-[600px] "/>
       </div>
     </section>
   );

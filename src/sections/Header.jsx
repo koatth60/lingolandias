@@ -11,7 +11,7 @@ const Header = () => {
     setIsOpen(!isOpen);
   };
   return (
-    <header className="flex md:justify-around max-md:justify-between px-6 max-lg:py-1 max-md:px-2 w-full bg-black fixed top-0 left-0 z-10 border-b-[1.5px] border-black shadow-md ">
+    <header className="flex justify-between  2xl:px-[330px] lg:px-[50px] md:px-[30px] max-lg:py-1 max-md:px-2 w-full bg-black fixed top-0 left-0 z-20 border-b-[1.5px] border-black shadow-md ">
       <div className="md:my-2 max-md:flex max-md:items-center ">
         <a href="/">
           <img

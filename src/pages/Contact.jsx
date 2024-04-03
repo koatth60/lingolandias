@@ -66,7 +66,7 @@ const Contact = () => {
           </div>
         </div>
         <div className="text-center flex flex-col items-center">
-          <h2 className=" font-semibold text-4xl text-[#75377A]  mt-8">
+          <h2 className=" font-medium text-4xl text-[#75377A]  mt-8">
             Master a new language from anywhere in the world, at your own pace!.
           </h2>
           <h3 className="bg-orange-500 text-4xl text-white p-2 m-2 max-w-[800px] rounded-lg">Gain success, while enjoying the journey!</h3>
