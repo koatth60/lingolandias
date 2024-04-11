@@ -2,74 +2,54 @@ import React from "react";
 import Header from "../sections/Header";
 import Footer from "../sections/Footer";
 import foto2 from "../assets/foto2.png";
-import dontmiss from "../assets/dontmiss.png";
+import { InputDefault } from "../components/Inputs";
+import { TextareaDefault } from "../components/Textarea";
 
 const Contact = () => {
   return (
     <div>
       <Header />
-      <section className="h-screen font-satoshi flex flex-col items-center">
-        <div className="mt-[80px] flex items-center">
-          <img src={foto2} alt="lingolandias" />
+      <section className="h-auto teachers font-satoshi items-center 2xl:px-[330px] pt-[80px] lg:px-[50px] md:px-[30px] max-md:px-2 pb-6">
+        <div className=" flex max-lg:flex-wrap items-center justify-around">
+          <img src={foto2} alt="lingolandias" className="max:xl:w-[250px]" />
 
-          <div>
-            <img src={dontmiss} alt="dont miss" width={600} />
-          </div>
-
-          <div className="bg-red-600 flex flex-col items-center p-4 rounded-3xl">
-            <h3 className="text-center text-2xl">Join now!</h3>
-            <p className="w-3/4 text-center leading-none mb-2">
+          <div className="bg-white flex flex-col items-center p-4 rounded-3xl max-w-[360px] shadow-xl">
+            <h3 className="text-center text-2xl text-[#6a1b9a] font-bold">
+              Join now!
+            </h3>
+            <p className="w-3/4 text-center text-[#9c27b0] leading-none mb-2">
               Leave your information and you'll get a special promotion!
             </p>
-            <div className="w-full h-[1px] bg-black mb-6 "></div>
-            <form action="submit" className="flex flex-col gap-6 w-full">
-              <input
-                type="text"
-                name="name"
-                id="name"
-                placeholder="Name *"
-                required
-                className="py-1 px-2 rounded h-10"
-              />
-              <input
-                type="number"
-                name="number"
-                id="number"
-                placeholder="Number *"
-                required
-                className="py-1 px-2 rounded h-10"
-              />
-              <input
-                type="email"
-                name="email"
-                id="email"
-                placeholder="Email *"
-                required
-                className="py-1 px-2 rounded h-10"
-              />
-              <textarea
-                name="message"
-                id="message"
-                cols="30"
-                rows="5"
-                className="py-1 px-2 rounded locked-textarea"
-                placeholder="Your message..."
-              ></textarea>
-              <input
-                type="button"
-                name="button"
-                id="button"
-                className="bg-blue-500 p-2 rounded-full cursor-pointer"
-                value="Send"
-              />
+            <div className="w-full h-[1px] bg-slate-200 mb-6 "></div>
+            <form
+              action="submit"
+              className="flex flex-col items-center gap-6 w-full"
+            >
+              <InputDefault label="Name" type="text" required />
+              <InputDefault label="Number" type="number" required />
+              <InputDefault label="Email" type="email" required />
+              <TextareaDefault />
+
+              <div>
+                <a
+                  href="/contact"
+                  class="relative inline-flex items-center justify-center px-10 py-3 overflow-hidden text-lg font-medium tracking-tighter text-white bg-[#9c27b0] rounded-lg group"
+                >
+                  <span class="absolute w-0 h-0 transition-all duration-500 ease-out bg-[#43a047] rounded-full group-hover:w-56 group-hover:h-56"></span>
+                  <span class="absolute inset-0 w-full h-full -mt-1 rounded-lg opacity-30 bg-gradient-to-b from-transparent via-transparent to-gray-700"></span>
+                  <span class="relative">Wysłać</span>
+                </a>
+              </div>
             </form>
           </div>
         </div>
-        <div className="text-center flex flex-col items-center">
-          <h2 className=" font-medium text-4xl text-[#75377A]  mt-8">
+        <div className="text-center text-white flex flex-col items-center">
+          <h2 className=" font-bold text-6xl max-xl:text-3xl mt-8">
             Master a new language from anywhere in the world, at your own pace!.
           </h2>
-          <h3 className="bg-orange-500 text-4xl text-white p-2 m-2 max-w-[800px] rounded-lg">Gain success, while enjoying the journey!</h3>
+          <h3 className="bg-[#43a047] text-4xl max-xl:text-3xl font-medium p-2 m-2 max-w-[800px] rounded-lg">
+            Gain success, while enjoying the journey!
+          </h3>
           <p className="max-w-[900px] mt-4 ">
             Unlock the world of language learning on your terms, wherever you
             may be. With the freedom to set your own pace, you can immerse

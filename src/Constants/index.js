@@ -1,38 +1,45 @@
-import { logo1, logo2, logo3, poland, spain, uk} from "../assets/export.js";
-const homeCards = [
-  {
-    imgURL: logo1,
-    title: "Spanish lessons",
-    text: "Break the language barrier and communicate with native speakers. Our Spanish programme is suitable for all levels and all ages.",
-  },
-  {
-    imgURL: logo2,
-    title: "Cultural and Fun Activities",
-    text: "Excellent ways to immerse yourself in the Spanish language and its rich culture.These activities can make your language learning journey more enjoyable. ",
-  },
-  {
-    imgURL: logo3,
-    title: "Customized and Appealing Learning Materials",
-    text: "Personalized learning materials, including worksheets, exercises, and quizzes, to facilitate effective learning and understanding.",
-  },
-];
+import { poland, spain, uk, polandsquare, spainsquare, uksquare} from "../assets/export.js";
+
 const levels = [
   {
   imgURL: uk ,
-  title: "ENGLISH",
+  title: "ANGIELSKI",
   
 },
 {
   imgURL: spain,
-  title: "SPANISH",
+  title: "HISZPAŃSKI",
 
 },
 {
   imgURL: poland,
-  title: "POLISH",
+  title: "POLSKI",
   
 }
-
 ];
 
-export { homeCards, levels };
+const teachers = [
+  {
+    quote: '"Learning is a treasure that will follow its owner everywhere."',
+    title : "Nauczyciele Języka Angielskiego",
+    crew : '7',
+    flag : uksquare,
+    link: "/enteachers"
+  },
+  {
+    quote: '"El aprendizaje es un tesoro que sigue a su dueño en todas partes."',
+    title : "Nauczyciele Języka Hiszpańskiego",
+    crew : '2',
+    flag : uksquare,
+    link: "/esteachers"
+  },
+  {
+    quote: '"Nauka to skarb, który towarzyszy swemu właścicielowi wszędzie."',
+    title : "nauczyciele Języka Polskiego Jako Języka Obcego ",
+    crew : '5',
+    flag : uksquare,
+    link: "/enteachers"
+  }
+]
+
+export { levels, teachers };

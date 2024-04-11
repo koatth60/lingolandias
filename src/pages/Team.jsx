@@ -1,148 +1,42 @@
 import React from "react";
 import Header from "../sections/Header";
 import Footer from "../sections/Footer";
-import teacher from "../assets/teacher.png";
-import teacher2 from "../assets/teacher2.png";
-import teacher3 from "../assets/teacher3.png";
-import teacher4 from "../assets/teacher4.png";
+import { teachers } from "../Constants";
+import { CardDefault } from "../components/CardDefault";
+
 const Team = () => {
   return (
     <div>
       <Header />
-      <section className="h-auto font-satoshi  2xl:px-[270px] lg:p-[50px] md:px-[30px]  max-md:px-2 mb-4 flex flex-col items-center  ">
+      <section className="h-screen font-satoshi  teachers 2xl:px-[270px] lg:p-[50px] md:px-[30px]  max-md:px-2  flex flex-col items-center  ">
         <div className="mt-[80px] text-center ">
-          <h2 className="text-4xl max-xl:text-3xl text-[#75377A] font-bold mb-4">
-            Meet Our <span className="xl:text-4xl max-xl:text-3xl font-bold bg-orange-500 text-white xl:w-[220px] md:w-[150px] max-md:w-[130px] max-md:text-center rounded-2xl px-2 ">Crew</span>
+          <h2 className="xl:text-5xl lg:text-2xl max-lg:text-xl text-white font-bold mb-4">
+            Poznajmy{" "}
+            <span className="xl:text-5xl lg:text-2xl max-lg:text-2xl font-bold bg-[#43a047] text-white xl:w-[220px] md:w-[150px] max-md:w-[130px] max-md:text-center rounded-2xl px-2 pb-1 ">
+              się
+            </span>
           </h2>
-          <p className="text-lg text-[#75377A] max-w-[1000px] mb-4">
-            Step into the world of language learning with our team of
-            exceptional educators who elevate the art of teaching to new
-            heights. Our language teachers are more than just instructors; they
-            are mentors, guides, and catalysts for transformation. With a wealth
-            of knowledge and experience in linguistics, cultural studies, and
-            pedagogy, they bring a depth of understanding that goes beyond
-            grammar rules and vocabulary lists.
+          <p className="text-xl text-white  text-left max-w-[1000px] mb-4">
+            W naszej szkole mamy przyjemność pracować z wyjątkowymi
+            nauczycielami, którzy są prawdziwymi ekspertami w swojej dziedzinie.
+            To nie tylko profesjonaliści, ale także pasjonaci, którzy kochają
+            to, co robią i pragną przekazywać swoją wiedzę i umiejętności naszym
+            uczniom.
           </p>
+          <p className="text-xl text-white  text-left max-w-[1000px] mb-10">
+            Nasi nauczyciele są nie tylko wykwalifikowani i kompetentni, ale
+            również pełni entuzjazmu i energii. Ich podejście do nauczania jest
+            innowacyjne i interaktywne, co sprawia, że zajęcia są nie tylko
+            efektywne, ale również inspirujące. Wiedzą, jak zainteresować
+            uczniów i zachęcić ich do aktywnego udziału w procesie nauki.
+          </p>
+        
         </div>
-        <div className="flex gap-4 flex-wrap justify-center">
-          <div className="bg-[#E7E3D8]">
-            <div className="relative">
-              <div class="w-full h-full bg-black absolute z-10 opacity-0 hover:opacity-70 transition-opacity duration-500 flex items-center px-2">
-                <p className="text-white text-center">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. A
-                  eveniet sint sed odio quam totam dolores doloribus excepturi!
-                  Repellendus quas nemo molestias voluptatum ea qui corporis eos
-                  sit aspernatur consequatur?
-                </p>
-              </div>
-              <img
-                src={teacher}
-                alt=""
-                width={400}
-                className="cursor-pointer"
-              />
-            </div>
-            <p class="text-center font-medium text-[#75377A] text-lg">
-              Chirstian
-            </p>
-          </div>
-          <div className="bg-[#E7E3D8]">
-            <div className="relative">
-            <div class="w-full h-full bg-black absolute z-10 opacity-0 hover:opacity-70 transition-opacity duration-500 flex items-center px-2">
-                <p className="text-white text-center">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. A
-                  eveniet sint sed odio quam totam dolores doloribus excepturi!
-                  Repellendus quas nemo molestias voluptatum ea qui corporis eos
-                  sit aspernatur consequatur?
-                </p>
-              </div>
-              <img
-                src={teacher2}
-                alt=""
-                width={400}
-                className="cursor-pointer"
-              />
-            </div>
-            <p class="text-center font-medium text-[#75377A] text-lg">Agati</p>
-          </div>
-          <div className="bg-[#E7E3D8]">
-            <div className="relative">
-            <div class="w-full h-full bg-black absolute z-10 opacity-0 hover:opacity-70 transition-opacity duration-500 flex items-center px-2">
-                <p className="text-white text-center">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. A
-                  eveniet sint sed odio quam totam dolores doloribus excepturi!
-                  Repellendus quas nemo molestias voluptatum ea qui corporis eos
-                  sit aspernatur consequatur?
-                </p>
-              </div>
-              <img
-                src={teacher3}
-                alt=""
-                width={400}
-                className="cursor-pointer"
-              />
-            </div>
-            <p class="text-center font-medium text-[#75377A] text-lg">Ramiro</p>
-          </div>
-          <div className="bg-[#E7E3D8]">
-            <div className="relative">
-            <div class="w-full h-full bg-black absolute z-10 opacity-0 hover:opacity-70 transition-opacity duration-500 flex items-center px-2">
-                <p className="text-white text-center">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. A
-                  eveniet sint sed odio quam totam dolores doloribus excepturi!
-                  Repellendus quas nemo molestias voluptatum ea qui corporis eos
-                  sit aspernatur consequatur?
-                </p>
-              </div>
-              <img
-                src={teacher4}
-                alt=""
-                width={400}
-                className="cursor-pointer"
-              />
-            </div>
-            <p class="text-center font-medium text-[#75377A] text-lg">Ramon</p>
-          </div>
-          <div className="bg-[#E7E3D8]">
-            <div className="relative">
-            <div class="w-full h-full bg-black absolute z-10 opacity-0 hover:opacity-70 transition-opacity duration-500 flex items-center px-2">
-                <p className="text-white text-center">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. A
-                  eveniet sint sed odio quam totam dolores doloribus excepturi!
-                  Repellendus quas nemo molestias voluptatum ea qui corporis eos
-                  sit aspernatur consequatur?
-                </p>
-              </div>
-              <img
-                src={teacher}
-                alt=""
-                width={400}
-                className="cursor-pointer"
-              />
-            </div>
-            <p class="text-center font-medium text-[#75377A] text-lg">
-              Chirstian
-            </p>
-          </div>
-          <div className="bg-[#E7E3D8]">
-            <div className="relative">
-            <div class="w-full h-full bg-black absolute z-10 opacity-0 hover:opacity-70 transition-opacity duration-500 flex items-center px-2">
-                <p className="text-white text-center">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. A
-                  eveniet sint sed odio quam totam dolores doloribus excepturi!
-                  Repellendus quas nemo molestias voluptatum ea qui corporis eos
-                  sit aspernatur consequatur?
-                </p>
-              </div>
-              <img
-                src={teacher2}
-                alt=""
-                width={400}
-                className="cursor-pointer"
-              />
-            </div>
-            <p class="text-center font-medium text-[#75377A] text-lg">Agati</p>
-          </div>
+        <a href=""></a>
+        <div className="flex gap-4">
+          {teachers.map((teacher) => (
+            <CardDefault key={teacher.title} {...teacher} />
+          ))}
         </div>
       </section>
       <Footer />
