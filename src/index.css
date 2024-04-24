@@ -6,6 +6,7 @@
 html {
     width: auto;
     scroll-behavior: smooth;
+    position: relative;
   }
   
   .locked-textarea {
@@ -17,6 +18,8 @@ html {
   /* background: radial-gradient(at top left, #FFEDD8, white) best so far, the whity */
   
   background: radial-gradient(#43a047, #9c27b0);
+  /* background: radial-gradient(circle closest-corner, #43a047, #9c27b0); */
+
  }
  /* .general-info-bg {
   background: radial-gradient(at top right, yellow, green)
@@ -34,6 +37,47 @@ html {
   background-color: #ab47bc; 
 }
 
+
+
+
+/* LANGUAGE SWTICHER */
+.language-container {
+  
+  display: inline-block;
+  ;
+}
+
+.selected-language {
+  width: 80px;
+  color: #fff;
+  padding: 10px ;
+  background-color: #43a047;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.language-options {
+  width: 80px;
+  display: none;
+  position: absolute;
+  bottom: 100%; /* Display options above the selected language */
+  left: 0;
+  background-color: #9c27b0;
+  color: #fff;
+  border-radius: 3px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.language-options span {
+  display: block;
+  padding: 5px;
+}
+
+.language-container:hover .language-options {
+  display: block;
+}
+
 /* F8F4EC */
 /* FFEDD8 */
 /* FFF67E  cool green*/
@@ -41,3 +85,58 @@ html {
 
 
 /* purple, red, yellow,  */
+
+/* 
+.book {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  perspective: 1200px;
+}
+
+.book__page {
+  position: relative;
+  flex: 1;
+  height: 100%;
+  display: grid;
+  transform: rotateY(360deg);
+  transition: transform 0.9s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transform-origin: 0% 50%;
+}
+
+.book__page--1 img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+}
+
+.book__page-front {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.book__page-back {
+  position: absolute;
+  width: 100%;
+  height: 883px;
+  /* padding: 200px 20px; */
+  /* transform: rotateY(360deg) translateZ(1px); /* Adjusted rotateY to flip from right to left */
+  /* display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center content vertically */
+  /* align-items: center; */
+/* } */ 
+
+/* .book__page-back table {
+  margin-top: 20px;
+}
+
+.book__page-back .page__number {
+  margin-top: 20px;
+}
+
+.flipped .book__page {
+  transform: rotateY(180deg);
+}  */

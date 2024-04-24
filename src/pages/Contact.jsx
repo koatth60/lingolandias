@@ -9,8 +9,10 @@ const Contact = () => {
   return (
     <div>
       <Header />
-      <section className="h-auto teachers font-satoshi items-center 2xl:px-[330px] pt-[80px] lg:px-[50px] md:px-[30px] max-md:px-2 pb-6">
-        <div className=" flex max-lg:flex-wrap items-center justify-around">
+      <section className="h-auto flex flex-col justify-center teachers font-satoshi items-center pt-[80px]  md:px-[30px] max-md:px-2 pb-6">
+      <div className=" h-auto font-satoshi lg:max-w-[1245px] items-center max-lg:flex-col-reverse p-16  gap-8 rounded-3xl">
+        
+        <div className=" flex max-lg:flex-wrap items-center justify-between">
           <img src={foto2} alt="lingolandias" className="max:xl:w-[250px]" />
 
           <div className="bg-white flex flex-col items-center p-4 rounded-3xl max-w-[360px] shadow-xl">
@@ -33,11 +35,11 @@ const Contact = () => {
               <div>
                 <a
                   href="/contact"
-                  class="relative inline-flex items-center justify-center px-10 py-3 overflow-hidden text-lg font-medium tracking-tighter text-white bg-[#9c27b0] rounded-lg group"
+                  className="relative inline-flex items-center justify-center px-10 py-3 overflow-hidden text-lg font-medium tracking-tighter text-white bg-[#9c27b0] rounded-lg group"
                 >
-                  <span class="absolute w-0 h-0 transition-all duration-500 ease-out bg-[#43a047] rounded-full group-hover:w-56 group-hover:h-56"></span>
-                  <span class="absolute inset-0 w-full h-full -mt-1 rounded-lg opacity-30 bg-gradient-to-b from-transparent via-transparent to-gray-700"></span>
-                  <span class="relative">Wysłać</span>
+                  <span className="absolute w-0 h-0 transition-all duration-500 ease-out bg-[#43a047] rounded-full group-hover:w-56 group-hover:h-56"></span>
+                  <span className="absolute inset-0 w-full h-full -mt-1 rounded-lg opacity-30 bg-gradient-to-b from-transparent via-transparent to-gray-700"></span>
+                  <span className="relative">Wysłać</span>
                 </a>
               </div>
             </form>
@@ -56,10 +58,9 @@ const Contact = () => {
             yourself in a new language adventure, guided by your curiosity and
             determination. Whether you're studying on the go, from the comfort
             of your home, or amidst the hustle and bustle of daily life, the
-            journey to mastering a new language is yours to navigate. Embrace
-            the flexibility, embrace the challenge, and embrace the joy of
-            discovery as you chart your course towards fluency and beyond
+            journey to mastering a new language is yours to navigate. 
           </p>
+        </div>
         </div>
       </section>
       <Footer />

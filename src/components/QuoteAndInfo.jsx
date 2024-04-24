@@ -1,28 +1,30 @@
 import { facebook, instagram, twitter, youtube } from "../assets/export";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faFacebook,
-  faInstagram,
-  faYoutube,
-  faTwitter,
-} from "@fortawesome/free-brands-svg-icons";
+import { useTranslation } from "react-i18next";
+
 const QuoteAndInfo = () => {
+  const { t } = useTranslation();
+
   return (
     <div className="font-satoshi h-auto max-w-[630px] max-lg:flex max-md:flex-col max-md:gap-6 border-l-[1px] border-white">
-      <div>
-        <p className="text-white text-right max-lg:text-center flex gap-x-1 xl:text-3xl lg:text-xl ">
-          Nasze motto
+      <div className="flex flex-col items-end">
+        <p className="text-white font-medium max-lg:text-center flex gap-x-1 xl:text-3xl lg:text-xl text-end ">
+        {t("moto")}
+
         </p>
-        <p className="text-white text-end max-lg:text-center flex gap-x-1 xl:text-3xl lg:text-xl mb-4">
-          "Posiadanie innego języka oznacza posiadanie drugiej duszy."
+        <p className="text-white text-end max-lg:text-center flex gap-x-1 xl:text-3xl lg:text-xl mb-3">
+        {t("quote")}
+
         </p>
         <h2 className="xl:text-3xl lg:text-xl text-white text-end italic font-medium  ">
-          Karol Wielki-
+        {t("autor")}
+
         </h2>
       </div>
-      <div className="lg:flex lg:gap-6 xl:mt-10 lg:mt-5 justify-end items-center">
+
+      <div className="lg:flex lg:gap-6 xl:mt-6 lg:mt-5 justify-end items-center">
         <p className="font-medium text-white  xl:text-2xl lg:text-xl max-md:text-center">
-          Śledź nas na:
+        {t("follow")}
+
         </p>
         <div className="flex justify-center gap-4">
           <div className="flex gap-3 justify-center  items-center hover:scale-110 transform transition-transform duration-300 ease-in-out">

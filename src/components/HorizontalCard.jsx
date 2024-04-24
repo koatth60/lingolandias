@@ -6,7 +6,7 @@ import {
   Button,
 } from "@material-tailwind/react";
 
-export function HorizontalCard() {
+export function HorizontalCard({name, description}) {
   return (
     <Card className="w-full max-w-[60rem] min-h-[25rem] flex-row mx-16 my-4 font-satoshi">
       <CardHeader
@@ -25,13 +25,10 @@ export function HorizontalCard() {
           lingolandias
         </Typography>
         <Typography variant="h4" color="blue-gray" className="mb-2 text-[#6a1b9a]">
-          Christian
+          {name}
         </Typography>
         <Typography color="gray" className="mb-8 font-normal text-[#9c27b0]">
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Porro eaque
-          omnis aut officia quos, enim nobis est nisi! Corrupti quod dicta
-          expedita maiores facilis vitae aliquam nihil dolore exercitationem
-          repudiandae.Ullam mollitia officiis et ratione rerum recusandae facilis delectus!
+         {description}
         </Typography>
         <a href="#" className="inline-block">
           <Button variant="text" className="flex items-center gap-2 text-[#6a1b9a]">
