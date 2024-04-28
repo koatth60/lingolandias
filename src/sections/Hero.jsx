@@ -8,6 +8,7 @@ import { useTranslation } from "react-i18next";
 
 const Hero = () => {
   const { t } = useTranslation();
+  const langs = t("language.title");
 
   return (
     <section id="home" className=" w-full flex justify-center md:px-[30x]">
@@ -59,9 +60,14 @@ const Hero = () => {
                 {t("start")}
               </span>
             </h3>
-            <div className="  flex justify-center text-ms gap-6">
-              {levels.map((level) => (
-                <Levels key={level.title} {...level} />
+            <div className="flex justify-center text-ms gap-6">
+              {levels.map((level, index) => (
+                <Levels
+                  key={index}
+                  imgURL={level.imgURL}
+                  langs={langs}
+                  langIndex={index}
+                />
               ))}
             </div>
           </div>

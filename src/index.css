@@ -17,7 +17,9 @@ html {
   /* background-color: #FFF67E; */
   /* background: radial-gradient(at top left, #FFEDD8, white) best so far, the whity */
   
-  background: radial-gradient(#43a047, #9c27b0);
+  /* background: radial-gradient(#43a047, #9c27b0); ACTUALMENTE */
+  background-image: linear-gradient(to right, #d946ef, #fc5296);
+
   /* background: radial-gradient(circle closest-corner, #43a047, #9c27b0); */
 
  }
@@ -29,12 +31,16 @@ html {
   transition: background-color 0.3s ease-in-out
 }
 .teachers {
-  background: radial-gradient(at bottom right, #43a047, #9c27b0)
+  /* background: radial-gradient(at bottom right, #43a047, #9c27b0) */
   /* background: radial-gradient(circle, #43a047, #9c27b0) */
 }
 
 .scrolled {
-  background-color: #ab47bc; 
+  /* background-color: #ab47bc; 
+   */
+   background-color: #9c27b0;
+
+
 }
 
 
@@ -77,6 +83,16 @@ html {
 .language-container:hover .language-options {
   display: block;
 }
+
+
+.bg-gradient-radial {
+  background: linear-gradient(135deg, #9c27b0,#0277bd);
+}
+
+
+
+
+
 
 /* F8F4EC */
 /* FFEDD8 */

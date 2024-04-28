@@ -1,6 +1,7 @@
 import i18n from "i18next";
 import LanguageDectector from "i18next-browser-languagedetector";
 import { initReactI18next } from "react-i18next";
+import { levels, teachers, spanishTeachers } from "./Constants";
 // import { levels } from "./Constants";
 // import  levels  from "./Constants";
 
@@ -9,6 +10,7 @@ i18n
   .use(initReactI18next)
   .init({
     debug: true,
+    returnObjects: true,
     lng: "pl",
     resources: {
       pl: {
@@ -34,7 +36,7 @@ i18n
           quote: "Posiadanie innego języka oznacza posiadanie drugiej duszy.",
           autor: "Karol Wielki-",
           follow: "Śledź nas na:",
-          //   language: ["ANGIELSKI", "HISZPAŃSKI", "POLSKI"],
+          language: levels[2],
 
           //   GENERAL INFO TRANSLATIONS
           genInfo: "Jak To Się",
@@ -77,6 +79,40 @@ i18n
             footPolish: 'Polski',
 
             footSocials: 'Społecznościowe',
+
+
+          // TEACHERS TRANSLATIONS!!!!
+
+            teacherTitle: 'Poznajmy',
+            teacherTitleSpan: 'się',
+            teachersP1: 'W naszej szkole mamy przyjemność pracować z wyjątkowymi nauczycielami, którzy są prawdziwymi ekspertami w swojej dziedzinie. To nie tylko profesjonaliści, ale także pasjonaci, którzy kochają to, co robią i pragną przekazywać swoją wiedzę i umiejętności naszym uczniom.',
+            teachersP2: 'Nasi nauczyciele są nie tylko wykwalifikowani i kompetentni, ale również pełni entuzjazmu i energii. Ich podejście do nauczania jest innowacyjne i interaktywne, co sprawia, że zajęcia są nie tylko efektywne, ale również inspirujące. Wiedzą, jak zainteresować uczniów i zachęcić ich do aktywnego udziału w procesie nauki.',
+            teachersTitle: teachers[2],
+            crew: 'Załoga',
+            teachersBtn: 'Odwiedzać',
+
+
+            // SPANISH TEACHERS TRANSLATIONS!!!
+
+            SpaTeachersTitle: 'To są nasi nauczyciele',
+            SpaTeachersTitleSpan: 'hiszpańskiego',
+            SpaTeachersTitleP1: 'Nasi nauczyciele języka hiszpańskiego są nie tylko wykwalifikowani i kompetentni, ale również pełni entuzjazmu i energii. Ich podejście do nauczania jest innowacyjne i interaktywne, co sprawia, że zajęcia są nie tylko efektywne, ale również inspirujące. Wiedzą jak zainteresować uczniów i zachęcić ich do aktywnego udziału w procesie nauki.',
+            SpaTeachersCard: spanishTeachers,
+
+
+
+            // CONTACT TRANSLATIONS!!!!
+            inputTitle: "Dołącz teraz!",
+            inputSub: 'Zostaw swoje dane, a otrzymasz specjalną promocję!',
+            input1: 'Nazwa',
+            input2: 'Numer',
+            input3: 'Email',
+            input4: 'Wiadomość',
+            input5: 'Wysłać',
+            contactTitle: 'Opanuj nowy język z dowolnego miejsca na świecie, we własnym tempie!.',
+            contactSubTitle: 'Odnieś sukces, ciesząc się podróżą!',
+            ContactPara: 'Odblokuj świat nauki języków na swoich warunkach, gdziekolwiek się znajdujesz. Mając swobodę ustalania własnego tempa, możesz zanurzyć się w nowej przygodzie językowej, kierując się swoją ciekawością i determinacją. Niezależnie od tego, czy uczysz się w drodze, w zaciszu własnego domu, czy w zgiełku codziennego życia, podróż do opanowania nowego języka należy do Ciebie.'
+
             
 
         },
@@ -104,7 +140,7 @@ i18n
           quote: "Having another language is like having a second soul.",
           autor: "Charlemagne-",
           follow: "Follow us on:",
-          //   language: ["ENGLISH", "SPANISH", "POLISH"],
+          language: levels[0],
 
           //   GENERAL INFO TRANSLATIONS
           genInfo: "How did it",
@@ -146,6 +182,44 @@ i18n
             footPolish: 'Polish',
 
             footSocials: 'Our Socials',
+
+
+            
+          // TEACHERS TRANSLATIONS!!!!
+
+          teacherTitle: "Let's",
+          teacherTitleSpan: 'meet',
+          teachersP1: 'At our school we have the pleasure of working with exceptional teachers who are true experts in their field. They are not only professionals, but also enthusiasts who love what they do and want to pass on their knowledge and skills to our students.',
+          teachersP2: 'Our teachers are not only qualified and competent, but also full of enthusiasm and energy. Their approach to teaching is innovative and interactive, which makes classes not only effective but also inspiring. They know how to interest students and encourage them to actively participate in the learning process.',
+          teachersTitle: teachers[0],
+          crew: 'Crew',
+          teachersBtn: 'Visit',
+
+
+
+
+            // SPANISH TEACHERS TRANSLATIONS!!!
+
+          SpaTeachersTitle: 'These are our Spanish',
+          SpaTeachersTitleSpan: 'teachers',
+          SpaTeachersTitleP1: 'Our Spanish teachers are not only qualified and competent, but also full of enthusiasm and energy. Their approach to teaching is innovative and interactive, which makes classes not only effective but also inspiring. They know how to interest students and encourage them to actively participate in the learning process.',
+          SpaTeachersCard: spanishTeachers,
+
+          
+
+          // CONTACT TRANSLATIONS!!!!
+          inputTitle: "Join now!",
+          inputSub: "Leave your information and you'll get a special promotion!",
+          input1: 'Name',
+          input2: 'Number',
+          input3: 'Email',
+          input4: 'Message',
+          input5: 'Send',
+          contactTitle: 'Master a new language from anywhere in the world, at your own pace!.',
+          contactSubTitle: 'Gain success, while enjoying the journey!',
+          ContactPara: "Unlock the world of language learning on your terms, wherever you may be. With the freedom to set your own pace, you can immerse yourself in a new language adventure, guided by your curiosity and determination. Whether you're studying on the go, from the comfort of your home, or amidst the hustle and bustle of daily life, the journey to mastering a new language is yours to navigate."
+
+
             
         },
       },
@@ -172,7 +246,7 @@ i18n
           quote: "Tener otro idioma es como tener una segunda alma.",
           autor: "Carlomargno-",
           follow: "Síguenos en:",
-          //   language: ["INGLÉS", "ESPAÑOL", "POLACO"],
+          language: levels[1],
 
           //   GENERAL INFO TRANSLATIONS
           genInfo: "¿Cómo",
@@ -206,8 +280,8 @@ i18n
             // FOOTER TRANSLATIONS!!!
             footAcademy: 'Academia',
             footAbout: 'Nosotros',
-            footMethod: 'Method',
-            footContact: 'Contact',
+            footMethod: 'Método',
+            footContact: 'Contacto',
 
             footCourses: 'Cursos',
             footEnglish: "Inglés",
@@ -215,8 +289,48 @@ i18n
             footPolish: 'Polaco',
 
             footSocials: 'Nuestras Redes',
+
+
+            
+          // TEACHERS TRANSLATIONS!!!!
+
+          teacherTitle: 'Conozcámonos',
+          teacherTitleSpan: 'mejor',
+          teachersP1: 'En nuestra escuela tenemos el placer de trabajar con profesores excepcionales que son verdaderos expertos en su campo. No sólo son profesionales, sino también entusiastas que aman lo que hacen y quieren transmitir sus conocimientos y habilidades a nuestros estudiantes.',
+          teachersP2: 'Nuestros profesores no sólo están cualificados y son competentes, sino que también están llenos de entusiasmo y energía. Su enfoque de la enseñanza es innovador e interactivo, lo que hace que las clases no sólo sean efectivas sino también inspiradoras. Saben cómo interesar a los estudiantes y animarlos a participar activamente en el proceso de aprendizaje.',
+          teachersTitle: teachers[1],
+          crew: 'Personal',
+          teachersBtn: 'Visitar',
+
+          
+           // SPANISH TEACHERS TRANSLATIONS!!!
+
+           SpaTeachersTitle: 'Nuestros profesores de',
+           SpaTeachersTitleSpan: 'español',
+           SpaTeachersTitleP1: 'Nuestros profesores de español no sólo están cualificados y competentes, sino que también están llenos de entusiasmo y energía. Su enfoque de la enseñanza es innovador e interactivo, lo que hace que las clases no sólo sean efectivas sino también inspiradoras. Saben cómo interesar a los estudiantes y animarlos a participar activamente en el proceso de aprendizaje.',
+           SpaTeachersCard: spanishTeachers,
+
+
+           
+
+          // CONTACT TRANSLATIONS!!!!
+          inputTitle: "!Únete ahora!",
+          inputSub: "¡Deja tus datos y obtendrás una promoción especial!",
+          input1: 'Nombre',
+          input2: 'Número',
+          input3: 'Correo',
+          input4: 'Mensaje',
+          input5: 'Enviar',
+          contactTitle: 'Domina un nuevo idioma desde cualquier parte del mundo, ¡a tu propio ritmo!.',
+          contactSubTitle: '¡Consiga el éxito mientras disfruta del viaje!',
+          ContactPara: "Desbloquea el mundo del aprendizaje de idiomas a tu manera, estés donde estés. Con la libertad de marcar tu propio ritmo, podrás sumergirte en una nueva aventura lingüística, guiado por tu curiosidad y determinación. Ya sea que estés estudiando mientras viajas, desde la comodidad de tu hogar o en medio del ajetreo y el bullicio de la vida diaria, el viaje hacia el dominio de un nuevo idioma es tuyo."
+
+
+ 
             
         },
       },
     },
   });
+ 
+

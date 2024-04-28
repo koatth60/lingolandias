@@ -1,9 +1,9 @@
 import { Textarea } from "@material-tailwind/react";
  
-export function TextareaDefault() {
+export function TextareaDefault({label}) {
   return (
     <div className="w-full h-auto ">
-      <Textarea label="Message" />
+      <Textarea label={label} />
     </div>
   );
 }

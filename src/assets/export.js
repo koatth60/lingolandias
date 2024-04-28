@@ -17,6 +17,8 @@ import num2 from './num2.png'
 import num3 from './num3.png'
 import num4 from './num4.png'
 import logofooter from './logofooter.png'
+import christian from './christian.png'
+import carlos from './carlos.png'
 
 export { logo1, 
     logo2, 
@@ -36,4 +38,7 @@ export { logo1,
     num2, 
     num3, 
     num4, 
-    logofooter}
+    logofooter,
+    christian, 
+    carlos
+}

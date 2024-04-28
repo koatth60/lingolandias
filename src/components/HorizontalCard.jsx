@@ -5,17 +5,19 @@ import {
   Typography,
   Button,
 } from "@material-tailwind/react";
+import React, { useEffect } from "react";
+import { useTranslation } from "react-i18next";
 
-export function HorizontalCard({name, description}) {
+export function HorizontalCard({ name, description, photo }) {
   return (
-    <Card className="w-full max-w-[60rem] min-h-[25rem] flex-row mx-16 my-4 font-satoshi">
+    <Card className="w-full max-w-[60rem] min-h-[27rem] bg-[#FFEDD8] flex-row mx-16 my-4 font-satoshi">
       <CardHeader
         shadow={false}
         floated={false}
         className="m-0 w-2/5 shrink-0 rounded-r-none"
       >
         <img
-          src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80"
+          src={photo}
           alt="card-image"
           className="h-full w-full object-cover"
         />
@@ -30,7 +32,7 @@ export function HorizontalCard({name, description}) {
         <Typography color="gray" className="mb-8 font-normal text-[#9c27b0]">
          {description}
         </Typography>
-        <a href="#" className="inline-block">
+        {/* <a href="#" className="inline-block">
           <Button variant="text" className="flex items-center gap-2 text-[#6a1b9a]">
             Learn More
             <svg
@@ -48,7 +50,7 @@ export function HorizontalCard({name, description}) {
               />
             </svg>
           </Button>
-        </a>
+        </a> */}
       </CardBody>
     </Card>
   );

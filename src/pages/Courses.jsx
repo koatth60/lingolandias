@@ -7,6 +7,7 @@ const Courses = () => {
     <div>
       <Header />
       <section className="h-screen flex justify-center items-center font-oswald font-semibold">
+
         <div className="flex  gap-6  ">
           <div>
             <a href="#english" className="cursor-pointer scroll-smooth">
@@ -108,6 +109,7 @@ const Courses = () => {
             adipisci distinctio voluptatum! Assumenda saepe dicta nisi debitis?
           </p>
         </div>
+        
       </section>
       <Footer />
     </div>

@@ -17,7 +17,7 @@ const Metod = () => {
     <div>
       <section className=" w-full flex justify-center md:px-[30x]">
         <div className="flex items-center gap-4 h-auto font-satoshi lg:max-w-[1245px] relative lg:my-[80px] max-lg:mb-[260px] max-md:mb-[360px] md:mx-[30px] max-md:px-2">
-          <div className="max-w-[400px] flex flex-col justify-center p-4 bg-[#66bb6a] shadow-2xl rounded-3xl ">
+          <div className="max-w-[400px] flex flex-col justify-center p-4 bg-gradient-radial shadow-2xl rounded-3xl ">
             <h2 className="font-bold text-white xl:text-3xl lg:text-2xl max-lg:text-xl mb-4 text-center">
               {t("methodH")}
             </h2>
