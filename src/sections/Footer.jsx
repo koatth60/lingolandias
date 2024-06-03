@@ -31,7 +31,7 @@ const Footer = () => {
             <a href="">{t("footContact")}</a>
           </li>
           <li className="hover:text-green-700">
-            <a href="/contact">Test</a>
+            <a href="/test">Test</a>
           </li>
         </ul>
       </div>

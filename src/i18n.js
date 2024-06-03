@@ -1,9 +1,8 @@
 import i18n from "i18next";
 import LanguageDectector from "i18next-browser-languagedetector";
 import { initReactI18next } from "react-i18next";
-import { levels, teachers, spanishTeachers } from "./Constants";
-// import { levels } from "./Constants";
-// import  levels  from "./Constants";
+import { levels, teachers, spanishTeachers, testCards, polishTestCards, englishTeachers } from "./Constants";
+
 
 i18n
   .use(LanguageDectector)
@@ -101,6 +100,13 @@ i18n
 
 
 
+            // ENGLISH TEACHERS TRANSLATIONS!!!
+            EngTeachersTitle: 'Oto nasi nauczyciele języka',
+            EngTeachersTitleSpan: 'angielskiego',
+            EngTeachersP1: 'W naszej szkole mamy przyjemność pracować z wyjątkowymi nauczycielami, którzy są prawdziwymi ekspertami w swojej dziedzinie. To nie tylko profesjonaliści, ale także pasjonaci, którzy kochają to, co robią i pragną przekazywać swoją wiedzę i umiejętności naszym uczniom.',
+            EngTeachersP2: 'Nasi nauczyciele angielskiego są nie tylko wykwalifikowani i kompetentni, ale również pełni entuzjazmu i energii. Ich podejście do nauczania jest innowacyjne i interaktywne, co sprawia, że zajęcia są nie tylko efektywne, ale również inspirujące. Wiedzą, jak zainteresować uczniów i zachęcić ich do aktywnego udziału w procesie nauki.',
+            EngTeachersCard: englishTeachers,
+
             // CONTACT TRANSLATIONS!!!!
             inputTitle: "Dołącz teraz!",
             inputSub: 'Zostaw swoje dane, a otrzymasz specjalną promocję!',
@@ -111,9 +117,30 @@ i18n
             input5: 'Wysłać',
             contactTitle: 'Opanuj nowy język z dowolnego miejsca na świecie, we własnym tempie!.',
             contactSubTitle: 'Odnieś sukces, ciesząc się podróżą!',
-            ContactPara: 'Odblokuj świat nauki języków na swoich warunkach, gdziekolwiek się znajdujesz. Mając swobodę ustalania własnego tempa, możesz zanurzyć się w nowej przygodzie językowej, kierując się swoją ciekawością i determinacją. Niezależnie od tego, czy uczysz się w drodze, w zaciszu własnego domu, czy w zgiełku codziennego życia, podróż do opanowania nowego języka należy do Ciebie.'
+            ContactPara: 'Odblokuj świat nauki języków na swoich warunkach, gdziekolwiek się znajdujesz. Mając swobodę ustalania własnego tempa, możesz zanurzyć się w nowej przygodzie językowej, kierując się swoją ciekawością i determinacją. Niezależnie od tego, czy uczysz się w drodze, w zaciszu własnego domu, czy w zgiełku codziennego życia, podróż do opanowania nowego języka należy do Ciebie.',
 
             
+
+            // COURSES TRANSLATIONS!!!!
+
+            courseTitle: 'Najlepszym rozwiązaniem jest',
+            courseSubtitle: 'Odkryj swoje supermoce w nauce języka angielskiego z naszą szkołą! Oferujemy zajęcia indywidualne i w parach , które zapewniają autentyczną, żywą i codzienną naukę języka angielskiego.',
+            titleIndividual: 'ZAJĘCIA INDYWIDUALNE',
+            titleIndividualP: 'Nasze zajęcia indywidualne pozwalają Ci skupić się na swoich unikalnych celach i potrzebach językowych. Nasi wykwalifikowani nauczyciele wykorzystają swoją wiedzę i doświadczenie, aby zapewnić Ci spersonalizowane lekcje, które pomogą Ci osiągnąć zamierzone cele językowe. Dzięki indywidualnym zajęciom będziesz mógł/mogła rozwijać swoje umiejętności w tempie, który jest dla Ciebie najwygodniejszy.',
+            titleCouple: 'ZAJĘCIA W PARACH',
+            titleCoupleP: 'Wierzymy również w moc pracy w parach, dlatego oferujemy zajęcia w parach, które umożliwiają Ci praktyczne zastosowanie języka angielskiego w autentycznym kontekście. Podczas tych zajęć będziesz miał/miała możliwość ćwiczenia konwersacji, rozmawiania o różnych tematach i rozwiązywania zadań wraz z innym uczniem o podobnym poziomie zaawansowania. To nie tylko rozwija Twoje umiejętności językowe, ale także umożliwia wymianę doświadczeń i nawiązanie międzynarodowych znajomości.',
+            courseP1: 'Jednak wierzymy również w moc pracy w parach i grupach. Nasze zajęcia w parach to doskonała okazja do praktycznego zastosowania nowo zdobytej wiedzy. Będziesz miał/miała możliwość ćwiczenia konwersacji, wymiany zdań i rozwiązywania zadań wraz z innym uczniem o podobnym poziomie zaawansowania. To nie tylko rozwija Twoje umiejętności językowe, ale także umożliwia wymianę doświadczeń i nawiązanie międzynarodowych znajomości.',
+            courseP2: 'Nasza metoda nauczania skupia się na aktywnym uczestnictwie każdego ucznia, a nasi nauczyciele wykorzystują różnorodne materiały edukacyjne oraz interaktywne ćwiczenia, aby uczynić naukę języka hiszpańskiego ciekawą i angażującą.',
+            courseP3: 'Nie ważne, czy jesteś początkujący czy zaawansowany w języku hiszpańskim, nasza szkoła oferuje programy na każdym poziomie zaawansowania. Nasz zespół nauczycieli z pasją i doświadczeniem jest gotowy, aby pomóc Ci odkryć swoje supermoce w nauce języka hiszpańskiego',
+            courseButton: 'Kontakt',
+            
+
+            
+            // TESTS TRANSLATIONS!!!!
+
+            titleTest: polishTestCards[0],
+            textTest: polishTestCards[0],
+            buttonTest: polishTestCards[0],
 
         },
       },
@@ -204,7 +231,16 @@ i18n
           SpaTeachersTitleSpan: 'teachers',
           SpaTeachersTitleP1: 'Our Spanish teachers are not only qualified and competent, but also full of enthusiasm and energy. Their approach to teaching is innovative and interactive, which makes classes not only effective but also inspiring. They know how to interest students and encourage them to actively participate in the learning process.',
           SpaTeachersCard: spanishTeachers,
+          
 
+
+          // ENGLISH TEACHERS TRANSLATIONS!!!
+
+          EngTeachersTitle: 'These are our English',
+          EngTeachersTitleSpan: 'teachers',
+          EngTeachersP1: 'At our school we have the pleasure of working with exceptional teachers who are true experts in their field. They are not only professionals, but also enthusiasts who love what they do and want to pass on their knowledge and skills to our students.',
+          EngTeachersP2: 'Our English teachers are not only qualified and competent, but also full of enthusiasm and energy. Their approach to teaching is innovative and interactive, which makes classes not only effective but also inspiring. They know how to interest students and encourage them to actively participate in the learning process.',
+          EngTeachersCard: englishTeachers,
           
 
           // CONTACT TRANSLATIONS!!!!
@@ -217,7 +253,31 @@ i18n
           input5: 'Send',
           contactTitle: 'Master a new language from anywhere in the world, at your own pace!.',
           contactSubTitle: 'Gain success, while enjoying the journey!',
-          ContactPara: "Unlock the world of language learning on your terms, wherever you may be. With the freedom to set your own pace, you can immerse yourself in a new language adventure, guided by your curiosity and determination. Whether you're studying on the go, from the comfort of your home, or amidst the hustle and bustle of daily life, the journey to mastering a new language is yours to navigate."
+          ContactPara: "Unlock the world of language learning on your terms, wherever you may be. With the freedom to set your own pace, you can immerse yourself in a new language adventure, guided by your curiosity and determination. Whether you're studying on the go, from the comfort of your home, or amidst the hustle and bustle of daily life, the journey to mastering a new language is yours to navigate.",
+
+          
+
+          
+            // COURSES TRANSLATIONS!!!!
+
+            courseTitle: 'The best option is',
+            courseSubtitle: 'Discover your superpowers in learning English with our school! We offer individual and pair classes that provide authentic, lively and everyday learning of English.',
+            titleIndividual: 'INDIVIDUAL CLASSES',
+            titleIndividualP: 'Our one-on-one classes allow you to focus on your unique goals and language needs. Our qualified teachers will use their knowledge and experience to provide you with personalized lessons that will help you achieve your language goals. Thanks to individual classes, you will be able to develop your skills at the pace that is most comfortable for you.',
+            titleCouple: 'CLASSES IN COUPLES',
+            titleCoupleP: 'We also believe in the power of working in pairs, which is why we offer pair classes that allow you to practice English in an authentic context. During these classes, you will have the opportunity to practice conversation, talk about various topics and solve tasks with another student of a similar level. This not only develops your language skills, but also allows you to exchange experiences and make international contacts.',
+            courseP1: 'However, we also believe in the power of working in pairs and groups. Our pair classes are an excellent opportunity to practically apply the newly acquired knowledge. You will have the opportunity to practice conversation, exchange opinions and solve tasks with another student of a similar level. This not only develops your language skills, but also allows you to exchange experiences and make international contacts.',
+            courseP2: 'Our teaching method focuses on the active participation of each student, and our teachers use a variety of educational materials and interactive exercises to make learning Spanish interesting and engaging.',
+            courseP3: 'Whether you are a beginner or advanced learner in Spanish, our school offers programs for all levels. Our team of passionate and experienced teachers are ready to help you discover your superpowers in learning Spanish',
+            courseButton: 'Contact',
+
+
+
+            // TESTS TRANSLATIONS!!!!
+
+            titleTest: testCards[0],
+            textTest: testCards[0],
+            buttonTest: testCards[0],
 
 
             
@@ -311,7 +371,15 @@ i18n
            SpaTeachersCard: spanishTeachers,
 
 
-           
+           // ENGLISH TEACHERS TRANSLATIONS!!!
+
+            EngTeachersTitle: 'Estos son nuestros profesores de', 
+            EngTeachersTitleSpan: 'inglés',
+            EngTeachersP1: 'En nuestra escuela tenemos el placer de trabajar con profesores excepcionales que son verdaderos expertos en su campo. No sólo son profesionales, sino también entusiastas que aman lo que hacen y quieren transmitir sus conocimientos y habilidades a nuestros estudiantes.',
+            EngTeachersP2: 'Nuestros profesores de inglés no sólo están cualificados y son competentes, sino que también están llenos de entusiasmo y energía. Su enfoque de la enseñanza es innovador e interactivo, lo que hace que las clases no sólo sean efectivas sino también inspiradoras. Saben cómo interesar a los estudiantes y animarlos a participar activamente en el proceso de aprendizaje.',
+            EngTeachersCard: englishTeachers,
+
+
 
           // CONTACT TRANSLATIONS!!!!
           inputTitle: "!Únete ahora!",
@@ -323,10 +391,30 @@ i18n
           input5: 'Enviar',
           contactTitle: 'Domina un nuevo idioma desde cualquier parte del mundo, ¡a tu propio ritmo!.',
           contactSubTitle: '¡Consiga el éxito mientras disfruta del viaje!',
-          ContactPara: "Desbloquea el mundo del aprendizaje de idiomas a tu manera, estés donde estés. Con la libertad de marcar tu propio ritmo, podrás sumergirte en una nueva aventura lingüística, guiado por tu curiosidad y determinación. Ya sea que estés estudiando mientras viajas, desde la comodidad de tu hogar o en medio del ajetreo y el bullicio de la vida diaria, el viaje hacia el dominio de un nuevo idioma es tuyo."
+          ContactPara: "Desbloquea el mundo del aprendizaje de idiomas a tu manera, estés donde estés. Con la libertad de marcar tu propio ritmo, podrás sumergirte en una nueva aventura lingüística, guiado por tu curiosidad y determinación. Ya sea que estés estudiando mientras viajas, desde la comodidad de tu hogar o en medio del ajetreo y el bullicio de la vida diaria, el viaje hacia el dominio de un nuevo idioma es tuyo.",
 
 
  
+            
+            // COURSES TRANSLATIONS!!!!
+
+            courseTitle: 'La mejor opcion es',
+            courseSubtitle: '¡Descubre tus superpoderes al aprender inglés con nuestra escuela! Ofrecemos clases individuales y en pareja que brindan un aprendizaje del inglés auténtico, animado y cotidiano!.',
+            titleIndividual: 'CLASES INDIVIDUALES',
+            titleIndividualP: 'Nuestras clases individuales le permiten concentrarse en sus objetivos únicos y necesidades lingüísticas. Nuestros profesores calificados utilizarán su conocimiento y experiencia para brindarte lecciones personalizadas que te ayudarán a alcanzar tus objetivos lingüísticos. Gracias a las clases individuales podrás desarrollar tus habilidades al ritmo que te resulte más cómodo.',
+            titleCouple: 'CLASES EN PAREJAS',
+            titleCoupleP: 'También creemos en el poder de trabajar en parejas, por eso ofrecemos clases en parejas que te permiten practicar inglés en un contexto auténtico. Durante estas clases tendrás la oportunidad de practicar la conversación, hablar sobre diversos temas y resolver tareas con otro alumno de tu nivel similar. Esto no sólo desarrolla tus habilidades lingüísticas, sino que también te permite intercambiar experiencias y hacer contactos internacionales.',
+            courseP1: 'Sin embargo, también creemos en el poder de trabajar en parejas y en grupos. Nuestras clases en pareja son una excelente oportunidad para aplicar de forma práctica los conocimientos recién adquiridos. Tendrás la oportunidad de practicar la conversación, intercambiar opiniones y resolver tareas con otro alumno de tu nivel similar. Esto no sólo desarrolla tus habilidades lingüísticas, sino que también te permite intercambiar experiencias y hacer contactos internacionales.',
+            courseP2: 'Nuestro método de enseñanza se centra en la participación activa de cada estudiante, y nuestros profesores utilizan una variedad de materiales educativos y ejercicios interactivos para hacer que aprender español sea interesante y atractivo.',
+            courseP3: 'Ya seas principiante o avanzado en español, nuestra escuela ofrece programas para todos los niveles. Nuestro equipo de profesores apasionados y experimentados está listo para ayudarte a descubrir tus superpoderes al aprender español.',
+            courseButton: 'Contacto',
+
+
+            // TESTS TRANSLATIONS!!!!
+
+            titleTest: testCards[1],
+            textTest: testCards[1],
+            buttonTest: testCards[1],
             
         },
       },

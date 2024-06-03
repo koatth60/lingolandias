@@ -1,3 +1,6 @@
+import { useEffect } from "react";
+import { Link } from 'react-router-dom';
+import { useTranslation } from "react-i18next";
 import {
   Card,
   CardHeader,
@@ -5,62 +8,78 @@ import {
   CardFooter,
   Typography,
   Button,
+  IconButton,
 } from "@material-tailwind/react";
-import React, { useEffect } from "react";
-import { Link } from 'react-router-dom';
-import { useTranslation } from "react-i18next";
+ 
+// eslint-disable-next-line react/prop-types
+export const CardDefault =({ quote, teachersTitle, langIndex, crew, link }) =>  {
 
+    const { t, i18n } = useTranslation();
+  const cardTitle = teachersTitle[langIndex]
 
-export const CardDefault =({ quote, teachersTitle, langIndex, crew, link }) => {
-  const { t, i18n } = useTranslation();
 
   useEffect(() => {
     const storedLanguage = localStorage.getItem("selectedLanguage");
     if (storedLanguage) {
       i18n.changeLanguage(storedLanguage);
     }
-  }, []);
-
-
-  const cardTitle = teachersTitle[langIndex]
+  }, [i18n]);
   return (
-    <Card className="mt-6 w-[340px]">
-      <CardHeader color="blue-gray" className="relative h-[206px]">
+    <Card className="w-full max-w-[20rem] shadow-lg">
+      <CardHeader floated={false} color="blue-gray">
         <img
           src="https://images.unsplash.com/photo-1540553016722-983e48a2cd10?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80"
-          alt="card-image"
+          alt="ui/ux review check"
         />
+        <div className="to-bg-black-10 absolute inset-0 h-full w-full bg-gradient-to-tr from-transparent via-transparent to-black/60 " />
+        <IconButton
+          size="sm"
+          color="red"
+          variant="text"
+          className="!absolute top-4 right-4 rounded-full"
+        >
+        
+        </IconButton>
       </CardHeader>
       <CardBody>
-        <Typography
-          variant="h5"
-          color="blue-gray"
-          className="mb-2 text-[#6a1b9a] font-satoshi font-bold"
-        >
-          {cardTitle}
+        <div className="mb-3 flex items-center justify-between ">
+          <Typography variant="h5" color="blue-gray" className="font-bold  text-[#9c27b0]">
+            {cardTitle}
+          </Typography>
+          <Typography
+            color="blue-gray"
+            className="flex items-center gap-1.5 font-normal"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              className="-mt-0.5 h-5 w-5 text-[#43a047]"
+            >
+              <path
+                fillRule="evenodd"
+                d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
+                clipRule="evenodd"
+              />
+            </svg>
+            <span className="text-[#9c27b0]">5.0</span>
+          </Typography>
+        </div>
+        <Typography variant="h6" className="text-[#9c27b0]">
+        {t("crew")}: {crew}
         </Typography>
-        <Typography
-          variant="h6"
-          color="blue-gray"
-          className="mb-2 text-[#9c27b0] font-satoshi  "
-        >
-          {t("crew")}: {crew}
+        <Typography className="text-[#9c27b0]" >
+          {quote}
         </Typography>
-        <Typography className="text-[#9c27b0]">{quote}</Typography>
+        
       </CardBody>
-      <CardFooter className="pt-0 flex justify-center">
-        <Link to={link}>
-          <div>
-            <span className="relative inline-flex items-center justify-center px-8 py-3 overflow-hidden text-lg font-medium tracking-tighter text-white bg-[#43a047]  rounded-lg group">
-              <span className="absolute w-0 h-0 transition-all duration-500 ease-out bg-[#9c27b0] rounded-full group-hover:w-56 group-hover:h-56"></span>
-              <span className="absolute inset-0 w-full h-full -mt-1 rounded-lg opacity-30 bg-gradient-to-b from-transparent via-transparent to-gray-700"></span>
-              <span className="relative">{t("teachersBtn")}</span>
-            </span>
-          </div>
+      <CardFooter className="pt-3">
+      <Link to={link}>
+        <Button size="lg" fullWidth={true} className="bg-[#43a047]">
+        {t("teachersBtn")}
+        </Button>
         </Link>
       </CardFooter>
     </Card>
   );
 }
-//   Załoga: {crew}
-// odwiedzać

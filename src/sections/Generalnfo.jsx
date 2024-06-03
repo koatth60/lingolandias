@@ -16,7 +16,7 @@ const Generalnfo = () => {
   return (
     <section className=" w-full flex justify-center md:px-[30x]">
       <div className="h-auto font-satoshi lg:max-w-[1245px] relative lg:my-[80px] max-lg:mb-[260px] max-md:mb-[360px] md:mx-[30px] max-md:px-2">
-        <div className="flex justify-center items-center max-lg:flex-col-reverse p-16  gap-8 bg-[#FFEDD8] rounded-3xl shadow-xl">
+        <div className="flex justify-center items-center max-lg:flex-col-reverse p-16  gap-8 bg-white rounded-3xl shadow-xl">
           <div className="">
             <h2 className=" font-bold text-[#6a1b9a] xl:text-5xl lg:text-2xl max-lg:text-xl text-center  my-8 pb-3">
               {t("genInfo")}{" "}

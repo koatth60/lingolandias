@@ -9,8 +9,11 @@ import App from "./App.jsx";
 import Courses from "./pages/Courses.jsx";
 import Team from "./pages/Team.jsx";
 import Contact from "./pages/Contact.jsx";
+import Test from "./pages/Test.jsx";
 import EnglishTeachers from "./nested-routes/EnglishTeachers.jsx";
 import { CarouselCustomArrows } from "./nested-routes/SpanishTeachers.jsx";
+import SpanishQuiz from "./nested-routes/SpanishQuiz.jsx";
+import EnglishQuiz from "./nested-routes/EnglishQuiz.jsx";
 
 const router = createBrowserRouter([
   {
@@ -36,6 +39,18 @@ const router = createBrowserRouter([
   {
     path: "/esteachers",
     element: <CarouselCustomArrows />,
+  },
+  {
+    path: "/test",
+    element: <Test />,
+  },
+  {
+    path: "/spanish-quiz",
+    element: <SpanishQuiz />,
+  },
+  {
+    path: "/english-quiz",
+    element: <EnglishQuiz />,
   },
 ]);
 

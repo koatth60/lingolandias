@@ -3,15 +3,15 @@ import {
   CardHeader,
   CardBody,
   Typography,
-  Button,
+ 
 } from "@material-tailwind/react";
-import React, { useEffect } from "react";
-import { useTranslation } from "react-i18next";
 
+
+// eslint-disable-next-line react/prop-types
 export function HorizontalCard({ name, description, photo }) {
   return (
-    <Card className="w-full max-w-[60rem] min-h-[27rem] bg-[#FFEDD8] flex-row mx-16 my-4 font-satoshi">
-      <CardHeader
+    <Card className="w-full max-w-[60rem] max-h-[28rem] bg-cards flex-row mx-16 my-4 font-satoshi shadow-lg">
+      <CardHeader 
         shadow={false}
         floated={false}
         className="m-0 w-2/5 shrink-0 rounded-r-none"
@@ -23,34 +23,16 @@ export function HorizontalCard({ name, description, photo }) {
         />
       </CardHeader>
       <CardBody>
-        <Typography variant="h6" color="gray" className="mb-4 uppercase text-[#2e7d32]">
+        <Typography variant="h6" color="gray" className="mb-4 uppercase text-[#43a047]">
           lingolandias
         </Typography>
-        <Typography variant="h4" color="blue-gray" className="mb-2 text-[#6a1b9a]">
+        <Typography variant="h4" color="blue-gray" className="mb-2 -bold text-white">
           {name}
         </Typography>
-        <Typography color="gray" className="mb-8 font-normal text-[#9c27b0]">
+        <Typography color="gray" className="mb-8  text-white">
          {description}
         </Typography>
-        {/* <a href="#" className="inline-block">
-          <Button variant="text" className="flex items-center gap-2 text-[#6a1b9a]">
-            Learn More
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth={2}
-              className="h-4 w-4"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"
-              />
-            </svg>
-          </Button>
-        </a> */}
+       
       </CardBody>
     </Card>
   );

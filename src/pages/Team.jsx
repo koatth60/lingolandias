@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useEffect } from "react";
 import Header from "../sections/Header";
 import Footer from "../sections/Footer";
@@ -14,13 +15,13 @@ const Team = () => {
     if (storedLanguage) {
       i18n.changeLanguage(storedLanguage);
     }
-  }, []);
+  }, [i18n]);
   return (
     <div className="teachers">
       <Header />
       <section className="h-auto md:mx-[30px]  max-md:px-2  flex flex-col items-center  ">
         <div className="h-auto font-satoshi lg:max-w-[1245px] lg:my-[60px] max-lg:mb-[260px] max-md:mb-[360px]  max-md:px-2">
-          <div className="mt-[80px] text-center ">
+          <div className="mt-[80px] text-center flex flex-col items-center ">
             <h2 className="xl:text-5xl lg:text-2xl max-lg:text-xl text-white font-bold mb-4">
               {t("teacherTitle")}{" "}
               <span className="xl:text-5xl lg:text-2xl max-lg:text-2xl font-bold bg-[#43a047] text-white xl:w-[220px] md:w-[150px] max-md:w-[130px] max-md:text-center rounded-2xl px-2 pb-1 ">

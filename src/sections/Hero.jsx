@@ -3,7 +3,7 @@ import { levels } from "../Constants";
 import { Link } from "react-router-dom";
 import QuoteAndInfo from "../components/QuoteAndInfo";
 import Levels from "../components/Levels";
-import { heropic } from "../assets/export";
+import { heropic, heroGif } from "../assets/export";
 import { useTranslation } from "react-i18next";
 
 const Hero = () => {
@@ -11,10 +11,10 @@ const Hero = () => {
   const langs = t("language.title");
 
   return (
-    <section id="home" className=" w-full flex justify-center md:px-[30x]">
+    <section id="home" className=" w-full pt-20 flex justify-center md:px-[30x]">
       <div className="h-auto font-satoshi lg:w-[1245px] relative lg:mb-[350px] max-lg:mb-[260px] max-md:mb-[360px] md:mx-[30px] max-md:px-2">
-        <div className="lg:flex justify-around lg:mt-[90px] max-lg:mt-[80px] max-md:mt-[60px] lg:gap-[80px]">
-          <div className="max-w-[680px] flex flex-col text-left justify-center lg:gap-11 max-lg:gap-2 ">
+        <div className="lg:flex pb-20 justify-around lg:mt-[90px] max-lg:mt-[80px] max-md:mt-[60px] lg:gap-[40px]">
+          <div className="max-w-[600px] flex flex-col text-left justify-center lg:gap-11 max-lg:gap-2 ">
             <div>
               <h1 className="xl:text-6xl text-white font-satoshi font-bold lg:text-2xl max-lg:text-2xl max-lg:text-center lg:mb-5">
                 {t("hero1")}
@@ -40,11 +40,11 @@ const Hero = () => {
               </Link>
             </div>
           </div>
-          <div className="max-lg:flex justify-center">
+          <div className="max-lg:flex justify-center rounded-full">
             <img
-              src={heropic}
+              src={heroGif}
               alt="hero pic"
-              className="xl:w-[1100px] lg:w-[700px] md:w-[400px] lg:rounded-3xl "
+              className="xl:w-[1500px] lg:w-[700px] md:w-[00px] border-2 lg:rounded-full "
             />
             <figcaption className="text-center text-white italic text-xl">
               {t("director")}
