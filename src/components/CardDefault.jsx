@@ -25,7 +25,7 @@ export const CardDefault =({ quote, teachersTitle, langIndex, crew, link }) =>  
     }
   }, [i18n]);
   return (
-    <Card className="w-full max-w-[20rem] shadow-lg">
+    <Card className="w-full max-w-[20rem] shadow-xl">
       <CardHeader floated={false} color="blue-gray">
         <img
           src="https://images.unsplash.com/photo-1540553016722-983e48a2cd10?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80"

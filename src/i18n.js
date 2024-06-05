@@ -61,8 +61,8 @@ i18n
             methodQ2P: "Brak swobody w mówieniu w języku angielskim ma różne podłoża jednakże naszym zadaniem i celem jest wykrycie twojego indywidualnego podłoża tej przypadłości i jego gwarantowana eliminacja.",
             methodQ3: "Czy będziemy uczyć się gramatyki?",
             methodQ3P: "I tak i nie. Tak: ponieważ gramatyka jest ważna i kluczowa w poprawnej komunikacji. Nie: dzięki naszym metodom nauczysz się gramatyki nawet o tym nie wiedząc, więc to tak jakbyś się jej nie uczył.",
-            methodQ4: "Co jeśli nie będziemy mógł pojawić się na zaplanowanych zajęciach?",
-            methodQ4P: "O nic się nie martw! W Lingolandias okienko na przełożenie zajęć wynosi 24h przed zaplanowanym spotkaniem, a dzięki ludzkiemu podejściu naszych nauczycieli, w wyjątkowych przypadkach, z odpowiednim nastawieniem nawet po upływie 24h uda się coś zdziałać.",
+            methodQ4: "Co jeśli opuścimy zajęcia?",
+            methodQ4P: "O nic się nie martw! Okienko na przełożenie zajęć wynosi 24h przed zaplanowanym spotkaniem, a dzięki ludzkiemu podejściu naszych nauczycieli, w wyjątkowych przypadkach, z odpowiednim nastawieniem nawet po upływie 24h uda się coś zdziałać.",
 
 
 
@@ -193,8 +193,8 @@ i18n
             methodQ2P: "The lack of freedom in speaking English has various causes, however, our task and goal is to detect your individual causes of this condition and its guaranteed elimination.",
             methodQ3: "Will we learn grammar?",
             methodQ3P: "Yes and no. Yes: because grammar is important and crucial for proper communication. No: thanks to our methods you will learn grammar without even knowing it, so it is as if you were not learning it.",
-            methodQ4: "What if we can't show up for the scheduled classes?",
-            methodQ4P: "Don't worry about anything! At Lingolandias, the window for rescheduling classes is 24 hours before the scheduled meeting, and thanks to the human approach of our teachers, in exceptional cases, with the right attitude, you will be able to do something even after 24 hours.",
+            methodQ4: "What if we can't attend the scheduled classes?",
+            methodQ4P: "Don't worry about anything! The window for rescheduling classes is 24 hours before the scheduled meeting, and thanks to the human approach of our teachers, in exceptional cases, with the right attitude, you will be able to do something even after 24 hours.",
 
             
             // FOOTER TRANSLATIONS!!!

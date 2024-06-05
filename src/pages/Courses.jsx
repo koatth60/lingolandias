@@ -52,7 +52,7 @@ const Courses = () => {
               <div className="w-full flex flex-row-reverse justify-between items-center mb-8">
                 <div>
                   <img
-                    src="https://media.licdn.com/dms/image/D4D12AQEbmZ4fDnUokg/article-cover_image-shrink_720_1280/0/1695807995523?e=2147483647&v=beta&t=cs-JZrNTYSCwYh23U4SUSMnCPPu_1diZmcnYnhxaAmA"
+                    src="https://dit.mx/wp-content/uploads/2020/04/Virtual-meeting-person.png"
                     width={600}
                     alt=""
                   />

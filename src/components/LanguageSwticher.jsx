@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import  { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 
 const languages = [
@@ -22,7 +22,7 @@ const LanguageSwitcher = () => {
       i18n.changeLanguage(languages[0].code);
       localStorage.setItem("selectedLanguage", languages[0].code);
     }
-  }, []); // Run only once on component mount
+  }, [i18n]); // Run only once on component mount
 
   const handleLanguageClick = ({ lang, code }) => {
     setSelectedLanguage(lang);
@@ -33,7 +33,7 @@ const LanguageSwitcher = () => {
   const selectedIndex = languages.findIndex(lang => lang.lang === selectedLanguage);
 
   return (
-    <div className="language-container fixed bottom-0 left-[150px] z-20">
+    <div className="language-container fixed bottom-0 lg:left-0 2xl:left-[150px] z-20">
       <div
         className="selected-language text-center"
         onClick={() =>

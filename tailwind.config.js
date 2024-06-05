@@ -16,6 +16,7 @@ module.exports = withMT({
         transitionProperty: ['hover', 'focus'],
       
     },
+    display: ['responsive', 'active', 'group-hover', 'max'],
     
   },
   plugins: [],

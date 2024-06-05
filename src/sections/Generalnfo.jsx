@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 
 // Zaczęło
@@ -11,16 +11,16 @@ const Generalnfo = () => {
     if (storedLanguage) {
       i18n.changeLanguage(storedLanguage);
     }
-  }, []);
+  }, [i18n]);
 
   return (
-    <section className=" w-full flex justify-center md:px-[30x]">
-      <div className="h-auto font-satoshi lg:max-w-[1245px] relative lg:my-[80px] max-lg:mb-[260px] max-md:mb-[360px] md:mx-[30px] max-md:px-2">
-        <div className="flex justify-center items-center max-lg:flex-col-reverse p-16  gap-8 bg-white rounded-3xl shadow-xl">
-          <div className="">
-            <h2 className=" font-bold text-[#6a1b9a] xl:text-5xl lg:text-2xl max-lg:text-xl text-center  my-8 pb-3">
+    <section className="w-full flex justify-center md:px-[30x]">
+      <div className="h-auto font-satoshi lg:max-w-[1245px] relative xl:my-[50px] max-lg:mb-[260px] md:mb-[100px] md:mx-[30px] max-md:px-2">
+        <div className="flex justify-center items-center max-lg:flex-col-reverse lg:p-16 md:px-6 md:py-8 gap-8 bg-white rounded-3xl shadow-xl">
+          <div className="xl:text-5xl lg:text-4xl md:text-3xl">
+            <h2 className=" font-bold text-[#6a1b9a] text-center xl:my-8 xl:pb-3 pb-6">
               {t("genInfo")}{" "}
-              <span className="xl:text-5xl lg:text-2xl max-lg:text-2xl font-bold bg-[#43a047] text-white xl:w-[220px] md:w-[150px] max-md:w-[130px] max-md:text-center rounded-2xl px-2 pb-1 ">
+              <span className=" font-bold bg-[#43a047] text-white xl:w-[220px] md:w-[150px] max-md:w-[130px] max-md:text-center rounded-2xl px-2 pb-1 ">
                 {t("genInfoSpan")}
               </span>
               ?.
