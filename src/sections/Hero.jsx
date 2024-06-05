@@ -14,24 +14,24 @@ const Hero = () => {
       id="home"
       className=" w-full pt-20 flex justify-center md:px-[30x]"
     >
-      <div className="h-auto font-satoshi lg:w-[1245px] relative xl:mb-[350px] lg:mb-[300px] md:mb-[230px] md:mx-[30px] sm:px-2">
-        <div className="lg:flex xl:pb-20 lg:pb-14 justify-center xl:mt-[90px] lg:mt-[50px] md:mt-[20px] lg:mb-0 md:mb-16 lg:gap-[40px]">
-          <div className="lg:max-w-[600px] flex flex-col text-left justify-center xl:gap-11 lg:gap- lg:mb-0 md:mb-12">
+      <div className="h-auto font-satoshi lg:w-[1245px] relative xl:mb-[350px] lg:mb-[300px] md:mb-[230px] mb-[350px]  md:mx-[30px] px-3">
+        <div className="lg:flex xl:pb-20 lg:pb-14 justify-center xl:mt-[90px] lg:mt-[50px] md:mt-[20px] lg:mb-0 md:mb-16 mb-10 lg:gap-[40px]">
+          <div className="lg:max-w-[600px] flex flex-col text-left justify-center xl:gap-11 lg:gap- lg:mb-0 mb-12">
             <div>
-              <h1 className="xl:text-6xl text-white font-satoshi font-bold lg:text-5xl md:text-4xl lg:text-start md:text-center lg:mb-5 md:mb-4">
+              <h1 className="xl:text-6xl text-white font-satoshi font-bold lg:text-5xl text-4xl  lg:text-start text-center lg:mb-5 mb-4">
                 {t("hero1")}
               </h1>
-              <h2 className="xl:text-3xl lg:px-0 md:px-24 text-white font-satoshi font-bold lg:text-2xl md:text-2xl lg:text-start md:text-center md:mb-3">
+              <h2 className="xl:text-3xl lg:px-0 md:px-24 text-white font-satoshi font-bold md:text-2xl text-xl lg:text-start md:text-center mb-3">
                 {t("hero2")}{" "}
                 <span className="xl:text-3xl lg:text-2xl md:text-2xl font-bold bg-[#43a047] text-white xl:w-[220px] md:w-[150px] max-md:w-[130px] max-md:text-center rounded-2xl px-2 pb-1 ">
                   {t("hero2Span")}
                 </span>
               </h2>
             </div>
-            <h2 className="xl:text-xl lg:px-0 md:px-24 lg:mb-0 md:mb-8 text-white font-medium lg:text-md lg:text-start md:text-center ">
+            <h2 className="xl:text-xl lg:px-0 md:px-24 lg:mb-0 md:mb-8 mb-6 text-white font-medium lg:text-md lg:text-start md:text-center ">
               {t("hero3")}
             </h2>
-            <div className="flex lg:justify-start md:justify-center">
+            <div className="flex lg:justify-start justify-center">
               <Link
                 to="/contact"
                 className="relative inline-flex items-center justify-center px-10 py-3 overflow-hidden text-lg font-medium tracking-tighter text-white bg-[#9c27b0] rounded-lg group"
@@ -54,15 +54,15 @@ const Hero = () => {
           </div>
         </div>
 
-        <div className="flex flex-row-reverse max-md:items-center max-lg:flex-col-reverse h-auto w-full lx:justify-between lg:justify-around lg:max-w-[1230px] xl:py-12 lg:py-10 md:px-[60x]  absolute left-[0] xl:bottom-[-340px] lg:bottom-[-260px]  ">
+        <div className="flex md:flex-row-reverse max-md:items-center flex-col-reverse h-auto w-full lx:justify-between lg:justify-around lg:max-w-[1230px] xl:py-12 lg:py-10 md:px-[60x] px-3 absolute left-[0] xl:bottom-[-340px] lg:bottom-[-260px]  ">
           <QuoteAndInfo />
-          <div className="mr-6">
+          <div className="md:mr-6 md:mb-0 mb-6">
             <h3 className="font-medium text-white xl:text-2xl lg:text-xl text-center">
               <span className="xl:text-3xl lg:text-2xl max-lg:text-2xl  bg-white text-[#3949ab]  xl:w-[220px] md:w-[150px]  max-md:w-[130px] max-md:text-center rounded-2xl px-3 pb-2 ">
                 {t("start")}
               </span>
             </h3>
-            <div className="flex justify-center text-ms gap-6 ">
+            <div className="flex justify-center gap-6 ">
               {levels.map((level, index) => (
                 <Levels
                   key={index}

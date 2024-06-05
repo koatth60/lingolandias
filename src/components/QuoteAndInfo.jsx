@@ -5,17 +5,17 @@ const QuoteAndInfo = () => {
   const { t } = useTranslation();
 
   return (
-    <div className="font-satoshi h-auto lg:max-w-[630px] max-lg:flex max-md:flex-col max-md:gap-6 border-l-[1px] border-white xl:p-0 md:pl-6 ">
-      <div className="flex flex-col items-end">
-        <p className="text-white font-medium max-lg:text-center flex gap-x-1 xl:text-3xl lg:text-xl text-end ">
+    <div className="font-satoshi h-auto lg:max-w-[630px] max-lg:flex max-md:flex-col  md:border-l-[1px] border-white xl:p-0 md:pl-6 ">
+      <div className="flex flex-col md:items-end lg:mb-0 mb-2">
+        <p className="text-white font-medium  flex gap-x-1 xl:text-3xl lg:text-xl md:text-end ">
         {t("moto")}
 
         </p>
-        <p className="text-white text-end max-lg:text-center flex gap-x-1 xl:text-3xl lg:text-xl mb-3 xl:w-auto lg:w-[480px]">
+        <p className="text-white md:text-end  flex gap-x-1 xl:text-3xl lg:text-xl mb-1 xl:w-auto lg:w-[480px]">
         {t("quote")}
 
         </p>
-        <h2 className="xl:text-3xl lg:text-xl text-white text-end italic font-medium  ">
+        <h2 className="xl:text-3xl lg:text-xl text-white md:text-end italic font-medium  ">
         {t("autor")}
 
         </h2>

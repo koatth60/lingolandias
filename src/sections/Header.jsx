@@ -33,7 +33,7 @@ const Header = () => {
 
   return (
     <header
-      className={`flex justify-center font-satoshi md:px-[30px] max-lg:py-1 max-md:px-2 w-full fixed top-0 z-50 ${
+      className={`flex justify-center font-satoshi md:px-[30px] md:py-0 py-2 px-3 w-full fixed top-0 z-50 ${
         scrolled ? "scrolled" : ""
       }`}
     >
@@ -43,7 +43,7 @@ const Header = () => {
             <img
               src={logo}
               alt="logo"
-              className="xl:w-[240px] lg:w-[221px] md:w-[230px] lg:my-1  cursor-pointer"
+              className="xl:w-[240px] lg:w-[221px] md:w-[230px] w-[180px] lg:my-1  cursor-pointer"
             />
           </Link>
         </div>
@@ -89,7 +89,7 @@ const Header = () => {
         </div>
 
         <div
-            className="lg:hidden md:text-5xl flex items-center justify-center text-[#23085A]"
+            className="lg:hidden md:text-5xl text-3xl flex items-center justify-center text-[#23085A]"
             onClick={handleClick}
           >
             {isOpen ? (
@@ -107,7 +107,7 @@ const Header = () => {
 
         {isOpen && (
           <div
-            className="absolute top-[69px] left-0 w-full h-[40vh] bg-[#81c784]  flex items-center justify-center lg:hidden"
+            className="absolute md:top-[69px] top-[60px] left-0 w-full h-[40vh] bg-[#81c784]  flex items-center justify-center lg:hidden"
             style={{
               transition:
                 "opacity 0.8s ease-in-out, transform 0.8s ease-in-out",
