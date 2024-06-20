@@ -21,11 +21,11 @@ const EnglishTeachers = () => {
   return (
     <div>
       <Header />
-      <section className="flex flex-col teachers items-center h-auto font-satoshi 2xl:px-[330px] lg:px-[50px] md:px-[30px] relative py-[140px] max-lg:mb-[260px] max-md:mb-[360px] max-md:px-2">
-        <div className="lg:max-w-[1245px] flex flex-col items-center bg-white rounded-3xl py-[60px] md:px-[40px] shadow-xl">
+      <section className="flex flex-col teachers items-center h-auto font-satoshi md:px-[30px] relative pt-[140px] pb-14 ">
+        <div className="lg:max-w-[1245px] flex flex-col items-center bg-white rounded-3xl py-[60px] md:px-[30px] shadow-xl ">
           <h2 className="xl:text-5xl lg:text-2xl max-lg:text-xl text-[#6a1b9a] text-center font-bold mb-4 ">
             {t("EngTeachersTitle")}{" "}
-            <span className="xl:text-5xl lg:text-2xl max-lg:text-2xl font-bold bg-[#43a047] text-white xl:w-[220px] md:w-[150px] max-md:w-[130px] max-md:text-center rounded-2xl px-2 pb-1 ">
+            <span className="xl:text-5xl lg:text-2xl max-lg:text-2xl font-bold bg-[#43a047] text-white xl:w-[220px] md:w-[150px]  rounded-2xl px-2 pb-1 ">
               {t("EngTeachersTitleSpan")}
             </span>
           </h2>
@@ -37,7 +37,7 @@ const EnglishTeachers = () => {
           </p>
 
           <Carousel
-            className="rounded-xl max-w-[68rem] min-h-[26rem]"
+            className="rounded-xl max-w-[68rem] min-h-[26rem] overflow-hidden"
             transition={{ duration: 1 }}
             prevArrow={({ handlePrev }) => (
               <IconButton
@@ -108,7 +108,6 @@ const EnglishTeachers = () => {
             ))}
           </Carousel>
         </div>
-        <div />
       </section>
       <Footer />
     </div>

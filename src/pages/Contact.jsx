@@ -32,8 +32,10 @@ const Contact = () => {
     formData.append("email", email);
     formData.append("message", message);
 
+         // "https://lingolandias-server.onrender.com/contact"
+
     // Send a POST request to your backend server
-    fetch("https://lingolandias-server.onrender.com/contact", {
+    fetch('http://localhost:3000/contact', {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -55,6 +57,11 @@ const Contact = () => {
       .then((data) => {
         // Handle the response from your server
         if (data.success) {
+
+          setName("");
+          setNumber("");
+          setEmail("");
+          setMessage("");
           // The email was sent successfully
           alert("Email sent successfully");
         } else {

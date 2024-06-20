@@ -19,12 +19,12 @@ const Team = () => {
   return (
     <div className="teachers">
       <Header />
-      <section className="h-auto md:mx-[30px]  max-md:px-2  flex flex-col items-center  ">
-        <div className="h-auto font-satoshi lg:max-w-[1245px] lg:my-[60px] max-lg:mb-[260px] max-md:mb-[360px]  max-md:px-2">
-          <div className="mt-[80px] text-center flex flex-col items-center ">
-            <h2 className="xl:text-5xl lg:text-2xl max-lg:text-xl text-white font-bold mb-4">
+      <section className="h-auto flex flex-col items-center lg:pt-28 pt-20 mb-16 md:mx-[30px] md:px-0 px-3">
+        <div className="h-auto font-satoshi lg:max-w-[1245px] ">
+          <div className=" text-center flex flex-col items-center ">
+            <h2 className="xl:text-5xl lg:text-4xl text-3xl text-white font-bold mb-4">
               {t("teacherTitle")}{" "}
-              <span className="xl:text-5xl lg:text-2xl max-lg:text-2xl font-bold bg-[#43a047] text-white xl:w-[220px] md:w-[150px] max-md:w-[130px] max-md:text-center rounded-2xl px-2 pb-1 ">
+              <span className=" max-lg:text-2xl font-bold bg-[#43a047] text-white xl:w-[220px] md:w-[150px] max-md:w-[130px] max-md:text-center rounded-2xl px-2 pb-1 ">
                 {t("teacherTitleSpan")}
               </span>
             </h2>
@@ -36,7 +36,7 @@ const Team = () => {
             </p>
           </div>
 
-          <div className="flex gap-4">
+          <div className="flex gap-4 lg:flex-nowrap flex-wrap justify-center">
             {teachers.map((teacher, index) => (
               <CardDefault
                 key={index}

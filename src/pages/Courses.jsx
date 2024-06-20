@@ -17,10 +17,10 @@ const Courses = () => {
   return (
     <div>
       <Header />
-      <section className="h-auto flex justify-center items-center lg:mt- md:mt-28 mt-24 mb-16 md:px-[30x] px-3">
-        <div className="flex justify-center h-auto font-satoshi lg:max-w-[1245px] items-center lg:p-16 md:px-6 md:py-8 gap-8 bg-white rounded-3xl shadow-xl">
-          <div className="flex flex-col items-center md:px-0 px-2 md:py-0 py-4">
-            <h2 className=" font-bold text-[#6a1b9a] xl:text-5xl lg:text-4xl md:text-3xl text-2xl text-center xl:my-8 xl:pb-3 md:pb-6 pb-4">
+      <section className="h-auto flex justify-center items-center md:mt-28 mt-24 mb-16 md:px-[30px] px-3">
+        <div className="flex justify-center h-auto font-satoshi lg:max-w-[1245px] items-center lg:p-16 md:mx-[30x] md:py-8 gap-8 bg-white rounded-3xl shadow-xl ">
+          <div className="flex flex-col items-center lg:px-0 md:px-6 px-3 md:py-0 py-5">
+            <h2 className=" font-bold text-[#6a1b9a] xl:text-5xl lg:text-4xl text-3xl  text-center xl:my-8 xl:pb-3 md:pb-6 pb-4">
               {t("courseTitle")}{" "}
               <span className=" font-bold bg-[#43a047] text-white xl:w-[220px] md:w-[150px] max-md:w-[130px] max-md:text-center rounded-2xl px-2 pb-1 ">
                 Lingolandias.
@@ -31,12 +31,12 @@ const Courses = () => {
             </p>
 
             <div>
-              <div className="w-full md:flex md:flex-row-reverse md:justify-between  items-center mb-14">
+              <div className="w-full md:flex md:flex-row-reverse md:justify-between  items-center md:mb-14 mb-10">
                 <div className="md:w-2/4 lg:text-2xl md:text-xl py-2 lg:px-4">
                   <h2 className="text-center text-[#9c27b0] text-lg font-bold">
                     {t("titleIndividual")}
                   </h2>
-                  <p className="mt-4 text-[#9c27b0] md:text-lg">
+                  <p className="mt-4 text-[#9c27b0] text-lg">
                     {t("titleIndividualP")}
                   </p>
                 </div>
@@ -51,8 +51,8 @@ const Courses = () => {
               </div>
 
               <div className="w-full md:flex  justify-between items-center mb-8">
-                <div className="md:w-2/4 lg:text-2xl text-xl py-2 lg:px-4">
-                  <h2 className="text-center text-[#9c27b0] font-bold">
+                <div className="md:w-2/4 lg:text-2xl md:text-xl py-2 lg:px-4">
+                  <h2 className="text-center text-[#9c27b0] text-lg font-bold">
                     {t("titleCouple")}
                   </h2>
                   <p className="mt-4 text-[#9c27b0] text-lg">
@@ -77,7 +77,7 @@ const Courses = () => {
             <div>
               <Link
                 to="/contact"
-                className="relative inline-flex items-center justify-center px-10 py-3 overflow-hidden lg:text-lg font-medium tracking-tighter text-white bg-[#9c27b0] rounded-lg group"
+                className="relative inline-flex items-center justify-center px-10 py-3 overflow-hidden text-lg font-medium tracking-tighter text-white bg-[#9c27b0] rounded-lg group"
               >
                 <span className="absolute w-0 h-0 transition-all duration-500 ease-out bg-[#43a047] rounded-full group-hover:w-56 group-hover:h-56"></span>
                 <span className="absolute inset-0 w-full h-full -mt-1 rounded-lg opacity-30 bg-gradient-to-b from-transparent via-transparent to-gray-700"></span>

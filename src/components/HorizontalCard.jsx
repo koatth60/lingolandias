@@ -10,11 +10,11 @@ import {
 // eslint-disable-next-line react/prop-types
 export function HorizontalCard({ name, description, photo }) {
   return (
-    <Card className="w-full max-w-[60rem] max-h-[28rem] bg-cards flex-row mx-16 my-4 font-satoshi shadow-lg">
+    <Card className=" xl:max-w-[60rem] md:max-w-[48.5rem]  max-h-[28rem] bg-cards lg:flex-row mx-16 my-4 font-satoshi shadow-lg">
       <CardHeader 
         shadow={false}
         floated={false}
-        className="m-0 w-2/5 shrink-0 rounded-r-none"
+        className="m-0 xl:w-2/5  lg:w-[40%] lg:block md:hidden  shrink-0 rounded-r-none"
       >
         <img
           src={photo}
@@ -22,7 +22,7 @@ export function HorizontalCard({ name, description, photo }) {
           className="h-full w-full object-cover"
         />
       </CardHeader>
-      <CardBody>
+      <CardBody className="">
         <Typography variant="h6" color="gray" className="mb-4 uppercase text-[#43a047]">
           lingolandias
         </Typography>

@@ -43,7 +43,7 @@ const Header = () => {
             <img
               src={logo}
               alt="logo"
-              className="xl:w-[240px] lg:w-[221px] md:w-[230px] w-[180px] lg:my-1  cursor-pointer"
+              className="xl:w-[240px] lg:w-[221px] md:w-[230px] w-[190px] lg:my-1  cursor-pointer"
             />
           </Link>
         </div>
@@ -115,7 +115,7 @@ const Header = () => {
               transform: `translateY(${isOpen ? "0" : "-100%"})`,
             }}
           >
-            <div className="text-center md:text-xl h-full flex flex-col justify-evenly text-white font-satoshi">
+            <div className="text-center md:text-xl text-lg h-full flex flex-col justify-evenly text-white font-satoshi">
               <Link to="/" className="hover:border-b-2 border-blue-950">
               {t("home")}
 

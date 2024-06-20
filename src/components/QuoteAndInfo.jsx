@@ -6,23 +6,23 @@ const QuoteAndInfo = () => {
 
   return (
     <div className="font-satoshi h-auto lg:max-w-[630px] max-lg:flex max-md:flex-col  md:border-l-[1px] border-white xl:p-0 md:pl-6 ">
-      <div className="flex flex-col md:items-end lg:mb-0 mb-2">
-        <p className="text-white font-medium  flex gap-x-1 xl:text-3xl lg:text-xl md:text-end ">
+      <div className=" text-white flex flex-col md:items-end lg:mb-0 mb-2">
+        <p className=" font-bold  flex gap-x-1 xl:text-3xl lg:text-xl text-lg md:text-end ">
         {t("moto")}
 
         </p>
-        <p className="text-white md:text-end  flex gap-x-1 xl:text-3xl lg:text-xl mb-1 xl:w-auto lg:w-[480px]">
+        <p className=" md:text-end  flex gap-x-1 xl:text-3xl lg:text-xl text-lg mb-1 xl:w-auto lg:w-[480px]">
         {t("quote")}
 
         </p>
-        <h2 className="xl:text-3xl lg:text-xl text-white md:text-end italic font-medium  ">
+        <h2 className="xl:text-3xl lg:text-xl text-lg  md:text-end italic font-medium  ">
         {t("autor")}
 
         </h2>
       </div>
 
       <div className="flex gap-6 xl:mt-6 lg:mt-5 justify-end items-center">
-        <p className="font-medium text-white  xl:text-2xl lg:text-xl max-md:text-center">
+        <p className="font-medium text-white  xl:text-2xl lg:text-xl text-lg  max-md:text-center">
         {t("follow")}
 
         </p>

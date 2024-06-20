@@ -12,9 +12,9 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className=" w-full pt-20 flex justify-center md:px-[30x]"
+      className=" w-full pt-20 flex justify-center md:px-o px-3 "
     >
-      <div className="h-auto font-satoshi lg:w-[1245px] relative xl:mb-[350px] lg:mb-[300px] md:mb-[230px] mb-[350px]  md:mx-[30px] px-3">
+      <div className="h-auto font-satoshi lg:w-[1245px] relative xl:mb-[350px] lg:mb-[300px] md:mb-[230px] mb-[350px]  md:mx-[30px] ">
         <div className="lg:flex xl:pb-20 lg:pb-14 justify-center xl:mt-[90px] lg:mt-[50px] md:mt-[20px] lg:mb-0 md:mb-16 mb-10 lg:gap-[40px]">
           <div className="lg:max-w-[600px] flex flex-col text-left justify-center xl:gap-11 lg:gap- lg:mb-0 mb-12">
             <div>
@@ -28,7 +28,7 @@ const Hero = () => {
                 </span>
               </h2>
             </div>
-            <h2 className="xl:text-xl lg:px-0 md:px-24 lg:mb-0 md:mb-8 mb-6 text-white font-medium lg:text-md lg:text-start md:text-center ">
+            <h2 className="xl:text-xl text-lg lg:px-0 md:px-24 lg:mb-0 md:mb-8 mb-6 text-white font-medium lg:text-md lg:text-start md:text-center ">
               {t("hero3")}
             </h2>
             <div className="flex lg:justify-start justify-center">
@@ -54,11 +54,11 @@ const Hero = () => {
           </div>
         </div>
 
-        <div className="flex md:flex-row-reverse max-md:items-center flex-col-reverse h-auto w-full lx:justify-between lg:justify-around lg:max-w-[1230px] xl:py-12 lg:py-10 md:px-[60x] px-3 absolute left-[0] xl:bottom-[-340px] lg:bottom-[-260px]  ">
+        <div className="flex md:flex-row-reverse max-md:items-center flex-col-reverse h-auto w-full lx:justify-between lg:justify-around lg:max-w-[1230px] xl:py-12 lg:py-10 md:px-[60x]  absolute left-[0] xl:bottom-[-340px] lg:bottom-[-260px]  ">
           <QuoteAndInfo />
           <div className="md:mr-6 md:mb-0 mb-6">
-            <h3 className="font-medium text-white xl:text-2xl lg:text-xl text-center">
-              <span className="xl:text-3xl lg:text-2xl max-lg:text-2xl  bg-white text-[#3949ab]  xl:w-[220px] md:w-[150px]  max-md:w-[130px] max-md:text-center rounded-2xl px-3 pb-2 ">
+            <h3 className="font-medium text-white text-center">
+              <span className="xl:text-3xl lg:text-2xl text-lg max-lg:text-2xl  bg-white text-[#3949ab]  xl:w-[220px] md:w-[150px]  max-md:w-[130px] max-md:text-center rounded-2xl px-3 pb-2 ">
                 {t("start")}
               </span>
             </h3>
