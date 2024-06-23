@@ -21,9 +21,9 @@ const Test = () => {
   return (
     <div className="teachers">
       <Header />
-      <section className="w-full h-auto pt-16 flex justify-center md:px-[30x]">
-        <div className="h-auto font-satoshi lg:max-w-[1245px] relative lg:my-[80px] max-lg:mb-[260px] max-md:mb-[360px] md:mx-[30px] max-md:px-2 ">
-          <div className="flex justify-center gap-20">
+      <section className="w-full h-auto pt-16 flex justify-center md:px-[30px] px-3">
+        <div className="h-auto font-satoshi lg:max-w-[1245px] relative lg:my-[80px] md:mt-12 mb-16 mt-8  ">
+          <div className="flex flex-col md:flex-row justify-center items-center lg:gap-20 md:gap-4 text-lg gap-y-6">
             {testCards.map((card, index) => (
               <TestCard
                 key={index}
@@ -36,10 +36,10 @@ const Test = () => {
             ))}
           </div>
           <div className="bg-white text-[#9c27b0] mt-10 p-6 rounded-xl shadow-lg ">
-            <p className="text-xl font-medium text-left max-w-[1000px] mb-4 ">
+            <p className="text-lg font-medium text-left max-w-[1000px] mb-4 ">
               {t("teachersP1")}
             </p>
-            <p className="text-xl font-medium text-left max-w-[1000px] ">
+            <p className="text-lg font-medium text-left max-w-[1000px] ">
               {t("teachersP2")}
             </p>
           </div>

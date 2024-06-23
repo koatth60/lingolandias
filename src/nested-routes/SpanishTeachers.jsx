@@ -22,20 +22,21 @@ export function CarouselCustomArrows() {
   return (
     <div>
       <Header />
-      <section className="flex flex-col teachers items-center h-auto font-satoshi md:px-[30px] relative xl:pt-[140px] pt-[120px] pb-14 ">
-        <div className="lg:max-w-[1245px] flex flex-col items-center bg-white rounded-3xl py-[60px] md:px-[30px] shadow-xl">
-          <h2 className="xl:text-5xl text-4xl text-[#6a1b9a] text-center font-bold mb-4 ">
+      <section className="flex flex-col teachers items-center h-auto font-satoshi md:px-[30px] relative md:pt-[120px] pt-[100px] pb-14 px-3 ">
+        <div className="lg:max-w-[1245px] flex flex-col items-center bg-white rounded-3xl md:py-[60px] py-5 md:px-[30px] px-3 shadow-xl">
+          <h2 className="xl:text-5xl md:text-4xl text-3xl text-[#6a1b9a] text-center font-bold mb-4 ">
             {t("SpaTeachersTitle")}{" "}
             <span className="font-bold bg-[#43a047] text-white xl:w-[220px] md:w-[150px]  max-md:text-center rounded-2xl px-2 pb-1 ">
               {t("SpaTeachersTitleSpan")}
             </span>
           </h2>
-          <p className="text-xl text-[#9c27b0] font-medium text-left max-w-[1000px] mb-6">
+          <p className="md:text-xl text-lg text-[#9c27b0] font-medium text-left max-w-[1000px] mb-6">
             {t("SpaTeachersTitleP1")}
           </p>
 
           <Carousel
-            className="rounded-xl xl:max-w-[68rem] xl:min-h-[26rem] "
+                       className="rounded-xl xl:max-w-[68rem]  xl:min-h-[26rem] "
+
             transition={{ duration: 1 }}
             prevArrow={({ handlePrev }) => (
               <IconButton
@@ -88,7 +89,28 @@ export function CarouselCustomArrows() {
           >
             {spanishTeachers.map((teacher, index) => (
               <div key={index} className="w-full">
-                <div className="w-full ">
+                <div className="w-full lg:block hidden ">
+                  <HorizontalCard
+                    name={teacher.name}
+                    maxWidth={"48.5rem"}
+                    {...teacher}
+                    description={
+                      SpaTeachersCard[index].description[
+                        i18n.language === "es"
+                          ? 1
+                          : i18n.language === "pl"
+                          ? 2
+                          : 0
+                      ]
+                    }
+                  />
+                </div>
+              </div>
+            ))}
+          </Carousel>
+          {spanishTeachers.map((teacher, index) => (
+              <div key={index} className="w-full">
+                <div className="w-full lg:hidden block ">
                   <HorizontalCard
                     name={teacher.name}
                     {...teacher}
@@ -105,7 +127,6 @@ export function CarouselCustomArrows() {
                 </div>
               </div>
             ))}
-          </Carousel>
         </div>
       </section>
       <Footer />

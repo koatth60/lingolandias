@@ -18,7 +18,7 @@ const buttonTestCard = buttonTest[langIndex];
 
 
   return (
-    <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow-lg ">
+    <div className="lg:max-w-md w-full bg-white border border-gray-200 rounded-lg shadow-lg ">
       <a href="#">
         <img
           className="rounded-t-lg"
@@ -37,7 +37,7 @@ const buttonTestCard = buttonTest[langIndex];
         </p>
         <a
           href={link}
-          className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-[#43a047] rounded-lg hover:bg-[#9c27b0] focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+          className="inline-flex items-center px-3 py-2 text-lg font-medium text-center text-white bg-[#43a047] rounded-lg hover:bg-[#9c27b0] focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
         >
           {buttonTestCard}
           <svg

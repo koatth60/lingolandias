@@ -128,7 +128,7 @@ const Header = () => {
               {t("teachers")}
 
               </Link>
-              <Link to="#home" className="hover:border-b-2 border-blue-950">
+              <Link to="/test" className="hover:border-b-2 border-blue-950">
                 Test
               </Link>
               <Link
