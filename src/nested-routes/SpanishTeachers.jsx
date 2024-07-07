@@ -30,7 +30,7 @@ export function CarouselCustomArrows() {
               {t("SpaTeachersTitleSpan")}
             </span>
           </h2>
-          <p className="md:text-xl text-lg text-[#9c27b0] font-medium text-left max-w-[1000px] mb-6">
+          <p className="md:text-xl text-lg text-[#9c27b0] font-medium text-left w-full mb-6">
             {t("SpaTeachersTitleP1")}
           </p>
 

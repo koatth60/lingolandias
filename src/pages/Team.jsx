@@ -28,10 +28,10 @@ const Team = () => {
                 {t("teacherTitleSpan")}
               </span>
             </h2>
-            <p className="text-xl text-white font-medium text-left max-w-[1000px] mb-4">
+            <p className="text-xl text-white font-medium text-left w-full mb-4">
               {t("teachersP1")}
             </p>
-            <p className="text-xl text-white font-medium text-left max-w-[1000px] mb-10">
+            <p className="text-xl text-white font-medium text-left w-full mb-10">
               {t("teachersP2")}
             </p>
           </div>

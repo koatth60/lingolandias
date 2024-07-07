@@ -14,7 +14,7 @@ const Hero = () => {
       id="home"
       className=" w-full pt-20 flex justify-center md:px-o px-3 "
     >
-      <div className="h-auto font-satoshi lg:w-[1245px] relative xl:mb-[350px] lg:mb-[300px] md:mb-[230px] mb-[350px]  md:mx-[30px] ">
+      <div className="h-auto font-satoshi lg:w-[1245px] relative xl:mb-[350px] lg:mb-[300px] md:mb-[230px] mb-[350px]  md:mx-[30px]">
         <div className="lg:flex xl:pb-20 lg:pb-14 justify-center xl:mt-[90px] lg:mt-[50px] md:mt-[20px] lg:mb-0 md:mb-16 mb-10 lg:gap-[40px]">
           <div className="lg:max-w-[600px] flex flex-col text-left justify-center xl:gap-11 lg:gap- lg:mb-0 mb-12">
             <div>

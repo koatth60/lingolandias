@@ -78,24 +78,24 @@ const Contact = () => {
   return (
     <div>
       <Header />
-      <section className="h-auto flex flex-col justify-center teachers items-center pt-[80px]  md:px-[30px] max-md:px-2 pb-6">
+      <section className="h-auto flex flex-col justify-center teachers items-center md:pt-[80px] pt-[40px] md:px-[30px] px-3 pb-6">
         <div className=" h-auto font-satoshi mt-14 lg:max-w-[1245px] items-center max-lg:flex-col-reverse gap-8 rounded-3xl">
-          <div className=" flex  max-lg:flex-wrap items-center justify-around">
+        <div className="flex flex-col lg:flex-row items-center justify-center md:justify-around lg:gap-0 gap-8">
             <img
               src={heropic}
-              width={600}
+              
               alt="lingolandias"
-              className="max:xl:w-[250px] rounded-full"
+              className="xl:w-[600px] lg:w-[500px]  rounded-full"
             />
 
-            <div className="bg-white flex flex-col items-center p-4 rounded-3xl max-w-[360px] shadow-xl">
-              <h3 className="text-center text-2xl text-[#6a1b9a] font-bold">
+            <div className="bg-white flex flex-col items-center p-4 rounded-3xl lg:max-w-[360px] md:w-[560px] w-[370px] lg:h-auto md:h-[650px] shadow-xl">
+              <h3 className="text-center lg:text-2xl md:text-3xl text-2xl text-[#6a1b9a] font-bold">
                 {t("inputTitle")}
               </h3>
               <p className="w-3/4 text-center text-[#9c27b0] leading-none mb-2">
                 {t("inputSub")}
               </p>
-              <div className="w-full h-[1px] bg-slate-200 mb-6 "></div>
+              <div style={{ width: '100%', height: '2px', backgroundColor: '#cbd5e1', marginBottom: '24px', marginTop: '18px' }}></div>
               <form
                 onSubmit={handleSubmit}
                 className="flex flex-col items-center gap-6 w-full"
@@ -106,6 +106,7 @@ const Contact = () => {
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   required
+                  
                 />
                 <InputDefault
                   label={t("input2")}
@@ -142,10 +143,10 @@ const Contact = () => {
             </div>
           </div>
           <div className="text-center text-white flex flex-col items-center">
-            <h2 className=" font-bold text-6xl max-xl:text-3xl mt-8">
+            <h2 className=" font-bold xl:text-6xl md:text-5xl text-3xl mt-8">
               {t("contactTitle")}
             </h2>
-            <h3 className="bg-[#43a047] text-4xl max-xl:text-3xl font-medium p-2 m-2 max-w-[800px] rounded-lg">
+            <h3 className="bg-[#43a047] xl:text-4xl md:text-3xl text-xl font-medium p-2 m-2 max-w-[800px] rounded-lg">
               {t("contactSubTitle")}
             </h3>
             <p className="max-w-[900px] mt-4 ">{t("ContactPara")}</p>

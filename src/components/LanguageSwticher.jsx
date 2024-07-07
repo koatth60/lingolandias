@@ -1,4 +1,4 @@
-import  { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 
 const languages = [
@@ -9,7 +9,7 @@ const languages = [
 
 const LanguageSwitcher = () => {
   const { i18n } = useTranslation();
-  const [selectedLanguage, setSelectedLanguage] = useState("");
+  const [selectedLanguage, setSelectedLanguage] = useState("Polski");
 
   useEffect(() => {
     const storedLanguage = localStorage.getItem("selectedLanguage");
@@ -22,7 +22,7 @@ const LanguageSwitcher = () => {
       i18n.changeLanguage(languages[0].code);
       localStorage.setItem("selectedLanguage", languages[0].code);
     }
-  }, [i18n]); // Run only once on component mount
+  }, [i18n]);
 
   const handleLanguageClick = ({ lang, code }) => {
     setSelectedLanguage(lang);
@@ -34,14 +34,7 @@ const LanguageSwitcher = () => {
 
   return (
     <div className="language-container fixed bottom-0 lg:left-0 2xl:left-[150px] z-20">
-      <div
-        className="selected-language text-center"
-        onClick={() =>
-          handleLanguageClick(
-            selectedLanguage === "Polski" ? languages[1] : languages[0]
-          )
-        }
-      >
+      <div className="selected-language text-center">
         {selectedLanguage}
       </div>
       <div className="language-options">

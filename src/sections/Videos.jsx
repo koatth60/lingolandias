@@ -21,48 +21,48 @@ const Videos = () => {
             <div className="w-full md:flex flex-row-reverse md:justify-between items-center md:mb-14 mb-9">
               <div className="md:w-2/4  py-2 md:px-4">
                 <h2 className="text-center text-[#9c27b0] lg:text-2xl text-lg font-bold">
-                  Hello, I'm Magda, a Spanish student.
+                  Hello, I'm Magda, an English student.
                 </h2>
                 <p className="md:mt-4 mt-3 text-[#9c27b0] text-lg">
                   Fascinated by languages and cultures, I chose to learn
-                  Spanish. 
+                  English. 
                 </p>
               </div>
-              <div className="md:w-2/4 ">
-                <Video />
+              <div className=" md:w-2/4 flex justify-center">
+                <Video url="https://storage.googleapis.com/lingolandias-landing-videos/lingolandias-video1.mp4"/>
               </div>
             </div>
 
             <div className="w-full md:flex justify-between items-center md:mb-14 mb-9">
               <div className="md:w-2/4  py-2 md:px-4">
                 <h2 className="text-center text-[#9c27b0] lg:text-2xl text-xl font-bold">
-                  Hi this is Carlos, pleased to meet you.
+                  Hi this is Martha, pleased to meet you.
                 </h2>
                 <p className="md:mt-4 mt-3 text-[#9c27b0] text-lg">
-                  Meet Carlos, another language enthusiast from Spain. He's also
+                  Meet Martha, another language enthusiast from Poland. He's also
                   embarked on the journey of learning English. 
                   
                 </p>
               </div>
 
-              <div className=" md:w-2/4 ">
-                <Video />
+              <div className=" md:w-2/4 flex justify-center">
+                <Video url="https://storage.googleapis.com/lingolandias-landing-videos/lingolandias-video2.mp4"/>
               </div>
             </div>
 
             <div className="w-full md:flex flex-row-reverse md:justify-between items-center md:mb-14 mb-9">
               <div className="md:w-2/4  py-2 md:px-4">
                 <h2 className="text-center text-[#9c27b0] lg:text-2xl text-xl font-bold">
-                  Hi there! Ramon here, an English student.
+                  Hi there! No idea here, an English student.
                 </h2>
                 <p className="md:mt-4 mt-3 text-[#9c27b0] text-lg">
-                  Ramon, from Spain, is on a journey to learn English. Despite
-                  the language's complexities, he's making consistent progress.
+                  No idea, from Poland, is on a journey to learn English. Despite
+                  the language's complexities, she's making consistent progress.
                   
                 </p>
               </div>
-              <div className=" md:w-2/4 ">
-                <Video />
+              <div className=" md:w-2/4 flex justify-center">
+                <Video url="https://storage.googleapis.com/lingolandias-landing-videos/lingolandias-video3.mp4"/>
               </div>
             </div>
           </div>
