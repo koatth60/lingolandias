@@ -27,6 +27,12 @@ const Question5 = ({ onNext }) => {
   };
 
   const handleNext = () => {
+    // Check if all phrases have been matched
+    if (matches.includes(null)) {
+      alert('Please match all the phrases before proceeding.');
+      return;
+    }
+
     // Define the correct matches
     const correctMatches = {
       Always: "zawsze",
@@ -36,21 +42,21 @@ const Question5 = ({ onNext }) => {
       Never: "nigdy",
       Sometimes: "czasami",
     };
-  
+
     // Initialize a variable to track if all matches are correct
     let allMatchesCorrect = true;
-  
+
     // Loop through the phrases and check if each match is correct
     phrases.forEach((phrase, index) => {
       const translation = translations[matches[index]];
       const correctTranslation = correctMatches[phrase];
-  
+
       // Check if the translation matches the correct translation
       if (translation !== correctTranslation) {
         allMatchesCorrect = false; // Set to false if any match is incorrect
       }
     });
-  
+
     // Pass the result back to the parent component only if all matches are correct
     if (allMatchesCorrect) {
       onNext(true);
@@ -58,7 +64,6 @@ const Question5 = ({ onNext }) => {
       onNext(false);
     }
   };
-  
 
   const getRandomColor = () => {
     const letters = "0123456789ABCDEF";

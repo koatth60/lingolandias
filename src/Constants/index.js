@@ -9,6 +9,8 @@ import {
   weronika,
   nell,
   agata,
+  karolina,
+  veronica,
 } from "../assets/export.js";
 
 const levels = [
@@ -108,7 +110,19 @@ const englishTeachers = [
       "Mam na imię Karolina. Jestem z Gniezna i mieszkam w Kentucky, USA. Jestem podróżniczką, lingwistką oraz fanką uśmiechów i czekolady.  Uważam, że język to cos żywego i elastycznego, a nie zbiór suchych regułek i słówek.  Dlatego używam podejścia holistycznego, gdzie w zrelaksowanej atmosferze znajdujemy Twoje potrzeby, blokady i najważniejsze: Twój styl:)",
     ],
 
-    photo: agata,
+    photo: karolina,
+  },
+  {
+    name: "Veronica",
+    description: [
+      'Hello! My name is Veronica and as a teenager I moved to the USA, where I graduated from an American high school. Later, chasing my dreams, I moved to England, where I studied acting. On a daily basis, I teach English, which has become my greatest passion, as well as my mission - I love teaching and helping others achieve their dream goal; this is the greatest satisfaction for me! A good relationship with the student is very important to me - I treat my students as friends whom I want to help and I always try to understand their needs, adapt the way of teaching to them, listen to them and choose interesting topics for them. I believe that learning a language should be pleasant and interesting, without unnecessary "rules" that are hard to remember. I know perfectly well that this does not work and I want to dispel the view of English as an unpleasant obligation and show that English can be very simple! My classes are about learning a living language, used by Native Speakers and phrases useful in everyday life. We learn to speak English correctly in a pleasant way, in a relaxed atmosphere. It will definitely not be boring! Come to a lesson and see for yourself!',
+
+      '¡Hola! Mi nombre es Verónica y cuando era adolescente me mudé a los Estados Unidos, donde me gradué de una escuela secundaria estadounidense. Posteriormente, en pos de mis sueños, me mudé a Inglaterra, donde estudié actuación. Diariamente enseño inglés, lo cual se ha convertido en mi mayor pasión y misión: me encanta enseñar y ayudar a otros a alcanzar las metas de sus sueños; ¡Esta es la mayor satisfacción para mí! Una buena relación con los estudiantes es muy importante para mí: trato a mis alumnos como amigos a los que quiero ayudar y siempre trato de comprender sus necesidades, adaptar el método de enseñanza a sus necesidades, escucharlos y elegir temas que sean interesantes para ellos. . Creo que aprender un idioma debe ser agradable e interesante, sin "reglas" innecesarias y difíciles de recordar. Sé perfectamente que no funciona y quiero romper el hechizo del inglés como una tarea rutinaria y demostrar que el inglés puede ser muy simple. Mis clases implican aprender el idioma vivo utilizado por hablantes nativos y frases útiles en la vida cotidiana. Aprendemos a hablar inglés correctamente de forma agradable, en un ambiente relajado. ¡Definitivamente no será aburrido! ¡Ven a las lecciones y compruébalo por ti mismo!',
+      
+      "Hello! Mam na imię Veronica i jako nastolatka wyjechałam do USA, gdzie skończyłam amerykańskie liceum. Później w pogoni za marzeniami przeprowadziłam się do Anglii, gdzie studiowałam aktorstwo. Na codzień zajmuję się nauczaniem języka angielskiego co stało się moją największą pasją, jak i również misją- uwielbiam uczyć i pomagać innym osiągnąć wymarzony cel; jest to dla mnie największa satysfakcja! Bardzo ważna jest dla mnie dobra relacja z uczniem- moich uczniów traktuję jak przyjaciół, którym chcę pomóc i zawsze staram się zrozumieć ich potrzeby, dostosować sposób nauczania pod nich, słuchać ich oraz wybierać ciekawe dla nich tematy zajęć. Uważam, że nauka języka powinna być przyjemna i ciekawa, bez zbędnych „regułek”, które ciężko zapamiętać. Doskonale wiem, że to nie działa i chcę odczarować spojrzenie na język angielski jako przykry obowiązek i pokazać że angielski może być bardzo prosty! Moje zajęcia to nauka żywego języka, używanego przez Native Speakerów oraz zwrotów przydatnych w codziennym życiu. Uczymy się poprawnie mówić po angielsku w przyjemny sposób, w luźnej atmosferze. Na pewno nie będzie nudno! Przyjdź na lekcje i przekonaj się sam/a!",
+    ],
+
+    photo: veronica,
   },
 ];
 const teachers = [

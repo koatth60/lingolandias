@@ -1,4 +1,4 @@
-import React, { createContext, useReducer } from "react";
+import  { createContext, useReducer } from "react";
 import questions from "../Constants/data";
 import { shuffleAnswers } from "../Constants/helpers";
 

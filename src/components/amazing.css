@@ -1,0 +1,96 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  width: auto;
+  scroll-behavior: smooth;
+  position: relative;
+}
+
+.locked-textarea {
+  resize: none;
+}
+
+/* ✅ BODY - SOLO CAMBIA ESTA LÍNEA PARA PROBAR DIFERENTES GRADIENTES */
+body {
+  margin: 0;
+  min-height: 100vh;
+  /* ===== PRUEBA AQUÍ TUS GRADIENTES ===== */
+  /* 1. Atardecer Cósmico */
+   /* background: radial-gradient(circle at 30% 40%, #FF6B6B, #FF8E53, #FFD93D); */
+
+  /* 2. Nebulosa Real    */ 
+  /* background: radial-gradient(circle at 30% 40%, #5F2D8C, #7B4B9A, #B983FF); */
+
+  /* 3. Aurora Boreal    */ 
+  /* background: radial-gradient(circle at 30% 40%, #0F4C5C, #2C7A7B, #44A1A0); */
+
+  /* 4. Sangre Dragón    */ 
+  /* background: radial-gradient(circle at 30% 40%, #7D0A0A, #BF4343, #E67A4C); */
+
+  /* 5. Espacio Profundo Amaziiiiiiiiiiiiiiiiiiiiiiiiiiiiiinnnnnnnnnnnnnnnnnnnnngggggggggggggggggggggggggggggggggg*/ 
+  /* background: radial-gradient(circle at 30% 40%, #0B1E33, #1A2F4F, #2C3E6E); */
+
+  /* 6. Magia Pura   Hermano muy buenoooooo    */ 
+  /* background: radial-gradient(circle at 30% 40%, #6A0572, #9A0F5F, #D44A7A); */
+
+  /* 7. Bosque Encantado */ 
+  /* background: radial-gradient(circle at 30% 40%, #1E5128, #3B7A4B, #73A580); */
+
+  /* 8. Fuego y Hielo  INTERESANTE  */ 
+  background: radial-gradient(circle at 30% 40%, #3B0B5C, #C44545, #F9D56E);
+
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* ✨ ESTRELLAS SUTILES - NO TOCAR */
+body::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background-image: 
+    radial-gradient(1px 1px at 15% 30%, rgba(255,255,255,0.5), transparent),
+    radial-gradient(1px 1px at 25% 70%, rgba(255,255,255,0.4), transparent),
+    radial-gradient(2px 2px at 45% 20%, rgba(255,220,120,0.5), transparent),
+    radial-gradient(1px 1px at 65% 50%, rgba(255,255,255,0.5), transparent),
+    radial-gradient(2px 2px at 80% 85%, rgba(200,220,255,0.5), transparent),
+    radial-gradient(1px 1px at 92% 40%, rgba(255,255,255,0.4), transparent),
+    radial-gradient(2px 2px at 5% 90%, rgba(255,180,180,0.4), transparent),
+    radial-gradient(1px 1px at 35% 15%, rgba(255,255,255,0.5), transparent),
+    radial-gradient(2px 2px at 72% 45%, rgba(220,200,255,0.5), transparent),
+    radial-gradient(1px 1px at 88% 72%, rgba(255,240,180,0.4), transparent);
+  background-size: 250px 250px;
+  opacity: 0.25;
+  animation: twinkle 4s ease-in-out infinite alternate;
+}
+
+/* 🌠 ESTRELLAS FUGACES - NO TOCAR */
+@keyframes twinkle {
+  0% { opacity: 0.2; }
+  100% { opacity: 0.4; }
+}
+
+/* Scrollbar personalizada */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #9333ea, #f97316);
+  border-radius: 5px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #a855f7, #fb923c);
+}

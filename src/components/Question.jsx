@@ -6,7 +6,7 @@ const Question = () => {
   const [quizState, dispatch] = useContext(QuizContext);
   const currentQuestion = quizState.questions[quizState.currentQuestionIndex];
   return (
-    <div>
+    <div className="problematic">
       <div className="question">{currentQuestion.question}</div>
       <div className="answers">
         {quizState.answers.map((answer, index) => (

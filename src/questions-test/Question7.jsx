@@ -2,7 +2,6 @@ import { useState } from "react";
 
 const Question7 = ({ onNext }) => {
   const correctAnswers = ["a", "a", "a", "a", "a"];
-  
   const [selectedAnswers, setSelectedAnswers] = useState(Array(correctAnswers.length).fill(null));
 
   const handleAnswerSelection = (questionIndex, answer) => {
@@ -12,16 +11,17 @@ const Question7 = ({ onNext }) => {
   };
 
   const handleNext = () => {
+    // Check if all questions have been answered
+    if (selectedAnswers.includes(null)) {
+      alert('Please select an answer for each question before proceeding.');
+      return;
+    }
+
     const allMatchesCorrect = selectedAnswers.every(
       (answer, index) => answer === correctAnswers[index]
     );
 
-    if (allMatchesCorrect) {
-      onNext(true);
-    } else {
-      
-      onNext(false);
-    }
+    onNext(allMatchesCorrect);
   };
 
   return (
@@ -80,7 +80,7 @@ const Question7 = ({ onNext }) => {
               onChange={() => handleAnswerSelection(1, "a")}
             />
             <label htmlFor="option-2-a" className="answer-text">
-             a. No, I don’t have any cereal but I have got eggs. 
+              a. No, I don’t have any cereal but I have got eggs.
             </label>
           </li>
           <li className="li">
@@ -92,7 +92,7 @@ const Question7 = ({ onNext }) => {
               onChange={() => handleAnswerSelection(1, "b")}
             />
             <label htmlFor="option-2-b" className="answer-text">
-            b. No, I doesn’t have any cereal but I have got eggs. 
+              b. No, I doesn’t have any cereal but I have got eggs.
             </label>
           </li>
           <li className="li">
@@ -104,7 +104,7 @@ const Question7 = ({ onNext }) => {
               onChange={() => handleAnswerSelection(1, "c")}
             />
             <label htmlFor="option-2-c" className="answer-text">
-            c. Yes, I’ ve got cheese, it is in the fridge. 
+              c. Yes, I’ ve got cheese, it is in the fridge.
             </label>
           </li>
         </ul>
@@ -122,7 +122,7 @@ const Question7 = ({ onNext }) => {
               onChange={() => handleAnswerSelection(2, "a")}
             />
             <label htmlFor="option-3-a" className="answer-text">
-            a. No, it is too sour.
+              a. No, it is too sour.
             </label>
           </li>
           <li className="li">
@@ -134,7 +134,7 @@ const Question7 = ({ onNext }) => {
               onChange={() => handleAnswerSelection(2, "b")}
             />
             <label htmlFor="option-3-b" className="answer-text">
-            b. No, it is most sour. 
+              b. No, it is most sour.
             </label>
           </li>
           <li className="li">
@@ -146,7 +146,7 @@ const Question7 = ({ onNext }) => {
               onChange={() => handleAnswerSelection(2, "c")}
             />
             <label htmlFor="option-3-c" className="answer-text">
-            c. No, it isn’t sour. 
+              c. No, it isn’t sour.
             </label>
           </li>
         </ul>
@@ -164,7 +164,7 @@ const Question7 = ({ onNext }) => {
               onChange={() => handleAnswerSelection(3, "a")}
             />
             <label htmlFor="option-4-a" className="answer-text">
-            a. I’m cooking dinner.
+              a. I’m cooking dinner.
             </label>
           </li>
           <li className="li">
@@ -176,7 +176,7 @@ const Question7 = ({ onNext }) => {
               onChange={() => handleAnswerSelection(3, "b")}
             />
             <label htmlFor="option-4-b" className="answer-text">
-            b. I cooking dinner. 
+              b. I cooking dinner.
             </label>
           </li>
           <li className="li">
@@ -188,7 +188,7 @@ const Question7 = ({ onNext }) => {
               onChange={() => handleAnswerSelection(3, "c")}
             />
             <label htmlFor="option-4-c" className="answer-text">
-            c. I cooked dinner.
+              c. I cooked dinner.
             </label>
           </li>
         </ul>
@@ -206,7 +206,7 @@ const Question7 = ({ onNext }) => {
               onChange={() => handleAnswerSelection(4, "a")}
             />
             <label htmlFor="option-5-a" className="answer-text">
-            a. I like swimming because it’s good for my body. 
+              a. I like swimming because it’s good for my body.
             </label>
           </li>
           <li className="li">
@@ -218,7 +218,7 @@ const Question7 = ({ onNext }) => {
               onChange={() => handleAnswerSelection(4, "b")}
             />
             <label htmlFor="option-5-b" className="answer-text">
-            b. I’m liking swimming because it’s good for my body. 
+              b. I’m liking swimming because it’s good for my body.
             </label>
           </li>
           <li className="li">
@@ -230,7 +230,7 @@ const Question7 = ({ onNext }) => {
               onChange={() => handleAnswerSelection(4, "c")}
             />
             <label htmlFor="option-5-c" className="answer-text">
-            c. I like swimming because it’s good to my body. 
+              c. I like swimming because it’s good to my body.
             </label>
           </li>
         </ul>

@@ -1,0 +1,224 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  width: auto;
+  scroll-behavior: smooth;
+  position: relative;
+}
+
+.locked-textarea {
+  resize: none;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: radial-gradient(circle at 30% 40%, #7928CA, #FF4D4D, #F9A826);
+  background-blend-mode: overlay;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* CAPA 1: NEBULOSA CÓSMICA - MANCHAS DE COLOR PROFUNDAS */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background: 
+    radial-gradient(circle at 10% 20%, rgba(147, 51, 234, 0.25) 0%, transparent 40%),
+    radial-gradient(circle at 90% 30%, rgba(249, 115, 22, 0.25) 0%, transparent 45%),
+    radial-gradient(circle at 40% 70%, rgba(236, 72, 153, 0.2) 0%, transparent 50%),
+    radial-gradient(circle at 70% 80%, rgba(168, 85, 247, 0.2) 0%, transparent 40%),
+    radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.05) 0%, transparent 60%);
+  animation: nebulaDrift 40s ease-in-out infinite alternate;
+}
+
+/* CAPA 2: ESTRELLAS CENTELLEANTES */
+body::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background-image: 
+    radial-gradient(2px 2px at 15% 30%, white, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 25% 70%, rgba(255,255,255,0.8), rgba(0,0,0,0)),
+    radial-gradient(3px 3px at 45% 20%, rgba(255,200,100,0.9), rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 65% 50%, white, rgba(0,0,0,0)),
+    radial-gradient(4px 4px at 80% 85%, rgba(200,200,255,0.9), rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 92% 40%, white, rgba(0,0,0,0)),
+    radial-gradient(3px 3px at 5% 90%, rgba(255,150,150,0.8), rgba(0,0,0,0));
+  background-size: 300px 300px;
+  background-repeat: repeat;
+  opacity: 0.6;
+  animation: twinkle 5s ease-in-out infinite alternate;
+}
+
+/* CAPA 3: ONDAS DE ENERGÍA */
+.energy-waves {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.1;
+}
+
+.energy-waves svg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+/* CAPA 4: AURORA BOREAL */
+.aurora {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.15;
+  background: 
+    linear-gradient(45deg, 
+      rgba(147, 51, 234, 0) 0%, 
+      rgba(147, 51, 234, 0.1) 25%, 
+      rgba(249, 115, 22, 0.1) 50%, 
+      rgba(236, 72, 153, 0.1) 75%, 
+      transparent 100%);
+  filter: blur(60px);
+  animation: auroraFlow 20s ease infinite alternate;
+}
+
+/* CAPA 5: PARTÍCULAS DE LUZ FLOTANTES */
+.particles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.particle {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: white;
+  border-radius: 50%;
+  box-shadow: 0 0 15px rgba(249, 115, 22, 0.5);
+  animation: floatParticle 20s infinite linear;
+}
+
+/* CAPA 6: REJILLA CÓSMICA */
+.cosmic-grid {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.07;
+  background-image: 
+    linear-gradient(to right, rgba(255,255,255,0.1) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255,255,255,0.1) 1px, transparent 1px);
+  background-size: 50px 50px;
+  animation: gridPulse 8s ease-in-out infinite alternate;
+}
+
+/* ANIMACIONES */
+@keyframes nebulaDrift {
+  0% {
+    transform: scale(1) translate(0, 0);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1.1) translate(-2%, -1%);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(1.05) translate(2%, 1%);
+    opacity: 0.6;
+  }
+}
+
+@keyframes twinkle {
+  0% { opacity: 0.3; }
+  100% { opacity: 0.8; }
+}
+
+@keyframes auroraFlow {
+  0% {
+    transform: translateX(-10%) translateY(-5%) rotate(0deg);
+    opacity: 0.1;
+  }
+  50% {
+    transform: translateX(5%) translateY(10%) rotate(5deg);
+    opacity: 0.2;
+  }
+  100% {
+    transform: translateX(-5%) translateY(-10%) rotate(-5deg);
+    opacity: 0.15;
+  }
+}
+
+@keyframes floatParticle {
+  0% {
+    transform: translateY(100vh) translateX(0) scale(1);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.8;
+  }
+  80% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-100px) translateX(100px) scale(0.5);
+    opacity: 0;
+  }
+}
+
+@keyframes gridPulse {
+  0% { opacity: 0.05; }
+  100% { opacity: 0.1; }
+}
+
+/* Scrollbar personalizada */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #f97316, #9333ea);
+  border-radius: 5px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #fb923c, #a855f7);
+}
+
+/* UTILIDADES */
+.animation-delay-1000 { animation-delay: 1s; }
+.animation-delay-2000 { animation-delay: 2s; }
+.animation-delay-3000 { animation-delay: 3s; }
+.animation-delay-4000 { animation-delay: 4s; }
+.animation-delay-5000 { animation-delay: 5s; }

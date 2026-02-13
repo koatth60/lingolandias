@@ -19,6 +19,7 @@ i18n
           courses: "Kursy",
           teachers: "Nauczyciele",
           contact: "Kontakt",
+          collaboration: "Współpraca",
 
           // HERO TRANSLATIONS!!!
           hero1: "Witamy Cię prosto z Wysp Brytyjskich.",
@@ -151,6 +152,7 @@ i18n
           courses: "Courses",
           teachers: "Teachers",
           contact: "Contact",
+          collaboration: "Collaboration",
 
           // HERO TRANSLATIONS!!!
           hero1: "We welcome you from the British Isles.",
@@ -290,9 +292,10 @@ i18n
           courses: "Cursos",
           teachers: "Profesores",
           contact: "Contacto",
+          collaboration: "Colaboración",
 
           // HERO TRANSLATIONS!!!
-          hero1: "Eres bienvenido a las Islas Britanicas.",
+          hero1: "Bienvenido a las Islas Britanicas.",
           hero2:
             "Estás en un lugar donde ha comenzado una nueva era en la enseñanza de lenguas extranjeras: será rápida, agradable y",
           hero2Span: "eficiente.",

@@ -1,5 +1,4 @@
-// EnglishQuiz.js
-import { useState, createElement } from "react"; // Import createElement
+import { useState, createElement } from "react";
 import Header from "../sections/Header";
 import Footer from "../sections/Footer";
 import Question1 from "../questions-test/Question1";
@@ -17,44 +16,43 @@ import QuestionResults from "../questions-test/QuestionResults";
 const EnglishQuiz = () => {
   const [currentQuestion, setCurrentQuestion] = useState(1);
   const [results, setResults] = useState([]);
-  const questions = [Question1, Question2, Question3, Question4, Question5, Question6, Question7, Question8, Question9, Question10];
+  const questions = [
+    Question1,
+    Question2,
+    Question3,
+    Question4,
+    Question5,
+    Question6,
+    Question7,
+    Question8,
+    Question9,
+    Question10,
+  ];
 
   const handleNextQuestion = (isCorrect) => {
     setResults([...results, isCorrect]);
     setCurrentQuestion(currentQuestion + 1);
   };
 
-  // Calculate the overall percentage of correct answers
-  // const totalCorrect = results.filter(result => result).length;
-  // const totalQuestions = results.length;
-  // const overallPercentage = (totalCorrect / totalQuestions) * 100;
-
   return (
     <div>
       <Header />
-      <Header />
-      <section
-        className={`teachers ${
-          currentQuestion === 7 || currentQuestion === 8 ? "h-auto" : "h-screen"
-        } flex justify-center md:px-[30px]`}
-      >
-        <div className="h-auto font-satoshi lg:max-w-[1245px] relative lg:my-[80px] max-lg:mb-[260px] max-md:mb-[360px] md:mx-[30px] max-md:px-2">
-        <h2 className="score">
-  {currentQuestion <= questions.length ? (
-    `Question ${currentQuestion}/${questions.length}`
-  ) : (
-    "RESULTS"
-  )}
-</h2>
-
+      <section className="teachers h-auto flex justify-center">
+        <div className="h-auto font-satoshi lg:max-w-[1245px] lg:w-auto w-full relative md:my-[90px] mt-[80px] md:mx-[30px] px-3">
           {currentQuestion <= questions.length ? (
-            createElement(questions[currentQuestion - 1], { onNext: handleNextQuestion }) // Use createElement to render components dynamically
+            <>
+              <h2 className="score">
+                {`Question ${currentQuestion}/${questions.length}`}
+              </h2>
+              {createElement(questions[currentQuestion - 1], {
+                onNext: handleNextQuestion,
+              })}
+            </>
           ) : (
             <QuestionResults results={results} />
           )}
         </div>
       </section>
-
       <Footer />
     </div>
   );

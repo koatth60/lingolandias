@@ -14,6 +14,7 @@ import EnglishTeachers from "./nested-routes/EnglishTeachers.jsx";
 import { CarouselCustomArrows } from "./nested-routes/SpanishTeachers.jsx";
 import SpanishQuiz from "./nested-routes/SpanishQuiz.jsx";
 import EnglishQuiz from "./nested-routes/EnglishQuiz.jsx";
+import Collaboration from "./pages/Collaboration.jsx";
 
 const router = createBrowserRouter([
   {
@@ -51,6 +52,10 @@ const router = createBrowserRouter([
   {
     path: "/english-quiz",
     element: <EnglishQuiz />,
+  },
+  {
+    path: "/collaboration",
+    element: <Collaboration />,
   },
 ]);
 

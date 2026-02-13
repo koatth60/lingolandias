@@ -13,21 +13,29 @@ const Question8 = ({ onNext }) => {
   };
 
   const handleNext = () => {
-    const allMatchesCorrect = inputs.every((input, index) => 
+    // Check if all input fields are filled
+    const allFieldsFilled = inputs.every(input => input.trim() !== '');
+
+    if (!allFieldsFilled) {
+      alert('Please fill in all fields before proceeding.');
+      return;
+    }
+
+    // Check if all matches are correct
+    const allMatchesCorrect = inputs.every((input, index) =>
       input.trim().toLowerCase() === correctAnswers[index]
     );
 
     if (allMatchesCorrect) {
       onNext(true);
     } else {
-      
       onNext(false);
     }
   };
 
   return (
     <div className="p-4">
-      <h2 className="question">Uzupełnij odpowiednia forma czasownika „to be” w czasie przeszłym.</h2>
+      <h2 className="question">Uzupełnij odpowiednią formę czasownika „to be” w czasie przeszłym.</h2>
       <div className="ul">
         {pronouns.map((pronoun, index) => (
           <div key={index} className="flex justify-center items-center space-x-2">

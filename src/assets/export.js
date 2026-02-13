@@ -10,6 +10,7 @@ import facebook from "./facebook.png";
 import instagram from "./instagram.png";
 import twitter from "./twitter.png";
 import youtube from "./youtube.png";
+import linkedIn from "./linkedIn.png";
 import polandsquare from "./polandsquare.png";
 import spainsquare from "./spainsquare.png";
 import uksquare from "./uksquare.png";
@@ -25,7 +26,9 @@ import weronika from "./weronika.jpg";
 import nell from "./nell.jpg";
 import agata from "./agata.jpg";
 import karolina from "./karolina.jpg";
-
+import veronica from "./veronica.jpg";
+import facebooRating from "./facebook-rating.png";
+import facebookReview from "./facebook-review.png";
 
 export {
   logo1,
@@ -35,6 +38,7 @@ export {
   instagram,
   twitter,
   youtube,
+  linkedIn,
   spain,
   uk,
   poland,
@@ -54,5 +58,8 @@ export {
   nell,
   agata,
   karolina,
-  heroGif
+  veronica,
+  heroGif,
+  facebooRating,
+  facebookReview
 };

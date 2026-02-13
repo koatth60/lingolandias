@@ -2,312 +2,195 @@
 @tailwind components;
 @tailwind utilities;
 
-
 html {
-    width: auto;
-    scroll-behavior: smooth;
-    position: relative;
-  }
-  
-  .locked-textarea {
-    resize: none;
-  }
-
- body {
-  /* background-color: #FFF67E; */
-  /* background: radial-gradient(at top left, #FFEDD8, white) best so far, the whity */
-  
-  background: radial-gradient(#43a047, #9c27b0); 
-  /* background-image: linear-gradient(to right, #d946ef, #fc5296); */
-  
-
-  /* background: radial-gradient(circle closest-corner, #43a047, #9c27b0); */
-
- }
-
-
- .bg-cards {
-  background: radial-gradient(at bottom right, #0a4e0d, #9c27b0)
-  /* background: radial-gradient(at bottom right, #43a047, #9c27b0) */
-
- }
- /* .general-info-bg {
-  background: radial-gradient(at top right, yellow, green)
- } */
- header {
-
-  transition: background-color 0.3s ease-in-out
-}
-.teachers {
-  background: radial-gradient(at bottom right, #43a047, #9c27b0)
-  /* background: radial-gradient(circle, #43a047, #9c27b0) */
-}
-
-.scrolled {
-  /* background-color: #ab47bc; 
-   */
-   background-color: #9c27b0;
-
-
-}
-
-
-
-
-/* LANGUAGE SWTICHER */
-.language-container {
-  
-  display: inline-block;
-  ;
-}
-
-.selected-language {
-  width: 80px;
-  color: #fff;
-  padding: 10px ;
-  background-color: #43a047;
-  border-radius: 3px;
-  cursor: pointer;
-}
-
-.language-options {
-  width: 80px;
-  display: none;
-  position: absolute;
-  bottom: 100%; /* Display options above the selected language */
-  left: 0;
-  background-color: #9c27b0;
-  color: #fff;
-  border-radius: 3px;
-  padding: 10px;
-  cursor: pointer;
-}
-
-.language-options span {
-  display: block;
-  padding: 5px;
-}
-
-.language-container:hover .language-options {
-  display: block;
-}
-
-
-.bg-gradient-radial {
-  background: linear-gradient(135deg, #9c27b0,#0277bd);
-}
-
-
-
-/* QUIZ STYLES */
-.quiz {
-  width: 975px;
-  margin: 0 auto;
-  margin-top: 100px;
-}
-
-
-.question {
-  background-color: #0094da;
-  color: white;
-  padding: 10px;
-  min-height: 60px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 24px;
-}
-
-.results {
-  background-color: #fff;
-  height: 300px;
-  text-align: center;
-}
-
-.congratulations {
-  background-color: #0094da;
-  padding: 20px;
-  font-size: 36px;
-  color: #fff;
-}
-
-.results-info {
-  margin-top: 40px;
-  margin-bottom: 40px;
-  font-size: 18px;
-}
-
-.answer {
-  width: 48%;
-  background: #fff;
-  border: 2px solid #0094da;
-  min-height: 70px;
-  cursor: pointer;
-  margin-bottom: 30px;
-  display: flex;
-}
-
-.answers {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  margin-top: 50px;
-}
-
-.answer-letter {
-  font-size: 30px;
-  background-color: #0084da;
-  color: #fff;
-  width: 70px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.answer-text {
-  font-weight: 600;
-  display: flex;
-  align-items: center;
-  margin-left: 20px;
-}
-
-.correct-answer {
-  border: 2px solid #1ea55b;
-}
-
-.correct-answer .answer-letter {
-  background: #1ea55b;
-}
-
-.wrong-answer {
-  border: 2px solid #dc0a0a;
-}
-
-.wrong-answer .answer-letter {
-  background: #dc0a0a;
-}
-
-.next-button {
-  margin: 0 auto;
-  color: #fff;
-  background: #0b0e21;
-  width: 300px;
-  font-size: 18px;
-  font-weight: 600;
-  padding: 14px 75px;
-  text-transform: uppercase;
-  cursor: pointer;
-  text-align: center;
-}
-
-.score {
-  background: #fff;
-  color: 000;
-  font-size: 18px;
-  width: 200px;
-  margin: 0 auto;
-  font-weight: 600;
-  height: 40px;
-  margin-bottom: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.disabled-answer {
-  pointer-events: none;
-}
-
-
-
-/* ENGLISH QUIZ  */
-
-.ul {
-  width: 975px;
-  margin: 0 auto;
-  margin-top: 40px;
-}
-
-.li {
-  /* width: 48%; */
-  background: #fff;
-  border: 2px solid #0094da;
-  min-height: 70px;
-  cursor: pointer;
-  margin-bottom: 10px;
-  display: flex;
-  padding-left: 20px;
-}
-.liQ5 {
-  width: 300px;
-  background: #fff;
-  border: 2px solid #0094da;
-  min-height: 70px;
-  cursor: pointer;
-  margin-bottom: 10px;
-  display: flex;
-  padding-left: 20px;
-}
-
-/* F8F4EC */
-/* FFEDD8 */
-/* FFF67E  cool green*/
-
-
-
-/* purple, red, yellow,  */
-
-/* 
-.book {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  perspective: 1200px;
-}
-
-.book__page {
+  width: auto;
+  scroll-behavior: smooth;
   position: relative;
-  flex: 1;
-  height: 100%;
-  display: grid;
-  transform: rotateY(360deg);
-  transition: transform 0.9s cubic-bezier(0.645, 0.045, 0.355, 1);
-  transform-origin: 0% 50%;
 }
 
-.book__page--1 img {
+.locked-textarea {
+  resize: none;
+}
+
+/* ✅ BODY - ESPACIO PROFUNDO (TÚ ELECCIÓN) */
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: radial-gradient(circle at 30% 40%, #0B1E33, #1A2F4F, #2C3E6E);
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* 🌌 CAPA 1: NEBULOSA CÓSMICA - MANCHAS DE COLOR */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
-  max-width: 100%;
-  height: auto;
+  height: 100%;
+  pointer-events: none;
+  background: 
+    radial-gradient(circle at 10% 20%, rgba(44, 62, 110, 0.25) 0%, transparent 40%),
+    radial-gradient(circle at 90% 30%, rgba(26, 47, 79, 0.2) 0%, transparent 45%),
+    radial-gradient(circle at 40% 70%, rgba(11, 30, 51, 0.25) 0%, transparent 50%),
+    radial-gradient(circle at 70% 80%, rgba(52, 73, 94, 0.2) 0%, transparent 40%),
+    radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.03) 0%, transparent 60%);
+  opacity: 0.5;
+  animation: nebulaDrift 40s ease-in-out infinite alternate;
 }
 
-.book__page-front {
+/* ✨ CAPA 2: ESTRELLAS CENTELLEANTES */
+body::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background-image: 
+    radial-gradient(2px 2px at 15% 30%, white, transparent),
+    radial-gradient(2px 2px at 25% 70%, rgba(255,255,255,0.8), transparent),
+    radial-gradient(3px 3px at 45% 20%, rgba(200,220,255,0.9), transparent),
+    radial-gradient(2px 2px at 65% 50%, white, transparent),
+    radial-gradient(4px 4px at 80% 85%, rgba(180,200,255,0.9), transparent),
+    radial-gradient(2px 2px at 92% 40%, white, transparent),
+    radial-gradient(3px 3px at 5% 90%, rgba(210,230,255,0.8), transparent);
+  background-size: 300px 300px;
+  opacity: 0.6;
+  animation: twinkle 5s ease-in-out infinite alternate;
+}
+
+/* 🌊 CAPA 3: ONDAS DE ENERGÍA */
+.energy-waves {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.1;
+}
+
+.energy-waves svg {
   position: absolute;
   width: 100%;
   height: 100%;
-  backface-visibility: hidden;
 }
 
-.book__page-back {
-  position: absolute;
+/* 🌈 CAPA 4: AURORA BOREAL SUTIL */
+.aurora {
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
-  height: 883px;
-  /* padding: 200px 20px; */
-  /* transform: rotateY(360deg) translateZ(1px); /* Adjusted rotateY to flip from right to left */
-  /* display: flex;
-  flex-direction: column;
-  justify-content: center; /* Center content vertically */
-  /* align-items: center; */
-/* } */ 
-
-/* .book__page-back table {
-  margin-top: 20px;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.1;
+  background: 
+    linear-gradient(45deg, 
+      rgba(11, 30, 51, 0) 0%, 
+      rgba(26, 47, 79, 0.08) 25%, 
+      rgba(44, 62, 110, 0.08) 50%, 
+      rgba(52, 73, 94, 0.08) 75%, 
+      transparent 100%);
+  filter: blur(60px);
+  animation: auroraFlow 20s ease infinite alternate;
 }
 
-.book__page-back .page__number {
-  margin-top: 20px;
+/* 💫 CAPA 5: PARTÍCULAS DE LUZ FLOTANTES */
+.particles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 2;
 }
 
-.flipped .book__page {
-  transform: rotateY(180deg);
-}  */
+.particle {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: white;
+  border-radius: 50%;
+  box-shadow: 0 0 15px rgba(44, 62, 110, 0.6);
+  animation: floatParticle 20s infinite linear;
+}
+
+/* 🔲 CAPA 6: REJILLA CÓSMICA */
+.cosmic-grid {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.06;
+  background-image: 
+    linear-gradient(to right, rgba(44, 62, 110, 0.15) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(26, 47, 79, 0.15) 1px, transparent 1px);
+  background-size: 60px 60px;
+  animation: gridPulse 8s ease-in-out infinite alternate;
+}
+
+/* 🎬 ANIMACIONES */
+@keyframes nebulaDrift {
+  0% { transform: scale(1) translate(0, 0); opacity: 0.4; }
+  50% { transform: scale(1.1) translate(-1%, -1%); opacity: 0.6; }
+  100% { transform: scale(1.05) translate(1%, 1%); opacity: 0.5; }
+}
+
+@keyframes twinkle {
+  0% { opacity: 0.4; }
+  100% { opacity: 0.8; }
+}
+
+@keyframes auroraFlow {
+  0% { transform: translateX(-5%) translateY(-2%) rotate(0deg); opacity: 0.08; }
+  50% { transform: translateX(2%) translateY(5%) rotate(2deg); opacity: 0.12; }
+  100% { transform: translateX(-2%) translateY(-5%) rotate(-2deg); opacity: 0.1; }
+}
+
+@keyframes floatParticle {
+  0% { transform: translateY(100vh) translateX(0) scale(1); opacity: 0; }
+  20% { opacity: 0.8; }
+  80% { opacity: 0.8; }
+  100% { transform: translateY(-100px) translateX(100px) scale(0.5); opacity: 0; }
+}
+
+@keyframes gridPulse {
+  0% { opacity: 0.04; }
+  100% { opacity: 0.08; }
+}
+
+/* 📜 SCROLLBAR PERSONALIZADA - ESPACIO PROFUNDO */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(11, 30, 51, 0.5);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #1A2F4F, #2C3E6E);
+  border-radius: 5px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #2C3E6E, #3A4F7A);
+}
+
+/* ⏱️ UTILIDADES */
+.animation-delay-1000 { animation-delay: 1s; }
+.animation-delay-2000 { animation-delay: 2s; }
+.animation-delay-3000 { animation-delay: 3s; }
+.animation-delay-4000 { animation-delay: 4s; }
+.animation-delay-5000 { animation-delay: 5s; }

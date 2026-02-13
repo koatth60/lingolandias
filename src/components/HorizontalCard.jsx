@@ -10,7 +10,7 @@ import {
 // eslint-disable-next-line react/prop-types
 export function HorizontalCard({ name, description, photo, maxWidth }) {
   return (
-    <Card className={`xl:max-w-[60rem] max-w-[${maxWidth}] xl:max-h-[30rem] w-full bg-cards lg:flex-row mx-auto my-4 font-satoshi shadow-lg`}>
+    <Card className={`xl:max-w-[60rem] max-w-[${maxWidth}] xl:max-h-[42rem] w-full bg-cards lg:flex-row mx-auto my-4 font-satoshi shadow-lg`}>
       <CardHeader 
         shadow={false}
         floated={false}

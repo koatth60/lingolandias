@@ -9,11 +9,11 @@ const Question1 = ({ onNext }) => {
 
   const handleNext = () => {
     if (selectedAnswer !== null) {
-      // Check if the selected answer is correct
-      const isCorrect = selectedAnswer === "a"; // Change this to the correct answer
+      
+      const isCorrect = selectedAnswer === "a"; 
       onNext(isCorrect);
     } else {
-      // Provide some feedback to the user that they need to select an answer
+     
       alert("Please select an answer before moving to the next question.");
     }
   };

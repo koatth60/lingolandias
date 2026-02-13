@@ -40,6 +40,12 @@ const Question6 = ({ onNext }) => {
   };
 
   const handleNext = () => {
+    // Check if all phrases have been matched
+    if (matches.includes(null)) {
+      alert('Please match all the phrases before proceeding.');
+      return;
+    }
+
     // Initialize a variable to track if all matches are correct
     let allMatchesCorrect = true;
 
