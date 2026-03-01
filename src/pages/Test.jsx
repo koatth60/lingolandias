@@ -17,25 +17,25 @@ const Test = () => {
       flag: '🇬🇧',
       color: 'from-purple-500 to-blue-500',
       bgPattern: '🇬🇧🇬🇧🇬🇧',
-      description: 'Evalúa tu nivel de inglés con nuestro test interactivo. Descubre tu nivel actual y recibe recomendaciones personalizadas.',
-      features: ['30 preguntas', '15 minutos', 'Resultado inmediato', 'Certificado gratuito'],
-      levels: ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'],
-      route: '/test/english',
+      description: 'Sprawdź znajomość angielskiego: tłumaczenia, gramatyka, uzupełnianie luk i dopasowywanie wyrażeń. Wynik wysyłamy na Twój email.',
+      features: ['10 pytań', 'Różne typy zadań', 'Wynik na email', 'Dla Polaków'],
+      levels: ['A1', 'A2', 'B1', 'B2'],
+      route: '/english-quiz',
       icon: '🎸',
       accent: '🎧',
-      difficulty: 'Todos los niveles'
+      difficulty: 'Podstawowy – Średni'
     },
     {
       id: 'spanish',
       title: 'Español',
-      titleSpan: 'Test',
+      titleSpan: 'Examen',
       flag: '🇪🇸',
       color: 'from-orange-500 to-orange-400',
       bgPattern: '🇪🇸🇪🇸🇪🇸',
-      description: 'Prueba tu conocimiento del español. Identifica tu nivel y las áreas que necesitas mejorar con nuestro test dinámico.',
-      features: ['30 preguntas', '15 minutos', 'Resultado inmediato', 'Recomendaciones'],
+      description: 'Pon a prueba tu español con 30 preguntas de opción múltiple. Cubre gramática, vocabulario y comprensión. Resultado enviado a tu email.',
+      features: ['30 preguntas', 'Opción múltiple', 'Resultado en email', 'Gramática y vocabulario'],
       levels: ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'],
-      route: '/test/spanish',
+      route: '/spanish-quiz',
       icon: '💃',
       accent: '💃',
       difficulty: 'Todos los niveles'
@@ -113,41 +113,40 @@ const Test = () => {
           {/* Badge de test */}
           <div className="inline-flex items-center gap-2 bg-gradient-to-r from-orange-500/20 to-purple-600/20 backdrop-blur-sm px-6 py-2 rounded-full border border-orange-500/30 mb-6">
             <span className="text-2xl">📝</span>
-            <span className="text-white/90 text-sm font-medium tracking-wider">TEST DE NIVEL</span>
+            <span className="text-white/90 text-sm font-medium tracking-wider">{t("levelTestBadge")}</span>
             <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
           </div>
 
           <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6">
             <span className="relative">
-              ¿Cuál es tu
+              {t("whatsYourLevel")}
               <span className="absolute -inset-2 bg-gradient-to-r from-orange-500/30 to-purple-600/30 blur-2xl"></span>
             </span>
             <br />
             <span className="bg-gradient-to-r from-orange-400 via-purple-400 to-orange-400 bg-clip-text text-transparent bg-300% animate-gradient">
-              nivel de idioma?
+              {t("languageLevelQ")}
             </span>
           </h2>
           
           <p className="text-white/80 text-xl max-w-3xl mx-auto leading-relaxed">
-            Descubre tu nivel real con nuestros tests interactivos. 
-            Recibe resultados inmediatos y recomendaciones personalizadas.
+            {t("testHeroText")}
           </p>
 
           {/* Estadísticas rápidas */}
           <div className="flex justify-center items-center gap-8 mt-10">
             <div className="flex items-center gap-2">
               <span className="text-3xl">⏱️</span>
-              <span className="text-white/70">15 minutos</span>
+              <span className="text-white/70">{t("testTime")}</span>
             </div>
             <div className="w-px h-8 bg-white/20"></div>
             <div className="flex items-center gap-2">
               <span className="text-3xl">📊</span>
-              <span className="text-white/70">Resultado inmediato</span>
+              <span className="text-white/70">{t("immediateResult")}</span>
             </div>
             <div className="w-px h-8 bg-white/20"></div>
             <div className="flex items-center gap-2">
               <span className="text-3xl">🎓</span>
-              <span className="text-white/70">Certificado</span>
+              <span className="text-white/70">{t("testCertificate")}</span>
             </div>
           </div>
 
@@ -236,7 +235,7 @@ const Test = () => {
                   
                   {/* Niveles */}
                   <div className="mb-8">
-                    <p className="text-white/50 text-xs uppercase tracking-wider mb-3">Niveles evaluados</p>
+                    <p className="text-white/50 text-xs uppercase tracking-wider mb-3">{t("evaluatedLevels")}</p>
                     <div className="flex flex-wrap justify-center gap-2">
                       {test.levels.map((level, i) => (
                         <span
@@ -253,7 +252,7 @@ const Test = () => {
                   <div className="relative inline-block">
                     <div className={`absolute -inset-2 bg-gradient-to-r ${test.color} rounded-full blur-xl opacity-0 group-hover:opacity-60 transition duration-700`}></div>
                     <button className="relative px-10 py-5 bg-gradient-to-r from-orange-500 to-purple-600 rounded-full text-white font-bold text-xl hover:scale-105 transition-transform shadow-2xl inline-flex items-center gap-3 group/btn">
-                      <span>Comenzar test</span>
+                      <span>{t("startTest")}</span>
                       <span className="text-2xl group-hover/btn:translate-x-2 transition-transform">→</span>
                     </button>
                   </div>
@@ -263,7 +262,7 @@ const Test = () => {
                     <div className="absolute -top-4 -right-4 animate-bounce z-20">
                       <span className="px-4 py-2 bg-gradient-to-r from-green-500 to-emerald-500 text-white text-sm rounded-full shadow-2xl border-2 border-white/30 font-bold whitespace-nowrap flex items-center gap-1">
                         <span className="text-lg">✨</span>
-                        ¡TEST OFICIAL!
+                        {t("officialTest")}
                         <span className="text-lg">✨</span>
                       </span>
                     </div>
@@ -280,37 +279,37 @@ const Test = () => {
           
           <div className="relative bg-white/5 backdrop-blur-md p-10 rounded-3xl border border-white/20">
             <h3 className="text-2xl md:text-3xl font-bold text-white text-center mb-8">
-              ¿Por qué hacer nuestro test?
+              {t("whyTakeTest")}
             </h3>
-            
+
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
               <div className="text-center">
                 <div className="w-16 h-16 bg-gradient-to-r from-orange-500 to-purple-600 rounded-full flex items-center justify-center text-3xl mx-auto mb-3 shadow-lg">
                   🎯
                 </div>
-                <p className="text-white font-semibold">Preciso</p>
-                <p className="text-white/50 text-xs mt-1">Basado en MCER</p>
+                <p className="text-white font-semibold">{t("testAccurate")}</p>
+                <p className="text-white/50 text-xs mt-1">{t("testAccurateSub")}</p>
               </div>
               <div className="text-center">
                 <div className="w-16 h-16 bg-gradient-to-r from-orange-500 to-purple-600 rounded-full flex items-center justify-center text-3xl mx-auto mb-3 shadow-lg">
                   ⚡
                 </div>
-                <p className="text-white font-semibold">Rápido</p>
-                <p className="text-white/50 text-xs mt-1">Solo 15 min</p>
+                <p className="text-white font-semibold">{t("testFast")}</p>
+                <p className="text-white/50 text-xs mt-1">{t("testFastSub")}</p>
               </div>
               <div className="text-center">
                 <div className="w-16 h-16 bg-gradient-to-r from-orange-500 to-purple-600 rounded-full flex items-center justify-center text-3xl mx-auto mb-3 shadow-lg">
                   📊
                 </div>
-                <p className="text-white font-semibold">Detallado</p>
-                <p className="text-white/50 text-xs mt-1">Análisis completo</p>
+                <p className="text-white font-semibold">{t("testDetailed")}</p>
+                <p className="text-white/50 text-xs mt-1">{t("testDetailedSub")}</p>
               </div>
               <div className="text-center">
                 <div className="w-16 h-16 bg-gradient-to-r from-orange-500 to-purple-600 rounded-full flex items-center justify-center text-3xl mx-auto mb-3 shadow-lg">
                   🎓
                 </div>
-                <p className="text-white font-semibold">Certificado</p>
-                <p className="text-white/50 text-xs mt-1">Descargable</p>
+                <p className="text-white font-semibold">{t("testCertificate")}</p>
+                <p className="text-white/50 text-xs mt-1">{t("testCertificateSub")}</p>
               </div>
             </div>
           </div>
@@ -321,7 +320,7 @@ const Test = () => {
           <div className="inline-flex items-center gap-4 bg-gradient-to-r from-orange-500/20 to-purple-600/20 backdrop-blur-sm px-8 py-4 rounded-full border border-white/20">
             <span className="text-3xl animate-pulse">📝</span>
             <span className="text-white/90 text-lg font-light">
-              +10,000 tests completados este mes
+              {t("testQuestionsInfo")}
             </span>
             <span className="text-3xl animate-pulse animation-delay-1000">📊</span>
           </div>
@@ -335,7 +334,7 @@ const Test = () => {
           <div className="relative flex justify-center">
             <span className="px-8 py-3 bg-purple-900/60 backdrop-blur-sm rounded-full text-white/60 text-sm border border-white/20 inline-flex items-center gap-3">
               <span className="w-2 h-2 bg-orange-500 rounded-full animate-pulse"></span>
-              🇬🇧 TEST DE INGLÉS · 🇪🇸 TEST DE ESPAÑOL · ¡ELIGE TU IDIOMA! 🇪🇸 · 🇬🇧
+              🇬🇧 TEST DE INGLÉS · 🇪🇸 EXAMEN DE ESPAÑOL · ¡ELIGE TU IDIOMA! 🇪🇸 · 🇬🇧
               <span className="w-2 h-2 bg-purple-500 rounded-full animate-pulse animation-delay-1000"></span>
             </span>
           </div>

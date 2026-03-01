@@ -67,7 +67,7 @@ const Courses = () => {
           {/* Badge de poder */}
           <div className="inline-flex items-center gap-2 bg-gradient-to-r from-orange-500/20 to-purple-600/20 backdrop-blur-sm px-6 py-2 rounded-full border border-orange-500/30 mb-6">
             <span className="text-2xl">🦸</span>
-            <span className="text-white/90 text-sm font-medium tracking-wider">DESCUBRE TUS SUPERPODERES</span>
+            <span className="text-white/90 text-sm font-medium tracking-wider">{t("discoverSuperpowers")}</span>
             <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
           </div>
 
@@ -78,7 +78,7 @@ const Courses = () => {
             </span>
             <br />
             <span className="bg-gradient-to-r from-orange-400 via-purple-400 to-orange-400 bg-clip-text text-transparent bg-300% animate-gradient text-6xl md:text-7xl">
-              ¡TU SUPERAVENTURA!
+              {t("superAdventure")}
             </span>
           </h2>
           
@@ -166,11 +166,11 @@ const Courses = () => {
                   <div className="flex items-center gap-4 text-sm">
                     <span className="flex items-center gap-1 text-orange-300">
                       <span className="w-1.5 h-1.5 bg-orange-500 rounded-full animate-pulse"></span>
-                      {activeTab === 'individual' ? '1 profesor' : '2 estudiantes'}
+                      {activeTab === 'individual' ? t("oneTeacher") : t("twoStudents")}
                     </span>
                     <span className="flex items-center gap-1 text-purple-300">
                       <span className="w-1.5 h-1.5 bg-purple-500 rounded-full animate-pulse animation-delay-1000"></span>
-                      {activeTab === 'individual' ? '100% personalizado' : '60% más práctica'}
+                      {activeTab === 'individual' ? t("fullyPersonalized") : t("morePractice")}
                     </span>
                   </div>
                 </div>
@@ -187,19 +187,19 @@ const Courses = () => {
                     <div className="grid grid-cols-2 gap-4">
                       <div className="flex items-center gap-2 text-white/70">
                         <span className="text-orange-400">✓</span>
-                        <span className="text-sm">Horarios flexibles</span>
+                        <span className="text-sm">{t("flexibleSchedules")}</span>
                       </div>
                       <div className="flex items-center gap-2 text-white/70">
                         <span className="text-purple-400">✓</span>
-                        <span className="text-sm">Material incluido</span>
+                        <span className="text-sm">{t("materialIncluded")}</span>
                       </div>
                       <div className="flex items-center gap-2 text-white/70">
                         <span className="text-orange-400">✓</span>
-                        <span className="text-sm">Seguimiento continuo</span>
+                        <span className="text-sm">{t("continuousFollowUp")}</span>
                       </div>
                       <div className="flex items-center gap-2 text-white/70">
                         <span className="text-purple-400">✓</span>
-                        <span className="text-sm">Certificación</span>
+                        <span className="text-sm">{t("certification")}</span>
                       </div>
                     </div>
                   </div>
@@ -215,7 +215,7 @@ const Courses = () => {
             <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-500 to-purple-600 rounded-2xl blur opacity-0 group-hover:opacity-30 transition duration-500"></div>
             <div className="relative bg-white/5 backdrop-blur-md p-8 rounded-2xl border border-white/10 h-full">
               <span className="text-4xl mb-4 block">🌍</span>
-              <h4 className="text-white font-bold text-xl mb-3">Conexiones internacionales</h4>
+              <h4 className="text-white font-bold text-xl mb-3">{t("intlConnections")}</h4>
               <p className="text-white/70 leading-relaxed">
                 {t("courseP1")}
               </p>
@@ -226,7 +226,7 @@ const Courses = () => {
             <div className="absolute -inset-0.5 bg-gradient-to-r from-purple-600 to-orange-500 rounded-2xl blur opacity-0 group-hover:opacity-30 transition duration-500"></div>
             <div className="relative bg-white/5 backdrop-blur-md p-8 rounded-2xl border border-white/10 h-full">
               <span className="text-4xl mb-4 block">🎯</span>
-              <h4 className="text-white font-bold text-xl mb-3">Método interactivo</h4>
+              <h4 className="text-white font-bold text-xl mb-3">{t("interactiveMethod")}</h4>
               <p className="text-white/70 leading-relaxed">
                 {t("courseP2")}
               </p>
@@ -244,7 +244,7 @@ const Courses = () => {
               {/* Info de niveles */}
               <div>
                 <span className="inline-block px-4 py-1.5 bg-white/10 backdrop-blur-sm rounded-full text-orange-200 text-sm font-medium mb-4 border border-white/20">
-                  🎓 Todos los niveles
+                  🎓 {t("allLevels")}
                 </span>
                 <h4 className="text-3xl md:text-4xl font-bold text-white mb-4">
                   {t("courseP3")}
@@ -269,7 +269,7 @@ const Courses = () => {
                   </button>
                 </Link>
                 <p className="text-white/50 text-sm mt-3">
-                  ⚡ Clase de prueba gratuita
+                  ⚡ {t("freeTrialClass")}
                 </p>
               </div>
             </div>
@@ -284,7 +284,7 @@ const Courses = () => {
           <div className="relative flex justify-center">
             <span className="px-8 py-3 bg-purple-900/60 backdrop-blur-sm rounded-full text-white/60 text-sm border border-white/20 inline-flex items-center gap-3">
               <span className="w-2 h-2 bg-orange-500 rounded-full animate-pulse"></span>
-              🦸‍♂️ ¡TÚ PUEDES SER EL PRÓXIMO SUPERHÉROE DEL IDIOMA! 🦸‍♀️
+              🦸‍♂️ {t("languageSuperhero")} 🦸‍♀️
               <span className="w-2 h-2 bg-purple-500 rounded-full animate-pulse animation-delay-1000"></span>
             </span>
           </div>

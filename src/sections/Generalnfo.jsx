@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
 // Zaczęło
@@ -112,7 +113,7 @@ const GeneralInfo = () => {
           <div className="absolute -top-10 left-1/2 -translate-x-1/2 text-orange-400/30 text-4xl animate-spin-slow">✨</div>
           
           <span className="inline-block px-4 py-1.5 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full text-orange-200 text-sm font-medium tracking-wider mb-6 relative">
-            Nuestra historia
+            {t("ourStory")}
             <span className="absolute -top-1 -right-1 w-2 h-2 bg-orange-500 rounded-full animate-ping"></span>
           </span>
           
@@ -147,7 +148,7 @@ const GeneralInfo = () => {
                   <span className="w-2 h-2 bg-orange-500 rounded-full animate-pulse"></span>
                   <span className="text-orange-200 font-medium">2015</span>
                 </div>
-                <h3 className="text-3xl font-bold text-white mt-4 mb-2">El comienzo</h3>
+                <h3 className="text-3xl font-bold text-white mt-4 mb-2">{t("theBeginning")}</h3>
                 <div className="w-16 h-1 bg-gradient-to-r from-orange-500 to-purple-600 rounded-full"></div>
                 
                 {/* Adorno de línea */}
@@ -175,9 +176,9 @@ const GeneralInfo = () => {
               <div className="sticky top-32">
                 <div className="inline-flex items-center gap-3 bg-white/5 px-5 py-2 rounded-full border border-white/10">
                   <span className="w-2 h-2 bg-purple-500 rounded-full animate-pulse animation-delay-1000"></span>
-                  <span className="text-purple-200 font-medium">El método</span>
+                  <span className="text-purple-200 font-medium">{t("theDiscovery")}</span>
                 </div>
-                <h3 className="text-3xl font-bold text-white mt-4 mb-2">El descubrimiento</h3>
+                <h3 className="text-3xl font-bold text-white mt-4 mb-2">{t("theDiscovery")}</h3>
                 <div className="w-16 h-1 bg-gradient-to-r from-purple-500 to-orange-500 rounded-full"></div>
               </div>
             </div>
@@ -197,9 +198,9 @@ const GeneralInfo = () => {
               <div className="sticky top-32">
                 <div className="inline-flex items-center gap-3 bg-gradient-to-r from-orange-500/20 to-purple-600/20 px-5 py-2 rounded-full border border-orange-500/30">
                   <span className="w-2 h-2 bg-orange-400 rounded-full animate-ping animation-delay-2000"></span>
-                  <span className="text-orange-200 font-medium">La filosofía</span>
+                  <span className="text-orange-200 font-medium">{t("ourEssence")}</span>
                 </div>
-                <h3 className="text-3xl font-bold text-white mt-4 mb-2">Nuestra esencia</h3>
+                <h3 className="text-3xl font-bold text-white mt-4 mb-2">{t("ourEssence")}</h3>
                 <div className="w-16 h-1 bg-gradient-to-r from-orange-500 to-purple-600 rounded-full"></div>
               </div>
             </div>
@@ -223,9 +224,9 @@ const GeneralInfo = () => {
                 <div className="absolute -left-8 -top-2 text-yellow-500/30 text-2xl">⭐</div>
                 <div className="inline-flex items-center gap-3 bg-white/5 px-5 py-2 rounded-full border border-white/10">
                   <span className="w-2 h-2 bg-orange-500 rounded-full"></span>
-                  <span className="text-orange-200 font-medium">Hoy</span>
+                  <span className="text-orange-200 font-medium">{t("today")}</span>
                 </div>
-                <h3 className="text-3xl font-bold text-white mt-4 mb-2">Orgullo y misión</h3>
+                <h3 className="text-3xl font-bold text-white mt-4 mb-2">{t("prideAndMission")}</h3>
                 <div className="w-16 h-1 bg-gradient-to-r from-orange-500 to-purple-600 rounded-full"></div>
               </div>
             </div>
@@ -237,11 +238,11 @@ const GeneralInfo = () => {
                 <div className="flex items-center gap-4 text-sm">
                   <span className="flex items-center gap-2 text-orange-300">
                     <span className="w-1.5 h-1.5 bg-orange-500 rounded-full animate-pulse"></span>
-                    100% compromiso
+                    {t("commitment100")}
                   </span>
                   <span className="flex items-center gap-2 text-purple-300">
                     <span className="w-1.5 h-1.5 bg-purple-500 rounded-full animate-pulse animation-delay-1000"></span>
-                    Método probado
+                    {t("provenMethod")}
                   </span>
                 </div>
                 {/* Adorno de check */}
@@ -279,7 +280,7 @@ const GeneralInfo = () => {
               <span className="absolute bottom-10 left-20 text-3xl opacity-20 animate-bounce">🌟</span>
               
               <h3 className="text-4xl md:text-5xl font-bold text-white mb-6 relative">
-                ¿Listo para tu viaje?
+                {t("readyForJourney")}
                 <span className="absolute -top-3 -right-3 text-yellow-300/30 text-2xl">⚡</span>
               </h3>
               
@@ -288,13 +289,13 @@ const GeneralInfo = () => {
               </p>
               
               <div className="flex flex-wrap gap-4 justify-center relative">
-                <button className="px-8 py-4 bg-gradient-to-r from-orange-500 to-purple-600 rounded-full text-white font-semibold hover:scale-105 transition-transform shadow-2xl shadow-orange-600/25 inline-flex items-center gap-2 text-lg group">
-                  Únete a la comunidad
+                <Link to="/contact" className="px-8 py-4 bg-gradient-to-r from-orange-500 to-purple-600 rounded-full text-white font-semibold hover:scale-105 transition-transform shadow-2xl shadow-orange-600/25 inline-flex items-center gap-2 text-lg group">
+                  {t("joinCommunity")}
                   <span className="group-hover:translate-x-1 transition-transform">→</span>
-                </button>
-                <button className="px-8 py-4 bg-white/10 backdrop-blur-sm border border-white/30 rounded-full text-white font-semibold hover:bg-white/20 transition-all text-lg">
-                  Conoce más
-                </button>
+                </Link>
+                <Link to="/courses" className="px-8 py-4 bg-white/10 backdrop-blur-sm border border-white/30 rounded-full text-white font-semibold hover:bg-white/20 transition-all text-lg">
+                  {t("knowMore")}
+                </Link>
               </div>
             </div>
           </div>
@@ -303,7 +304,7 @@ const GeneralInfo = () => {
           <div className="grid grid-cols-3 gap-8 pt-16 border-t border-white/10 relative">
             <div className="absolute inset-x-0 top-0 -translate-y-1/2 flex justify-center">
               <span className="px-4 py-1 bg-purple-800/80 backdrop-blur-sm rounded-full text-xs text-white/80 border border-white/20">
-                ✦ 10+ años de historia ✦
+                {t("yearsOfHistory")}
               </span>
             </div>
             
@@ -311,21 +312,21 @@ const GeneralInfo = () => {
               <div className="absolute inset-0 bg-orange-500/0 group-hover:bg-orange-500/5 rounded-2xl transition-colors"></div>
               <span className="absolute -top-2 -right-2 text-orange-500/30 group-hover:opacity-100 opacity-0 transition-opacity">🏆</span>
               <div className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-orange-300 mb-2">10+</div>
-              <p className="text-white/60 text-sm uppercase tracking-wider">Años</p>
+              <p className="text-white/60 text-sm uppercase tracking-wider">{t("statYears")}</p>
             </div>
             
             <div className="text-center relative group">
               <div className="absolute inset-0 bg-purple-500/0 group-hover:bg-purple-500/5 rounded-2xl transition-colors"></div>
               <span className="absolute -top-2 left-1/2 -translate-x-1/2 text-purple-500/30 group-hover:opacity-100 opacity-0 transition-opacity">👥</span>
               <div className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-purple-300 mb-2">1000+</div>
-              <p className="text-white/60 text-sm uppercase tracking-wider">Estudiantes</p>
+              <p className="text-white/60 text-sm uppercase tracking-wider">{t("statStudents")}</p>
             </div>
             
             <div className="text-center relative group">
               <div className="absolute inset-0 bg-gradient-to-r from-orange-500/0 to-purple-600/0 group-hover:from-orange-500/5 group-hover:to-purple-600/5 rounded-2xl transition-colors"></div>
               <span className="absolute -bottom-2 -left-2 text-orange-500/30 group-hover:opacity-100 opacity-0 transition-opacity">📚</span>
               <div className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-purple-400 mb-2">15+</div>
-              <p className="text-white/60 text-sm uppercase tracking-wider">Profesores</p>
+              <p className="text-white/60 text-sm uppercase tracking-wider">{t("statTeachersLabel")}</p>
             </div>
           </div>
         </div>

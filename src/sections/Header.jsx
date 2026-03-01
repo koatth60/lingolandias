@@ -28,8 +28,8 @@ const Header = () => {
     { path: "/", label: t("home") },
     { path: "/courses", label: t("courses") },
     { path: "/team", label: t("teachers") },
-    { path: "/test", label: "Test" },
-    { path: "/collaboration", label: t("collaboration") },
+    { path: "/test", label: t("test") },
+    // { path: "/collaboration", label: t("collaboration") },
   ];
 
   return (
@@ -109,7 +109,7 @@ const Header = () => {
 
           {/* Desktop Actions - ESTILO CÓSMICO */}
           <div className="hidden lg:flex items-center gap-4">
-            <button className={`relative group px-6 py-2.5 rounded-full text-white font-semibold transition-all duration-300 overflow-hidden ${
+            <Link to="/contact" className={`relative group px-6 py-2.5 rounded-full text-white font-semibold transition-all duration-300 overflow-hidden ${
               isScrolled
                 ? 'bg-[#1A2F4F]/50 backdrop-blur-sm border border-[#2C3E6E] hover:border-[#44A1A0]'
                 : 'bg-white/10 backdrop-blur-sm border border-white/30 hover:border-[#44A1A0]'
@@ -120,18 +120,18 @@ const Header = () => {
                 <span className="text-[#44A1A0] text-lg">✦</span>
                 {t("contact")}
               </span>
-            </button>
+            </Link>
             
-            <button className="relative group px-6 py-2.5 bg-gradient-to-r from-[#1A2F4F] to-[#2C3E6E] rounded-full text-white font-semibold hover:scale-105 transition-transform shadow-2xl shadow-[#0B1E33]/50 overflow-hidden">
+            <Link to="/test" className="relative group px-6 py-2.5 bg-gradient-to-r from-[#1A2F4F] to-[#2C3E6E] rounded-full text-white font-semibold hover:scale-105 transition-transform shadow-2xl shadow-[#0B1E33]/50 overflow-hidden">
               {/* Efecto de estrella fugaz */}
               <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 translate-x-[-100%] group-hover:translate-x-[100%]"></span>
               <span className="relative z-10 flex items-center gap-2">
                 <span>🚀</span>
-                Comenzar
+                {t("begin")}
               </span>
               {/* Punto de luz pulsante */}
               <span className="absolute -top-1 -right-1 w-2 h-2 bg-[#44A1A0] rounded-full animate-ping"></span>
-            </button>
+            </Link>
           </div>
 
           {/* Mobile Menu Button - ESTILO CÓSMICO */}
@@ -224,19 +224,19 @@ const Header = () => {
                 
                 <div className="h-px bg-gradient-to-r from-transparent via-[#2C3E6E] to-transparent my-2"></div>
                 
-                <button className="px-4 py-3.5 text-white/90 hover:bg-[#1A2F4F]/50 rounded-xl transition-all duration-300 text-left flex items-center justify-between group">
+                <Link to="/contact" onClick={() => setIsOpen(false)} className="px-4 py-3.5 text-white/90 hover:bg-[#1A2F4F]/50 rounded-xl transition-all duration-300 text-left flex items-center justify-between group">
                   <span className="flex items-center gap-3">
                     <span className="w-1.5 h-1.5 bg-[#44A1A0]/50 rounded-full"></span>
                     {t("contact")}
                   </span>
                   <span className="text-[#44A1A0] opacity-0 group-hover:opacity-100 transition-opacity">→</span>
-                </button>
+                </Link>
                 
-                <button className="mt-2 px-4 py-3.5 bg-gradient-to-r from-[#1A2F4F] to-[#2C3E6E] rounded-xl text-white font-semibold flex items-center justify-center gap-2 border border-[#44A1A0]/30 hover:scale-[1.02] transition-transform">
+                <Link to="/test" onClick={() => setIsOpen(false)} className="mt-2 px-4 py-3.5 bg-gradient-to-r from-[#1A2F4F] to-[#2C3E6E] rounded-xl text-white font-semibold flex items-center justify-center gap-2 border border-[#44A1A0]/30 hover:scale-[1.02] transition-transform">
                   <span>🚀</span>
-                  Comenzar
+                  {t("begin")}
                   <span className="w-1.5 h-1.5 bg-[#44A1A0] rounded-full animate-pulse"></span>
-                </button>
+                </Link>
               </div>
             </div>
           </div>

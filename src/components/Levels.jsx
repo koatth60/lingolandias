@@ -1,4 +1,5 @@
 import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
 
 const Levels = () => {
   const { t } = useTranslation();
@@ -48,10 +49,10 @@ const Levels = () => {
       </div>
       
       <div className="text-center mt-10">
-        <button className="px-8 py-3 bg-gradient-to-r from-orange-500 to-purple-600 rounded-full text-white font-semibold hover:scale-105 transition-transform shadow-lg inline-flex items-center gap-2 text-sm">
+        <Link to="/test" className="px-8 py-3 bg-gradient-to-r from-orange-500 to-purple-600 rounded-full text-white font-semibold hover:scale-105 transition-transform shadow-lg inline-flex items-center gap-2 text-sm">
           <span>Evaluar mi nivel</span>
           <span>→</span>
-        </button>
+        </Link>
       </div>
     </div>
   );

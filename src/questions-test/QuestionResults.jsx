@@ -1,12 +1,14 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import { useTranslation } from "react-i18next";
 
 const QuestionResults = ({ results }) => {
+  const { t } = useTranslation();
   const [email, setEmail] = useState("");
   const [emailSent, setEmailSent] = useState(false);
 
   const totalCorrect = results.filter((result) => result).length;
   const totalQuestions = results.length;
-  const percentageCorrect = (totalCorrect / totalQuestions) * 100;
+  const percentageCorrect = Math.round((totalCorrect / totalQuestions) * 100);
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
@@ -16,15 +18,12 @@ const QuestionResults = ({ results }) => {
     try {
       const response = await fetch("https://api.srv570363.hstgr.cloud:3000/englishscore", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           email,
-          percentage: percentageCorrect.toFixed(2),
+          percentage: ((totalCorrect / totalQuestions) * 100).toFixed(2),
         }),
       });
-
       if (response.ok) {
         setEmailSent(true);
       } else {
@@ -40,51 +39,80 @@ const QuestionResults = ({ results }) => {
   };
 
   return (
-    <section className="w-full flex justify-center md:px-0">
-      <div className="h-auto font-satoshi lg:max-w-[1245px] lg:w-auto w-full relative md:my-[90px]  ">
-        <div className="text-center bg-white lg:w-[975px] md:w-full pb-4 mb-4 ">
-          <h2 className="text-4xl bg-[#0094da] text-white py-7">
-            Congratulations!
-          </h2>
-          <p className="mt-8 text-lg">You have completed the quiz.</p>
+    <div className="w-full max-w-2xl mx-auto">
+      <div className="relative">
+        <div className="absolute -inset-1 bg-gradient-to-r from-purple-500 to-blue-500 rounded-3xl blur-xl opacity-40"></div>
+        <div className="relative bg-gradient-to-br from-purple-900/90 to-purple-800/90 backdrop-blur-xl rounded-3xl border border-white/20 overflow-hidden shadow-2xl">
+          {/* Top bar */}
+          <div className="h-2 bg-gradient-to-r from-purple-500 to-blue-500"></div>
 
-          {!emailSent ? (
-            <div className="">
-              <p className="text-lg">
-                To receive your score, please enter your email below:
-              </p>
-              <div className="lg:flex justify-center">
-                <input
-                  type="email"
-                  className="p-2 border border-gray-300 rounded"
-                  placeholder="Enter your email"
-                  value={email}
-                  onChange={handleEmailChange}
-                />
-
-                <button
-                  className="mt-2 md:mt-0 md:ml-2 p-2 bg-black text-white rounded"
-                  onClick={handleEmailSubmit}
-                >
-                  Send score
-                </button>
+          <div className="p-10 text-center">
+            {/* Trophy */}
+            <div className="relative inline-block mb-6">
+              <div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full blur-2xl opacity-60"></div>
+              <div className="relative w-24 h-24 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full flex items-center justify-center text-5xl shadow-2xl ring-4 ring-white/20">
+                🏆
               </div>
             </div>
-          ) : (
-            <div className="mt-2 text-black text-lg">
-              <p>Your score has been sent to {email}.</p>
-              <p>Please make sure the email entered is correct!</p>
-              <button
-                className="mt-4 py-2 px-6 bg-black text-white rounded"
-                onClick={handleReload}
-              >
-                RESTART
-              </button>
+
+            <h2 className="text-4xl font-bold text-white mb-2">
+              {t("congratulations")}
+            </h2>
+            <p className="text-white/60 mb-8">{t("completedEngTest")}</p>
+
+            {/* Score */}
+            <div className="bg-white/5 rounded-2xl border border-white/10 px-8 py-6 mb-8 w-full">
+              <p className="text-white/60 text-sm uppercase tracking-wider mb-2">{t("yourScore")}</p>
+              <p className="text-5xl font-bold bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
+                {totalCorrect}/{totalQuestions}
+              </p>
+              <div className="mt-4 w-full bg-white/10 rounded-full h-3">
+                <div
+                  className="h-3 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full transition-all duration-1000"
+                  style={{ width: `${percentageCorrect}%` }}
+                ></div>
+              </div>
+              <p className="text-white/50 text-sm mt-2">{t("percentCorrect", { percent: percentageCorrect })}</p>
             </div>
-          )}
+
+            {/* Email */}
+            <div className="mb-6">
+              <p className="text-white/80 mb-4 text-sm">{t("enterEmailForScore")}</p>
+              {!emailSent ? (
+                <div className="flex flex-col sm:flex-row gap-3 justify-center items-center">
+                  <input
+                    type="email"
+                    className="w-full sm:w-72 px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-white/40 focus:outline-none focus:border-purple-400/60 focus:bg-white/15 transition-all"
+                    placeholder="your@email.com"
+                    value={email}
+                    onChange={handleEmailChange}
+                  />
+                  <button
+                    className="px-6 py-3 bg-gradient-to-r from-purple-500 to-blue-500 rounded-xl text-white font-semibold hover:scale-105 transition-transform shadow-lg whitespace-nowrap"
+                    onClick={handleEmailSubmit}
+                  >
+                    {t("sendScore")}
+                  </button>
+                </div>
+              ) : (
+                <div className="flex items-center justify-center gap-2 text-green-400 bg-green-500/10 border border-green-400/30 rounded-xl px-4 py-3">
+                  <span className="text-xl">✓</span>
+                  <span>{t("scoreSentTo", { email })}</span>
+                </div>
+              )}
+            </div>
+
+            {/* Restart */}
+            <button
+              className="px-8 py-3 bg-white/10 border border-white/20 rounded-xl text-white/80 hover:bg-white/15 hover:text-white transition-all duration-300"
+              onClick={handleReload}
+            >
+              {t("restartTest")}
+            </button>
+          </div>
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 

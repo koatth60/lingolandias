@@ -63,8 +63,7 @@ const Footer = () => {
             </Link>
             
             <p className="text-white/60 text-sm leading-relaxed max-w-sm">
-              Lingolandias es más que una academia, es una comunidad global de apasionados por los idiomas. 
-              Nuestro método holístico transforma la manera de aprender.
+              {t("footerDesc")}
             </p>
             
             {/* Badge de calificación */}
@@ -75,7 +74,7 @@ const Footer = () => {
                 ))}
               </div>
               <span className="text-white/80 text-sm font-medium">4.9</span>
-              <span className="text-white/40 text-xs">· 150+ reseñas</span>
+              <span className="text-white/40 text-xs">· {t("footerReviews")}</span>
             </div>
           </div>
 
@@ -122,7 +121,7 @@ const Footer = () => {
                   {t("footEnglish")}
                 </Link>
                 <span className="text-xs px-2 py-1 bg-orange-500/20 text-orange-300 rounded-full border border-orange-500/30 opacity-0 group-hover:opacity-100 transition-opacity">
-                  Popular
+                  {t("footerPopular")}
                 </span>
               </li>
               <li className="flex items-center justify-between group">
@@ -131,7 +130,7 @@ const Footer = () => {
                   {t("footSpanish")}
                 </Link>
                 <span className="text-xs px-2 py-1 bg-purple-500/20 text-purple-300 rounded-full border border-purple-500/30 opacity-0 group-hover:opacity-100 transition-opacity">
-                  Nuevo
+                  {t("footerNew")}
                 </span>
               </li>
               <li className="flex items-center justify-between group">
@@ -140,7 +139,7 @@ const Footer = () => {
                   {t("footPolish")}
                 </Link>
                 <span className="text-xs px-2 py-1 bg-orange-500/20 text-orange-300 rounded-full border border-orange-500/30 opacity-0 group-hover:opacity-100 transition-opacity">
-                  Pro
+                  {t("footerPro")}
                 </span>
               </li>
             </ul>
@@ -149,7 +148,7 @@ const Footer = () => {
             <div className="mt-6 pt-6 border-t border-white/10">
               <div className="flex items-center gap-2 text-xs text-white/50">
                 <span className="w-2 h-2 bg-orange-500 rounded-full"></span>
-                Todos los niveles: A1 → C2
+                {t("footerAllLevels")}
               </div>
             </div>
           </div>
@@ -241,15 +240,15 @@ const Footer = () => {
 
             {/* Newsletter */}
             <div className="mt-6 pt-6 border-t border-white/10">
-              <p className="text-white/60 text-xs mb-3">📬 Únete a nuestro newsletter</p>
+              <p className="text-white/60 text-xs mb-3">📬 {t("footerNewsletter")}</p>
               <div className="flex gap-2">
-                <input 
-                  type="email" 
-                  placeholder="tu@email.com" 
+                <input
+                  type="email"
+                  placeholder={t("footerEmailPlaceholder")}
                   className="flex-1 px-4 py-2 bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl text-white text-sm placeholder:text-white/30 focus:outline-none focus:border-orange-500/50 transition-colors"
                 />
                 <button className="px-4 py-2 bg-gradient-to-r from-orange-500 to-purple-600 rounded-xl text-white text-sm font-semibold hover:scale-105 transition-transform shadow-lg whitespace-nowrap">
-                  Enviar
+                  {t("footerSend")}
                 </button>
               </div>
             </div>
@@ -263,7 +262,7 @@ const Footer = () => {
           </div>
           <div className="relative flex justify-center">
             <span className="px-6 py-2 bg-purple-900/80 backdrop-blur-sm rounded-full text-white/40 text-xs border border-white/20">
-              ✦ Conectando culturas a través del lenguaje ✦
+              {t("footerConnecting")}
             </span>
           </div>
         </div>
@@ -271,15 +270,15 @@ const Footer = () => {
         {/* BOTTOM BAR - COPYRIGHT */}
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
           <div className="text-white/40 text-xs">
-            © {currentYear} Lingolandias. {t('footer.rights', 'Todos los derechos reservados.')}
+            © {currentYear} Lingolandias. {t("footerRights")}
           </div>
           
           <div className="flex items-center gap-6">
             <Link to="/privacy" className="text-white/40 hover:text-orange-400 text-xs transition-colors">
-              Política de privacidad
+              {t("footerPrivacy")}
             </Link>
             <Link to="/terms" className="text-white/40 hover:text-purple-400 text-xs transition-colors">
-              Términos y condiciones
+              {t("footerTerms")}
             </Link>
             <Link to="/cookies" className="text-white/40 hover:text-orange-400 text-xs transition-colors">
               Cookies
@@ -288,9 +287,9 @@ const Footer = () => {
 
           {/* Hecho con 💜 */}
           <div className="flex items-center gap-1 text-white/30 text-xs">
-            <span>Hecho con</span>
+            <span>{t("footerMadeWith")}</span>
             <span className="text-orange-400 animate-pulse">❤️</span>
-            <span>en Berlín</span>
+            <span>{t("footerInBerlin")}</span>
           </div>
         </div>
       </div>

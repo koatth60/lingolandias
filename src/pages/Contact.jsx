@@ -116,41 +116,40 @@ const Contact = () => {
           {/* Badge de contacto */}
           <div className="inline-flex items-center gap-2 bg-gradient-to-r from-orange-500/20 to-purple-600/20 backdrop-blur-sm px-6 py-2 rounded-full border border-orange-500/30 mb-6">
             <span className="text-2xl">💬</span>
-            <span className="text-white/90 text-sm font-medium tracking-wider">CONTACTO</span>
+            <span className="text-white/90 text-sm font-medium tracking-wider">{t("contactBadge")}</span>
             <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
           </div>
 
           <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6">
             <span className="relative">
-              Hablemos
+              {t("letsTalk")}
               <span className="absolute -inset-2 bg-gradient-to-r from-orange-500/30 to-purple-600/30 blur-2xl"></span>
             </span>
             <br />
             <span className="bg-gradient-to-r from-orange-400 via-purple-400 to-orange-400 bg-clip-text text-transparent bg-300% animate-gradient">
-              sobre tu futuro
+              {t("aboutYourFuture")}
             </span>
           </h2>
           
           <p className="text-white/80 text-xl max-w-3xl mx-auto leading-relaxed">
-            ¿Tienes preguntas? ¿Quieres comenzar tu viaje lingüístico? 
-            Estamos aquí para ayudarte. Envíanos un mensaje y te responderemos en menos de 24 horas.
+            {t("contactHeroText")}
           </p>
 
           {/* Estadísticas de respuesta */}
           <div className="flex justify-center items-center gap-8 mt-10">
             <div className="flex items-center gap-2">
               <span className="text-3xl">⚡</span>
-              <span className="text-white/70">Respuesta en 24h</span>
+              <span className="text-white/70">{t("response24h")}</span>
             </div>
             <div className="w-px h-8 bg-white/20"></div>
             <div className="flex items-center gap-2">
               <span className="text-3xl">🌍</span>
-              <span className="text-white/70">Soporte multilenguaje</span>
+              <span className="text-white/70">{t("multilingualSupport")}</span>
             </div>
             <div className="w-px h-8 bg-white/20"></div>
             <div className="flex items-center gap-2">
               <span className="text-3xl">🔒</span>
-              <span className="text-white/70">Datos seguros</span>
+              <span className="text-white/70">{t("secureData")}</span>
             </div>
           </div>
 
@@ -181,8 +180,8 @@ const Contact = () => {
                 <div className="mb-6 p-4 bg-gradient-to-r from-green-500/20 to-emerald-500/20 border border-green-500/30 rounded-xl text-white flex items-center gap-3 animate-slideDown">
                   <span className="text-2xl">✅</span>
                   <div>
-                    <p className="font-semibold">¡Mensaje enviado!</p>
-                    <p className="text-white/70 text-sm">Te responderemos a la brevedad.</p>
+                    <p className="font-semibold">{t("messageSentTitle")}</p>
+                    <p className="text-white/70 text-sm">{t("messageSentText")}</p>
                   </div>
                 </div>
               )}
@@ -191,7 +190,7 @@ const Contact = () => {
                 {/* Campo: Nombre */}
                 <div className="relative group/input">
                   <label className="block text-white/80 text-sm font-medium mb-2 ml-1">
-                    Nombre completo <span className="text-orange-400">*</span>
+                    {t("fullNameLabel")} <span className="text-orange-400">*</span>
                   </label>
                   <div className="relative">
                     <span className="absolute left-4 top-1/2 -translate-y-1/2 text-white/40 text-xl">👤</span>
@@ -201,7 +200,7 @@ const Contact = () => {
                       value={formData.name}
                       onChange={handleChange}
                       required
-                      placeholder="Ej. María González"
+                      placeholder={t("fullNamePlaceholder")}
                       className="w-full pl-12 pr-4 py-3.5 bg-white/5 backdrop-blur-sm border border-white/20 rounded-xl text-white placeholder:text-white/30 focus:outline-none focus:border-orange-500/50 focus:ring-2 focus:ring-orange-500/20 transition-all"
                     />
                     <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-orange-500/0 to-purple-600/0 group-hover/input:from-orange-500/5 group-hover/input:to-purple-600/5 transition-all pointer-events-none"></div>
@@ -211,7 +210,7 @@ const Contact = () => {
                 {/* Campo: Teléfono */}
                 <div className="relative group/input">
                   <label className="block text-white/80 text-sm font-medium mb-2 ml-1">
-                    Teléfono <span className="text-white/40 text-xs ml-1">(opcional)</span>
+                    {t("phoneLabel")} <span className="text-white/40 text-xs ml-1">({t("optional")})</span>
                   </label>
                   <div className="relative">
                     <span className="absolute left-4 top-1/2 -translate-y-1/2 text-white/40 text-xl">📱</span>
@@ -220,7 +219,7 @@ const Contact = () => {
                       name="phone"
                       value={formData.phone}
                       onChange={handleChange}
-                      placeholder="Ej. +34 600 123 456"
+                      placeholder={t("phonePlaceholder")}
                       className="w-full pl-12 pr-4 py-3.5 bg-white/5 backdrop-blur-sm border border-white/20 rounded-xl text-white placeholder:text-white/30 focus:outline-none focus:border-orange-500/50 focus:ring-2 focus:ring-orange-500/20 transition-all"
                     />
                   </div>
@@ -229,7 +228,7 @@ const Contact = () => {
                 {/* Campo: Email */}
                 <div className="relative group/input">
                   <label className="block text-white/80 text-sm font-medium mb-2 ml-1">
-                    Correo electrónico <span className="text-orange-400">*</span>
+                    {t("emailLabel")} <span className="text-orange-400">*</span>
                   </label>
                   <div className="relative">
                     <span className="absolute left-4 top-1/2 -translate-y-1/2 text-white/40 text-xl">📧</span>
@@ -239,7 +238,7 @@ const Contact = () => {
                       value={formData.email}
                       onChange={handleChange}
                       required
-                      placeholder="ejemplo@correo.com"
+                      placeholder={t("emailPlaceholder")}
                       className="w-full pl-12 pr-4 py-3.5 bg-white/5 backdrop-blur-sm border border-white/20 rounded-xl text-white placeholder:text-white/30 focus:outline-none focus:border-orange-500/50 focus:ring-2 focus:ring-orange-500/20 transition-all"
                     />
                   </div>
@@ -248,7 +247,7 @@ const Contact = () => {
                 {/* Campo: Mensaje */}
                 <div className="relative group/input">
                   <label className="block text-white/80 text-sm font-medium mb-2 ml-1">
-                    Mensaje <span className="text-orange-400">*</span>
+                    {t("messageLabel")} <span className="text-orange-400">*</span>
                   </label>
                   <div className="relative">
                     <span className="absolute left-4 top-5 text-white/40 text-xl">💬</span>
@@ -258,7 +257,7 @@ const Contact = () => {
                       onChange={handleChange}
                       required
                       rows="4"
-                      placeholder="Escribe tu mensaje aquí..."
+                      placeholder={t("messagePlaceholder")}
                       className="w-full pl-12 pr-4 py-3.5 bg-white/5 backdrop-blur-sm border border-white/20 rounded-xl text-white placeholder:text-white/30 focus:outline-none focus:border-orange-500/50 focus:ring-2 focus:ring-orange-500/20 transition-all resize-none"
                     ></textarea>
                   </div>
@@ -276,11 +275,11 @@ const Contact = () => {
                       {isSubmitting ? (
                         <>
                           <span className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></span>
-                          <span>Enviando...</span>
+                          <span>{t("sending")}</span>
                         </>
                       ) : (
                         <>
-                          <span>Enviar mensaje</span>
+                          <span>{t("sendMessage")}</span>
                           <span className="text-2xl group-hover/btn:translate-x-1 transition-transform">→</span>
                         </>
                       )}
@@ -288,7 +287,7 @@ const Contact = () => {
                   </button>
                   
                   <p className="text-white/40 text-xs text-center mt-4">
-                    ✦ Tus datos están seguros con nosotros. No compartimos información. ✦
+                    ✦ {t("dataPrivacy")} ✦
                   </p>
                 </div>
               </form>
@@ -320,8 +319,8 @@ const Contact = () => {
                       <div className="flex items-center gap-3">
                         <span className="text-3xl">💬</span>
                         <div>
-                          <p className="text-white font-semibold">Respuesta en 24h</p>
-                          <p className="text-white/60 text-sm">Lun - Vie, 9:00 - 18:00</p>
+                          <p className="text-white font-semibold">{t("response24h")}</p>
+                          <p className="text-white/60 text-sm">{t("businessHours")}</p>
                         </div>
                       </div>
                     </div>
@@ -343,12 +342,12 @@ const Contact = () => {
                 </div>
                 <div className="p-4 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 hover:border-orange-500/30 transition-colors">
                   <span className="text-2xl mb-2 block">📍</span>
-                  <p className="text-white/80 text-xs font-medium">Oficina</p>
+                  <p className="text-white/80 text-xs font-medium">{t("officeLabel")}</p>
                   <p className="text-white text-sm">Madrid, España</p>
                 </div>
                 <div className="p-4 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 hover:border-purple-500/30 transition-colors">
                   <span className="text-2xl mb-2 block">🌍</span>
-                  <p className="text-white/80 text-xs font-medium">Idiomas</p>
+                  <p className="text-white/80 text-xs font-medium">{t("languagesLabel")}</p>
                   <p className="text-white text-sm">ES · EN · PL</p>
                 </div>
               </div>
@@ -357,7 +356,7 @@ const Contact = () => {
               <div className="mt-6 p-4 bg-gradient-to-r from-orange-500/10 to-purple-600/10 backdrop-blur-sm rounded-xl border border-white/10 text-center">
                 <span className="text-3xl mb-2 block">🔒</span>
                 <p className="text-white/70 text-xs">
-                  Tus datos están protegidos bajo SSL y nuestra política de privacidad.
+                  {t("dataProtection")}
                 </p>
               </div>
             </div>
@@ -372,7 +371,7 @@ const Contact = () => {
           <div className="relative flex justify-center">
             <span className="px-8 py-3 bg-purple-900/60 backdrop-blur-sm rounded-full text-white/60 text-sm border border-white/20 inline-flex items-center gap-3">
               <span className="w-2 h-2 bg-orange-500 rounded-full animate-pulse"></span>
-              📱 · 💬 · 📧 · 📞 · ¡ESCRÍBENOS! · 📍 · 🗺️ · ⏰
+              📱 · 💬 · 📧 · 📞 · {t("writeUs")} · 📍 · 🗺️ · ⏰
               <span className="w-2 h-2 bg-purple-500 rounded-full animate-pulse animation-delay-1000"></span>
             </span>
           </div>

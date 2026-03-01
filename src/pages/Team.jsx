@@ -32,7 +32,7 @@ const Team = () => {
       bgPattern: '🇪🇸🇪🇸🇪🇸',
       description: t('SpaTeachersTitleP1'),
       teacherCount: 3,
-      route: '/team/spanish',
+      route: '/esteachers',
       icon: '💃'
     },
     {
@@ -44,19 +44,19 @@ const Team = () => {
       bgPattern: '🇬🇧🇬🇧🇬🇧',
       description: t('EngTeachersP1'),
       teacherCount: 3,
-      route: '/team/english',
+      route: '/enteachers',
       icon: '🎸'
     },
     {
       id: 'polish',
-      title: 'Nasi nauczyciele',
-      titleSpan: 'polskiego',
+      title: t('polTeachersTitle'),
+      titleSpan: t('polTeachersSpan'),
       flag: '🇵🇱',
       color: 'from-red-500 to-white',
       bgPattern: '🇵🇱🇵🇱🇵🇱',
-      description: 'Nasi lektorzy języka polskiego to native speakerzy z wieloletnim doświadczeniem. Specjalizują się w nauczaniu obcokrajowców i przygotowują do egzaminów certyfikatowych.',
+      description: t('polTeachersDesc'),
       teacherCount: 3,
-      route: '/team/polish',
+      route: '/enteachers',
       icon: '🍺'
     }
   ];
@@ -191,7 +191,7 @@ const Team = () => {
                     <div className="flex items-center gap-1">
                       <span className="text-white/60">👥</span>
                       <span className="text-white font-bold">{lang.teacherCount}</span>
-                      <span className="text-white/60 text-xs">profesores</span>
+                      <span className="text-white/60 text-xs">{t("statTeachersLabel")}</span>
                     </div>
                     <div className="w-px h-4 bg-white/20"></div>
                     <div className="flex items-center gap-1">
@@ -202,7 +202,7 @@ const Team = () => {
                   
                   {/* Botón */}
                   <div className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-orange-500 to-purple-600 rounded-full text-white font-semibold group-hover:scale-105 transition-transform shadow-lg">
-                    <span>{t("teachersBtn")} equipo</span>
+                    <span>{t("teachersBtn")}</span>
                     <span className="group-hover:translate-x-1 transition-transform">→</span>
                   </div>
                   
@@ -225,7 +225,7 @@ const Team = () => {
           <div className="inline-flex items-center gap-3 bg-gradient-to-r from-orange-500/20 to-purple-600/20 backdrop-blur-sm px-8 py-4 rounded-full border border-white/20">
             <span className="text-3xl">🖱️</span>
             <span className="text-white/90 text-lg font-light">
-              Haz clic en cualquier tarjeta para conocer a nuestro equipo
+              {t("clickToMeetTeam")}
             </span>
           </div>
         </div>

@@ -79,14 +79,14 @@ const Hero = () => {
             </p>
             
             <div className="flex flex-wrap gap-4 pt-2">
-              <button className="relative group px-8 py-3.5 bg-gradient-to-r from-orange-500 to-purple-600 rounded-full text-white font-semibold hover:scale-105 transition-transform shadow-lg hover:shadow-orange-500/25 overflow-hidden">
+              <Link to="/test" className="relative group px-8 py-3.5 bg-gradient-to-r from-orange-500 to-purple-600 rounded-full text-white font-semibold hover:scale-105 transition-transform shadow-lg hover:shadow-orange-500/25 overflow-hidden">
                 <span className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></span>
-                <span className="relative">Comienza ahora</span>
-              </button>
-              <button className="px-8 py-3.5 bg-white/10 backdrop-blur-sm border border-white/30 rounded-full text-white font-semibold hover:bg-white/20 transition-all relative group">
+                <span className="relative">{t("startNow")}</span>
+              </Link>
+              <Link to="/courses" className="px-8 py-3.5 bg-white/10 backdrop-blur-sm border border-white/30 rounded-full text-white font-semibold hover:bg-white/20 transition-all relative group">
                 <span className="absolute -inset-0.5 bg-gradient-to-r from-orange-500 to-purple-600 rounded-full blur opacity-0 group-hover:opacity-50 transition duration-500"></span>
-                <span className="relative">Conoce más</span>
-              </button>
+                <span className="relative">{t("learnMore")}</span>
+              </Link>
             </div>
 
             {/* Stats rápidas - reposicionadas ligeramente */}
@@ -102,7 +102,7 @@ const Hero = () => {
                 </div>
               </div>
               <div className="text-white/80 text-sm">
-                <span className="font-bold text-white">1000+</span> estudiantes activos
+                {t("heroActiveStudents")}
               </div>
             </div>
 
@@ -112,10 +112,10 @@ const Hero = () => {
                 <span className="text-orange-400">✓</span> 100% online
               </span>
               <span className="flex items-center gap-1">
-                <span className="text-purple-400">✓</span> Clases en vivo
+                <span className="text-purple-400">✓</span> {t("heroLiveClasses")}
               </span>
               <span className="flex items-center gap-1">
-                <span className="text-orange-400">✓</span> Certificación
+                <span className="text-orange-400">✓</span> {t("heroCertification")}
               </span>
             </div>
           </div>
@@ -148,7 +148,7 @@ const Hero = () => {
                 <div className="relative bg-white/10 backdrop-blur-md px-6 py-3 rounded-xl border border-white/20">
                   <span className="text-orange-200 text-xs uppercase tracking-wider flex items-center gap-2 justify-center">
                     <span className="w-1 h-1 bg-orange-500 rounded-full animate-pulse"></span>
-                    Director & Fundador
+                    {t("heroFounder")}
                   </span>
                   <span className="text-white text-lg font-semibold block mt-0.5">{t("director")}</span>
                 </div>
@@ -216,7 +216,7 @@ const Hero = () => {
             <div className="absolute -inset-2 bg-gradient-to-r from-orange-500 to-purple-600 rounded-full blur opacity-0 group-hover:opacity-40 transition duration-500"></div>
             <div className="relative bg-purple-900/70 backdrop-blur-xl px-6 py-2.5 rounded-full border border-white/20 shadow-2xl flex items-center gap-2">
               <span className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse"></span>
-              <span className="text-white/90 text-xs font-medium">Descubre tu nivel ideal</span>
+              <span className="text-white/90 text-xs font-medium">{t("heroDiscoverLevel")}</span>
               <span className="text-orange-400 text-xs font-bold">→</span>
             </div>
           </div>
