@@ -13,7 +13,7 @@ const Quiz = () => {
 
   const handleEmailSubmit = async () => {
     try {
-      const response = await fetch("https://api.srv570363.hstgr.cloud:3000/spanishscore", {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/spanishscore`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -47,41 +47,25 @@ const Quiz = () => {
             <div className="h-2 bg-gradient-to-r from-orange-500 to-purple-600"></div>
 
             <div className="p-10 text-center">
-              {/* Trophy */}
-              <div className="relative inline-block mb-6">
-                <div className="absolute inset-0 bg-gradient-to-r from-orange-500 to-purple-600 rounded-full blur-2xl opacity-60"></div>
-                <div className="relative w-24 h-24 bg-gradient-to-r from-orange-500 to-purple-600 rounded-full flex items-center justify-center text-5xl shadow-2xl ring-4 ring-white/20">
-                  🏆
-                </div>
-              </div>
+              {!emailSent ? (
+                <>
+                  {/* Trophy */}
+                  <div className="relative inline-block mb-6">
+                    <div className="absolute inset-0 bg-gradient-to-r from-orange-500 to-purple-600 rounded-full blur-2xl opacity-60"></div>
+                    <div className="relative w-24 h-24 bg-gradient-to-r from-orange-500 to-purple-600 rounded-full flex items-center justify-center text-5xl shadow-2xl ring-4 ring-white/20">
+                      🏆
+                    </div>
+                  </div>
 
-              <h2 className="text-4xl font-bold text-white mb-2">
-                ¡Completado!
-              </h2>
-              <p className="text-white/60 mb-8">Has finalizado el examen de español</p>
+                  <h2 className="text-4xl font-bold text-white mb-2">¡Completado!</h2>
+                  <p className="text-white/60 mb-8">Has finalizado el examen de español</p>
 
-              {/* Score display */}
-              <div className="bg-white/5 rounded-2xl border border-white/10 px-8 py-6 mb-8 inline-block w-full">
-                <p className="text-white/60 text-sm uppercase tracking-wider mb-2">Tu puntuación</p>
-                <p className="text-5xl font-bold bg-gradient-to-r from-orange-400 to-purple-400 bg-clip-text text-transparent">
-                  {quizState.correctAnswersCount}/{quizState.questions.length}
-                </p>
-                <div className="mt-4 w-full bg-white/10 rounded-full h-3">
-                  <div
-                    className="h-3 bg-gradient-to-r from-orange-500 to-purple-600 rounded-full transition-all duration-1000"
-                    style={{ width: `${(quizState.correctAnswersCount / quizState.questions.length) * 100}%` }}
-                  ></div>
-                </div>
-                <p className="text-white/50 text-sm mt-2">
-                  {Math.round((quizState.correctAnswersCount / quizState.questions.length) * 100)}% correcto
-                </p>
-              </div>
+                  <div className="bg-white/5 rounded-2xl border border-white/10 px-8 py-6 mb-8 w-full">
+                    <p className="text-white/70 text-base mb-1">Tu resultado está listo</p>
+                    <p className="text-white/40 text-sm">Introduce tu email para recibirlo — te lo enviamos al instante.</p>
+                  </div>
 
-              {/* Email section */}
-              <div className="mb-6">
-                <p className="text-white/80 mb-4 text-sm">Introduce tu email para recibir tu puntuación:</p>
-                {!emailSent ? (
-                  <div className="flex flex-col sm:flex-row gap-3 justify-center items-center">
+                  <div className="flex flex-col sm:flex-row gap-3 justify-center items-center mb-6">
                     <input
                       type="email"
                       placeholder="tu@email.com"
@@ -93,24 +77,44 @@ const Quiz = () => {
                       onClick={handleEmailSubmit}
                       className="px-6 py-3 bg-gradient-to-r from-orange-500 to-purple-600 rounded-xl text-white font-semibold hover:scale-105 transition-transform shadow-lg whitespace-nowrap"
                     >
-                      Enviar puntuación
+                      Recibir resultado
                     </button>
                   </div>
-                ) : (
-                  <div className="flex items-center justify-center gap-2 text-green-400 bg-green-500/10 border border-green-400/30 rounded-xl px-4 py-3">
-                    <span className="text-xl">✓</span>
-                    <span>Puntuación enviada a {email}</span>
-                  </div>
-                )}
-              </div>
 
-              {/* Restart */}
-              <button
-                onClick={() => dispatch({ type: "RESTART" })}
-                className="px-8 py-3 bg-white/10 border border-white/20 rounded-xl text-white/80 hover:bg-white/15 hover:text-white transition-all duration-300"
-              >
-                Reiniciar examen
-              </button>
+                  <button
+                    onClick={() => dispatch({ type: "RESTART" })}
+                    className="px-8 py-3 bg-white/10 border border-white/20 rounded-xl text-white/80 hover:bg-white/15 hover:text-white transition-all duration-300"
+                  >
+                    Reiniciar examen
+                  </button>
+                </>
+              ) : (
+                <>
+                  {/* Sent confirmation */}
+                  <div className="relative inline-block mb-6">
+                    <div className="absolute inset-0 bg-gradient-to-r from-orange-500 to-purple-600 rounded-full blur-2xl opacity-60"></div>
+                    <div className="relative w-24 h-24 bg-gradient-to-r from-orange-500 to-purple-600 rounded-full flex items-center justify-center text-5xl shadow-2xl ring-4 ring-white/20">
+                      📬
+                    </div>
+                  </div>
+
+                  <h2 className="text-4xl font-bold text-white mb-2">¡Revisa tu email!</h2>
+                  <p className="text-white/60 mb-8">Hemos enviado tu resultado a</p>
+
+                  <div className="bg-white/5 rounded-2xl border border-white/10 px-8 py-4 mb-8 inline-block">
+                    <p className="text-orange-400 font-semibold text-lg">{email}</p>
+                  </div>
+
+                  <p className="text-white/40 text-sm mb-8">Nuestro equipo se pondrá en contacto contigo pronto con más información.</p>
+
+                  <button
+                    onClick={() => dispatch({ type: "RESTART" })}
+                    className="px-8 py-3 bg-white/10 border border-white/20 rounded-xl text-white/80 hover:bg-white/15 hover:text-white transition-all duration-300"
+                  >
+                    Reiniciar examen
+                  </button>
+                </>
+              )}
             </div>
           </div>
         </div>

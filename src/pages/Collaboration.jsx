@@ -278,7 +278,7 @@ const Collaboration = () => {
             <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
           </div>
 
-          <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6">
+          <h2 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-6">
             <span className="relative">
               El talento
               <span className="absolute -inset-2 bg-gradient-to-r from-orange-500/30 to-purple-600/30 blur-2xl"></span>
@@ -289,13 +289,13 @@ const Collaboration = () => {
             </span>
           </h2>
           
-          <p className="text-white/80 text-xl max-w-3xl mx-auto leading-relaxed">
+          <p className="text-white/80 text-base sm:text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
             Conoce a los profesionales que hacen posible nuestra metodología. 
             Un equipo multidisciplinario apasionado por la educación y la tecnología.
           </p>
 
           {/* Estadísticas de equipo */}
-          <div className="flex justify-center items-center gap-8 mt-10">
+          <div className="flex flex-wrap justify-center items-center gap-4 sm:gap-8 mt-10">
             <div className="flex items-center gap-2">
               <span className="text-3xl">👥</span>
               <span className="text-white/70">{collaborators.length}+ colaboradores</span>
@@ -464,7 +464,7 @@ const Collaboration = () => {
         <div className="mt-20 relative">
           <div className="absolute inset-0 bg-gradient-to-r from-orange-600/20 to-purple-600/20 rounded-3xl blur-3xl"></div>
           
-          <div className="relative bg-gradient-to-r from-orange-600/30 to-purple-600/30 backdrop-blur-md p-10 md:p-12 rounded-3xl border border-white/20 overflow-hidden">
+          <div className="relative bg-gradient-to-r from-orange-600/30 to-purple-600/30 backdrop-blur-md p-5 sm:p-8 md:p-12 rounded-3xl border border-white/20 overflow-hidden">
             
             {/* Elementos decorativos */}
             <div className="absolute top-0 right-0 text-8xl opacity-10 animate-float-slow">🤝</div>
@@ -481,11 +481,11 @@ const Collaboration = () => {
               </p>
               
               <div className="flex flex-wrap justify-center gap-4">
-                <button className="px-8 py-4 bg-gradient-to-r from-orange-500 to-purple-600 rounded-full text-white font-bold hover:scale-105 transition-transform shadow-2xl inline-flex items-center gap-2">
+                <button className="px-5 py-3 sm:px-8 sm:py-4 bg-gradient-to-r from-orange-500 to-purple-600 rounded-full text-white font-bold hover:scale-105 transition-transform shadow-2xl inline-flex items-center gap-2">
                   <span>Enviar CV</span>
                   <span>→</span>
                 </button>
-                <button className="px-8 py-4 bg-white/10 backdrop-blur-sm border border-white/30 rounded-full text-white font-semibold hover:bg-white/20 transition-all">
+                <button className="px-5 py-3 sm:px-8 sm:py-4 bg-white/10 backdrop-blur-sm border border-white/30 rounded-full text-white font-semibold hover:bg-white/20 transition-all">
                   Ver vacantes
                 </button>
               </div>
@@ -500,19 +500,19 @@ const Collaboration = () => {
         {/* ESTADÍSTICAS DE COLABORACIÓN */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-20">
           <div className="text-center p-6 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10">
-            <span className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-orange-300">8+</span>
+            <span className="text-xl sm:text-2xl md:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-orange-300">8+</span>
             <p className="text-white/60 text-xs mt-2">Países</p>
           </div>
           <div className="text-center p-6 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10">
-            <span className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-purple-300">7</span>
+            <span className="text-xl sm:text-2xl md:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-purple-300">7</span>
             <p className="text-white/60 text-xs mt-2">Disciplinas</p>
           </div>
           <div className="text-center p-6 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10">
-            <span className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-purple-400">50+</span>
+            <span className="text-xl sm:text-2xl md:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-purple-400">50+</span>
             <p className="text-white/60 text-xs mt-2">Proyectos</p>
           </div>
           <div className="text-center p-6 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10">
-            <span className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-orange-300">24/7</span>
+            <span className="text-xl sm:text-2xl md:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-orange-300">24/7</span>
             <p className="text-white/60 text-xs mt-2">Colaboración</p>
           </div>
         </div>

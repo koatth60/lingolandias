@@ -10,10 +10,10 @@ const reviews = [
     color: "from-orange-500 to-purple-600",
     flag: "🇵🇱",
     rating: 5,
-    date: "Hace 4 días",
+    date: "24 feb 2026",
     dateSort: 8,
     likes: 1,
-    review: "Polecam Lingolandias! 🌟 Podoba mi się, że gramatyka jest wplatana naturalnie w rozmowy, bez sztywnego wkuwania. Nauczyciele są świetni i wyluzowani, a atmosfera sprawia, że coraz bardziej przełamuję strach przed mówieniem. To miejsce daje motywację i poczucie, że robi się postępy 💗"
+    reviewKey: "review1",
   },
   {
     id: 2,
@@ -25,7 +25,7 @@ const reviews = [
     date: "9 feb 2026",
     dateSort: 7,
     likes: 1,
-    review: "Fantastyczna atmosfera, świetna komunikacja i organizacja, polecam w 100% 🩷"
+    reviewKey: "review2",
   },
   {
     id: 3,
@@ -37,7 +37,7 @@ const reviews = [
     date: "8 ene 2026",
     dateSort: 6,
     likes: 4,
-    review: "Uczęszczam na zajęcia indywidualne z języka hiszpańskiego i jestem bardzo zadowolona z tej szkoły. Od samego początku wszystko przebiegało sprawnie i bez problemów. Podczas zapisu rozmawiałam z Anią, która jest bardzo miła, ciepła i pomocna. Lekcje mam z nauczycielem Christianem, który jest bardzo przyjazny, cierpliwy i wyrozumiały — nauka języka hiszpańskiego jest łatwa i przyjemna. Jestem bardzo wdzięczna, że trafiłam na tę szkołę. W 100% polecam! 🤩"
+    reviewKey: "review3",
   },
   {
     id: 4,
@@ -49,7 +49,7 @@ const reviews = [
     date: "18 dic 2025",
     dateSort: 5,
     likes: 2,
-    review: "Rok temu szukałam nauczyciela języka polskiego i w ten sposób trafiłam na Lingolandias. Moja córka jest bardzo nieśmiała i nigdy nie wykazywała zainteresowania językiem polskim. Już na początku zostałyśmy otoczone ogromną troską. Lingolandias zesłało nam anioła — Panią Anetkę. Nigdy nie spotkałam osoby tak cierpliwej, ciepłej i pełnej serca. Dzięki niej córka otworzyła się, polubiła język polski i z radością czeka na kolejne lekcje. Z całego serca dziękujemy! ❤️"
+    reviewKey: "review4",
   },
   {
     id: 5,
@@ -61,7 +61,7 @@ const reviews = [
     date: "8 jul 2025",
     dateSort: 4,
     likes: 2,
-    review: "Z Lingolandias poczujesz się jak w domu 🏡 Lekcje z super nauczycielem, atmosfera super — przełamałam swój strach, już się nie boję że coś powiem nie tak. Rozmowa na luzie, bez żadnej spiny. W końcu rozjaśniła mi się gramatyka, która sprawiała mi tyle problemów. Polecam wszystkim z całego serca, ściskam cały team, jesteście super i pomagajcie, bo robicie to świetnie! 🩷🫶"
+    reviewKey: "review5",
   },
   {
     id: 6,
@@ -73,7 +73,7 @@ const reviews = [
     date: "20 ene 2025",
     dateSort: 3,
     likes: 2,
-    review: "Moje dziecko uczy się polskiego w Lingolandias od kilku miesięcy i jestem pod wrażeniem jego postępów. Początkowo miałam wątpliwości, czy nauka online sprawdzi się u tak małego dziecka, ale szybko zostały one rozwiane. Zajęcia z Panią Karoliną są interesujące, angażujące i dopasowane do potrzeb mojego dziecka. Kontakt ze szkołą jest zawsze sprawny i profesjonalny. Z całego serca polecam."
+    reviewKey: "review6",
   },
   {
     id: 7,
@@ -85,7 +85,7 @@ const reviews = [
     date: "6 sep 2024",
     dateSort: 2,
     likes: 3,
-    review: "Bardzo polecam tą szkołę językową. Wszystko jest dostosowane indywidualnie pod ciebie. Zajęcia są prowadzone w mega fajnej atmosferze. Kontakt z właścicielką wspaniały. Polecam w 100% 🌟"
+    reviewKey: "review7",
   },
   {
     id: 8,
@@ -97,7 +97,7 @@ const reviews = [
     date: "26 ago 2024",
     dateSort: 1,
     likes: 5,
-    review: "Z całego serca polecam Lingolandias ❤️ Już od pierwszego kontaktu z Anią, która jest odpowiedzialna za sprawy administracyjne, wiedziałam że trafiłam w dobre ręce. Veronica — moja nauczycielka — to cudowna osoba. Z każdą lekcją czuję się pewniej. Godzina z Veroniką mija błyskawicznie i co najważniejsze w super atmosferze — bez stresu i blokady w mówieniu. Na każdą lekcję czekam z niecierpliwością! BARDZO POLECAM ❤️"
+    reviewKey: "review8",
   }
 ];
 
@@ -119,7 +119,7 @@ const Reviews = () => {
   const visible = filtered.slice(0, visibleCount);
 
   return (
-    <section className="relative py-32 overflow-hidden">
+    <section className="relative pt-14 pb-24 overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 bg-purple-950/40 backdrop-blur-sm"></div>
 
@@ -132,9 +132,7 @@ const Reviews = () => {
             style={{
               top: `${Math.random() * 100}%`,
               left: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 5}s`,
-              animationDuration: `${15 + Math.random() * 10}s`,
-              animation: 'floatRandom 15s ease-in-out infinite',
+              animation: `floatRandom ${15 + Math.random() * 10}s ease-in-out ${Math.random() * 5}s infinite`,
             }}
           >
             {i % 3 === 0 ? '👍' : i % 3 === 1 ? '❤️' : '⭐'}
@@ -156,9 +154,9 @@ const Reviews = () => {
             <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
           </div>
 
-          <h2 className="text-5xl md:text-6xl font-bold text-white mb-6">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
             {t("whatTheySay")}
-            <span className="relative ml-4">
+            <span className="relative ml-2 sm:ml-4">
               <span className="bg-gradient-to-r from-orange-400 via-purple-400 to-orange-400 bg-clip-text text-transparent" style={{ backgroundSize: '300%', animation: 'gradient 8s ease infinite' }}>
                 {t("ourStudents")}
               </span>
@@ -167,9 +165,9 @@ const Reviews = () => {
           </h2>
 
           {/* Rating summary */}
-          <div className="inline-flex items-center gap-8 bg-white/5 backdrop-blur-md px-8 py-5 rounded-2xl border border-white/10">
+          <div className="inline-flex items-center gap-4 sm:gap-8 bg-white/5 backdrop-blur-md px-4 sm:px-8 py-3 sm:py-5 rounded-2xl border border-white/10">
             <div className="text-left">
-              <div className="text-4xl font-bold text-white">5.0</div>
+              <div className="text-2xl sm:text-4xl font-bold text-white">5.0</div>
               <div className="flex items-center gap-0.5 mt-1">
                 {[...Array(5)].map((_, i) => (
                   <span key={i} className="text-orange-400 text-xl">★</span>
@@ -182,7 +180,7 @@ const Reviews = () => {
               {[5].map(stars => (
                 <div key={stars} className="flex items-center gap-2">
                   <span className="text-white/50 text-xs w-2">5</span>
-                  <div className="w-28 h-1.5 bg-white/10 rounded-full overflow-hidden">
+                  <div className="w-20 sm:w-28 h-1.5 bg-white/10 rounded-full overflow-hidden">
                     <div className="h-full bg-gradient-to-r from-orange-500 to-purple-600 rounded-full w-full"></div>
                   </div>
                   <span className="text-white/60 text-xs">100%</span>
@@ -221,7 +219,7 @@ const Reviews = () => {
             {t("viewAllFB")}
           </a>
         </p>
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid md:grid-cols-2 gap-4 md:gap-6">
           {visible.map((review, index) => (
             <div
               key={review.id}
@@ -231,7 +229,7 @@ const Reviews = () => {
               {/* Glow */}
               <div className={`absolute -inset-0.5 bg-gradient-to-r ${review.color} rounded-2xl blur-lg opacity-0 group-hover:opacity-25 transition duration-500`}></div>
 
-              <div className="relative bg-gradient-to-br from-purple-900/85 to-purple-800/85 backdrop-blur-xl rounded-2xl border border-white/10 p-6 hover:border-white/20 transition-all shadow-xl h-full flex flex-col">
+              <div className="relative bg-gradient-to-br from-purple-900/85 to-purple-800/85 backdrop-blur-xl rounded-2xl border border-white/10 p-4 sm:p-6 hover:border-white/20 transition-all shadow-xl h-full flex flex-col">
 
                 {/* Top accent bar */}
                 <div className={`h-0.5 bg-gradient-to-r ${review.color} absolute top-0 left-0 right-0 rounded-t-2xl`}></div>
@@ -273,7 +271,7 @@ const Reviews = () => {
                 <div className="relative flex-1 mb-4">
                   <span className="absolute -top-1 -left-1 text-4xl text-orange-500/15 font-serif leading-none select-none">"</span>
                   <p className="text-white/85 leading-relaxed text-sm pl-3">
-                    {review.review}
+                    {t(review.reviewKey)}
                   </p>
                 </div>
 
@@ -302,7 +300,7 @@ const Reviews = () => {
           <div className="text-center mt-10">
             <button
               onClick={() => setVisibleCount(filtered.length)}
-              className="group relative inline-flex items-center gap-3 px-8 py-4 bg-white/5 backdrop-blur-sm border border-white/20 rounded-full text-white font-semibold hover:bg-white/10 transition-all"
+              className="group relative inline-flex items-center gap-3 px-5 py-2.5 sm:px-8 sm:py-4 bg-white/5 backdrop-blur-sm border border-white/20 rounded-full text-white font-semibold hover:bg-white/10 transition-all"
             >
               <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-500 to-purple-600 rounded-full blur opacity-0 group-hover:opacity-25 transition duration-500"></div>
               <span className="relative">{t("seeMoreReviews")}</span>
@@ -312,7 +310,7 @@ const Reviews = () => {
         )}
 
         {/* ── FACEBOOK CTA ── */}
-        <div className="mt-16 p-6 bg-[#1877F2]/5 backdrop-blur-md rounded-2xl border border-[#1877F2]/20">
+        <div className="mt-10 p-4 sm:p-6 bg-[#1877F2]/5 backdrop-blur-md rounded-2xl border border-[#1877F2]/20">
           <div className="flex items-center justify-between flex-wrap gap-4">
             <div className="flex items-center gap-4">
               <div className="w-12 h-12 bg-gradient-to-r from-orange-500 to-purple-600 rounded-xl flex items-center justify-center shadow-lg">
@@ -329,7 +327,7 @@ const Reviews = () => {
               href={FACEBOOK_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-6 py-3 bg-[#1877F2] hover:bg-[#1565C0] rounded-full text-white font-semibold transition-all flex items-center gap-2 shadow-lg hover:scale-105"
+              className="px-4 py-2 sm:px-6 sm:py-3 bg-[#1877F2] hover:bg-[#1565C0] rounded-full text-white text-sm sm:text-base font-semibold transition-all flex items-center gap-2 shadow-lg hover:scale-105"
             >
               <svg className="w-4 h-4 fill-white" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
               {t("viewLingoPage")}
@@ -340,15 +338,15 @@ const Reviews = () => {
         {/* ── STATS ── */}
         <div className="grid grid-cols-3 gap-4 mt-12 pt-8 border-t border-white/10">
           <div className="text-center">
-            <div className="text-3xl font-bold bg-gradient-to-r from-orange-400 to-orange-300 bg-clip-text text-transparent">5.0</div>
+            <div className="text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-orange-400 to-orange-300 bg-clip-text text-transparent">5.0</div>
             <p className="text-white/60 text-xs mt-1">{t("fbRating")}</p>
           </div>
           <div className="text-center">
-            <div className="text-3xl font-bold bg-gradient-to-r from-purple-400 to-purple-300 bg-clip-text text-transparent">44</div>
+            <div className="text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-purple-400 to-purple-300 bg-clip-text text-transparent">44</div>
             <p className="text-white/60 text-xs mt-1">{t("fbReviewsStat")}</p>
           </div>
           <div className="text-center">
-            <div className="text-3xl font-bold bg-gradient-to-r from-orange-400 to-purple-400 bg-clip-text text-transparent">100%</div>
+            <div className="text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-orange-400 to-purple-400 bg-clip-text text-transparent">100%</div>
             <p className="text-white/60 text-xs mt-1">{t("recommendStat")}</p>
           </div>
         </div>

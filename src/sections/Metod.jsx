@@ -1,6 +1,7 @@
 // components/Metod.jsx
 import { useTranslation } from 'react-i18next';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const Metod = () => {
   const { t } = useTranslation();
@@ -38,14 +39,14 @@ const Metod = () => {
   ];
 
   return (
-    <section className="relative py-32 overflow-hidden">
+    <section className="relative py-24 overflow-hidden">
       {/* Fondo consistente con el body */}
       <div className="absolute inset-0 bg-purple-950/40 backdrop-blur-sm"></div>
       
       {/* Elementos artísticos EXCLUSIVOS para Metod */}
       
       {/* Círculos concéntricos animados */}
-      <div className="absolute top-20 right-20 opacity-20">
+      <div className="hidden lg:block absolute top-20 right-20 opacity-20">
         <div className="relative">
           <div className="w-64 h-64 border-2 border-orange-500/30 rounded-full animate-ping-slow"></div>
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 border-2 border-purple-500/30 rounded-full"></div>
@@ -95,7 +96,7 @@ const Metod = () => {
           
           <div className="inline-block relative">
             <span className="absolute -inset-10 bg-gradient-to-r from-orange-500/30 to-purple-600/30 rounded-full blur-3xl"></span>
-            <h2 className="relative text-6xl md:text-7xl font-bold text-white mb-6 tracking-tight">
+            <h2 className="relative text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-6 tracking-tight">
               <span className="bg-gradient-to-r from-orange-400 via-purple-400 to-orange-400 bg-clip-text text-transparent bg-300% animate-gradient">
                 {t("methodH")}
               </span>
@@ -111,17 +112,17 @@ const Metod = () => {
         </div>
 
         {/* Grid principal */}
-        <div className="grid lg:grid-cols-2 gap-16 items-start">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-start">
           {/* Columna izquierda - Filosofía del método */}
           <div className="relative">
             {/* Tarjeta principal - Enfoque holístico */}
-            <div className="sticky top-32">
+            <div className="lg:sticky lg:top-28">
               <div className="relative group">
                 {/* Múltiples capas de glow */}
                 <div className="absolute -inset-1 bg-gradient-to-r from-orange-500 to-purple-600 rounded-3xl blur-xl opacity-25 group-hover:opacity-50 transition duration-700"></div>
                 <div className="absolute -inset-2 bg-gradient-to-r from-purple-600 to-orange-500 rounded-3xl blur-2xl opacity-20 group-hover:opacity-30 transition duration-700"></div>
                 
-                <div className="relative bg-gradient-to-br from-purple-900/90 to-purple-800/90 backdrop-blur-xl p-10 rounded-3xl border border-white/20 shadow-2xl">
+                <div className="relative bg-gradient-to-br from-purple-900/90 to-purple-800/90 backdrop-blur-xl p-6 sm:p-10 rounded-3xl border border-white/20 shadow-2xl">
                   {/* Icono flotante */}
                   <div className="absolute -top-6 -right-6 w-16 h-16 bg-gradient-to-r from-orange-500 to-purple-600 rounded-2xl rotate-12 flex items-center justify-center shadow-2xl group-hover:rotate-45 transition-transform duration-500">
                     <span className="text-3xl">✨</span>
@@ -136,7 +137,7 @@ const Metod = () => {
                     </div>
                   </div>
                   
-                  <p className="text-white/95 text-xl leading-relaxed font-light">
+                  <p className="text-white/95 text-base sm:text-xl leading-relaxed font-light">
                     {t("methodP")}
                   </p>
                   
@@ -161,14 +162,14 @@ const Metod = () => {
           </div>
 
           {/* Columna derecha - Preguntas frecuentes */}
-          <div className="space-y-4">
+          <div className="space-y-3 sm:space-y-4">
             <div className="mb-8">
               <span className="inline-flex items-center gap-2 text-orange-200 text-sm uppercase tracking-wider">
                 <span className="w-1.5 h-1.5 bg-orange-500 rounded-full animate-pulse"></span>
                 {t("solveYourDoubts")}
                 <span className="w-1.5 h-1.5 bg-purple-500 rounded-full animate-pulse animation-delay-1000"></span>
               </span>
-              <h3 className="text-3xl font-bold text-white mt-2">
+              <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mt-2">
                 {t("faq")}
               </h3>
             </div>
@@ -184,14 +185,14 @@ const Metod = () => {
                   {/* Botón de la pregunta */}
                   <button
                     onClick={() => setOpenQuestion(openQuestion === q.id ? null : q.id)}
-                    className="w-full flex items-center gap-4 p-6 text-left transition-all"
+                    className="w-full flex items-center gap-2 sm:gap-4 p-3 sm:p-5 text-left transition-all"
                   >
-                    <div className={`w-12 h-12 rounded-xl bg-gradient-to-r ${q.color} flex items-center justify-center text-2xl shadow-lg group-hover:scale-110 transition-transform`}>
+                    <div className={`w-8 h-8 sm:w-10 sm:h-10 shrink-0 rounded-xl bg-gradient-to-r ${q.color} flex items-center justify-center text-base sm:text-xl shadow-lg group-hover:scale-110 transition-transform`}>
                       {q.icon}
                     </div>
-                    
+
                     <div className="flex-1">
-                      <h4 className="text-white font-semibold text-lg group-hover:text-orange-200 transition-colors">
+                      <h4 className="text-white font-semibold text-base sm:text-lg group-hover:text-orange-200 transition-colors">
                         {q.question}
                       </h4>
                     </div>
@@ -213,10 +214,10 @@ const Metod = () => {
                         : "max-h-0 opacity-0"
                     }`}
                   >
-                    <div className="p-6 pt-0 border-t border-white/10">
+                    <div className="p-3 sm:p-5 pt-0 border-t border-white/10">
                       <div className="flex gap-3">
-                        <span className="text-orange-400 text-xl">💬</span>
-                        <p className="text-white/80 leading-relaxed">
+                        <span className="text-orange-400 text-base">💬</span>
+                        <p className="text-white/80 text-sm leading-relaxed">
                           {q.answer}
                         </p>
                       </div>
@@ -227,16 +228,16 @@ const Metod = () => {
             ))}
 
             {/* Tarjeta de CTA adicional */}
-            <div className="mt-8 p-6 bg-gradient-to-r from-orange-600/20 to-purple-600/20 backdrop-blur-md rounded-2xl border border-white/10">
-              <div className="flex items-center gap-4">
+            <div className="mt-6 p-4 sm:p-6 bg-gradient-to-r from-orange-600/20 to-purple-600/20 backdrop-blur-md rounded-2xl border border-white/10">
+              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
                 <span className="text-3xl">🎓</span>
                 <div className="flex-1">
                   <h4 className="text-white font-semibold">{t("readyToStart")}</h4>
                   <p className="text-white/70 text-sm">{t("discoveryClass")}</p>
                 </div>
-                <button className="px-6 py-2.5 bg-gradient-to-r from-orange-500 to-purple-600 rounded-full text-white font-semibold hover:scale-105 transition-transform shadow-lg whitespace-nowrap">
+                <Link to="/contact" className="px-6 py-2.5 bg-gradient-to-r from-orange-500 to-purple-600 rounded-full text-white font-semibold hover:scale-105 transition-transform shadow-lg text-sm sm:text-base">
                   {t("demoClass")}
-                </button>
+                </Link>
               </div>
             </div>
           </div>

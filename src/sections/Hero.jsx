@@ -10,7 +10,7 @@ const Hero = () => {
   const { t } = useTranslation();
 
   return (
-    <section className="relative min-h-screen overflow-hidden pt-32 pb-24">
+    <section className="relative min-h-screen overflow-hidden pt-24 sm:pt-32 pb-28 sm:pb-36">
       {/* BACKGROUND ARTÍSTICO - ÉPICO */}
       
       {/* Capa 1: Círculos de energía pulsante */}
@@ -28,7 +28,7 @@ const Hero = () => {
 
       {/* Capa 3: Partículas flotantes */}
       <div className="absolute inset-0 overflow-hidden">
-        {[...Array(30)].map((_, i) => (
+        {[...Array(12)].map((_, i) => (
           <div
             key={i}
             className="absolute w-1 h-1 bg-white/30 rounded-full animate-float-particle"
@@ -46,7 +46,7 @@ const Hero = () => {
 
       <div className="relative container mx-auto px-4">
         {/* SECCIÓN 1: HERO PRINCIPAL - SIN BADGE SUPERIOR */}
-        <div className="grid lg:grid-cols-2 gap-12 items-center relative">
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-12 items-center relative">
           
           {/* Elemento decorativo: Estrella fugaz - reposicionada */}
           <div className="absolute -top-40 -right-20 text-6xl opacity-20 animate-shoot">✨</div>
@@ -59,14 +59,14 @@ const Hero = () => {
               <span className="w-8 h-px bg-gradient-to-r from-purple-600 to-orange-500"></span>
             </div>
 
-            <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight relative">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight relative">
               <span className="relative">
                 {t("hero1")}
                 <span className="absolute -inset-2 bg-gradient-to-r from-orange-500/20 to-purple-600/20 blur-2xl -z-10"></span>
               </span>
             </h1>
             
-            <p className="text-xl lg:text-2xl text-orange-100 relative">
+            <p className="text-base sm:text-xl lg:text-2xl text-orange-100 relative">
               {t("hero2")}{" "}
               <span className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-orange-200 to-purple-200 relative">
                 {t("hero2Span")}
@@ -79,18 +79,18 @@ const Hero = () => {
             </p>
             
             <div className="flex flex-wrap gap-4 pt-2">
-              <Link to="/test" className="relative group px-8 py-3.5 bg-gradient-to-r from-orange-500 to-purple-600 rounded-full text-white font-semibold hover:scale-105 transition-transform shadow-lg hover:shadow-orange-500/25 overflow-hidden">
+              <a href="https://wa.me/447578146264" target="_blank" rel="noopener noreferrer" className="relative group px-5 py-3 sm:px-8 sm:py-3.5 bg-gradient-to-r from-orange-500 to-purple-600 rounded-full text-white font-semibold hover:scale-105 transition-transform shadow-lg hover:shadow-orange-500/25 overflow-hidden">
                 <span className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></span>
                 <span className="relative">{t("startNow")}</span>
-              </Link>
-              <Link to="/courses" className="px-8 py-3.5 bg-white/10 backdrop-blur-sm border border-white/30 rounded-full text-white font-semibold hover:bg-white/20 transition-all relative group">
+              </a>
+              <Link to="/courses" className="px-5 py-3 sm:px-8 sm:py-3.5 bg-white/10 backdrop-blur-sm border border-white/30 rounded-full text-white font-semibold hover:bg-white/20 transition-all relative group">
                 <span className="absolute -inset-0.5 bg-gradient-to-r from-orange-500 to-purple-600 rounded-full blur opacity-0 group-hover:opacity-50 transition duration-500"></span>
                 <span className="relative">{t("learnMore")}</span>
               </Link>
             </div>
 
             {/* Stats rápidas - reposicionadas ligeramente */}
-            <div className="flex items-center gap-6 pt-6">
+            <div className="flex flex-wrap items-center gap-4 sm:gap-6 pt-6">
               <div className="flex -space-x-2">
                 {[1,2,3,4].map((i) => (
                   <div key={i} className="w-8 h-8 rounded-full bg-gradient-to-r from-orange-500 to-purple-600 border-2 border-white flex items-center justify-center text-white text-xs font-bold shadow-lg">
@@ -107,7 +107,7 @@ const Hero = () => {
             </div>
 
             {/* Trust badges - NUEVO! */}
-            <div className="flex items-center gap-4 pt-4 text-white/50 text-xs">
+            <div className="flex flex-wrap items-center gap-3 sm:gap-4 pt-4 text-white/50 text-xs">
               <span className="flex items-center gap-1">
                 <span className="text-orange-400">✓</span> 100% online
               </span>
@@ -134,10 +134,13 @@ const Hero = () => {
               
               <img
                 src={heroGif}
-                alt="Director"
-                className="relative lg:w-[380px] lg:h-[380px] object-cover border-4 border-white/30 lg:rounded-full shadow-2xl group-hover:scale-105 transition-transform duration-700"
+                alt="Lingolandias Academy founder and director - Learn English and Spanish online"
+                className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-[380px] lg:h-[380px] object-cover border-4 border-white/30 rounded-full shadow-2xl group-hover:scale-105 transition-transform duration-700"
+                decoding="async"
+                width="380"
+                height="380"
               />
-              
+
               {/* Anillo rotatorio */}
               <div className="absolute inset-0 rounded-full border-2 border-transparent border-t-orange-500 border-r-purple-600 animate-spin-slow"></div>
             </div>
@@ -148,16 +151,16 @@ const Hero = () => {
                 <div className="relative bg-white/10 backdrop-blur-md px-6 py-3 rounded-xl border border-white/20">
                   <span className="text-orange-200 text-xs uppercase tracking-wider flex items-center gap-2 justify-center">
                     <span className="w-1 h-1 bg-orange-500 rounded-full animate-pulse"></span>
-                    {t("heroFounder")}
+                    {t("director")}
                   </span>
-                  <span className="text-white text-lg font-semibold block mt-0.5">{t("director")}</span>
+                  <span className="text-white text-lg font-semibold block mt-0.5">Agata Kozłowska</span>
                 </div>
               </div>
             </figcaption>
 
             {/* Badge de experiencia - NUEVO! */}
-            <div className="absolute -right-4 top-1/4 bg-gradient-to-r from-orange-500 to-purple-600 px-4 py-2 rounded-full text-white text-xs font-bold shadow-xl animate-float">
-              ⭐ 10+ años
+            <div className="hidden sm:block absolute -right-4 top-1/4 bg-gradient-to-r from-orange-500 to-purple-600 px-4 py-2 rounded-full text-white text-xs font-bold shadow-xl animate-float">
+              {t("heroYearsExp")}
             </div>
           </div>
         </div>

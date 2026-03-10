@@ -117,7 +117,7 @@ const GeneralInfo = () => {
             <span className="absolute -top-1 -right-1 w-2 h-2 bg-orange-500 rounded-full animate-ping"></span>
           </span>
           
-          <h2 className="text-5xl md:text-6xl font-bold text-white mb-6 relative">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 relative">
             {t("genInfo")}{" "}
             <span className="text-orange-400 relative">
               {t("genInfoSpan")}
@@ -139,16 +139,16 @@ const GeneralInfo = () => {
           <div className="absolute left-0 md:left-1/3 top-0 bottom-0 w-px bg-gradient-to-b from-orange-500/0 via-orange-500/30 to-purple-600/0 hidden md:block"></div>
           
           {/* Bloque 1 - El inicio */}
-          <div className="grid md:grid-cols-3 gap-8 items-start relative">
+          <div className="grid md:grid-cols-3 gap-6 md:gap-8 items-start relative">
             <div className="md:col-span-1">
-              <div className="sticky top-32 relative">
+              <div className="lg:sticky lg:top-28 relative">
                 {/* Adorno tipo brújula */}
                 <div className="absolute -left-4 -top-4 text-2xl opacity-30">🧭</div>
                 <div className="inline-flex items-center gap-3 bg-white/5 px-5 py-2 rounded-full border border-white/10 relative">
                   <span className="w-2 h-2 bg-orange-500 rounded-full animate-pulse"></span>
                   <span className="text-orange-200 font-medium">2015</span>
                 </div>
-                <h3 className="text-3xl font-bold text-white mt-4 mb-2">{t("theBeginning")}</h3>
+                <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mt-4 mb-2">{t("theBeginning")}</h3>
                 <div className="w-16 h-1 bg-gradient-to-r from-orange-500 to-purple-600 rounded-full"></div>
                 
                 {/* Adorno de línea */}
@@ -156,9 +156,9 @@ const GeneralInfo = () => {
               </div>
             </div>
             <div className="md:col-span-2">
-              <div className="bg-white/5 backdrop-blur-sm p-8 rounded-3xl border border-white/10 relative group hover:border-orange-500/30 transition-colors">
+              <div className="bg-white/5 backdrop-blur-sm p-5 sm:p-8 rounded-3xl border border-white/10 relative group hover:border-orange-500/30 transition-colors">
                 <span className="absolute -top-3 -left-3 text-4xl opacity-0 group-hover:opacity-30 transition-opacity">“</span>
-                <p className="text-white/90 text-xl leading-relaxed font-light relative z-10">
+                <p className="text-white/90 text-base sm:text-xl leading-relaxed font-light relative z-10">
                   {t("genInfoPara1")}
                 </p>
                 {/* Adorno de esquina */}
@@ -168,24 +168,24 @@ const GeneralInfo = () => {
           </div>
 
           {/* Bloque 2 - El descubrimiento */}
-          <div className="grid md:grid-cols-3 gap-8 items-start relative">
+          <div className="grid md:grid-cols-3 gap-6 md:gap-8 items-start relative">
             {/* Adorno flotante */}
             <div className="absolute -left-10 top-1/2 text-3xl opacity-20 hidden md:block animate-bounce">💡</div>
             
             <div className="md:col-span-1">
-              <div className="sticky top-32">
+              <div className="lg:sticky lg:top-28">
                 <div className="inline-flex items-center gap-3 bg-white/5 px-5 py-2 rounded-full border border-white/10">
                   <span className="w-2 h-2 bg-purple-500 rounded-full animate-pulse animation-delay-1000"></span>
                   <span className="text-purple-200 font-medium">{t("theDiscovery")}</span>
                 </div>
-                <h3 className="text-3xl font-bold text-white mt-4 mb-2">{t("theDiscovery")}</h3>
+                <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mt-4 mb-2">{t("theDiscovery")}</h3>
                 <div className="w-16 h-1 bg-gradient-to-r from-purple-500 to-orange-500 rounded-full"></div>
               </div>
             </div>
             <div className="md:col-span-2">
-              <div className="bg-white/5 backdrop-blur-sm p-8 rounded-3xl border border-white/10 relative">
+              <div className="bg-white/5 backdrop-blur-sm p-5 sm:p-8 rounded-3xl border border-white/10 relative">
                 <span className="absolute -top-2 -right-2 text-2xl opacity-30">🔬</span>
-                <p className="text-white/90 text-xl leading-relaxed font-light">
+                <p className="text-white/90 text-base sm:text-xl leading-relaxed font-light">
                   {t("genInfoPara2")}
                 </p>
               </div>
@@ -193,23 +193,23 @@ const GeneralInfo = () => {
           </div>
 
           {/* Bloque 3 - La filosofía (texto más largo) */}
-          <div className="grid md:grid-cols-3 gap-8 items-start">
+          <div className="grid md:grid-cols-3 gap-6 md:gap-8 items-start">
             <div className="md:col-span-1">
-              <div className="sticky top-32">
+              <div className="lg:sticky lg:top-28">
                 <div className="inline-flex items-center gap-3 bg-gradient-to-r from-orange-500/20 to-purple-600/20 px-5 py-2 rounded-full border border-orange-500/30">
                   <span className="w-2 h-2 bg-orange-400 rounded-full animate-ping animation-delay-2000"></span>
                   <span className="text-orange-200 font-medium">{t("ourEssence")}</span>
                 </div>
-                <h3 className="text-3xl font-bold text-white mt-4 mb-2">{t("ourEssence")}</h3>
+                <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mt-4 mb-2">{t("ourEssence")}</h3>
                 <div className="w-16 h-1 bg-gradient-to-r from-orange-500 to-purple-600 rounded-full"></div>
               </div>
             </div>
             <div className="md:col-span-2">
-              <div className="bg-gradient-to-br from-orange-500/10 to-purple-600/10 backdrop-blur-sm p-8 rounded-3xl border border-white/10 relative">
+              <div className="bg-gradient-to-br from-orange-500/10 to-purple-600/10 backdrop-blur-sm p-5 sm:p-8 rounded-3xl border border-white/10 relative">
                 {/* Adornos tipo comillas */}
                 <span className="absolute top-2 left-4 text-6xl text-orange-500/20 font-serif">"</span>
                 <span className="absolute bottom-2 right-4 text-6xl text-purple-500/20 font-serif rotate-180">"</span>
-                <p className="text-white/95 text-xl leading-relaxed font-light relative z-10">
+                <p className="text-white/95 text-base sm:text-xl leading-relaxed font-light relative z-10">
                   {t("genInfoPara3")}
                 </p>
               </div>
@@ -217,22 +217,22 @@ const GeneralInfo = () => {
           </div>
 
           {/* Bloque 4 - Orgullo y misión */}
-          <div className="grid md:grid-cols-3 gap-8 items-start">
+          <div className="grid md:grid-cols-3 gap-6 md:gap-8 items-start">
             <div className="md:col-span-1">
-              <div className="sticky top-32 relative">
+              <div className="lg:sticky lg:top-28 relative">
                 {/* Adorno de estrella */}
                 <div className="absolute -left-8 -top-2 text-yellow-500/30 text-2xl">⭐</div>
                 <div className="inline-flex items-center gap-3 bg-white/5 px-5 py-2 rounded-full border border-white/10">
                   <span className="w-2 h-2 bg-orange-500 rounded-full"></span>
                   <span className="text-orange-200 font-medium">{t("today")}</span>
                 </div>
-                <h3 className="text-3xl font-bold text-white mt-4 mb-2">{t("prideAndMission")}</h3>
+                <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mt-4 mb-2">{t("prideAndMission")}</h3>
                 <div className="w-16 h-1 bg-gradient-to-r from-orange-500 to-purple-600 rounded-full"></div>
               </div>
             </div>
             <div className="md:col-span-2">
-              <div className="bg-white/5 backdrop-blur-sm p-8 rounded-3xl border border-white/10">
-                <p className="text-white/90 text-xl leading-relaxed font-light mb-6">
+              <div className="bg-white/5 backdrop-blur-sm p-5 sm:p-8 rounded-3xl border border-white/10">
+                <p className="text-white/90 text-base sm:text-xl leading-relaxed font-light mb-6">
                   {t("genInfoPara4")}
                 </p>
                 <div className="flex items-center gap-4 text-sm">
@@ -270,7 +270,7 @@ const GeneralInfo = () => {
             </div>
             
             <div className="absolute inset-0 bg-gradient-to-r from-orange-600/20 to-purple-600/20 rounded-3xl blur-3xl"></div>
-            <div className="relative bg-gradient-to-r from-orange-600/30 to-purple-600/30 backdrop-blur-md p-12 rounded-3xl border border-white/20 text-center overflow-hidden">
+            <div className="relative bg-gradient-to-r from-orange-600/30 to-purple-600/30 backdrop-blur-md p-6 sm:p-12 rounded-3xl border border-white/20 text-center overflow-hidden">
               {/* Adornos de brillos */}
               <div className="absolute top-0 -left-10 w-20 h-20 bg-orange-500/30 rounded-full filter blur-2xl"></div>
               <div className="absolute bottom-0 -right-10 w-20 h-20 bg-purple-500/30 rounded-full filter blur-2xl"></div>
@@ -279,21 +279,21 @@ const GeneralInfo = () => {
               <span className="absolute top-10 right-20 text-4xl opacity-20 animate-spin-slow">✨</span>
               <span className="absolute bottom-10 left-20 text-3xl opacity-20 animate-bounce">🌟</span>
               
-              <h3 className="text-4xl md:text-5xl font-bold text-white mb-6 relative">
+              <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 relative">
                 {t("readyForJourney")}
                 <span className="absolute -top-3 -right-3 text-yellow-300/30 text-2xl">⚡</span>
               </h3>
               
-              <p className="text-white/95 text-xl leading-relaxed font-light max-w-3xl mx-auto mb-8">
+              <p className="text-white/95 text-base sm:text-xl leading-relaxed font-light max-w-3xl mx-auto mb-8">
                 {t("genInfoPara5")}
               </p>
               
               <div className="flex flex-wrap gap-4 justify-center relative">
-                <Link to="/contact" className="px-8 py-4 bg-gradient-to-r from-orange-500 to-purple-600 rounded-full text-white font-semibold hover:scale-105 transition-transform shadow-2xl shadow-orange-600/25 inline-flex items-center gap-2 text-lg group">
+                <Link to="/contact" className="px-6 py-3 sm:px-8 sm:py-4 bg-gradient-to-r from-orange-500 to-purple-600 rounded-full text-white font-semibold hover:scale-105 transition-transform shadow-2xl shadow-orange-600/25 inline-flex items-center gap-2 text-sm sm:text-base md:text-lg group">
                   {t("joinCommunity")}
                   <span className="group-hover:translate-x-1 transition-transform">→</span>
                 </Link>
-                <Link to="/courses" className="px-8 py-4 bg-white/10 backdrop-blur-sm border border-white/30 rounded-full text-white font-semibold hover:bg-white/20 transition-all text-lg">
+                <Link to="/courses" className="px-6 py-3 sm:px-8 sm:py-4 bg-white/10 backdrop-blur-sm border border-white/30 rounded-full text-white font-semibold hover:bg-white/20 transition-all text-sm sm:text-base md:text-lg">
                   {t("knowMore")}
                 </Link>
               </div>
@@ -301,7 +301,7 @@ const GeneralInfo = () => {
           </div>
 
           {/* Stats minimalistas con adornos */}
-          <div className="grid grid-cols-3 gap-8 pt-16 border-t border-white/10 relative">
+          <div className="grid grid-cols-3 gap-4 sm:gap-8 pt-10 sm:pt-16 border-t border-white/10 relative">
             <div className="absolute inset-x-0 top-0 -translate-y-1/2 flex justify-center">
               <span className="px-4 py-1 bg-purple-800/80 backdrop-blur-sm rounded-full text-xs text-white/80 border border-white/20">
                 {t("yearsOfHistory")}
@@ -311,22 +311,22 @@ const GeneralInfo = () => {
             <div className="text-center relative group">
               <div className="absolute inset-0 bg-orange-500/0 group-hover:bg-orange-500/5 rounded-2xl transition-colors"></div>
               <span className="absolute -top-2 -right-2 text-orange-500/30 group-hover:opacity-100 opacity-0 transition-opacity">🏆</span>
-              <div className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-orange-300 mb-2">10+</div>
-              <p className="text-white/60 text-sm uppercase tracking-wider">{t("statYears")}</p>
+              <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-orange-300 mb-2">5+</div>
+              <p className="text-white/60 text-xs sm:text-sm uppercase tracking-wider">{t("statYears")}</p>
             </div>
             
             <div className="text-center relative group">
               <div className="absolute inset-0 bg-purple-500/0 group-hover:bg-purple-500/5 rounded-2xl transition-colors"></div>
               <span className="absolute -top-2 left-1/2 -translate-x-1/2 text-purple-500/30 group-hover:opacity-100 opacity-0 transition-opacity">👥</span>
-              <div className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-purple-300 mb-2">1000+</div>
-              <p className="text-white/60 text-sm uppercase tracking-wider">{t("statStudents")}</p>
+              <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-purple-300 mb-2">300+</div>
+              <p className="text-white/60 text-xs sm:text-sm uppercase tracking-wider">{t("statStudents")}</p>
             </div>
             
             <div className="text-center relative group">
               <div className="absolute inset-0 bg-gradient-to-r from-orange-500/0 to-purple-600/0 group-hover:from-orange-500/5 group-hover:to-purple-600/5 rounded-2xl transition-colors"></div>
               <span className="absolute -bottom-2 -left-2 text-orange-500/30 group-hover:opacity-100 opacity-0 transition-opacity">📚</span>
-              <div className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-purple-400 mb-2">15+</div>
-              <p className="text-white/60 text-sm uppercase tracking-wider">{t("statTeachersLabel")}</p>
+              <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-purple-400 mb-2">15+</div>
+              <p className="text-white/60 text-xs sm:text-sm uppercase tracking-wider">{t("statTeachersLabel")}</p>
             </div>
           </div>
         </div>

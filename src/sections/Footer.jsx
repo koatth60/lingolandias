@@ -1,14 +1,14 @@
 // components/Footer.jsx
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import logo from '../assets/logo.png';
+import logo from '../assets/logo.webp';
 
 const Footer = () => {
   const { t } = useTranslation();
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="relative mt-32 overflow-hidden border-t border-white/10">
+    <footer className="relative overflow-hidden border-t border-white/10">
       {/* Fondo consistente con blur */}
       <div className="absolute inset-0 bg-purple-950/90 backdrop-blur-xl"></div>
       
@@ -48,17 +48,20 @@ const Footer = () => {
       <div className="absolute top-1/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-orange-500/20 to-transparent"></div>
       <div className="absolute bottom-1/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-purple-600/20 to-transparent"></div>
 
-      <div className="relative container mx-auto px-4 py-16 md:py-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-12">
+      <div className="relative container mx-auto px-4 py-8 sm:py-12 md:py-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6 md:gap-8 lg:gap-12">
           
           {/* COLUMNA 1 - LOGO Y DESCRIPCIÓN */}
           <div className="lg:col-span-4 space-y-6">
             <Link to="/" className="relative group inline-block">
               <div className="absolute -inset-2 bg-gradient-to-r from-orange-500 to-purple-600 rounded-lg blur opacity-0 group-hover:opacity-50 transition duration-500"></div>
-              <img 
-                src={logo} 
-                alt="Lingolandias" 
+              <img
+                src={logo}
+                alt="Lingolandias"
                 className="relative h-14 w-auto object-contain brightness-0 invert"
+                loading="lazy"
+                width="230"
+                height="56"
               />
             </Link>
             
@@ -73,7 +76,7 @@ const Footer = () => {
                   <span key={i} className="text-orange-400 text-sm">★</span>
                 ))}
               </div>
-              <span className="text-white/80 text-sm font-medium">4.9</span>
+              <span className="text-white/80 text-sm font-medium">5.0</span>
               <span className="text-white/40 text-xs">· {t("footerReviews")}</span>
             </div>
           </div>

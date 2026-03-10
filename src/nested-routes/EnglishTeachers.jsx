@@ -67,7 +67,7 @@ const EnglishTeachers = () => {
     <div>
       <Header />
 
-      <section className="relative min-h-screen overflow-hidden pt-32 pb-24">
+      <section className="relative min-h-screen overflow-hidden pt-24 sm:pt-32 pb-16 sm:pb-24">
         {/* Fondo */}
         <div className="absolute inset-0 bg-purple-950/40 backdrop-blur-sm" />
 
@@ -110,14 +110,14 @@ const EnglishTeachers = () => {
               <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
             </div>
 
-            <h1 className="text-6xl md:text-7xl font-bold text-white mb-6 leading-tight">
+            <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
               {t("EngTeachersTitle")}{" "}
               <span className="bg-gradient-to-r from-purple-400 via-blue-400 to-purple-400 bg-clip-text text-transparent animate-gradient">
                 {t("EngTeachersTitleSpan")}
               </span>
             </h1>
 
-            <p className="text-white/70 text-lg max-w-2xl mx-auto leading-relaxed">
+            <p className="text-white/70 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
               {t("EngTeachersP1")}
             </p>
 
@@ -165,6 +165,7 @@ const EnglishTeachers = () => {
                             src={teacher.photo}
                             alt={teacher.name}
                             className="relative w-16 h-16 object-cover rounded-full border-2 border-white/30 shadow-xl group-hover:scale-110 transition-transform duration-500"
+                            loading="lazy"
                           />
                           <div className="absolute -bottom-1 -right-1 w-6 h-6 bg-purple-900 border-2 border-white/20 rounded-full flex items-center justify-center text-sm shadow-lg">
                             {meta.country}
@@ -258,11 +259,11 @@ const EnglishTeachers = () => {
           {/* BOTTOM CTA */}
           <div className="mt-24 relative">
             <div className="absolute inset-0 bg-gradient-to-r from-purple-600/10 to-blue-600/10 rounded-3xl blur-3xl" />
-            <div className="relative flex flex-col sm:flex-row items-center justify-between gap-6 bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl px-10 py-8">
+            <div className="relative flex flex-col sm:flex-row items-center justify-between gap-6 bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl px-5 sm:px-10 py-6 sm:py-8">
               <div className="flex items-center gap-4">
                 <span className="text-5xl">🎸</span>
                 <div>
-                  <h4 className="text-white font-bold text-xl">{t("readyToStart")}</h4>
+                  <h4 className="text-white font-bold text-base sm:text-xl">{t("readyToStart")}</h4>
                   <p className="text-white/60 text-sm">{t("EngTeachersP2") || "Start your English journey today."}</p>
                 </div>
               </div>

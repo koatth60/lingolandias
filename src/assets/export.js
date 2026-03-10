@@ -1,56 +1,33 @@
-import logo1 from "./logo1.svg";
-import logo2 from "./logo2.svg";
-import logo3 from "./logo3.svg";
-import spain from "./spain.png";
-import uk from "./uk.png";
-import heropic from "./heropic.png";
-import heroGif from './heroGif.gif'
-import poland from "./poland.png";
-import facebook from "./facebook.png";
-import instagram from "./instagram.png";
-import twitter from "./twitter.png";
-import youtube from "./youtube.png";
-import linkedIn from "./linkedIn.png";
-import polandsquare from "./polandsquare.png";
-import spainsquare from "./spainsquare.png";
-import uksquare from "./uksquare.png";
-import num1 from "./num1.png";
-import num2 from "./num2.png";
-import num3 from "./num3.png";
-import num4 from "./num4.png";
-import logofooter from "./logofooter.png";
-import christian from "./christian.jpg";
-import carlos from "./carlos.jpg";
-import natalia from "./natalia.jpg";
-import weronika from "./weronika.jpg";
-import nell from "./nell.jpg";
-import agata from "./agata.jpg";
+import spain from "./spain.webp";
+import uk from "./uk.webp";
+import heropic from "./agata2.webp";
+import heroGif from './heroPic.webp';
+import poland from "./poland.webp";
+import facebook from "./facebook.webp";
+import instagram from "./instagram.webp";
+import twitter from "./twitter.webp";
+import linkedIn from "./linkedIn.webp";
+import uksquare from "./uksquare.webp";
+import christian from "./christian.webp";
+import carlos from "./carlos.webp";
+import natalia from "./natalia.webp";
+import weronika from "./weronika.webp";
+import nell from "./nell.webp";
+import agata from "./agata.webp";
 import karolina from "./karolina.jpg";
-import veronica from "./veronica.jpg";
-import facebooRating from "./facebook-rating.png";
+import veronica from "./veronica.webp";
 import facebookReview from "./facebook-review.png";
 
 export {
-  logo1,
-  logo2,
-  logo3,
   facebook,
   instagram,
   twitter,
-  youtube,
   linkedIn,
   spain,
   uk,
   poland,
   heropic,
-  polandsquare,
   uksquare,
-  spainsquare,
-  num1,
-  num2,
-  num3,
-  num4,
-  logofooter,
   christian,
   carlos,
   natalia,
@@ -60,6 +37,5 @@ export {
   karolina,
   veronica,
   heroGif,
-  facebooRating,
   facebookReview
 };

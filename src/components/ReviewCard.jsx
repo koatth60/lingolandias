@@ -29,7 +29,7 @@ const ReviewCard = ({ time }) => {
       </div>
 
       <div className="absolute top-2 right-2 w-9">
-        <img src={facebookReview} alt="facebook-logo" />
+        <img src={facebookReview} alt="facebook-logo" loading="lazy" />
       </div>
     </div>
   );

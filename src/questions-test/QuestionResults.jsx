@@ -16,7 +16,7 @@ const QuestionResults = ({ results }) => {
 
   const handleEmailSubmit = async () => {
     try {
-      const response = await fetch("https://api.srv570363.hstgr.cloud:3000/englishscore", {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/englishscore`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -47,39 +47,25 @@ const QuestionResults = ({ results }) => {
           <div className="h-2 bg-gradient-to-r from-purple-500 to-blue-500"></div>
 
           <div className="p-10 text-center">
-            {/* Trophy */}
-            <div className="relative inline-block mb-6">
-              <div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full blur-2xl opacity-60"></div>
-              <div className="relative w-24 h-24 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full flex items-center justify-center text-5xl shadow-2xl ring-4 ring-white/20">
-                🏆
-              </div>
-            </div>
+            {!emailSent ? (
+              <>
+                {/* Trophy */}
+                <div className="relative inline-block mb-6">
+                  <div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full blur-2xl opacity-60"></div>
+                  <div className="relative w-24 h-24 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full flex items-center justify-center text-5xl shadow-2xl ring-4 ring-white/20">
+                    🏆
+                  </div>
+                </div>
 
-            <h2 className="text-4xl font-bold text-white mb-2">
-              {t("congratulations")}
-            </h2>
-            <p className="text-white/60 mb-8">{t("completedEngTest")}</p>
+                <h2 className="text-4xl font-bold text-white mb-2">{t("congratulations")}</h2>
+                <p className="text-white/60 mb-8">{t("completedEngTest")}</p>
 
-            {/* Score */}
-            <div className="bg-white/5 rounded-2xl border border-white/10 px-8 py-6 mb-8 w-full">
-              <p className="text-white/60 text-sm uppercase tracking-wider mb-2">{t("yourScore")}</p>
-              <p className="text-5xl font-bold bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
-                {totalCorrect}/{totalQuestions}
-              </p>
-              <div className="mt-4 w-full bg-white/10 rounded-full h-3">
-                <div
-                  className="h-3 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full transition-all duration-1000"
-                  style={{ width: `${percentageCorrect}%` }}
-                ></div>
-              </div>
-              <p className="text-white/50 text-sm mt-2">{t("percentCorrect", { percent: percentageCorrect })}</p>
-            </div>
+                <div className="bg-white/5 rounded-2xl border border-white/10 px-8 py-6 mb-8 w-full">
+                  <p className="text-white/70 text-base mb-1">{t("resultReady")}</p>
+                  <p className="text-white/40 text-sm">{t("enterEmailHint")}</p>
+                </div>
 
-            {/* Email */}
-            <div className="mb-6">
-              <p className="text-white/80 mb-4 text-sm">{t("enterEmailForScore")}</p>
-              {!emailSent ? (
-                <div className="flex flex-col sm:flex-row gap-3 justify-center items-center">
+                <div className="flex flex-col sm:flex-row gap-3 justify-center items-center mb-6">
                   <input
                     type="email"
                     className="w-full sm:w-72 px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-white/40 focus:outline-none focus:border-purple-400/60 focus:bg-white/15 transition-all"
@@ -94,21 +80,41 @@ const QuestionResults = ({ results }) => {
                     {t("sendScore")}
                   </button>
                 </div>
-              ) : (
-                <div className="flex items-center justify-center gap-2 text-green-400 bg-green-500/10 border border-green-400/30 rounded-xl px-4 py-3">
-                  <span className="text-xl">✓</span>
-                  <span>{t("scoreSentTo", { email })}</span>
-                </div>
-              )}
-            </div>
 
-            {/* Restart */}
-            <button
-              className="px-8 py-3 bg-white/10 border border-white/20 rounded-xl text-white/80 hover:bg-white/15 hover:text-white transition-all duration-300"
-              onClick={handleReload}
-            >
-              {t("restartTest")}
-            </button>
+                <button
+                  className="px-8 py-3 bg-white/10 border border-white/20 rounded-xl text-white/80 hover:bg-white/15 hover:text-white transition-all duration-300"
+                  onClick={handleReload}
+                >
+                  {t("restartTest")}
+                </button>
+              </>
+            ) : (
+              <>
+                {/* Sent confirmation */}
+                <div className="relative inline-block mb-6">
+                  <div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full blur-2xl opacity-60"></div>
+                  <div className="relative w-24 h-24 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full flex items-center justify-center text-5xl shadow-2xl ring-4 ring-white/20">
+                    📬
+                  </div>
+                </div>
+
+                <h2 className="text-4xl font-bold text-white mb-2">{t("checkYourEmail")}</h2>
+                <p className="text-white/60 mb-8">{t("resultSentTo")}</p>
+
+                <div className="bg-white/5 rounded-2xl border border-white/10 px-8 py-4 mb-8 inline-block">
+                  <p className="text-purple-400 font-semibold text-lg">{email}</p>
+                </div>
+
+                <p className="text-white/40 text-sm mb-8">{t("teamWillContact")}</p>
+
+                <button
+                  className="px-8 py-3 bg-white/10 border border-white/20 rounded-xl text-white/80 hover:bg-white/15 hover:text-white transition-all duration-300"
+                  onClick={handleReload}
+                >
+                  {t("restartTest")}
+                </button>
+              </>
+            )}
           </div>
         </div>
       </div>

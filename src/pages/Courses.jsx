@@ -10,7 +10,7 @@ const Courses = () => {
   const [activeTab, setActiveTab] = useState('individual');
 
   return (
-    <section className="relative min-h-screen overflow-hidden pt-32 pb-24">
+    <section className="relative min-h-screen overflow-hidden pt-24 sm:pt-32 pb-16 sm:pb-24">
       {/* Header */}
       <Header />
       
@@ -71,18 +71,18 @@ const Courses = () => {
             <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
           </div>
 
-          <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-6">
             <span className="relative">
               {t("courseTitle")}
               <span className="absolute -inset-2 bg-gradient-to-r from-orange-500/30 to-purple-600/30 blur-2xl"></span>
             </span>
             <br />
-            <span className="bg-gradient-to-r from-orange-400 via-purple-400 to-orange-400 bg-clip-text text-transparent bg-300% animate-gradient text-6xl md:text-7xl">
+            <span className="bg-gradient-to-r from-orange-400 via-purple-400 to-orange-400 bg-clip-text text-transparent bg-300% animate-gradient text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl">
               {t("superAdventure")}
             </span>
           </h2>
-          
-          <p className="text-white/80 text-xl max-w-3xl mx-auto leading-relaxed">
+
+          <p className="text-white/80 text-base sm:text-xl max-w-3xl mx-auto leading-relaxed">
             {t("courseSubtitle")}
           </p>
 
@@ -99,14 +99,14 @@ const Courses = () => {
           <div className="bg-purple-900/60 backdrop-blur-xl p-1.5 rounded-2xl border border-white/10 inline-flex shadow-2xl">
             <button
               onClick={() => setActiveTab('individual')}
-              className={`relative px-8 py-4 rounded-xl font-bold text-lg transition-all duration-500 ${
+              className={`relative px-4 py-2 sm:px-8 sm:py-4 rounded-xl font-bold text-sm sm:text-lg transition-all duration-500 ${
                 activeTab === 'individual'
                   ? 'bg-gradient-to-r from-orange-500 to-purple-600 text-white shadow-lg'
                   : 'text-white/70 hover:text-white hover:bg-white/10'
               }`}
             >
               <span className="relative z-10 flex items-center gap-2">
-                <span className="text-2xl">🦸</span>
+                <span className="text-xl sm:text-2xl">🦸</span>
                 {t("titleIndividual")}
               </span>
               {activeTab === 'individual' && (
@@ -115,14 +115,14 @@ const Courses = () => {
             </button>
             <button
               onClick={() => setActiveTab('couple')}
-              className={`relative px-8 py-4 rounded-xl font-bold text-lg transition-all duration-500 ${
+              className={`relative px-4 py-2 sm:px-8 sm:py-4 rounded-xl font-bold text-sm sm:text-lg transition-all duration-500 ${
                 activeTab === 'couple'
                   ? 'bg-gradient-to-r from-orange-500 to-purple-600 text-white shadow-lg'
                   : 'text-white/70 hover:text-white hover:bg-white/10'
               }`}
             >
               <span className="relative z-10 flex items-center gap-2">
-                <span className="text-2xl">👥</span>
+                <span className="text-xl sm:text-2xl">👥</span>
                 {t("titleCouple")}
               </span>
               {activeTab === 'couple' && (
@@ -143,27 +143,27 @@ const Courses = () => {
             {/* Barra superior de poder */}
             <div className="h-2 bg-gradient-to-r from-orange-500 via-purple-600 to-orange-500"></div>
             
-            <div className="p-8 md:p-12">
-              <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className="p-5 sm:p-8 md:p-12">
+              <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
                 
                 {/* COLUMNA IZQUIERDA - ICONO Y TÍTULO */}
                 <div className="relative">
                   {/* Círculo de poder */}
                   <div className="relative inline-block">
                     <div className="absolute inset-0 bg-gradient-to-r from-orange-500 to-purple-600 rounded-full blur-2xl opacity-50 animate-pulse-slow"></div>
-                    <div className="relative w-32 h-32 bg-gradient-to-r from-orange-500 to-purple-600 rounded-full flex items-center justify-center shadow-2xl">
-                      <span className="text-6xl">
+                    <div className="relative w-20 h-20 sm:w-32 sm:h-32 bg-gradient-to-r from-orange-500 to-purple-600 rounded-full flex items-center justify-center shadow-2xl">
+                      <span className="text-4xl sm:text-6xl">
                         {activeTab === 'individual' ? '🦸' : '👥'}
                       </span>
                     </div>
                   </div>
                   
-                  <h3 className="text-3xl md:text-4xl font-bold text-white mt-8 mb-4">
+                  <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-6 sm:mt-8 mb-4">
                     {activeTab === 'individual' ? t("titleIndividual") : t("titleCouple")}
                   </h3>
                   
                   {/* Stats de poder */}
-                  <div className="flex items-center gap-4 text-sm">
+                  <div className="flex flex-wrap items-center gap-3 sm:gap-4 text-sm">
                     <span className="flex items-center gap-1 text-orange-300">
                       <span className="w-1.5 h-1.5 bg-orange-500 rounded-full animate-pulse"></span>
                       {activeTab === 'individual' ? t("oneTeacher") : t("twoStudents")}
@@ -178,13 +178,13 @@ const Courses = () => {
                 {/* COLUMNA DERECHA - DESCRIPCIÓN */}
                 <div className="relative">
                   <span className="absolute -top-4 -left-4 text-6xl text-orange-500/20 font-serif">"</span>
-                  <p className="text-white/90 text-xl leading-relaxed font-light relative z-10">
+                  <p className="text-white/90 text-base sm:text-xl leading-relaxed font-light relative z-10">
                     {activeTab === 'individual' ? t("titleIndividualP") : t("titleCoupleP")}
                   </p>
                   
                   {/* Beneficios extra */}
                   <div className="mt-8 pt-6 border-t border-white/10">
-                    <div className="grid grid-cols-2 gap-4">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div className="flex items-center gap-2 text-white/70">
                         <span className="text-orange-400">✓</span>
                         <span className="text-sm">{t("flexibleSchedules")}</span>
@@ -213,7 +213,7 @@ const Courses = () => {
         <div className="grid md:grid-cols-2 gap-8 mt-20">
           <div className="relative group">
             <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-500 to-purple-600 rounded-2xl blur opacity-0 group-hover:opacity-30 transition duration-500"></div>
-            <div className="relative bg-white/5 backdrop-blur-md p-8 rounded-2xl border border-white/10 h-full">
+            <div className="relative bg-white/5 backdrop-blur-md p-5 sm:p-8 rounded-2xl border border-white/10 h-full">
               <span className="text-4xl mb-4 block">🌍</span>
               <h4 className="text-white font-bold text-xl mb-3">{t("intlConnections")}</h4>
               <p className="text-white/70 leading-relaxed">
@@ -224,7 +224,7 @@ const Courses = () => {
           
           <div className="relative group">
             <div className="absolute -inset-0.5 bg-gradient-to-r from-purple-600 to-orange-500 rounded-2xl blur opacity-0 group-hover:opacity-30 transition duration-500"></div>
-            <div className="relative bg-white/5 backdrop-blur-md p-8 rounded-2xl border border-white/10 h-full">
+            <div className="relative bg-white/5 backdrop-blur-md p-5 sm:p-8 rounded-2xl border border-white/10 h-full">
               <span className="text-4xl mb-4 block">🎯</span>
               <h4 className="text-white font-bold text-xl mb-3">{t("interactiveMethod")}</h4>
               <p className="text-white/70 leading-relaxed">
@@ -238,7 +238,7 @@ const Courses = () => {
         <div className="mt-20 relative">
           <div className="absolute inset-0 bg-gradient-to-r from-orange-600/20 to-purple-600/20 rounded-3xl blur-3xl"></div>
           
-          <div className="relative bg-gradient-to-r from-orange-600/30 to-purple-600/30 backdrop-blur-md p-12 rounded-3xl border border-white/20">
+          <div className="relative bg-gradient-to-r from-orange-600/30 to-purple-600/30 backdrop-blur-md p-6 sm:p-12 rounded-3xl border border-white/20">
             <div className="grid md:grid-cols-2 gap-8 items-center">
               
               {/* Info de niveles */}
@@ -246,10 +246,10 @@ const Courses = () => {
                 <span className="inline-block px-4 py-1.5 bg-white/10 backdrop-blur-sm rounded-full text-orange-200 text-sm font-medium mb-4 border border-white/20">
                   🎓 {t("allLevels")}
                 </span>
-                <h4 className="text-3xl md:text-4xl font-bold text-white mb-4">
+                <h4 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-4">
                   {t("courseP3")}
                 </h4>
-                <div className="flex items-center gap-3 text-white/80">
+                <div className="flex flex-wrap items-center gap-2 sm:gap-3 text-white/80">
                   <span className="px-3 py-1 bg-white/10 rounded-full text-sm">A1</span>
                   <span className="px-3 py-1 bg-white/10 rounded-full text-sm">A2</span>
                   <span className="px-3 py-1 bg-white/10 rounded-full text-sm">B1</span>
@@ -260,11 +260,11 @@ const Courses = () => {
               </div>
               
               {/* Botón de contacto */}
-              <div className="text-right">
+              <div className="text-center sm:text-right">
                 <Link to="/contact">
-                  <button className="group relative px-10 py-5 bg-gradient-to-r from-orange-500 to-purple-600 rounded-full text-white font-bold text-xl hover:scale-105 transition-transform shadow-2xl hover:shadow-orange-500/30 inline-flex items-center gap-3">
+                  <button className="group relative px-6 py-3 sm:px-10 sm:py-5 bg-gradient-to-r from-orange-500 to-purple-600 rounded-full text-white font-bold text-base sm:text-xl hover:scale-105 transition-transform shadow-2xl hover:shadow-orange-500/30 inline-flex items-center gap-3">
                     <span>{t("courseButton")}</span>
-                    <span className="text-2xl group-hover:translate-x-1 transition-transform">→</span>
+                    <span className="text-xl sm:text-2xl group-hover:translate-x-1 transition-transform">→</span>
                     <span className="absolute -top-1 -right-1 w-3 h-3 bg-green-500 rounded-full animate-ping"></span>
                   </button>
                 </Link>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Homepage - highest priority -->
+  <url>
+    <loc>https://lingolandias.net/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Courses page -->
+  <url>
+    <loc>https://lingolandias.net/courses</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Language level test -->
+  <url>
+    <loc>https://lingolandias.net/test</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- English quiz / level test -->
+  <url>
+    <loc>https://lingolandias.net/english-quiz</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Spanish quiz / level test -->
+  <url>
+    <loc>https://lingolandias.net/spanish-quiz</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Meet the teachers -->
+  <url>
+    <loc>https://lingolandias.net/team</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- English teachers -->
+  <url>
+    <loc>https://lingolandias.net/enteachers</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Spanish teachers -->
+  <url>
+    <loc>https://lingolandias.net/esteachers</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Contact page -->
+  <url>
+    <loc>https://lingolandias.net/contact</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+</urlset>

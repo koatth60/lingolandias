@@ -12,16 +12,16 @@ const CollabCards = (props) => {
         <a  className="text-[#9c27b0] text-lg hover:underline" href={website   }>Website {website}</a>
         <div className="flex w-full justify-end items-center gap-3">
             <a href={socials[0].facebook}>
-                <img src={facebook} alt="facebook" className="w-[40px]"/>
+                <img src={facebook} alt="facebook" className="w-[40px]" loading="lazy" />
             </a>
             <a href={socials[0].twitter}>
-                <img src={twitter} alt="twitter" className="w-[40px]" />
+                <img src={twitter} alt="twitter" className="w-[40px]" loading="lazy" />
             </a>
             <a href={socials[0].linkedin}>
-                <img src={linkedIn} alt="linkedin" className="w-[36px]"/>
+                <img src={linkedIn} alt="linkedin" className="w-[36px]" loading="lazy" />
             </a>
             <a href={socials[0].instagram}>
-                <img src={instagram} alt="instagram" className="w-[38px]"/>
+                <img src={instagram} alt="instagram" className="w-[38px]" loading="lazy" />
                 </a>    
 
         </div>

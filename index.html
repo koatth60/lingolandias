@@ -1,25 +1,100 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/png" href="/public/logo.jpg" />
-
+    <link rel="icon" type="image/webp" href="/logo.webp" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-   
-    
-    <link href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700&display=swap" rel="stylesheet">
-    <title>Lingolandias</title>
+
+    <!-- ===== GOOGLE ANALYTICS 4 ===== -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KSRZ92SFTR"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-KSRZ92SFTR');
+    </script>
+
+    <!-- ===== PRIMARY META TAGS ===== -->
+    <title>Lingolandias | Learn English & Spanish Online | Language School</title>
+    <meta name="title" content="Lingolandias | Learn English & Spanish Online | Language School" />
+    <meta name="description" content="Learn English and Spanish online with expert teachers at Lingolandias Academy. Live classes, level tests, and certified courses for all levels — A1 to C2. Start learning today!" />
+    <meta name="keywords" content="learn English online, learn Spanish online, English courses, Spanish courses, online language school, language classes online, English teacher online, Spanish teacher online, English level test, Spanish level test, aprender inglés online, aprender español online, clases de inglés, clases de español, language learning, online English school, online Spanish school, English for beginners, Spanish for beginners, CEFR levels, language certification" />
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="Lingolandias Academy" />
+    <link rel="canonical" href="https://lingolandias.net/" />
+
+    <!-- ===== HREFLANG (multilingual signals for Google) ===== -->
+    <link rel="alternate" hreflang="en" href="https://lingolandias.net/" />
+    <link rel="alternate" hreflang="es" href="https://lingolandias.net/" />
+    <link rel="alternate" hreflang="pl" href="https://lingolandias.net/" />
+    <link rel="alternate" hreflang="x-default" href="https://lingolandias.net/" />
+
+    <!-- ===== OPEN GRAPH / SOCIAL SHARING ===== -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://lingolandias.net/" />
+    <meta property="og:title" content="Lingolandias | Learn English & Spanish Online" />
+    <meta property="og:description" content="Learn English and Spanish online with expert teachers. Live classes, level tests, and certified courses for all levels. Start learning today!" />
+    <meta property="og:image" content="https://lingolandias.net/logo.webp" />
+    <meta property="og:image:alt" content="Lingolandias Academy - Learn English and Spanish Online" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale:alternate" content="es_ES" />
+    <meta property="og:site_name" content="Lingolandias Academy" />
+
+    <!-- ===== TWITTER CARD ===== -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://lingolandias.net/" />
+    <meta name="twitter:title" content="Lingolandias | Learn English & Spanish Online" />
+    <meta name="twitter:description" content="Learn English and Spanish online with expert teachers. Live classes, level tests, and certified courses for all levels." />
+    <meta name="twitter:image" content="https://lingolandias.net/logo.webp" />
+
+    <!-- ===== STRUCTURED DATA: Educational Organization ===== -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "EducationalOrganization",
+      "name": "Lingolandias Academy",
+      "url": "https://lingolandias.net/",
+      "logo": "https://lingolandias.net/logo.webp",
+      "description": "Online language school offering English and Spanish courses for all levels — from beginner (A1) to advanced (C2) — with certified, expert teachers.",
+      "teaches": ["English as a Second Language", "Spanish as a Second Language"],
+      "availableLanguage": ["English", "Spanish"],
+      "hasCourse": [
+        {
+          "@type": "Course",
+          "name": "Online English Courses",
+          "description": "Learn English online with expert teachers. All levels from A1 beginner to C2 advanced. Live classes and level assessment tests included.",
+          "provider": {
+            "@type": "Organization",
+            "name": "Lingolandias Academy"
+          },
+          "inLanguage": "en",
+          "teaches": "English language",
+          "courseMode": "online"
+        },
+        {
+          "@type": "Course",
+          "name": "Online Spanish Courses",
+          "description": "Learn Spanish online with native teachers. All levels from A1 beginner to C2 advanced. Live classes and level assessment tests included.",
+          "provider": {
+            "@type": "Organization",
+            "name": "Lingolandias Academy"
+          },
+          "inLanguage": "es",
+          "teaches": "Spanish language",
+          "courseMode": "online"
+        }
+      ]
+    }
+    </script>
+
+    <!-- Preconnect to external domains to speed up resource loading -->
+    <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
+    <link rel="dns-prefetch" href="https://api.fontshare.com" />
+<link rel="preload" href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript><link href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700&display=swap" rel="stylesheet"></noscript>
   </head>
   <body>
-    <div id="root" ></div>
+    <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
-    <script
-      type="module"
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
-    ></script>
-    <script
-      nomodule
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
-    ></script>
   </body>
 </html>

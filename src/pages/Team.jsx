@@ -62,7 +62,7 @@ const Team = () => {
   ];
 
   return (
-    <section className="relative min-h-screen overflow-hidden pt-32 pb-24">
+    <section className="relative min-h-screen overflow-hidden pt-24 sm:pt-32 pb-16 sm:pb-24">
       {/* Header */}
       <Header />
       
@@ -112,7 +112,7 @@ const Team = () => {
             <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
           </div>
 
-          <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-6">
             <span className="relative">
               {t("teacherTitle")}
               <span className="absolute -inset-2 bg-gradient-to-r from-orange-500/30 to-purple-600/30 blur-2xl"></span>
@@ -123,7 +123,7 @@ const Team = () => {
             </span>
           </h2>
           
-          <p className="text-white/80 text-xl max-w-3xl mx-auto leading-relaxed">
+          <p className="text-white/80 text-base sm:text-xl max-w-3xl mx-auto leading-relaxed">
             {t("teachersP1")}
           </p>
 
@@ -161,7 +161,7 @@ const Team = () => {
                   {lang.bgPattern.repeat(20)}
                 </div>
                 
-                <div className="relative p-8 text-center">
+                <div className="relative p-5 sm:p-8 text-center">
                   {/* Icono gigante */}
                   <div className="relative inline-block mb-6">
                     <div className={`absolute inset-0 bg-gradient-to-r ${lang.color} rounded-full blur-2xl opacity-50 group-hover:opacity-75 transition duration-700`}></div>
@@ -174,7 +174,7 @@ const Team = () => {
                   </div>
                   
                   {/* Título */}
-                  <h3 className="text-3xl font-bold text-white mb-2">
+                  <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-2">
                     {lang.title}{' '}
                     <span className={`text-transparent bg-clip-text bg-gradient-to-r ${lang.color}`}>
                       {lang.titleSpan}
@@ -222,9 +222,9 @@ const Team = () => {
 
         {/* MENSAJE DE SELECCIÓN */}
         <div className="text-center mt-16">
-          <div className="inline-flex items-center gap-3 bg-gradient-to-r from-orange-500/20 to-purple-600/20 backdrop-blur-sm px-8 py-4 rounded-full border border-white/20">
-            <span className="text-3xl">🖱️</span>
-            <span className="text-white/90 text-lg font-light">
+          <div className="inline-flex items-center gap-3 bg-gradient-to-r from-orange-500/20 to-purple-600/20 backdrop-blur-sm px-5 sm:px-8 py-3 sm:py-4 rounded-full border border-white/20">
+            <span className="text-2xl sm:text-3xl">🖱️</span>
+            <span className="text-white/90 text-sm sm:text-lg font-light">
               {t("clickToMeetTeam")}
             </span>
           </div>
@@ -236,7 +236,7 @@ const Team = () => {
             <div className="w-full border-t border-white/10"></div>
           </div>
           <div className="relative flex justify-center">
-            <span className="px-8 py-3 bg-purple-900/60 backdrop-blur-sm rounded-full text-white/60 text-sm border border-white/20 inline-flex items-center gap-3">
+            <span className="px-4 sm:px-8 py-2 sm:py-3 bg-purple-900/60 backdrop-blur-sm rounded-full text-white/60 text-xs sm:text-sm border border-white/20 inline-flex items-center gap-3">
               <span className="w-2 h-2 bg-orange-500 rounded-full animate-pulse"></span>
               🇪🇸 🇬🇧 🇵🇱 3 IDIOMAS · 9 PROFESORES · 1 COMUNIDAD 🇪🇸 🇬🇧 🇵🇱
               <span className="w-2 h-2 bg-purple-500 rounded-full animate-pulse animation-delay-1000"></span>

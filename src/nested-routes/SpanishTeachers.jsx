@@ -40,7 +40,7 @@ export function CarouselCustomArrows() {
     <div>
       <Header />
 
-      <section className="relative min-h-screen overflow-hidden pt-32 pb-24">
+      <section className="relative min-h-screen overflow-hidden pt-24 sm:pt-32 pb-16 sm:pb-24">
         {/* Fondo */}
         <div className="absolute inset-0 bg-purple-950/40 backdrop-blur-sm" />
 
@@ -81,14 +81,14 @@ export function CarouselCustomArrows() {
               <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
             </div>
 
-            <h1 className="text-6xl md:text-7xl font-bold text-white mb-6 leading-tight">
+            <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
               {t("spaTeachersH1Prefix")}{" "}
               <span className="bg-gradient-to-r from-orange-400 via-yellow-400 to-orange-400 bg-clip-text text-transparent animate-gradient">
                 {t("spaTeachersH1Span")}
               </span>
             </h1>
 
-            <p className="text-white/70 text-lg max-w-2xl mx-auto leading-relaxed">
+            <p className="text-white/70 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
               {t("spaTeachersDesc")}
             </p>
 
@@ -126,7 +126,7 @@ export function CarouselCustomArrows() {
                       {"🇪🇸".repeat(40)}
                     </div>
 
-                    <div className="relative p-8 flex flex-col flex-1 gap-5">
+                    <div className="relative p-4 sm:p-6 md:p-8 flex flex-col flex-1 gap-5">
 
                       {/* Avatar row */}
                       <div className="flex items-start gap-5">
@@ -138,6 +138,7 @@ export function CarouselCustomArrows() {
                                 src={teacher.photo}
                                 alt={teacher.name}
                                 className="w-20 h-20 rounded-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                loading="lazy"
                               />
                             </div>
                           </div>
@@ -229,11 +230,11 @@ export function CarouselCustomArrows() {
           {/* ——— BOTTOM CTA ——— */}
           <div className="mt-24 relative">
             <div className="absolute inset-0 bg-gradient-to-r from-orange-600/10 to-orange-400/10 rounded-3xl blur-3xl" />
-            <div className="relative flex flex-col sm:flex-row items-center justify-between gap-6 bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl px-10 py-8">
+            <div className="relative flex flex-col sm:flex-row items-center justify-between gap-6 bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl px-5 sm:px-10 py-6 sm:py-8">
               <div className="flex items-center gap-4">
                 <span className="text-5xl">💃</span>
                 <div>
-                  <h4 className="text-white font-bold text-xl">{t("readyToSpeakSpanish")}</h4>
+                  <h4 className="text-white font-bold text-base sm:text-xl">{t("readyToSpeakSpanish")}</h4>
                   <p className="text-white/60 text-sm">{t("discoverLevelFirst")}</p>
                 </div>
               </div>

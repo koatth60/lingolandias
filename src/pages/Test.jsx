@@ -12,38 +12,34 @@ const Test = () => {
   const testCards = [
     {
       id: 'english',
-      title: 'English',
-      titleSpan: 'Test',
+      title: t('engCardTitle'),
+      titleSpan: t('engCardTitleSpan'),
       flag: '🇬🇧',
       color: 'from-purple-500 to-blue-500',
       bgPattern: '🇬🇧🇬🇧🇬🇧',
-      description: 'Sprawdź znajomość angielskiego: tłumaczenia, gramatyka, uzupełnianie luk i dopasowywanie wyrażeń. Wynik wysyłamy na Twój email.',
-      features: ['10 pytań', 'Różne typy zadań', 'Wynik na email', 'Dla Polaków'],
+      description: t('engTestDesc'),
+      features: [t('engFeat1'), t('engFeat2'), t('engFeat3'), t('engFeat4')],
       levels: ['A1', 'A2', 'B1', 'B2'],
       route: '/english-quiz',
-      icon: '🎸',
       accent: '🎧',
-      difficulty: 'Podstawowy – Średni'
     },
     {
       id: 'spanish',
-      title: 'Español',
-      titleSpan: 'Examen',
+      title: t('esCardTitle'),
+      titleSpan: t('esCardTitleSpan'),
       flag: '🇪🇸',
       color: 'from-orange-500 to-orange-400',
       bgPattern: '🇪🇸🇪🇸🇪🇸',
-      description: 'Pon a prueba tu español con 30 preguntas de opción múltiple. Cubre gramática, vocabulario y comprensión. Resultado enviado a tu email.',
-      features: ['30 preguntas', 'Opción múltiple', 'Resultado en email', 'Gramática y vocabulario'],
+      description: t('esTestDesc'),
+      features: [t('esFeat1'), t('esFeat2'), t('esFeat3'), t('esFeat4')],
       levels: ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'],
       route: '/spanish-quiz',
-      icon: '💃',
       accent: '💃',
-      difficulty: 'Todos los niveles'
     }
   ];
 
   return (
-    <section className="relative min-h-screen overflow-hidden pt-32 pb-24">
+    <section className="relative min-h-screen overflow-hidden pt-24 sm:pt-32 pb-16 sm:pb-24">
       {/* Header */}
       <Header />
       
@@ -117,7 +113,7 @@ const Test = () => {
             <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
           </div>
 
-          <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-6">
             <span className="relative">
               {t("whatsYourLevel")}
               <span className="absolute -inset-2 bg-gradient-to-r from-orange-500/30 to-purple-600/30 blur-2xl"></span>
@@ -128,25 +124,25 @@ const Test = () => {
             </span>
           </h2>
           
-          <p className="text-white/80 text-xl max-w-3xl mx-auto leading-relaxed">
+          <p className="text-white/80 text-base sm:text-xl max-w-3xl mx-auto leading-relaxed">
             {t("testHeroText")}
           </p>
 
           {/* Estadísticas rápidas */}
-          <div className="flex justify-center items-center gap-8 mt-10">
+          <div className="flex flex-wrap justify-center items-center gap-4 sm:gap-8 mt-10">
             <div className="flex items-center gap-2">
-              <span className="text-3xl">⏱️</span>
-              <span className="text-white/70">{t("testTime")}</span>
+              <span className="text-2xl sm:text-3xl">⏱️</span>
+              <span className="text-white/70 text-sm sm:text-base">{t("testTime")}</span>
             </div>
-            <div className="w-px h-8 bg-white/20"></div>
+            <div className="hidden sm:block w-px h-8 bg-white/20"></div>
             <div className="flex items-center gap-2">
-              <span className="text-3xl">📊</span>
-              <span className="text-white/70">{t("immediateResult")}</span>
+              <span className="text-2xl sm:text-3xl">📊</span>
+              <span className="text-white/70 text-sm sm:text-base">{t("immediateResult")}</span>
             </div>
-            <div className="w-px h-8 bg-white/20"></div>
+            <div className="hidden sm:block w-px h-8 bg-white/20"></div>
             <div className="flex items-center gap-2">
-              <span className="text-3xl">🎓</span>
-              <span className="text-white/70">{t("testCertificate")}</span>
+              <span className="text-2xl sm:text-3xl">💬</span>
+              <span className="text-white/70 text-sm sm:text-base">{t("testGuidance")}</span>
             </div>
           </div>
 
@@ -187,7 +183,7 @@ const Test = () => {
                   {test.bgPattern.repeat(30)}
                 </div>
                 
-                <div className="relative p-8 text-center">
+                <div className="relative p-5 sm:p-8 text-center">
                   {/* Icono principal con efectos */}
                   <div className="relative inline-block mb-8">
                     {/* Múltiples círculos de glow */}
@@ -195,23 +191,23 @@ const Test = () => {
                     <div className="absolute -inset-4 bg-gradient-to-r from-white/20 to-transparent rounded-full blur-2xl opacity-0 group-hover:opacity-40 transition duration-700"></div>
                     
                     {/* Círculo principal */}
-                    <div className={`relative w-36 h-36 bg-gradient-to-r ${test.color} rounded-full flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform duration-500 ring-4 ring-white/20`}>
-                      <span className="text-6xl">{test.flag}</span>
+                    <div className={`relative w-24 h-24 sm:w-36 sm:h-36 bg-gradient-to-r ${test.color} rounded-full flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform duration-500 ring-4 ring-white/20`}>
+                      <span className="text-4xl sm:text-6xl">{test.flag}</span>
                     </div>
                     
                     {/* Icono de acento flotante */}
-                    <div className="absolute -bottom-2 -right-2 w-14 h-14 bg-purple-900 rounded-full flex items-center justify-center text-3xl border-4 border-white/30 shadow-xl animate-bounce-slow">
+                    <div className="absolute -bottom-2 -right-2 w-10 h-10 sm:w-14 sm:h-14 bg-purple-900 rounded-full flex items-center justify-center text-xl sm:text-3xl border-4 border-white/30 shadow-xl animate-bounce-slow">
                       {test.accent}
                     </div>
-                    
+
                     {/* Badge de tiempo */}
-                    <div className="absolute -top-4 -left-4 w-16 h-16 bg-gradient-to-r from-orange-500 to-purple-600 rounded-full flex items-center justify-center text-white font-bold text-sm border-4 border-white/30 shadow-xl animate-pulse-slow">
+                    <div className="absolute -top-3 -left-3 sm:-top-4 sm:-left-4 w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-r from-orange-500 to-purple-600 rounded-full flex items-center justify-center text-white font-bold text-xs sm:text-sm border-4 border-white/30 shadow-xl animate-pulse-slow">
                       15'
                     </div>
                   </div>
                   
                   {/* Título */}
-                  <h3 className="text-4xl md:text-5xl font-bold text-white mb-3">
+                  <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-3">
                     {test.title}{' '}
                     <span className={`text-transparent bg-clip-text bg-gradient-to-r ${test.color}`}>
                       {test.titleSpan}
@@ -251,7 +247,7 @@ const Test = () => {
                   {/* Botón principal */}
                   <div className="relative inline-block">
                     <div className={`absolute -inset-2 bg-gradient-to-r ${test.color} rounded-full blur-xl opacity-0 group-hover:opacity-60 transition duration-700`}></div>
-                    <button className="relative px-10 py-5 bg-gradient-to-r from-orange-500 to-purple-600 rounded-full text-white font-bold text-xl hover:scale-105 transition-transform shadow-2xl inline-flex items-center gap-3 group/btn">
+                    <button className="relative px-6 py-3 sm:px-10 sm:py-5 bg-gradient-to-r from-orange-500 to-purple-600 rounded-full text-white font-bold text-base sm:text-xl hover:scale-105 transition-transform shadow-2xl inline-flex items-center gap-3 group/btn">
                       <span>{t("startTest")}</span>
                       <span className="text-2xl group-hover/btn:translate-x-2 transition-transform">→</span>
                     </button>
@@ -276,9 +272,9 @@ const Test = () => {
         {/* SECCIÓN DE BENEFICIOS */}
         <div className="mt-20 relative">
           <div className="absolute inset-0 bg-gradient-to-r from-orange-600/10 to-purple-600/10 rounded-3xl blur-3xl"></div>
-          
-          <div className="relative bg-white/5 backdrop-blur-md p-10 rounded-3xl border border-white/20">
-            <h3 className="text-2xl md:text-3xl font-bold text-white text-center mb-8">
+
+          <div className="relative bg-white/5 backdrop-blur-md p-6 sm:p-10 rounded-3xl border border-white/20">
+            <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white text-center mb-8">
               {t("whyTakeTest")}
             </h3>
 
@@ -306,10 +302,10 @@ const Test = () => {
               </div>
               <div className="text-center">
                 <div className="w-16 h-16 bg-gradient-to-r from-orange-500 to-purple-600 rounded-full flex items-center justify-center text-3xl mx-auto mb-3 shadow-lg">
-                  🎓
+                  💬
                 </div>
-                <p className="text-white font-semibold">{t("testCertificate")}</p>
-                <p className="text-white/50 text-xs mt-1">{t("testCertificateSub")}</p>
+                <p className="text-white font-semibold">{t("testGuidance")}</p>
+                <p className="text-white/50 text-xs mt-1">{t("testGuidanceSub")}</p>
               </div>
             </div>
           </div>
@@ -317,12 +313,12 @@ const Test = () => {
 
         {/* BADGE INFERIOR ÉPICO */}
         <div className="mt-20 text-center">
-          <div className="inline-flex items-center gap-4 bg-gradient-to-r from-orange-500/20 to-purple-600/20 backdrop-blur-sm px-8 py-4 rounded-full border border-white/20">
-            <span className="text-3xl animate-pulse">📝</span>
-            <span className="text-white/90 text-lg font-light">
+          <div className="inline-flex items-center gap-3 bg-gradient-to-r from-orange-500/20 to-purple-600/20 backdrop-blur-sm px-5 sm:px-8 py-3 sm:py-4 rounded-full border border-white/20">
+            <span className="text-2xl sm:text-3xl animate-pulse">📝</span>
+            <span className="text-white/90 text-sm sm:text-lg font-light">
               {t("testQuestionsInfo")}
             </span>
-            <span className="text-3xl animate-pulse animation-delay-1000">📊</span>
+            <span className="text-2xl sm:text-3xl animate-pulse animation-delay-1000">📊</span>
           </div>
         </div>
 
@@ -334,7 +330,7 @@ const Test = () => {
           <div className="relative flex justify-center">
             <span className="px-8 py-3 bg-purple-900/60 backdrop-blur-sm rounded-full text-white/60 text-sm border border-white/20 inline-flex items-center gap-3">
               <span className="w-2 h-2 bg-orange-500 rounded-full animate-pulse"></span>
-              🇬🇧 TEST DE INGLÉS · 🇪🇸 EXAMEN DE ESPAÑOL · ¡ELIGE TU IDIOMA! 🇪🇸 · 🇬🇧
+              {t("testSeparator")}
               <span className="w-2 h-2 bg-purple-500 rounded-full animate-pulse animation-delay-1000"></span>
             </span>
           </div>

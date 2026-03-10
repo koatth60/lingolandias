@@ -23,23 +23,38 @@ const Contact = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    // Simular envío
-    setTimeout(() => {
+
+    try {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/contact`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: formData.name,
+          number: formData.phone,
+          email: formData.email,
+          message: formData.message,
+        }),
+      });
+
+      if (response.ok) {
+        setIsSubmitted(true);
+        setFormData({ name: '', phone: '', email: '', message: '' });
+        setTimeout(() => setIsSubmitted(false), 5000);
+      } else {
+        console.error('Failed to send message');
+      }
+    } catch (error) {
+      console.error('Contact form error:', error);
+    } finally {
       setIsSubmitting(false);
-      setIsSubmitted(true);
-      setFormData({ name: '', phone: '', email: '', message: '' });
-      
-      // Resetear mensaje de éxito después de 5 segundos
-      setTimeout(() => setIsSubmitted(false), 5000);
-    }, 1500);
+    }
   };
 
   return (
-    <section className="relative min-h-screen overflow-hidden pt-32 pb-24">
+    <section className="relative min-h-screen overflow-hidden pt-24 sm:pt-32 pb-16 sm:pb-24">
       {/* Header */}
       <Header />
       
@@ -120,7 +135,7 @@ const Contact = () => {
             <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
           </div>
 
-          <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-6">
             <span className="relative">
               {t("letsTalk")}
               <span className="absolute -inset-2 bg-gradient-to-r from-orange-500/30 to-purple-600/30 blur-2xl"></span>
@@ -131,22 +146,22 @@ const Contact = () => {
             </span>
           </h2>
           
-          <p className="text-white/80 text-xl max-w-3xl mx-auto leading-relaxed">
+          <p className="text-white/80 text-base sm:text-xl max-w-3xl mx-auto leading-relaxed">
             {t("contactHeroText")}
           </p>
 
           {/* Estadísticas de respuesta */}
-          <div className="flex justify-center items-center gap-8 mt-10">
+          <div className="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-8 mt-10">
             <div className="flex items-center gap-2">
               <span className="text-3xl">⚡</span>
               <span className="text-white/70">{t("response24h")}</span>
             </div>
-            <div className="w-px h-8 bg-white/20"></div>
+            <div className="hidden sm:block w-px h-8 bg-white/20"></div>
             <div className="flex items-center gap-2">
               <span className="text-3xl">🌍</span>
               <span className="text-white/70">{t("multilingualSupport")}</span>
             </div>
-            <div className="w-px h-8 bg-white/20"></div>
+            <div className="hidden sm:block w-px h-8 bg-white/20"></div>
             <div className="flex items-center gap-2">
               <span className="text-3xl">🔒</span>
               <span className="text-white/70">{t("secureData")}</span>
@@ -162,7 +177,7 @@ const Contact = () => {
         </div>
 
         {/* GRID PRINCIPAL - FORMULARIO + IMAGEN */}
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start lg:items-center">
           
           {/* COLUMNA IZQUIERDA - FORMULARIO */}
           <div className="relative group">
@@ -170,7 +185,7 @@ const Contact = () => {
             <div className="absolute -inset-1 bg-gradient-to-r from-orange-500 to-purple-600 rounded-3xl blur-xl opacity-25 group-hover:opacity-50 transition duration-700"></div>
             <div className="absolute -inset-2 bg-gradient-to-r from-purple-600 to-orange-500 rounded-3xl blur-2xl opacity-20 group-hover:opacity-30 transition duration-700"></div>
             
-            <div className="relative bg-gradient-to-br from-purple-900/90 to-purple-800/90 backdrop-blur-xl rounded-3xl border border-white/20 overflow-hidden shadow-2xl p-8 md:p-10">
+            <div className="relative bg-gradient-to-br from-purple-900/90 to-purple-800/90 backdrop-blur-xl rounded-3xl border border-white/20 overflow-hidden shadow-2xl p-5 sm:p-8 md:p-10">
               
               {/* Barra superior */}
               <div className="h-1.5 bg-gradient-to-r from-orange-500 via-purple-600 to-orange-500 absolute top-0 left-0 right-0"></div>
@@ -186,7 +201,7 @@ const Contact = () => {
                 </div>
               )}
               
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
                 {/* Campo: Nombre */}
                 <div className="relative group/input">
                   <label className="block text-white/80 text-sm font-medium mb-2 ml-1">
@@ -271,7 +286,7 @@ const Contact = () => {
                     className="relative w-full group/btn overflow-hidden"
                   >
                     <div className="absolute -inset-1 bg-gradient-to-r from-orange-500 to-purple-600 rounded-xl blur-xl opacity-50 group-hover/btn:opacity-75 transition duration-700"></div>
-                    <div className="relative px-8 py-4 bg-gradient-to-r from-orange-500 to-purple-600 rounded-xl text-white font-bold text-lg hover:scale-[1.02] transition-transform duration-300 flex items-center justify-center gap-3">
+                    <div className="relative px-6 py-3 sm:px-8 sm:py-4 bg-gradient-to-r from-orange-500 to-purple-600 rounded-xl text-white font-bold text-base sm:text-lg hover:scale-[1.02] transition-transform duration-300 flex items-center justify-center gap-3">
                       {isSubmitting ? (
                         <>
                           <span className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></span>
@@ -296,7 +311,7 @@ const Contact = () => {
 
           {/* COLUMNA DERECHA - IMAGEN E INFO */}
           <div className="relative">
-            <div className="sticky top-32">
+            <div className="lg:sticky lg:top-28">
               {/* Imagen principal */}
               <div className="relative group mb-8">
                 {/* Múltiples capas de glow */}
@@ -333,17 +348,24 @@ const Contact = () => {
                 <div className="p-4 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 hover:border-orange-500/30 transition-colors">
                   <span className="text-2xl mb-2 block">📧</span>
                   <p className="text-white/80 text-xs font-medium">Email</p>
-                  <p className="text-white text-sm">hola@lingolandias.com</p>
+                  <p className="text-white text-sm">agata@lingolandias.net</p>
                 </div>
-                <div className="p-4 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 hover:border-purple-500/30 transition-colors">
-                  <span className="text-2xl mb-2 block">📱</span>
-                  <p className="text-white/80 text-xs font-medium">Teléfono</p>
-                  <p className="text-white text-sm">+34 123 456 789</p>
-                </div>
+                <a
+                  href="https://wa.me/447578146264"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-4 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 hover:border-green-500/50 transition-colors block"
+                >
+                  <svg className="w-7 h-7 mb-2" viewBox="0 0 24 24" fill="#25D366">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                  </svg>
+                  <p className="text-white/80 text-xs font-medium">WhatsApp</p>
+                  <p className="text-white text-sm">+44 7578 146264</p>
+                </a>
                 <div className="p-4 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 hover:border-orange-500/30 transition-colors">
                   <span className="text-2xl mb-2 block">📍</span>
                   <p className="text-white/80 text-xs font-medium">{t("officeLabel")}</p>
-                  <p className="text-white text-sm">Madrid, España</p>
+                  <p className="text-white text-sm">London, England</p>
                 </div>
                 <div className="p-4 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 hover:border-purple-500/30 transition-colors">
                   <span className="text-2xl mb-2 block">🌍</span>
@@ -369,7 +391,7 @@ const Contact = () => {
             <div className="w-full border-t border-white/10"></div>
           </div>
           <div className="relative flex justify-center">
-            <span className="px-8 py-3 bg-purple-900/60 backdrop-blur-sm rounded-full text-white/60 text-sm border border-white/20 inline-flex items-center gap-3">
+            <span className="px-4 sm:px-8 py-2 sm:py-3 bg-purple-900/60 backdrop-blur-sm rounded-full text-white/60 text-xs sm:text-sm border border-white/20 inline-flex items-center gap-3">
               <span className="w-2 h-2 bg-orange-500 rounded-full animate-pulse"></span>
               📱 · 💬 · 📧 · 📞 · {t("writeUs")} · 📍 · 🗺️ · ⏰
               <span className="w-2 h-2 bg-purple-500 rounded-full animate-pulse animation-delay-1000"></span>
