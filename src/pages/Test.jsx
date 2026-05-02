@@ -44,7 +44,7 @@ const Test = () => {
       <Header />
       
       {/* Fondo consistente */}
-      <div className="absolute inset-0 bg-purple-950/40 backdrop-blur-sm"></div>
+      <div className="absolute inset-0 bg-purple-950/40"></div>
       
       {/* ARTE ÉPICO - ESTILO EXAMEN/EVALUACIÓN */}
       

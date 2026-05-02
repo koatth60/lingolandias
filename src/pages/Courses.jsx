@@ -1,347 +1,396 @@
-// components/Courses.jsx
+import { useState, useEffect } from 'react';
+import { Link, useSearchParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
 import Header from '../sections/Header';
 import Footer from '../sections/Footer';
 
+const accentColors = {
+  english:    { pill: 'from-orange-500 to-orange-400', border: 'border-orange-500/40', badge: 'bg-orange-500/20 border-orange-500/30 text-orange-200', dot: 'bg-orange-500' },
+  spanish:    { pill: 'from-red-500 to-orange-400',   border: 'border-red-500/40',    badge: 'bg-red-500/20 border-red-500/30 text-red-200',          dot: 'bg-red-500' },
+  italian:    { pill: 'from-green-500 to-teal-400',   border: 'border-green-500/40',  badge: 'bg-green-500/20 border-green-500/30 text-green-200',     dot: 'bg-green-500' },
+  polish:     { pill: 'from-red-600 to-pink-500',     border: 'border-red-600/40',    badge: 'bg-red-600/20 border-red-600/30 text-red-200',           dot: 'bg-red-600' },
+  indonesian: { pill: 'from-yellow-500 to-red-500',   border: 'border-yellow-500/40', badge: 'bg-yellow-500/20 border-yellow-500/30 text-yellow-200',  dot: 'bg-yellow-500' },
+  workshops:  { pill: 'from-purple-500 to-indigo-500',border: 'border-purple-500/40', badge: 'bg-purple-500/20 border-purple-500/30 text-purple-200',  dot: 'bg-purple-500' },
+};
+
+function OfferItem({ name, desc }) {
+  return (
+    <div className="flex gap-4 p-4 bg-white/5 rounded-2xl border border-white/10 hover:bg-white/8 transition-colors">
+      <span className="text-orange-400 text-lg shrink-0 mt-0.5">✦</span>
+      <div>
+        <p className="text-white font-semibold text-sm sm:text-base">{name}</p>
+        {desc && <p className="text-white/70 text-sm leading-relaxed mt-1">{desc}</p>}
+      </div>
+    </div>
+  );
+}
+
+function SectionLabel({ children }) {
+  return (
+    <p className="text-orange-300 font-semibold text-sm uppercase tracking-wider mb-4">{children}</p>
+  );
+}
+
+function CtaCard({ label, text, btn, color }) {
+  return (
+    <div className="relative group mt-10">
+      <div className={`absolute -inset-1 bg-gradient-to-r ${color} rounded-3xl blur-xl opacity-25 group-hover:opacity-40 transition duration-700`}></div>
+      <div className="relative bg-gradient-to-br from-purple-900/90 to-purple-800/90 backdrop-blur-xl p-6 sm:p-10 rounded-3xl border border-white/20 shadow-2xl flex flex-col sm:flex-row items-start sm:items-center gap-6">
+        <div className="flex-1">
+          <p className="text-white font-bold text-base sm:text-lg">{label}</p>
+          <p className="text-white/70 text-sm mt-2 leading-relaxed">{text}</p>
+        </div>
+        <a
+          href="https://wa.me/447578146264"
+          target="_blank"
+          rel="noopener noreferrer"
+          className={`shrink-0 px-7 py-3 bg-gradient-to-r ${color} rounded-full text-white font-semibold hover:scale-105 transition-transform shadow-lg text-sm whitespace-nowrap`}
+        >
+          {btn}
+        </a>
+      </div>
+    </div>
+  );
+}
+
+/* ── ENGLISH ── */
+function EnglishContent() {
+  const { t } = useTranslation();
+  const c = accentColors.english;
+  return (
+    <div className="space-y-8">
+      <div>
+        <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">{t("engCTitle")}</h2>
+        <p className="text-white/80 text-sm sm:text-base leading-relaxed">{t("engCIntro")}</p>
+      </div>
+      <div>
+        <SectionLabel>{t("engCOffer")}</SectionLabel>
+        <div className="space-y-3">
+          <OfferItem name={t("engCLesson")}    desc={t("engCLessonP")} />
+          <OfferItem name={t("engCGroup")}     desc={t("engCGroupP")} />
+          <OfferItem name={t("engCTea")}       desc={t("engCTeaP")} />
+          <OfferItem name={t("engCCultural")}  desc={t("engCCulturalP")} />
+          <OfferItem name={t("engCChallenge")} desc={t("engCChallengeP")} />
+        </div>
+      </div>
+      <CtaCard label={t("engCCTA")} text={t("engCText")} btn={t("engCBtn")} color={c.pill} />
+    </div>
+  );
+}
+
+/* ── SPANISH ── */
+function SpanishContent() {
+  const { t } = useTranslation();
+  const c = accentColors.spanish;
+  return (
+    <div className="space-y-8">
+      <div>
+        <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">{t("spaCTitle")}</h2>
+        <p className="text-white/80 text-sm sm:text-base leading-relaxed">{t("spaCIntro")}</p>
+      </div>
+      <div>
+        <SectionLabel>{t("spaCHow")}</SectionLabel>
+        <p className="text-white/80 text-sm sm:text-base leading-relaxed">{t("spaCHowP")}</p>
+      </div>
+      <div>
+        <SectionLabel>{t("spaCOffer")}</SectionLabel>
+        <div className="space-y-3">
+          <OfferItem name={t("spaCBenefit1")} />
+          <OfferItem name={t("spaCBenefit2")} />
+          <OfferItem name={t("spaCBenefit3")} />
+          <OfferItem name={t("spaCBenefit4")} />
+          <OfferItem name={t("spaCBenefit5")} />
+        </div>
+      </div>
+      <div>
+        <SectionLabel>{t("spaCWhy")}</SectionLabel>
+        <div className="space-y-2 pl-4 border-l-2 border-red-500/40">
+          {t("spaCWhyP").split(". ").filter(Boolean).map((s, i) => (
+            <p key={i} className="text-white/80 text-sm leading-relaxed">{s}{s.endsWith(".") ? "" : "."}</p>
+          ))}
+        </div>
+      </div>
+      <div className="bg-white/5 rounded-2xl border border-white/10 p-5">
+        <p className="text-white font-semibold mb-2">{t("spaCSolo")}</p>
+        <p className="text-white/70 text-sm leading-relaxed">{t("spaCSoloP")}</p>
+        <p className="text-white/70 text-sm leading-relaxed mt-3">{t("spaCExtra")}</p>
+      </div>
+      <CtaCard label={t("spaCCTA")} text={t("spaCText")} btn={t("spaCBtn")} color={c.pill} />
+    </div>
+  );
+}
+
+/* ── ITALIAN ── */
+function ItalianContent() {
+  const { t } = useTranslation();
+  const c = accentColors.italian;
+  return (
+    <div className="space-y-8">
+      <div>
+        <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">{t("itaCTitle")}</h2>
+        <p className="text-white/80 text-sm sm:text-base leading-relaxed">{t("itaCIntro")}</p>
+      </div>
+      <div>
+        <SectionLabel>{t("itaCOffer")}</SectionLabel>
+        <div className="space-y-3">
+          <OfferItem name={t("itaCItem1")} />
+          <OfferItem name={t("itaCItem2")} />
+          <OfferItem name={t("itaCItem3")} />
+          <OfferItem name={t("itaCItem4")} />
+          <OfferItem name={t("itaCItem5")} />
+          <OfferItem name={t("itaCItem6")} />
+        </div>
+      </div>
+      <div>
+        <SectionLabel>{t("itaCWhy")}</SectionLabel>
+        <div className="space-y-2 pl-4 border-l-2 border-green-500/40">
+          {t("itaCWhyP").split(". ").filter(Boolean).map((s, i) => (
+            <p key={i} className="text-white/80 text-sm leading-relaxed">{s}{s.endsWith(".") ? "" : "."}</p>
+          ))}
+        </div>
+      </div>
+      <div className="bg-white/5 rounded-2xl border border-white/10 p-5">
+        <p className="text-white font-semibold mb-2">{t("itaCSolo")}</p>
+        <p className="text-white/70 text-sm leading-relaxed">{t("itaCSoloP")}</p>
+        <p className="text-white/70 text-sm leading-relaxed mt-3">{t("itaCExtra")}</p>
+      </div>
+      <CtaCard label={t("itaCCTA")} text={t("itaCText")} btn={t("itaCBtn")} color={c.pill} />
+    </div>
+  );
+}
+
+/* ── POLISH ── */
+function PolishContent() {
+  const { t } = useTranslation();
+  const c = accentColors.polish;
+  return (
+    <div className="space-y-8">
+      <div>
+        <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">{t("polCTitle")}</h2>
+        <p className="text-white/80 text-sm sm:text-base leading-relaxed">{t("polCIntro")}</p>
+      </div>
+      <div>
+        <SectionLabel>{t("polCOffer")}</SectionLabel>
+        <div className="space-y-3">
+          <OfferItem name={t("polCItem1")} />
+          <OfferItem name={t("polCItem2")} />
+          <OfferItem name={t("polCItem3")} />
+          <OfferItem name={t("polCItem4")} />
+          <OfferItem name={t("polCItem5")} />
+        </div>
+      </div>
+      <div className="pl-4 border-l-2 border-red-600/40">
+        {t("polCWhy").split(". ").filter(Boolean).map((s, i) => (
+          <p key={i} className="text-white/80 text-sm leading-relaxed">{s}{s.endsWith(".") ? "" : "."}</p>
+        ))}
+      </div>
+      <CtaCard label={t("polCCTA")} text={t("polCText")} btn={t("polCBtn")} color={c.pill} />
+    </div>
+  );
+}
+
+/* ── INDONESIAN ── */
+function IndonesianContent() {
+  const { t } = useTranslation();
+  const c = accentColors.indonesian;
+  return (
+    <div className="space-y-8">
+      <div>
+        <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">{t("indCTitle")}</h2>
+        <p className="text-white/80 text-sm sm:text-base leading-relaxed">{t("indCIntro")}</p>
+      </div>
+      <div>
+        <SectionLabel>{t("indCOffer")}</SectionLabel>
+        <div className="space-y-3">
+          <OfferItem name={t("indCItem1")} />
+          <OfferItem name={t("indCItem2")} />
+          <OfferItem name={t("indCItem3")} />
+          <OfferItem name={t("indCItem4")} />
+        </div>
+      </div>
+      <div className="pl-4 border-l-2 border-yellow-500/40">
+        <p className="text-white/80 text-sm leading-relaxed">{t("indCItem5")}</p>
+      </div>
+      <CtaCard label={t("indCCTA")} text={t("indCText")} btn={t("indCBtn")} color={c.pill} />
+    </div>
+  );
+}
+
+/* ── WORKSHOPS ── */
+function WorkshopsContent() {
+  const { t } = useTranslation();
+  const c = accentColors.workshops;
+  return (
+    <div className="space-y-8">
+      <div>
+        <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">{t("wshCTitle")}</h2>
+        <p className="text-white/80 text-sm sm:text-base leading-relaxed">{t("wshCIntro")}</p>
+      </div>
+      <div>
+        <SectionLabel>{t("wshCOffer")}</SectionLabel>
+        <div className="space-y-3">
+          <OfferItem name={t("wshCTheme1")} />
+          <OfferItem name={t("wshCTheme2")} />
+          <OfferItem name={t("wshCTheme3")} />
+          <OfferItem name={t("wshCTheme4")} />
+        </div>
+      </div>
+      <div>
+        <SectionLabel>{t("wshCWhy")}</SectionLabel>
+        <p className="text-white/80 text-sm sm:text-base leading-relaxed">{t("wshCWhyP")}</p>
+      </div>
+      <CtaCard label={t("wshCCTA")} text={t("wshCTADesc")} btn={t("wshCBtn")} color={c.pill} />
+    </div>
+  );
+}
+
+const validTabs = new Set(['english','spanish','italian','polish','indonesian','workshops']);
+
 const Courses = () => {
   const { t } = useTranslation();
-  const [activeTab, setActiveTab] = useState('individual');
+  const [searchParams] = useSearchParams();
+  const [activeTab, setActiveTab] = useState(() => {
+    const lang = searchParams.get('lang');
+    return validTabs.has(lang) ? lang : 'english';
+  });
+  const c = accentColors[activeTab];
+
+  useEffect(() => {
+    const lang = searchParams.get('lang');
+    if (validTabs.has(lang)) setActiveTab(lang);
+  }, [searchParams]);
+
+  const tabs = [
+    { id: 'english',    flag: '🇬🇧', labelKey: 'langEnglish' },
+    { id: 'spanish',   flag: '🇪🇸', labelKey: 'langSpanish' },
+    { id: 'italian',   flag: '🇮🇹', labelKey: 'langItalian' },
+    { id: 'polish',    flag: '🇵🇱', labelKey: 'langPolish' },
+    { id: 'indonesian',flag: '🇮🇩', labelKey: 'langIndonesian' },
+    { id: 'workshops', flag: '🌱',  labelKey: 'langWorkshops' },
+  ];
+
+  const contentMap = {
+    english:    <EnglishContent />,
+    spanish:    <SpanishContent />,
+    italian:    <ItalianContent />,
+    polish:     <PolishContent />,
+    indonesian: <IndonesianContent />,
+    workshops:  <WorkshopsContent />,
+  };
+
+  const closingPills = [
+    { icon: "🎓", key: "coursePill1" },
+    { icon: "⭐", key: "coursePill2" },
+    { icon: "🌍", key: "coursePill3" },
+    { icon: "💬", key: "coursePill4" },
+  ];
 
   return (
     <section className="relative min-h-screen overflow-hidden pt-24 sm:pt-32 pb-16 sm:pb-24">
-      {/* Header */}
       <Header />
-      
-      {/* Fondo consistente */}
-      <div className="absolute inset-0 bg-purple-950/40 backdrop-blur-sm"></div>
-      
-      {/* ARTE ÉPICO - ESTILO SUPERHÉROES */}
-      
-      {/* Capa 1: Rayos de energía */}
-      <div className="absolute inset-0 opacity-20">
-        <div className="absolute top-0 left-1/4 w-1 h-full bg-gradient-to-b from-orange-500/0 via-orange-500/50 to-purple-600/0 animate-pulse-slow"></div>
-        <div className="absolute top-0 left-2/4 w-1 h-full bg-gradient-to-b from-purple-500/0 via-purple-500/50 to-orange-600/0 animate-pulse-slow animation-delay-1000"></div>
-        <div className="absolute top-0 left-3/4 w-1 h-full bg-gradient-to-b from-orange-500/0 via-orange-500/50 to-purple-600/0 animate-pulse-slow animation-delay-2000"></div>
-      </div>
 
-      {/* Capa 2: Estrellas fugaces de poder */}
-      <div className="absolute inset-0 overflow-hidden">
-        {[...Array(15)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute w-0.5 h-0.5 bg-gradient-to-r from-orange-500 to-purple-600 rounded-full animate-shoot"
+      {/* Background */}
+      <div className="absolute inset-0 bg-purple-950/40"></div>
+      <div className="absolute top-40 left-10 w-72 h-72 bg-orange-500/8 rounded-full blur-3xl pointer-events-none"></div>
+      <div className="absolute bottom-40 right-10 w-72 h-72 bg-purple-600/8 rounded-full blur-3xl pointer-events-none"></div>
+
+      {/* Floating particles */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {[...Array(10)].map((_, i) => (
+          <div key={i}
+            className="absolute w-1 h-1 bg-white/20 rounded-full"
             style={{
               top: `${Math.random() * 100}%`,
               left: `${Math.random() * 100}%`,
+              animation: `float ${10 + Math.random() * 10}s ease-in-out infinite`,
               animationDelay: `${Math.random() * 5}s`,
-              animationDuration: `${8 + Math.random() * 10}s`,
-              boxShadow: '0 0 10px rgba(249,115,22,0.5)'
             }}
           />
         ))}
       </div>
 
-      {/* Capa 3: Símbolos de poder flotantes */}
-      <div className="absolute inset-0 overflow-hidden opacity-10">
-        <div className="absolute top-20 left-10 text-8xl animate-float-slow">⚡</div>
-        <div className="absolute bottom-40 right-20 text-8xl animate-float-slow animation-delay-2000">💪</div>
-        <div className="absolute top-1/3 right-1/4 text-7xl animate-float-slow animation-delay-4000">🦸</div>
-        <div className="absolute bottom-20 left-1/4 text-7xl animate-float-slow animation-delay-1000">🌟</div>
-      </div>
+      <div className="relative container mx-auto px-4 max-w-6xl">
 
-      {/* Capa 4: Círculos de poder concéntricos */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-20">
-        <div className="relative">
-          <div className="w-[600px] h-[600px] border-2 border-orange-500/30 rounded-full animate-ping-slow"></div>
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] border-2 border-purple-500/30 rounded-full"></div>
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[200px] h-[200px] border-2 border-white/20 rounded-full"></div>
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[100px] h-[100px] bg-gradient-to-r from-orange-500/20 to-purple-600/20 rounded-full blur-xl"></div>
-        </div>
-      </div>
-
-      <div className="relative container mx-auto px-4 max-w-7xl">
-        {/* HEADER - ESTILO SUPERHÉROE */}
-        <div className="text-center mb-16 relative">
-          {/* Badge de poder */}
-          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-orange-500/20 to-purple-600/20 backdrop-blur-sm px-6 py-2 rounded-full border border-orange-500/30 mb-6">
-            <span className="text-2xl">🦸</span>
-            <span className="text-white/90 text-sm font-medium tracking-wider">{t("discoverSuperpowers")}</span>
-            <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
-          </div>
-
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-6">
-            <span className="relative">
-              {t("courseTitle")}
-              <span className="absolute -inset-2 bg-gradient-to-r from-orange-500/30 to-purple-600/30 blur-2xl"></span>
+        {/* Page header */}
+        <div className="text-center mb-12">
+          <span className={`inline-flex items-center gap-2 px-5 py-2 rounded-full border text-sm font-medium tracking-wider mb-6 ${c.badge}`}>
+            <span className={`w-1.5 h-1.5 rounded-full animate-pulse ${c.dot}`}></span>
+            {t("ourOffer")}
+          </span>
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-4">
+            <span className="bg-gradient-to-r from-orange-400 via-purple-400 to-orange-400 bg-clip-text text-transparent">
+              {t("courses")}
             </span>
-            <br />
-            <span className="bg-gradient-to-r from-orange-400 via-purple-400 to-orange-400 bg-clip-text text-transparent bg-300% animate-gradient text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl">
-              {t("superAdventure")}
-            </span>
-          </h2>
-
-          <p className="text-white/80 text-base sm:text-xl max-w-3xl mx-auto leading-relaxed">
-            {t("courseSubtitle")}
-          </p>
-
-          {/* Separador con símbolos */}
-          <div className="flex justify-center items-center gap-4 mt-8">
+          </h1>
+          <div className="flex justify-center items-center gap-4 mt-4">
             <div className="w-16 h-0.5 bg-gradient-to-r from-transparent via-orange-500 to-transparent"></div>
-            <span className="text-orange-400 text-2xl animate-pulse">⚡</span>
-            <div className="w-16 h-0.5 bg-gradient-to-r from-transparent via-purple-600 to-transparent"></div>
+            <span className="text-orange-400 text-xl animate-pulse">✦</span>
+            <div className="w-16 h-0.5 bg-gradient-to-r from-transparent via-purple-500 to-transparent"></div>
           </div>
         </div>
 
-        {/* SELECTOR DE MODO - INDIVIDUAL VS PAREJA */}
-        <div className="flex justify-center mb-16">
-          <div className="bg-purple-900/60 backdrop-blur-xl p-1.5 rounded-2xl border border-white/10 inline-flex shadow-2xl">
-            <button
-              onClick={() => setActiveTab('individual')}
-              className={`relative px-4 py-2 sm:px-8 sm:py-4 rounded-xl font-bold text-sm sm:text-lg transition-all duration-500 ${
-                activeTab === 'individual'
-                  ? 'bg-gradient-to-r from-orange-500 to-purple-600 text-white shadow-lg'
-                  : 'text-white/70 hover:text-white hover:bg-white/10'
-              }`}
-            >
-              <span className="relative z-10 flex items-center gap-2">
-                <span className="text-xl sm:text-2xl">🦸</span>
-                {t("titleIndividual")}
-              </span>
-              {activeTab === 'individual' && (
-                <span className="absolute -top-1 -right-1 w-3 h-3 bg-green-500 rounded-full animate-ping"></span>
-              )}
-            </button>
-            <button
-              onClick={() => setActiveTab('couple')}
-              className={`relative px-4 py-2 sm:px-8 sm:py-4 rounded-xl font-bold text-sm sm:text-lg transition-all duration-500 ${
-                activeTab === 'couple'
-                  ? 'bg-gradient-to-r from-orange-500 to-purple-600 text-white shadow-lg'
-                  : 'text-white/70 hover:text-white hover:bg-white/10'
-              }`}
-            >
-              <span className="relative z-10 flex items-center gap-2">
-                <span className="text-xl sm:text-2xl">👥</span>
-                {t("titleCouple")}
-              </span>
-              {activeTab === 'couple' && (
-                <span className="absolute -top-1 -right-1 w-3 h-3 bg-green-500 rounded-full animate-ping"></span>
-              )}
-            </button>
-          </div>
+        {/* Tab navigation */}
+        <div className="flex gap-2 overflow-x-auto pb-3 mb-10 scrollbar-hide justify-start sm:justify-center">
+          {tabs.map(tab => {
+            const tc = accentColors[tab.id];
+            const isActive = activeTab === tab.id;
+            return (
+              <button
+                key={tab.id}
+                onClick={() => setActiveTab(tab.id)}
+                className={`flex items-center gap-2 px-4 py-2.5 rounded-full text-sm font-semibold whitespace-nowrap transition-all duration-300 shrink-0 ${
+                  isActive
+                    ? `bg-gradient-to-r ${tc.pill} text-white shadow-lg scale-105`
+                    : 'bg-white/10 text-white/70 hover:text-white hover:bg-white/20'
+                }`}
+              >
+                <span className="text-base">{tab.flag}</span>
+                {t(tab.labelKey)}
+              </button>
+            );
+          })}
         </div>
 
-        {/* CONTENIDO PRINCIPAL - TARJETA DE PODER */}
+        {/* Content card */}
         <div className="relative group">
-          {/* Múltiples capas de glow */}
-          <div className="absolute -inset-2 bg-gradient-to-r from-orange-500 to-purple-600 rounded-3xl blur-xl opacity-25 group-hover:opacity-50 transition duration-700"></div>
-          <div className="absolute -inset-4 bg-gradient-to-r from-purple-600 to-orange-500 rounded-3xl blur-2xl opacity-20 group-hover:opacity-30 transition duration-700"></div>
-          
-          <div className="relative bg-gradient-to-br from-purple-900/90 to-purple-800/90 backdrop-blur-xl rounded-3xl border border-white/20 overflow-hidden shadow-2xl">
-            
-            {/* Barra superior de poder */}
-            <div className="h-2 bg-gradient-to-r from-orange-500 via-purple-600 to-orange-500"></div>
-            
-            <div className="p-5 sm:p-8 md:p-12">
-              <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
-                
-                {/* COLUMNA IZQUIERDA - ICONO Y TÍTULO */}
-                <div className="relative">
-                  {/* Círculo de poder */}
-                  <div className="relative inline-block">
-                    <div className="absolute inset-0 bg-gradient-to-r from-orange-500 to-purple-600 rounded-full blur-2xl opacity-50 animate-pulse-slow"></div>
-                    <div className="relative w-20 h-20 sm:w-32 sm:h-32 bg-gradient-to-r from-orange-500 to-purple-600 rounded-full flex items-center justify-center shadow-2xl">
-                      <span className="text-4xl sm:text-6xl">
-                        {activeTab === 'individual' ? '🦸' : '👥'}
-                      </span>
-                    </div>
-                  </div>
-                  
-                  <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mt-6 sm:mt-8 mb-4">
-                    {activeTab === 'individual' ? t("titleIndividual") : t("titleCouple")}
-                  </h3>
-                  
-                  {/* Stats de poder */}
-                  <div className="flex flex-wrap items-center gap-3 sm:gap-4 text-sm">
-                    <span className="flex items-center gap-1 text-orange-300">
-                      <span className="w-1.5 h-1.5 bg-orange-500 rounded-full animate-pulse"></span>
-                      {activeTab === 'individual' ? t("oneTeacher") : t("twoStudents")}
-                    </span>
-                    <span className="flex items-center gap-1 text-purple-300">
-                      <span className="w-1.5 h-1.5 bg-purple-500 rounded-full animate-pulse animation-delay-1000"></span>
-                      {activeTab === 'individual' ? t("fullyPersonalized") : t("morePractice")}
-                    </span>
-                  </div>
-                </div>
-                
-                {/* COLUMNA DERECHA - DESCRIPCIÓN */}
-                <div className="relative">
-                  <span className="absolute -top-4 -left-4 text-6xl text-orange-500/20 font-serif">"</span>
-                  <p className="text-white/90 text-base sm:text-xl leading-relaxed font-light relative z-10">
-                    {activeTab === 'individual' ? t("titleIndividualP") : t("titleCoupleP")}
-                  </p>
-                  
-                  {/* Beneficios extra */}
-                  <div className="mt-8 pt-6 border-t border-white/10">
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      <div className="flex items-center gap-2 text-white/70">
-                        <span className="text-orange-400">✓</span>
-                        <span className="text-sm">{t("flexibleSchedules")}</span>
-                      </div>
-                      <div className="flex items-center gap-2 text-white/70">
-                        <span className="text-purple-400">✓</span>
-                        <span className="text-sm">{t("materialIncluded")}</span>
-                      </div>
-                      <div className="flex items-center gap-2 text-white/70">
-                        <span className="text-orange-400">✓</span>
-                        <span className="text-sm">{t("continuousFollowUp")}</span>
-                      </div>
-                      <div className="flex items-center gap-2 text-white/70">
-                        <span className="text-purple-400">✓</span>
-                        <span className="text-sm">{t("certification")}</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+          <div className={`absolute -inset-1 bg-gradient-to-r ${c.pill} rounded-3xl blur-xl opacity-20 group-hover:opacity-30 transition duration-700`}></div>
+          <div className={`relative bg-gradient-to-br from-purple-900/90 to-purple-800/80 backdrop-blur-xl rounded-3xl border ${c.border} p-6 sm:p-10 shadow-2xl`}>
+            <div className={`h-1 bg-gradient-to-r ${c.pill} rounded-full mb-8 -mx-6 sm:-mx-10`}></div>
+            {contentMap[activeTab]}
           </div>
         </div>
 
-        {/* TEXTO ADICIONAL - BENEFICIOS EXTRA */}
-        <div className="grid md:grid-cols-2 gap-8 mt-20">
-          <div className="relative group">
-            <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-500 to-purple-600 rounded-2xl blur opacity-0 group-hover:opacity-30 transition duration-500"></div>
-            <div className="relative bg-white/5 backdrop-blur-md p-5 sm:p-8 rounded-2xl border border-white/10 h-full">
-              <span className="text-4xl mb-4 block">🌍</span>
-              <h4 className="text-white font-bold text-xl mb-3">{t("intlConnections")}</h4>
-              <p className="text-white/70 leading-relaxed">
-                {t("courseP1")}
-              </p>
-            </div>
-          </div>
-          
-          <div className="relative group">
-            <div className="absolute -inset-0.5 bg-gradient-to-r from-purple-600 to-orange-500 rounded-2xl blur opacity-0 group-hover:opacity-30 transition duration-500"></div>
-            <div className="relative bg-white/5 backdrop-blur-md p-5 sm:p-8 rounded-2xl border border-white/10 h-full">
-              <span className="text-4xl mb-4 block">🎯</span>
-              <h4 className="text-white font-bold text-xl mb-3">{t("interactiveMethod")}</h4>
-              <p className="text-white/70 leading-relaxed">
-                {t("courseP2")}
-              </p>
-            </div>
-          </div>
-        </div>
+      </div>
 
-        {/* CALL TO ACTION - NIVELES Y CONTACTO */}
-        <div className="mt-20 relative">
-          <div className="absolute inset-0 bg-gradient-to-r from-orange-600/20 to-purple-600/20 rounded-3xl blur-3xl"></div>
-          
-          <div className="relative bg-gradient-to-r from-orange-600/30 to-purple-600/30 backdrop-blur-md p-6 sm:p-12 rounded-3xl border border-white/20">
-            <div className="grid md:grid-cols-2 gap-8 items-center">
-              
-              {/* Info de niveles */}
-              <div>
-                <span className="inline-block px-4 py-1.5 bg-white/10 backdrop-blur-sm rounded-full text-orange-200 text-sm font-medium mb-4 border border-white/20">
-                  🎓 {t("allLevels")}
-                </span>
-                <h4 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-4">
-                  {t("courseP3")}
-                </h4>
-                <div className="flex flex-wrap items-center gap-2 sm:gap-3 text-white/80">
-                  <span className="px-3 py-1 bg-white/10 rounded-full text-sm">A1</span>
-                  <span className="px-3 py-1 bg-white/10 rounded-full text-sm">A2</span>
-                  <span className="px-3 py-1 bg-white/10 rounded-full text-sm">B1</span>
-                  <span className="px-3 py-1 bg-white/10 rounded-full text-sm">B2</span>
-                  <span className="px-3 py-1 bg-white/10 rounded-full text-sm">C1</span>
-                  <span className="px-3 py-1 bg-white/10 rounded-full text-sm">C2</span>
-                </div>
-              </div>
-              
-              {/* Botón de contacto */}
-              <div className="text-center sm:text-right">
-                <Link to="/contact">
-                  <button className="group relative px-6 py-3 sm:px-10 sm:py-5 bg-gradient-to-r from-orange-500 to-purple-600 rounded-full text-white font-bold text-base sm:text-xl hover:scale-105 transition-transform shadow-2xl hover:shadow-orange-500/30 inline-flex items-center gap-3">
-                    <span>{t("courseButton")}</span>
-                    <span className="text-xl sm:text-2xl group-hover:translate-x-1 transition-transform">→</span>
-                    <span className="absolute -top-1 -right-1 w-3 h-3 bg-green-500 rounded-full animate-ping"></span>
-                  </button>
-                </Link>
-                <p className="text-white/50 text-sm mt-3">
-                  ⚡ {t("freeTrialClass")}
-                </p>
-              </div>
-            </div>
-          </div>
+      {/* ── CLOSING STRIP ── */}
+      <div className="relative container mx-auto px-4 max-w-6xl mt-20 pb-20 text-center">
+        <div className="flex items-center gap-4 justify-center mb-8">
+          <div className="flex-1 max-w-[120px] h-px bg-gradient-to-r from-transparent to-orange-500/40" />
+          <span className="text-white/25 text-xs tracking-[0.3em] uppercase font-medium">Lingolandias Academy</span>
+          <div className="flex-1 max-w-[120px] h-px bg-gradient-to-l from-transparent to-purple-500/40" />
         </div>
-
-        {/* SEPARADOR INFERIOR ÉPICO */}
-        <div className="mt-32 relative">
-          <div className="absolute inset-0 flex items-center">
-            <div className="w-full border-t border-white/10"></div>
-          </div>
-          <div className="relative flex justify-center">
-            <span className="px-8 py-3 bg-purple-900/60 backdrop-blur-sm rounded-full text-white/60 text-sm border border-white/20 inline-flex items-center gap-3">
-              <span className="w-2 h-2 bg-orange-500 rounded-full animate-pulse"></span>
-              🦸‍♂️ {t("languageSuperhero")} 🦸‍♀️
-              <span className="w-2 h-2 bg-purple-500 rounded-full animate-pulse animation-delay-1000"></span>
+        <p className="text-white/30 text-sm italic max-w-sm mx-auto leading-relaxed">
+          "{t("courseClosingQuote")}"
+          <span className="block text-white/20 not-italic mt-1">— Ludwig Wittgenstein</span>
+        </p>
+        <div className="flex flex-wrap justify-center gap-3 mt-8">
+          {closingPills.map(({ icon, key }) => (
+            <span key={key} className="flex items-center gap-2 text-white/35 text-xs px-4 py-2 border border-white/10 rounded-full">
+              <span>{icon}</span>{t(key)}
             </span>
-          </div>
+          ))}
         </div>
       </div>
 
-      {/* Footer */}
       <Footer />
 
-      {/* CSS PERSONALIZADO */}
       <style>{`
-        @keyframes pulse-slow {
-          0%, 100% { opacity: 0.2; transform: scale(1); }
-          50% { opacity: 0.4; transform: scale(1.05); }
+        .scrollbar-hide::-webkit-scrollbar { display: none; }
+        .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+        @keyframes float {
+          0%, 100% { transform: translateY(0); opacity: 0.2; }
+          50% { transform: translateY(-20px); opacity: 0.5; }
         }
-        .animate-pulse-slow {
-          animation: pulse-slow 4s ease-in-out infinite;
-        }
-
-        @keyframes ping-slow {
-          0%, 100% { transform: scale(1); opacity: 0.2; }
-          50% { transform: scale(1.1); opacity: 0.1; }
-        }
-        .animate-ping-slow {
-          animation: ping-slow 4s cubic-bezier(0, 0, 0.2, 1) infinite;
-        }
-
-        @keyframes shoot {
-          0% { transform: translateX(-100px) translateY(-100px) rotate(0deg); opacity: 0; }
-          20% { opacity: 0.8; }
-          80% { opacity: 0.8; }
-          100% { transform: translateX(100vw) translateY(100vh) rotate(45deg); opacity: 0; }
-        }
-        .animate-shoot {
-          animation: shoot 10s linear infinite;
-        }
-
-        @keyframes float-slow {
-          0%, 100% { transform: translateY(0) rotate(0deg); }
-          50% { transform: translateY(-20px) rotate(5deg); }
-        }
-        .animate-float-slow {
-          animation: float-slow 8s ease-in-out infinite;
-        }
-
-        @keyframes gradient {
-          0%, 100% { background-position: 0% 50%; }
-          50% { background-position: 100% 50%; }
-        }
-        .animate-gradient {
-          background-size: 300% 300%;
-          animation: gradient 8s ease infinite;
-        }
-
-        .animation-delay-1000 { animation-delay: 1s; }
-        .animation-delay-2000 { animation-delay: 2s; }
-        .animation-delay-4000 { animation-delay: 4s; }
       `}</style>
     </section>
   );

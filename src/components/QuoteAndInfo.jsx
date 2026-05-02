@@ -1,4 +1,5 @@
 import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
 
 const QuoteAndInfo = () => {
   const { t } = useTranslation();
@@ -26,18 +27,26 @@ const QuoteAndInfo = () => {
       <div className="space-y-6">
         {/* Start card */}
         <div className="bg-white/5 backdrop-blur-md p-6 rounded-2xl border border-white/10">
-          <div className="flex items-center gap-2 mb-3">
+          <div className="flex items-center gap-2 mb-4">
             <span className="text-2xl">🚀</span>
             <h2 className="text-xl font-bold text-white">{t("start")}</h2>
           </div>
           <div className="flex flex-wrap gap-2">
-            {[t("langSpanish"), t("langEnglish"), t("langFrench"), t("langPolish"), t("langItalian")].map((lang, idx) => (
-              <span 
-                key={idx} 
-                className="px-3 py-1.5 bg-white/10 rounded-full text-sm text-white border border-white/20 hover:bg-white/20 transition-colors"
+            {[
+              { flag: "🇬🇧", label: t("langEnglish"),    tab: "english"    },
+              { flag: "🇪🇸", label: t("langSpanish"),    tab: "spanish"    },
+              { flag: "🇮🇹", label: t("langItalian"),    tab: "italian"    },
+              { flag: "🇵🇱", label: t("langPolish"),     tab: "polish"     },
+              { flag: "🇮🇩", label: t("langIndonesian"),  tab: "indonesian" },
+            ].map(({ flag, label, tab }) => (
+              <Link
+                key={tab}
+                to={`/courses?lang=${tab}`}
+                className="flex items-center gap-1.5 px-3 py-1.5 bg-white/10 rounded-full text-sm text-white border border-white/20 hover:bg-white/20 hover:border-orange-500/40 hover:scale-105 transition-all"
               >
-                {lang}
-              </span>
+                <span className="text-base leading-none">{flag}</span>
+                <span>{label}</span>
+              </Link>
             ))}
           </div>
         </div>

@@ -39,7 +39,7 @@ const Videos = () => {
   return (
     <section className="relative pt-14 pb-24 overflow-hidden">
       {/* Fondo consistente */}
-      <div className="absolute inset-0 bg-purple-950/40 backdrop-blur-sm"></div>
+      <div className="absolute inset-0 bg-purple-950/40"></div>
 
       {/* Luces de escenario */}
       <div className="absolute inset-0 opacity-20">

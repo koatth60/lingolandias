@@ -121,7 +121,7 @@ const Reviews = () => {
   return (
     <section className="relative pt-14 pb-24 overflow-hidden">
       {/* Background */}
-      <div className="absolute inset-0 bg-purple-950/40 backdrop-blur-sm"></div>
+      <div className="absolute inset-0 bg-purple-950/40"></div>
 
       {/* Floating likes */}
       <div className="absolute inset-0 overflow-hidden opacity-10 pointer-events-none">

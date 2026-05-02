@@ -1,4 +1,5 @@
 // components/Footer.jsx
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import logo from '../assets/logo.webp';
@@ -6,11 +7,34 @@ import logo from '../assets/logo.webp';
 const Footer = () => {
   const { t } = useTranslation();
   const currentYear = new Date().getFullYear();
+  const [nlEmail, setNlEmail] = useState('');
+  const [nlStatus, setNlStatus] = useState('idle'); // idle | sending | done | error
+
+  const handleNewsletter = async (e) => {
+    e.preventDefault();
+    if (!nlEmail) return;
+    setNlStatus('sending');
+    try {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/newsletter`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: nlEmail }),
+      });
+      if (res.ok) {
+        setNlStatus('done');
+        setNlEmail('');
+      } else {
+        setNlStatus('error');
+      }
+    } catch {
+      setNlStatus('error');
+    }
+  };
 
   return (
     <footer className="relative overflow-hidden border-t border-white/10">
       {/* Fondo consistente con blur */}
-      <div className="absolute inset-0 bg-purple-950/90 backdrop-blur-xl"></div>
+      <div className="absolute inset-0 bg-purple-950/90"></div>
       
       {/* ARTE DE FOOTER - ONDAS Y PARTÍCULAS */}
       
@@ -244,16 +268,32 @@ const Footer = () => {
             {/* Newsletter */}
             <div className="mt-6 pt-6 border-t border-white/10">
               <p className="text-white/60 text-xs mb-3">📬 {t("footerNewsletter")}</p>
-              <div className="flex gap-2">
-                <input
-                  type="email"
-                  placeholder={t("footerEmailPlaceholder")}
-                  className="flex-1 px-4 py-2 bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl text-white text-sm placeholder:text-white/30 focus:outline-none focus:border-orange-500/50 transition-colors"
-                />
-                <button className="px-4 py-2 bg-gradient-to-r from-orange-500 to-purple-600 rounded-xl text-white text-sm font-semibold hover:scale-105 transition-transform shadow-lg whitespace-nowrap">
-                  {t("footerSend")}
-                </button>
-              </div>
+              {nlStatus === 'done' ? (
+                <div className="flex items-center gap-2 px-4 py-3 bg-green-500/15 border border-green-500/30 rounded-xl text-green-300 text-sm">
+                  <span>✅</span> {t("nlSuccess")}
+                </div>
+              ) : (
+                <form onSubmit={handleNewsletter} className="flex gap-2">
+                  <input
+                    type="email"
+                    required
+                    value={nlEmail}
+                    onChange={(e) => setNlEmail(e.target.value)}
+                    placeholder={t("footerEmailPlaceholder")}
+                    className="flex-1 px-4 py-2 bg-white/5 border border-white/10 rounded-xl text-white text-sm placeholder:text-white/30 focus:outline-none focus:border-orange-500/50 transition-colors"
+                  />
+                  <button
+                    type="submit"
+                    disabled={nlStatus === 'sending'}
+                    className="px-4 py-2 bg-gradient-to-r from-orange-500 to-purple-600 rounded-xl text-white text-sm font-semibold hover:scale-105 transition-transform shadow-lg whitespace-nowrap disabled:opacity-60 disabled:scale-100"
+                  >
+                    {nlStatus === 'sending' ? '...' : t("footerSend")}
+                  </button>
+                </form>
+              )}
+              {nlStatus === 'error' && (
+                <p className="text-red-400 text-xs mt-2">{t("nlError")}</p>
+              )}
             </div>
           </div>
         </div>
