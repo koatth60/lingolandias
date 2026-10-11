@@ -1,6 +1,5 @@
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
-import { levels, teachers, spanishTeachers, testCards, polishTestCards, englishTeachers } from "./Constants";
 
 
 i18n
@@ -70,7 +69,6 @@ i18n
           langPolish: "Polski",
           langItalian: "Włoski",
           langIndonesian: "Indonezyjski",
-          language: levels[2],
 
           // GENERAL INFO
           genInfo: "O",
@@ -149,7 +147,6 @@ i18n
           teacherTitleSpan: "się",
           teachersP1: "W naszej szkole mamy przyjemność pracować z wyjątkowymi nauczycielami, którzy są prawdziwymi ekspertami w swojej dziedzinie. To nie tylko profesjonaliści, ale także pasjonaci, którzy kochają to, co robią i pragną przekazywać swoją wiedzę i umiejętności naszym uczniom.",
           teachersP2: "Nasi nauczyciele są nie tylko wykwalifikowani i kompetentni, ale również pełni entuzjazmu i energii. Ich podejście do nauczania jest innowacyjne i interaktywne, co sprawia, że zajęcia są nie tylko efektywne, ale również inspirujące. Wiedzą, jak zainteresować uczniów i zachęcić ich do aktywnego udziału w procesie nauki.",
-          teachersTitle: teachers[2],
           crew: "Załoga",
           teachersBtn: "Odwiedzać",
 
@@ -157,7 +154,6 @@ i18n
           SpaTeachersTitle: "To są nasi nauczyciele",
           SpaTeachersTitleSpan: "hiszpańskiego",
           SpaTeachersTitleP1: "Nasi nauczyciele języka hiszpańskiego są nie tylko wykwalifikowani i kompetentni, ale również pełni entuzjazmu i energii. Ich podejście do nauczania jest innowacyjne i interaktywne, co sprawia, że zajęcia są nie tylko efektywne, ale również inspirujące. Wiedzą jak zainteresować uczniów i zachęcić ich do aktywnego udziału w procesie nauki.",
-          SpaTeachersCard: spanishTeachers,
           spaTeachersBadge: "Nauczyciele Hiszpańskiego",
           spaTeachersH1Prefix: "Nauczyciele",
           spaTeachersH1Span: "Hiszpańskiego",
@@ -170,7 +166,6 @@ i18n
           EngTeachersTitleSpan: "angielskiego",
           EngTeachersP1: "W naszej szkole mamy przyjemność pracować z wyjątkowymi nauczycielami, którzy są prawdziwymi ekspertami w swojej dziedzinie. To nie tylko profesjonaliści, ale także pasjonaci, którzy kochają to, co robią i pragną przekazywać swoją wiedzę i umiejętności naszym uczniom.",
           EngTeachersP2: "Nasi nauczyciele angielskiego są nie tylko wykwalifikowani i kompetentni, ale również pełni entuzjazmu i energii. Ich podejście do nauczania jest innowacyjne i interaktywne, co sprawia, że zajęcia są nie tylko efektywne, ale również inspirujące. Wiedzą, jak zainteresować uczniów i zachęcić ich do aktywnego udziału w procesie nauki.",
-          EngTeachersCard: englishTeachers,
           engTeachersBadge: "Nauczyciele Angielskiego",
           engTeachersH1Prefix: "Nauczyciele",
           engTeachersH1Span: "Angielskiego",
@@ -246,9 +241,6 @@ i18n
           freeTrialClass: "⚡ Bezpłatna lekcja próbna",
 
           // TESTS
-          titleTest: polishTestCards[0],
-          textTest: polishTestCards[0],
-          buttonTest: polishTestCards[0],
           levelTestBadge: "TEST POZIOMUJĄCY",
           whatsYourLevel: "Jaki jest Twój",
           languageLevelQ: "poziom języka?",
@@ -453,7 +445,7 @@ i18n
           whatFindItem1: "Nikt nie przewraca oczami, gdy szukasz słowa",
           whatFindItem2: "Błędy to nie porażka – to po prostu część procesu",
           whatFindItem3: "To miejsce, gdzie jesteś widziany/a, słyszany/a i naprawdę mile widziany/a",
-          whatFindItem4: 'Poznaj fajnych ludzi, nawiąż prawdziwe znajomości i w końcu naucz się zamawiać „kawę bez mleka" w trzech językach',
+          whatFindItem4: 'Poznaj fajnych ludzi, nawiąż prawdziwe znajomości i w końcu naucz się zamawiać „kawę bez mleka" w pięciu językach',
           whatFindItem5: "Warsztaty rozwoju osobistego – bo poznanie siebie jest ważne zanim powiesz cokolwiek znaczącego",
           whatFindItem6: "Bezpłatne zajęcia grupowe – wspólna nauka = mniej stresu, więcej śmiechu",
           whatFindItem7: "Bezpłatne wyzwania językowe – czasem dziwne, zawsze skuteczne",
@@ -740,7 +732,6 @@ i18n
           langPolish: "Polish",
           langItalian: "Italian",
           langIndonesian: "Indonesian",
-          language: levels[0],
 
           // GENERAL INFO
           genInfo: "About",
@@ -836,7 +827,7 @@ i18n
           whatFindItem1: "No one rolls their eyes when you search for a word",
           whatFindItem2: "Mistakes are not failure – they're just part of the process",
           whatFindItem3: "This is a place where you're seen, heard, and genuinely welcome",
-          whatFindItem4: "Meet cool people, make real connections, and finally learn how to order a \"coffee with no milk\" in three languages",
+          whatFindItem4: "Meet cool people, make real connections, and finally learn how to order a \"coffee with no milk\" in five languages",
           whatFindItem5: "Personal growth workshops – because knowing yourself comes before saying anything meaningful",
           whatFindItem6: "Free group classes – shared learning = less stress, more laughs",
           whatFindItem7: "Free language challenges – sometimes weird, always effective",
@@ -894,7 +885,6 @@ i18n
           teacherTitleSpan: "Our Team",
           teachersP1: "We don't just teach languages — we live them. Here's who we are and where we come from.",
           teachersP2: "This mix means we teach with both language and heart – tuned into emotions, cognitive processes, and human connection. We teach the way we wish we'd been taught, with care, empathy, and deep respect for each learner's pace and path.",
-          teachersTitle: teachers[0],
           crew: "Crew",
           teachersBtn: "Visit",
 
@@ -902,7 +892,6 @@ i18n
           SpaTeachersTitle: "These are our Spanish",
           SpaTeachersTitleSpan: "teachers",
           SpaTeachersTitleP1: "Our Spanish teachers are not only qualified and competent, but also full of enthusiasm and energy. Their approach to teaching is innovative and interactive, which makes classes not only effective but also inspiring. They know how to interest students and encourage them to actively participate in the learning process.",
-          SpaTeachersCard: spanishTeachers,
           spaTeachersBadge: "Spanish Teachers",
           spaTeachersH1Prefix: "Spanish",
           spaTeachersH1Span: "Teachers",
@@ -915,7 +904,6 @@ i18n
           EngTeachersTitleSpan: "Teachers",
           EngTeachersP1: "Real people. Real conversations. Real progress. Our English teachers come from all over the world – native speakers, experienced educators, and language enthusiasts who genuinely care about your growth.",
           EngTeachersP2: "They don't just teach grammar – they create a space where you feel safe to speak, make mistakes, and find your voice in English.",
-          EngTeachersCard: englishTeachers,
           engTeachersBadge: "English Teachers",
           engTeachersH1Prefix: "English",
           engTeachersH1Span: "Teachers",
@@ -1127,9 +1115,6 @@ i18n
           courseClosingQuote: "The limits of my language mean the limits of my world.",
 
           // TESTS
-          titleTest: testCards[0],
-          textTest: testCards[0],
-          buttonTest: testCards[0],
           levelTestBadge: "LEVEL TEST",
           whatsYourLevel: "What is your",
           languageLevelQ: "language level?",
@@ -1387,7 +1372,6 @@ i18n
           langPolish: "Polaco",
           langItalian: "Italiano",
           langIndonesian: "Indonesio",
-          language: levels[1],
 
           // GENERAL INFO
           genInfo: "¿Cómo",
@@ -1466,7 +1450,6 @@ i18n
           teacherTitleSpan: "mejor",
           teachersP1: "En nuestra escuela tenemos el placer de trabajar con profesores excepcionales que son verdaderos expertos en su campo. No sólo son profesionales, sino también entusiastas que aman lo que hacen y quieren transmitir sus conocimientos y habilidades a nuestros estudiantes.",
           teachersP2: "Nuestros profesores no sólo están cualificados y son competentes, sino que también están llenos de entusiasmo y energía. Su enfoque de la enseñanza es innovador e interactivo, lo que hace que las clases no sólo sean efectivas sino también inspiradoras. Saben cómo interesar a los estudiantes y animarlos a participar activamente en el proceso de aprendizaje.",
-          teachersTitle: teachers[1],
           crew: "Personal",
           teachersBtn: "Visitar",
 
@@ -1474,7 +1457,6 @@ i18n
           SpaTeachersTitle: "Nuestros profesores de",
           SpaTeachersTitleSpan: "español",
           SpaTeachersTitleP1: "Nuestros profesores de español no sólo están cualificados y competentes, sino que también están llenos de entusiasmo y energía. Su enfoque de la enseñanza es innovador e interactivo, lo que hace que las clases no sólo sean efectivas sino también inspiradoras. Saben cómo interesar a los estudiantes y animarlos a participar activamente en el proceso de aprendizaje.",
-          SpaTeachersCard: spanishTeachers,
           spaTeachersBadge: "Profesores de Español",
           spaTeachersH1Prefix: "Profesores de",
           spaTeachersH1Span: "Español",
@@ -1487,7 +1469,6 @@ i18n
           EngTeachersTitleSpan: "inglés",
           EngTeachersP1: "En nuestra escuela tenemos el placer de trabajar con profesores excepcionales que son verdaderos expertos en su campo. No sólo son profesionales, sino también entusiastas que aman lo que hacen y quieren transmitir sus conocimientos y habilidades a nuestros estudiantes.",
           EngTeachersP2: "Nuestros profesores de inglés no sólo están cualificados y son competentes, sino que también están llenos de entusiasmo y energía. Su enfoque de la enseñanza es innovador e interactivo, lo que hace que las clases no sólo sean efectivas sino también inspiradoras. Saben cómo interesar a los estudiantes y animarlos a participar activamente en el proceso de aprendizaje.",
-          EngTeachersCard: englishTeachers,
           engTeachersBadge: "Profesores de Inglés",
           engTeachersH1Prefix: "Profesores de",
           engTeachersH1Span: "Inglés",
@@ -1563,9 +1544,6 @@ i18n
           freeTrialClass: "⚡ Clase de prueba gratuita",
 
           // TESTS
-          titleTest: testCards[1],
-          textTest: testCards[1],
-          buttonTest: testCards[1],
           levelTestBadge: "TEST DE NIVEL",
           whatsYourLevel: "¿Cuál es tu",
           languageLevelQ: "nivel de idioma?",
@@ -1770,7 +1748,7 @@ i18n
           whatFindItem1: "Nadie pone los ojos en blanco cuando buscas una palabra",
           whatFindItem2: "Los errores no son fracasos – son simplemente parte del proceso",
           whatFindItem3: "Este es un lugar donde eres visto/a, escuchado/a y verdaderamente bienvenido/a",
-          whatFindItem4: "Conoce personas geniales, haz amistades reales y finalmente aprende a pedir \"café sin leche\" en tres idiomas",
+          whatFindItem4: "Conoce personas geniales, haz amistades reales y finalmente aprende a pedir \"café sin leche\" en cinco idiomas",
           whatFindItem5: "Talleres de desarrollo personal – porque conocerte a ti mismo/a es importante antes de decir algo significativo",
           whatFindItem6: "Clases grupales gratuitas – aprender juntos = menos estrés, más risas",
           whatFindItem7: "Desafíos lingüísticos gratuitos – a veces raros, siempre efectivos",
