@@ -75,3 +75,4 @@
   .nv .qactions .btn{width:100%;justify-content:center}
 }
 @media (prefers-reduced-motion:reduce){.nv .qprogress .bar span,.nv .qopt{transition:none}}
+.nv .qcard:focus{outline:none}

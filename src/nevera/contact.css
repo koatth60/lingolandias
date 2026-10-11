@@ -1,0 +1,37 @@
+/* Contact page: wall hero + enamel section with a paper form card and a column of sticky notes. Scoped under .nv. */
+.nv .contact-hero{grid-template-columns:minmax(0,1fr);padding-bottom:clamp(48px,8vh,96px)}
+.nv .contact-hero .hand{font-size:1.5rem;color:var(--amber);margin-bottom:14px}
+.nv .contact-hero .lede{max-width:60ch}
+
+.nv .contact-grid{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:clamp(32px,5vw,72px);align-items:start}
+.nv .contact-card{--qm:#d0343f}
+.nv .contact-card h2{font-weight:800;font-size:clamp(1.6rem,2.6vw,2.1rem);line-height:1.05;letter-spacing:-.03em}
+.nv .contact-card .qform{margin-top:24px;gap:18px}
+.nv .contact-card .qform label{gap:8px}
+.nv .contact-card .opt{font-weight:500;color:#6b5a80}
+.nv .contact-card .req{color:#b02a3e}
+.nv .contact-card textarea.qinput{min-height:140px;resize:vertical;line-height:1.5}
+.nv .contact-card .qactions{margin-top:6px}
+.nv .contact-card .qstatus{padding:12px 16px;border-radius:10px}
+.nv .contact-card .qstatus.ok{background:#eaf8f1}
+.nv .contact-card .qstatus.ko{background:#fdeef0}
+.nv .contact-card .qstatus a{text-decoration:underline}
+.nv .contact-card .btn[disabled]{opacity:.65;cursor:wait;transform:none}
+.nv .spin{width:18px;height:18px;border-radius:50%;border:2px solid rgba(255,255,255,.35);border-top-color:#fff;animation:nv-spin .8s linear infinite}
+@keyframes nv-spin{to{transform:rotate(360deg)}}
+
+.nv .contact-notes{display:grid;gap:30px;padding-top:12px}
+.nv .contact-notes .sticky{display:grid;gap:6px}
+.nv .contact-notes .sticky .ico{width:28px;height:28px}
+.nv .contact-notes .sticky p{margin-top:0}
+.nv .contact-notes .sticky .big{font-family:var(--h);font-size:1.6rem;line-height:1.1}
+.nv .contact-notes .sticky a{display:inline-flex;align-items:center;gap:8px;font-weight:700;margin-top:6px;text-decoration:underline;text-underline-offset:3px;color:var(--ink)}
+
+@media (max-width:900px){
+  .nv .contact-grid{grid-template-columns:minmax(0,1fr)}
+  .nv .contact-notes{grid-template-columns:repeat(2,minmax(0,1fr));gap:24px 18px}
+}
+@media (max-width:560px){
+  .nv .contact-notes{grid-template-columns:minmax(0,1fr)}
+  .nv .contact-card .qactions .btn{width:100%;justify-content:center}
+}
