@@ -1,0 +1,622 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Examen de nivel · Lingolandias — F · Metro</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@500;700;900&family=Red+Hat+Text:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#ffffff; --ink:#141a3c; --muted:#4e5576; --rule:#e4e6ef;
+  --en:#6b1fa6; --es:#d26a1c; --it:#14907f; --pl:#d0343f; --id:#2c6fd1;
+  --es-ink:#a84f0e; --it-ink:#0f7566;
+  --d:"Red Hat Display",system-ui,sans-serif; --t:"Red Hat Text",system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0}
+body{font-family:var(--t);color:var(--ink);background:var(--bg);-webkit-font-smoothing:antialiased}
+::selection{background:var(--en);color:#fff}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:3px solid var(--es);outline-offset:3px;border-radius:4px}
+
+/* platform-sign nav */
+body>header{background:var(--ink);color:#fff}
+body>header nav{max-width:1440px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:14px clamp(16px,4vw,48px)}
+.brand{display:flex;gap:10px;align-items:center;font-family:var(--d);font-weight:900;font-size:20px}
+.brand img{width:36px;height:36px;border-radius:50%}
+.links{display:flex;gap:4px;font-family:var(--d);font-weight:700;font-size:15px}
+.links a{padding:8px 12px;border-radius:6px}
+.links a:hover{background:rgba(255,255,255,.1)}
+.btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--d);font-weight:700;border-radius:999px;transition:transform .2s cubic-bezier(.2,.8,.2,1),background .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn-sm{background:#fff;color:var(--ink);padding:10px 18px;font-size:14px}
+.btn-main{background:var(--ink);color:#fff;padding:17px 26px;font-size:16px}
+.btn-main:hover{background:var(--en)}
+.btn-out{border:2px solid var(--ink);padding:15px 24px;font-size:16px}
+.btn-out:hover{background:#f1f2f8}
+
+.hero{max-width:1440px;margin:0 auto;padding:clamp(36px,6vh,72px) clamp(16px,4vw,48px) 24px;display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(24px,4vw,56px);align-items:center}
+h1{font-family:var(--d);font-weight:900;font-size:clamp(2.6rem,5vw,4.7rem);line-height:.98;letter-spacing:-.035em;text-wrap:balance}
+h1 span{display:block}
+h1 .l2{color:var(--en)}
+.lede{margin-top:24px;font-size:clamp(1.05rem,1.3vw,1.2rem);line-height:1.6;color:var(--muted);max-width:48ch}
+.lede b{color:var(--ink)}
+.ctas{margin-top:30px;display:flex;flex-wrap:wrap;gap:12px}
+.proof{margin-top:26px;display:flex;gap:22px;flex-wrap:wrap;font-size:15px;color:var(--muted)}
+.proof b{font-family:var(--d);font-weight:900;color:var(--ink);font-size:1.15em}
+
+/* map */
+.map{position:relative}
+.map svg{width:100%;height:auto;display:block;overflow:visible}
+.line path{fill:none;stroke-width:9;stroke-linecap:round;stroke-linejoin:round;transition:opacity .3s}
+.line .st{fill:#fff;stroke-width:4;transition:opacity .3s}
+.line text{font-family:var(--d);font-weight:700;font-size:13px;fill:var(--ink);transition:opacity .3s}
+.line .nm{font-weight:900;font-size:15px}
+.map.focus .line{opacity:.18}
+.map.focus .line.on{opacity:1}
+.line{cursor:pointer;transition:opacity .3s}
+.you text{font-family:var(--d);font-weight:900;font-size:14px;fill:var(--ink)}
+.legend{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+.legend button{font:700 14px var(--d);display:flex;gap:8px;align-items:center;border:2px solid var(--rule);background:#fff;border-radius:999px;padding:7px 14px 7px 10px;cursor:pointer;color:var(--ink);transition:border-color .2s}
+.legend button i{width:22px;height:6px;border-radius:3px}
+.legend button[aria-pressed="true"]{border-color:var(--ink)}
+.cap{font-size:15px;color:var(--muted);margin-top:10px}
+
+/* service board */
+.board{background:var(--ink);color:#fff;margin-top:clamp(28px,5vh,56px)}
+.board .wrap{max-width:1440px;margin:0 auto;padding:clamp(40px,6vw,72px) clamp(16px,4vw,48px);display:grid;grid-template-columns:1fr 1.4fr;gap:clamp(24px,5vw,72px)}
+.board h2{font-family:var(--d);font-weight:900;font-size:clamp(1.8rem,3vw,2.6rem);line-height:1.05;letter-spacing:-.025em}
+.rows{display:grid}
+.rows div{display:grid;grid-template-columns:auto 1fr auto;gap:16px;align-items:center;padding:15px 0;border-bottom:1px solid rgba(255,255,255,.14);font-size:16.5px}
+.rows .dot{width:14px;height:14px;border-radius:50%;border:3px solid #fff}
+.rows .ok{font-family:var(--d);font-weight:700;font-size:13px;color:#8ee0b8}
+
+/* ---------- shared section ---------- */
+.sec{max-width:1440px;margin:0 auto;padding:clamp(72px,10vw,128px) clamp(16px,4vw,48px) 0}
+.sec-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px 48px;align-items:end;margin-bottom:clamp(32px,5vw,56px)}
+.sec-head h2,.status h2,.rev-head h2{font-family:var(--d);font-weight:900;font-size:clamp(2rem,4vw,3.4rem);line-height:1;letter-spacing:-.03em;display:flex;align-items:center;gap:16px}
+.sec-head p{color:var(--muted);font-size:clamp(1rem,1.25vw,1.15rem);line-height:1.6;max-width:52ch}
+.rnd{flex:none;position:relative;width:.8em;height:.8em;border-radius:50%;border:.14em solid var(--en)}
+.rnd::after{content:"";position:absolute;left:-.22em;right:-.22em;top:50%;height:.2em;margin-top:-.1em;background:var(--ink)}
+
+/* ---------- line strips ---------- */
+.strips{display:grid;border-top:2px solid var(--ink)}
+.strip{display:grid;grid-template-columns:minmax(200px,1.1fr) minmax(0,2fr) auto;gap:24px;align-items:center;padding:26px 0;border-bottom:1px solid var(--rule);transition:background .2s}
+.strip:hover{background:#fafbfe}
+.strip header h3{font-family:var(--d);font-weight:900;font-size:1.6rem;letter-spacing:-.02em;color:var(--c)}
+.strip header span{display:block;margin-top:4px;color:var(--muted);font-size:15px;line-height:1.45}
+.stops{list-style:none;padding:0;display:flex;justify-content:space-between;position:relative;margin:0 6px}
+.stops::before{content:"";position:absolute;left:0;right:0;top:8px;height:8px;border-radius:4px;background:var(--c)}
+.stops li{position:relative;padding-top:28px;font-family:var(--d);font-weight:700;font-size:14px;text-align:center;min-width:24px}
+.stops li::before{content:"";position:absolute;top:2px;left:50%;width:20px;height:20px;margin-left:-10px;border-radius:50%;background:#fff;border:4px solid var(--c);box-sizing:border-box}
+.go{font-family:var(--d);font-weight:700;font-size:14.5px;border:2px solid var(--ink);border-radius:999px;padding:9px 16px;white-space:nowrap;transition:background .2s,color .2s}
+.go:hover{background:var(--ink);color:#fff}
+
+/* ---------- status / incidents ---------- */
+.status{background:var(--ink);color:#fff;margin-top:clamp(72px,10vw,128px)}
+.status .wrap{max-width:1440px;margin:0 auto;padding:clamp(56px,8vw,104px) clamp(16px,4vw,48px)}
+.status-head{display:grid;grid-template-columns:1fr 1fr;gap:24px 48px;align-items:end;margin-bottom:40px}
+.status-head p{color:#c3c7dd;font-size:1.1rem;line-height:1.6;max-width:50ch}
+.incidents{display:grid;grid-template-columns:1fr 1fr;gap:0 48px}
+.inc{border-bottom:1px solid rgba(255,255,255,.14)}
+.inc button{all:unset;cursor:pointer;display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:center;width:100%;padding:18px 0;font-size:17px;font-weight:500;box-sizing:border-box}
+.inc button:focus-visible{outline:2px solid var(--es);outline-offset:2px}
+.inc .sig{width:12px;height:12px;border-radius:50%;background:var(--es);transition:background .3s}
+.inc .lbl{font-family:var(--d);font-weight:700;font-size:12.5px;color:#ffc896;letter-spacing:.02em;transition:color .3s}
+.inc .sol{display:grid;grid-template-rows:0fr;transition:grid-template-rows .4s cubic-bezier(.2,.8,.2,1)}
+.inc .sol p{overflow:hidden;color:#dfe2f0;line-height:1.55;padding-left:26px}
+.inc.open .sol{grid-template-rows:1fr}
+.inc.open .sol p{padding-bottom:18px}
+.inc.open .sig{background:#3ccf8e}
+.inc.open .lbl{color:#8ee0b8}
+
+/* ---------- philosophy ---------- */
+.departures{background:#0b0f26;color:#fff;border-radius:14px;padding:10px 0;font-family:var(--d);overflow:hidden}
+.dep-row{display:grid;grid-template-columns:200px 1fr 160px;gap:20px;padding:18px 28px;align-items:center;font-size:clamp(1.05rem,1.8vw,1.5rem);font-weight:700}
+.dep-row + .dep-row{border-top:1px solid rgba(255,255,255,.1)}
+.dep-h{font-size:12.5px;font-weight:700;color:#9aa0c3;letter-spacing:.08em;text-transform:uppercase;padding-block:10px}
+.dep-row.old span:nth-child(-n+2){color:#7c82a6;text-decoration:line-through;text-decoration-thickness:2px}
+.st{font-size:14px;justify-self:start;padding:6px 12px;border-radius:6px}
+.st.cancel{background:#3a1a24;color:#ff9aa4}
+.st.ok{background:#163a2c;color:#8ee0b8}
+.philo-text{display:grid;grid-template-columns:1fr 1fr;gap:24px 56px;margin-top:clamp(36px,5vw,56px);align-items:start}
+.philo-text .big{font-family:var(--d);font-weight:900;font-size:clamp(1.6rem,2.8vw,2.4rem);line-height:1.1;letter-spacing:-.025em;color:var(--en)}
+.philo-text div p{color:var(--muted);line-height:1.65;font-size:1.05rem}
+.philo-text div p+p{margin-top:14px}
+
+/* ---------- crew ---------- */
+.crew{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(14px,2vw,24px)}
+.crew figure{margin:0}
+.crew img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:14px;display:block;background:#eef0f6;border-bottom:8px solid var(--c)}
+.crew figcaption{padding-top:12px;display:grid;gap:2px}
+.crew b{font-family:var(--d);font-weight:900;font-size:1.15rem}
+.crew span{display:flex;align-items:center;gap:7px;font-family:var(--d);font-weight:700;font-size:13.5px}
+.crew span i{width:16px;height:6px;border-radius:3px;background:var(--c)}
+.crew small{color:var(--muted);font-size:14px}
+
+/* ---------- community ---------- */
+.links-map{position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.spine{position:absolute;left:0;right:0;top:4px;width:100%;height:40px}
+.hub{position:relative;padding-top:64px}
+.ix{position:absolute;top:6px;left:0;width:36px;height:36px;border-radius:50%;background:#fff;border:7px solid var(--ink)}
+.hub:nth-child(3) .ix{border-color:var(--it)}
+.hub:nth-child(4) .ix{border-color:var(--es)}
+.hub:nth-child(5) .ix{border-color:var(--pl)}
+.hub h3{font-family:var(--d);font-weight:900;font-size:1.3rem;letter-spacing:-.02em}
+.hub p{margin-top:6px;color:var(--muted);line-height:1.55}
+
+/* ---------- reviews ---------- */
+.rev-head{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;margin-bottom:40px}
+.score{display:flex;align-items:baseline;gap:12px}
+.score b{font-family:var(--d);font-weight:900;font-size:3rem;letter-spacing:-.03em}
+.score span{color:var(--muted)}
+.tickets{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.ticket{margin:0;position:relative;background:#fff;border:2px solid var(--ink);border-radius:14px;padding:28px 24px 20px;display:flex;flex-direction:column;justify-content:space-between;gap:24px;
+  -webkit-mask:radial-gradient(circle 12px at 0 70%,#0000 98%,#000) left/51% 100% no-repeat,radial-gradient(circle 12px at 100% 70%,#0000 98%,#000) right/51% 100% no-repeat;
+          mask:radial-gradient(circle 12px at 0 70%,#0000 98%,#000) left/51% 100% no-repeat,radial-gradient(circle 12px at 100% 70%,#0000 98%,#000) right/51% 100% no-repeat}
+.ticket::before{content:"";position:absolute;left:0;right:0;top:0;height:10px;background:var(--c)}
+.ticket p{font-size:1.08rem;line-height:1.55}
+.ticket footer{display:flex;justify-content:space-between;border-top:2px dashed var(--rule);padding-top:14px;font-size:15px;color:var(--muted)}
+.ticket footer b{font-family:var(--d);color:var(--ink)}
+.more{display:inline-block;margin-top:28px;font-family:var(--d);font-weight:700;text-decoration:underline;text-underline-offset:5px}
+
+/* ---------- final ---------- */
+.final{background:var(--en);color:#fff;margin-top:clamp(72px,10vw,128px)}
+.final .wrap{max-width:1440px;margin:0 auto;padding:clamp(56px,8vw,104px) clamp(16px,4vw,48px);display:grid;grid-template-columns:1.2fr .8fr;gap:48px;align-items:center}
+.nx{display:inline-block;font-family:var(--d);font-weight:700;font-size:14px;background:#fff;color:var(--ink);padding:6px 12px;border-radius:6px}
+.final h2{margin-top:18px;font-family:var(--d);font-weight:900;font-size:clamp(2.2rem,4.6vw,4rem);line-height:1;letter-spacing:-.035em}
+.final p{margin-top:18px;font-size:1.15rem;line-height:1.6;color:#eadcff;max-width:46ch}
+.btn-light{background:#fff;color:var(--ink);padding:17px 26px;font-size:16px}
+.btn-ghost-l{border:2px solid rgba(255,255,255,.8);color:#fff;padding:15px 24px;font-size:16px}
+.btn-ghost-l:hover{background:rgba(255,255,255,.12)}
+.final-map{width:100%;height:auto}
+
+/* ---------- footer ---------- */
+.foot{background:var(--ink);color:#c3c7dd}
+.foot .wrap{max-width:1440px;margin:0 auto;padding:64px clamp(16px,4vw,48px) 40px;display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:32px}
+.foot .brand{color:#fff}
+.foot .fb p{margin-top:14px;line-height:1.55;max-width:32ch}
+.foot h3{font-family:var(--d);font-weight:900;color:#fff;font-size:15px;margin-bottom:12px}
+.foot .wrap>div:not(.fb) a{display:block;padding:5px 0}
+.foot a:hover{color:#fff}
+.legal{max-width:1440px;margin:0 auto;padding:18px clamp(16px,4vw,48px) 80px;border-top:1px solid rgba(255,255,255,.12);display:flex;justify-content:space-between;font-size:15px}
+
+@media (max-width:1000px){
+  .sec-head,.status-head,.philo-text,.final .wrap{grid-template-columns:1fr}
+  .incidents{grid-template-columns:1fr}
+  .crew{grid-template-columns:repeat(2,1fr)}
+  .links-map{grid-template-columns:1fr 1fr;row-gap:40px}
+  .spine{display:none}
+  .tickets{grid-template-columns:1fr}
+  .foot .wrap{grid-template-columns:1fr 1fr}
+}
+@media (max-width:700px){
+  .strip{grid-template-columns:1fr;gap:16px}
+  .go{justify-self:start}
+  .dep-row{grid-template-columns:1fr;gap:6px;padding:16px 20px}
+  .dep-h{display:none}
+  .links-map{grid-template-columns:1fr}
+}
+
+/* ---------- levels trunk ---------- */
+.trunk{position:relative}
+.trunk-line{position:absolute;left:0;right:0;top:22px;height:12px;border-radius:6px;background:#e9e6f3;overflow:hidden}
+.trunk-line .fill{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--es),var(--en));transition:width .6s cubic-bezier(.2,.8,.2,1)}
+.stations{position:relative;display:grid;grid-template-columns:repeat(6,1fr)}
+.stn{all:unset;cursor:pointer;display:grid;justify-items:center;gap:10px;text-align:center;padding-bottom:8px}
+.stn:focus-visible{outline:3px solid var(--es);outline-offset:4px;border-radius:8px}
+.stn .o{width:44px;height:44px;border-radius:50%;background:#fff;border:7px solid #cfcbe0;box-sizing:border-box;transition:border-color .3s,transform .3s}
+.stn b{font-family:var(--d);font-weight:900;font-size:clamp(1.3rem,2.2vw,1.9rem);letter-spacing:-.02em}
+.stn small{color:var(--muted);font-size:14px}
+.stn.past .o{border-color:var(--en)}
+.stn[aria-selected="true"] .o{border-color:var(--ink);transform:scale(1.18)}
+.stn .pop{font-family:var(--d);font-weight:700;font-size:11.5px;background:var(--es);color:#fff;padding:3px 8px;border-radius:999px}
+.station-card{margin-top:32px;display:grid;grid-template-columns:auto 1fr auto;gap:28px;align-items:center;background:#f6f5fb;border-radius:16px;padding:28px clamp(20px,3vw,40px)}
+.station-card .big{font-family:var(--d);font-weight:900;font-size:clamp(3rem,6vw,5rem);line-height:.9;letter-spacing:-.04em;color:var(--en)}
+.station-card h3{font-family:var(--d);font-weight:900;font-size:1.4rem}
+.station-card p{color:var(--muted);line-height:1.55;margin-top:6px;max-width:60ch}
+
+/* ---------- voices ---------- */
+.voices{display:grid;grid-template-columns:1.5fr 1fr;gap:clamp(20px,3vw,40px);align-items:start}
+.screen{background:var(--ink);border-radius:18px;padding:10px}
+.screen-bar{display:flex;align-items:center;gap:12px;color:#fff;font-family:var(--d);font-weight:700;padding:8px 10px 12px}
+.screen-bar .vline{margin-left:auto;font-size:13px;background:var(--en);padding:4px 10px;border-radius:999px}
+.dot-live{width:10px;height:10px;border-radius:50%;background:#3ccf8e}
+.screen video{width:100%;aspect-ratio:16/9;border-radius:10px;background:#000;display:block}
+.vlist{display:grid;gap:12px}
+.vcard{all:unset;cursor:pointer;display:grid;grid-template-columns:auto 1fr;gap:16px;padding:20px;border:2px solid var(--rule);border-radius:16px;transition:border-color .2s,background .2s}
+.vcard:focus-visible{outline:3px solid var(--es);outline-offset:2px}
+.vcard[aria-pressed="true"]{border-color:var(--ink);background:#f6f5fb}
+.vcard .av{width:46px;height:46px;border-radius:50%;display:grid;place-items:center;font-family:var(--d);font-weight:900;color:#fff;background:var(--c)}
+.vcard b{font-family:var(--d);font-weight:900;font-size:1.05rem}
+.vcard small{display:block;color:var(--muted);font-size:13.5px;margin-top:2px}
+.vcard p{grid-column:1/-1;line-height:1.55;font-size:15.5px}
+
+/* ---------- motto ---------- */
+.motto{max-width:1100px;margin:0 auto;padding:clamp(80px,11vw,140px) clamp(16px,4vw,48px) 0;text-align:center}
+.motto blockquote{margin:0}
+.motto p{font-family:var(--d);font-weight:900;font-size:clamp(2rem,4.6vw,4rem);line-height:1.04;letter-spacing:-.035em;text-wrap:balance}
+.motto footer{margin-top:20px;color:var(--muted);font-weight:500}
+
+@media (max-width:1000px){.voices{grid-template-columns:1fr}.station-card{grid-template-columns:1fr}}
+@media (max-width:640px){.stn small,.stn .pop{display:none}.stn .o{width:32px;height:32px;border-width:6px}.trunk-line{top:13px}}
+
+.switcher{position:fixed;bottom:14px;left:50%;transform:translateX(-50%);z-index:50;display:flex;gap:4px;background:rgba(15,10,20,.88);backdrop-filter:blur(8px);padding:5px;border-radius:999px;font:600 12px/1 system-ui;box-shadow:0 8px 24px rgba(0,0,0,.35);white-space:nowrap}
+.switcher a{color:#cfc6d8;padding:8px 12px;border-radius:999px}
+.switcher a.on{background:#fff;color:#111}
+
+@media (max-width:1000px){.links{display:none}.hero{grid-template-columns:1fr}.board .wrap{grid-template-columns:1fr}}
+@media (max-width:560px){.ctas .btn{width:100%;justify-content:center}}
+
+/* =====================================================================
+   MULTI-PAGE SHARED (Inicio · Clases · Nosotros · Examen)
+   ===================================================================== */
+html{scroll-padding-top:88px}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+.skip{position:absolute;left:12px;top:-80px;z-index:100;background:#fff;color:var(--ink);font:700 15px var(--d);padding:10px 16px;border-radius:8px}
+.skip:focus{top:12px}
+body>header{position:relative;z-index:40}
+body>header :focus-visible,.status :focus-visible,.board :focus-visible,.final :focus-visible,.foot :focus-visible{outline-color:#ffb27a}
+
+/* nav: current page = a line under the link */
+.links a{position:relative;color:#d9dcef}
+.links a:hover{color:#fff}
+.links a[aria-current="page"]{color:#fff}
+.links a[aria-current="page"]::after{content:"";position:absolute;left:12px;right:12px;bottom:-14px;height:5px;border-radius:3px 3px 0 0;background:var(--nc)}
+.nav-r{display:flex;align-items:center;gap:10px}
+.lang{display:inline-flex;align-items:center;gap:6px;font:700 14px var(--d);color:#fff;background:transparent;border:2px solid rgba(255,255,255,.35);border-radius:999px;padding:7px 12px;cursor:pointer}
+.lang:hover{border-color:#fff}
+.menu-btn{display:none;place-items:center;width:44px;height:44px;border-radius:50%;background:transparent;color:#fff;border:2px solid rgba(255,255,255,.35);cursor:pointer}
+.menu-btn:hover{border-color:#fff}
+.menu-btn .i-close,.menu-btn[aria-expanded="true"] .i-open{display:none}
+.menu-btn[aria-expanded="true"] .i-close{display:block}
+.mnav{border-top:1px solid rgba(255,255,255,.14);padding:4px clamp(16px,4vw,48px) 22px}
+.mnav a:not(.btn){display:flex;align-items:center;gap:14px;padding:15px 2px;font:700 18px var(--d);color:#d9dcef;border-bottom:1px solid rgba(255,255,255,.1)}
+.mnav a i{flex:none;width:26px;height:6px;border-radius:3px;background:var(--nc)}
+.mnav a[aria-current="page"]{color:#fff}
+.mnav a[aria-current="page"]::after{content:"Estás aquí";margin-left:auto;font:500 15px var(--t);color:#c3c7dd}
+.mnav .btn{margin-top:18px}
+@media (max-width:1000px){.menu-btn{display:grid}}
+@media (min-width:1001px){.mnav{display:none!important}}
+@media (max-width:560px){.nav-r .btn-sm{display:none}}
+
+.status+.final{margin-top:0}
+/* home: Conócenos teaser */
+.teaser{max-width:1440px;margin:clamp(72px,10vw,128px) auto 0;padding:0 clamp(16px,4vw,48px)}
+.teaser-in{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:20px 48px;align-items:center;border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);padding:36px 0}
+.teaser h2{font-family:var(--d);font-weight:900;font-size:clamp(1.8rem,3vw,2.6rem);letter-spacing:-.03em;line-height:1;display:flex;align-items:center;gap:14px}
+.teaser .rnd{border-color:var(--pl)}
+.teaser p{color:var(--muted);font-size:1.075rem;line-height:1.6;max-width:64ch}
+.teaser p b{color:var(--ink)}
+@media (max-width:1000px){.teaser-in{grid-template-columns:1fr}.teaser .btn{justify-self:start}}
+
+/* sub-page hero */
+.hero.sub{padding-bottom:0;align-items:end}
+.hero.sub h1{font-size:clamp(2.4rem,4.6vw,4.3rem)}
+
+/* route diagram (vertical line with stations) */
+.route{list-style:none;padding:0;position:relative;z-index:0}
+.route>li{position:relative;padding:0 0 32px 60px}
+.route>li::before{content:"";position:absolute;left:3px;top:2px;width:28px;height:28px;border-radius:50%;background:#fff;border:6px solid var(--c);box-sizing:border-box}
+.route>li:not(:last-child)::after{content:"";position:absolute;z-index:-1;left:13px;top:16px;height:100%;width:8px;background:var(--c)}
+.route h3{font-family:var(--d);font-weight:900;font-size:1.25rem;letter-spacing:-.01em;line-height:1.25}
+.route p{margin-top:6px;color:var(--muted);line-height:1.6;font-size:1.02rem;max-width:60ch}
+.route>li.xc{padding-bottom:0}
+.route>li.xc::before{left:-3px;top:-4px;width:40px;height:40px;border:8px solid var(--ink)}
+.route .go{display:inline-block;margin-top:14px}
+
+/* clases: legend key in hero */
+.key{list-style:none;padding:0;border-top:2px solid var(--ink)}
+.key a{display:grid;grid-template-columns:56px minmax(0,1fr) auto;gap:18px;align-items:center;padding:15px 4px;border-bottom:1px solid var(--rule);transition:background .2s}
+.key a:hover{background:#fafbfe}
+.key i{height:10px;border-radius:5px;background:var(--c)}
+.key b{color:var(--ink);font-family:var(--d);font-weight:900;font-size:1.25rem;letter-spacing:-.01em}
+.key span{display:block;color:var(--muted);font-size:15px;margin-top:2px}
+
+/* clases: sticky line selector */
+.picker{position:sticky;top:0;z-index:30;background:rgba(255,255,255,.97);border-bottom:1px solid var(--rule);margin-top:clamp(40px,6vw,72px)}
+.picker-in{max-width:1440px;margin:0 auto;padding:12px clamp(16px,4vw,48px);display:flex;gap:8px;overflow-x:auto;scrollbar-width:none}
+.picker-in::-webkit-scrollbar{display:none}
+.picker a{flex:none;display:inline-flex;align-items:center;gap:9px;font:700 15px var(--d);padding:9px 16px 9px 12px;border:2px solid var(--rule);border-radius:999px;transition:border-color .2s,background .2s,color .2s}
+.picker a i{width:22px;height:6px;border-radius:3px;background:var(--c)}
+.picker a:hover{border-color:var(--c)}
+.picker a[aria-current="true"]{background:var(--ink);border-color:var(--ink);color:#fff}
+.picker a:focus-visible{outline-offset:1px}
+
+/* clases: one section per line */
+.lang-sec{max-width:1440px;margin:0 auto;padding:clamp(64px,9vw,112px) clamp(16px,4vw,48px) 0;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:40px clamp(32px,5vw,88px);align-items:start}
+.lang-sec+.lang-sec>.lang-head{border-top:0}
+.lang-head h2{font-family:var(--d);font-weight:900;font-size:clamp(2.2rem,4.4vw,3.6rem);line-height:1;letter-spacing:-.03em;display:flex;align-items:center;gap:16px}
+.lang-head .rnd{border-color:var(--c)}
+.lang-head .sub{margin-top:14px;font-family:var(--d);font-weight:700;font-size:clamp(1.15rem,1.6vw,1.4rem);line-height:1.3}
+.lang-head .intro{margin-top:16px;color:var(--muted);font-size:1.075rem;line-height:1.65;max-width:56ch}
+.why{margin-top:24px;border-left:6px solid var(--c);padding:2px 0 2px 20px}
+.why h3{font-family:var(--d);font-weight:900;font-size:1.1rem}
+.why p{margin-top:6px;color:var(--muted);line-height:1.6;font-size:1rem;max-width:56ch}
+.why p.say{font-family:var(--d);font-weight:700;color:var(--ink);font-size:1.2rem;line-height:1.4;margin-top:0}
+.offer h3.offer-t{font-family:var(--d);font-weight:900;font-size:1.05rem;color:var(--muted);margin-bottom:22px}
+.lang-sec .rule{grid-column:1/-1;height:8px;border-radius:4px;background:var(--c);opacity:.18;margin-top:clamp(24px,4vw,48px)}
+
+/* clases: formats */
+.formats{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:20px}
+.fmt{grid-column:span 2;position:relative;overflow:hidden;border:2px solid var(--ink);border-radius:14px;padding:36px 26px 28px;display:flex;flex-direction:column;gap:12px}
+.fmt:nth-child(n+4){grid-column:span 3}
+.fmt::before{content:"";position:absolute;left:0;right:0;top:0;height:10px;background:var(--c)}
+.fmt svg{width:34px;height:34px}
+.fmt h3{font-family:var(--d);font-weight:900;font-size:1.35rem;letter-spacing:-.015em;line-height:1.2}
+.fmt p{color:var(--muted);line-height:1.6;font-size:1.02rem}
+
+/* dark band facts (talleres) */
+.facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0 32px}
+.fact{padding:24px 0;border-top:1px solid rgba(255,255,255,.18)}
+.fact svg{width:34px;height:34px;color:#fff}
+.fact h3{margin-top:14px;font-family:var(--d);font-weight:900;font-size:1.2rem}
+.fact p{margin-top:6px;color:#c3c7dd;line-height:1.55;font-size:1rem}
+.band-why{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1fr) minmax(0,1fr);gap:24px 40px;margin-top:48px;padding-top:40px;border-top:1px solid rgba(255,255,255,.18)}
+.band-why h3{font-family:var(--d);font-weight:900;font-size:clamp(1.4rem,2.2vw,1.9rem);letter-spacing:-.02em;line-height:1.1}
+.band-why p{color:#dfe2f0;line-height:1.65;font-size:1.05rem}
+.status .ctas{margin-top:40px}
+
+/* nosotros: story + mottos + voice + figures + revolution */
+.story{max-width:880px}
+.story>li{padding-bottom:44px}
+.story h3{font-size:clamp(1.4rem,2.2vw,1.8rem)}
+.story p{font-size:1.1rem;color:var(--ink);line-height:1.7;max-width:62ch}
+.story p+p{margin-top:12px}
+.story p.sign{font-family:var(--d);font-weight:700;color:var(--muted);font-size:1rem}
+.mottos>li{padding-bottom:26px}
+.mottos .m{margin:0;font-family:var(--d);font-weight:900;font-size:clamp(1.4rem,2.4vw,2rem);letter-spacing:-.02em;line-height:1.1;color:var(--ink)}
+.mottos .m+p{margin-top:4px;font-size:15.5px}
+.voice{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:32px clamp(32px,5vw,88px);align-items:start}
+.voice blockquote{margin:0;border-left:10px solid var(--pl);padding:4px 0 4px 28px}
+.voice blockquote p{font-family:var(--d);font-weight:900;font-size:clamp(1.6rem,2.8vw,2.4rem);line-height:1.12;letter-spacing:-.025em}
+.voice blockquote footer{margin-top:16px;color:var(--muted);font-weight:500}
+.voice .txt p{color:var(--muted);font-size:1.075rem;line-height:1.65}
+.voice .txt p+p{margin-top:14px}
+.voice .txt p.hi{color:var(--ink);font-family:var(--d);font-weight:700;font-size:1.2rem;line-height:1.4}
+.voice .txt .btn{margin-top:26px}
+.nots{list-style:none;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 32px}
+.nots li{display:flex;gap:16px;align-items:center;font-family:var(--d);font-weight:700;font-size:clamp(1.1rem,1.6vw,1.35rem);line-height:1.25;padding:22px 0;border-top:1px solid rgba(255,255,255,.18)}
+.noentry{flex:none;position:relative;width:34px;height:34px;border-radius:50%;background:var(--pl)}
+.noentry::after{content:"";position:absolute;left:7px;right:7px;top:50%;height:6px;margin-top:-3px;border-radius:2px;background:#fff}
+.rev-sub{margin-top:32px;font-size:1.2rem;line-height:1.6;color:#dfe2f0;max-width:62ch}
+.rev-sub b{color:#fff}
+.figs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;border-top:2px solid var(--ink)}
+.fig{padding-top:28px}
+.fig i{display:block;width:56px;height:10px;border-radius:5px;background:var(--c);margin-bottom:18px}
+.fig b{display:block;font-family:var(--d);font-weight:900;font-size:clamp(3.4rem,7vw,6rem);line-height:.9;letter-spacing:-.045em}
+.fig span{display:block;margin-top:12px;font-family:var(--d);font-weight:700;font-size:1.15rem;color:var(--muted)}
+
+/* examen: platform tickets */
+.xtickets{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+.xt{position:relative;display:grid;grid-template-columns:minmax(0,1fr) 150px;border:2px solid var(--ink);border-radius:18px;overflow:hidden;background:#fff}
+.xt::before{content:"";position:absolute;left:0;right:0;top:0;height:12px;background:var(--c)}
+.xt-main{padding:44px clamp(22px,3vw,36px) 32px}
+.xt-head{display:flex;align-items:center;gap:16px}
+.plat{flex:none;width:54px;height:54px;border-radius:50%;border:8px solid var(--c);display:grid;place-items:center;font-family:var(--d);font-weight:900;font-size:1.2rem}
+.xt h3{font-family:var(--d);font-weight:900;font-size:clamp(1.6rem,2.6vw,2.2rem);letter-spacing:-.02em;line-height:1.05}
+.xt-main>p{margin-top:18px;color:var(--muted);line-height:1.6;font-size:1.05rem;max-width:52ch}
+.feats{list-style:none;padding:0;margin-top:20px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 16px}
+.feats li{display:flex;gap:10px;align-items:center;font-size:15.5px;font-weight:500}
+.feats svg{flex:none;color:var(--c)}
+.xt .btn{margin-top:28px}
+.xt-stub{position:relative;border-left:2px dashed #c9ccdb;display:grid;place-content:center;text-align:center;gap:8px;padding:24px 12px}
+.xt-stub b{font-family:var(--d);font-weight:900;font-size:clamp(3rem,5vw,4.4rem);line-height:.9;letter-spacing:-.04em}
+.xt-stub span{font-family:var(--d);font-weight:700;font-size:15px;color:var(--muted)}
+.xt-stub::before,.xt-stub::after{content:"";position:absolute;left:-15px;width:26px;height:26px;border-radius:50%;background:#fff;border:2px solid var(--ink)}
+.xt-stub::before{top:-15px}
+.xt-stub::after{bottom:-15px}
+.exam-map{width:100%;height:auto;display:block}
+.exam-map text{font-family:var(--d);font-weight:700;fill:var(--ink)}
+
+/* examen: static levels line */
+.lvl{list-style:none;padding:0;position:relative;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));z-index:0}
+.lvl::before{content:"";position:absolute;z-index:-1;left:calc(100%/12);right:calc(100%/12);top:16px;height:10px;border-radius:5px;background:var(--ink)}
+.lvl li{display:grid;justify-items:center;align-content:start;gap:4px;text-align:center;padding:0 10px}
+.lvl li::before{content:"";width:42px;height:42px;border-radius:50%;background:#fff;border:7px solid var(--ink);box-sizing:border-box;margin-bottom:12px}
+.lvl li:nth-child(-n+2)::before{border-color:var(--es)}
+.lvl li:nth-child(n+3):nth-child(-n+4)::before{border-color:var(--pl)}
+.lvl li:nth-child(n+5)::before{border-color:var(--en)}
+.lvl h3{display:grid;gap:2px;font-family:var(--d);font-weight:900}
+.lvl h3 .code{font-size:clamp(1.5rem,2.4vw,2rem);letter-spacing:-.02em;line-height:1}
+.lvl h3 .nm{font-size:1.05rem}
+.lvl p{margin-top:6px;color:var(--muted);font-size:15px;line-height:1.5}
+
+@media (max-width:1000px){
+  .lang-sec,.voice,.band-why{grid-template-columns:1fr}
+  .formats{grid-template-columns:1fr 1fr}
+  .fmt,.fmt:nth-child(n+4){grid-column:auto}
+  .fmt:last-child{grid-column:1/-1}
+  .facts{grid-template-columns:1fr 1fr}
+  .nots{grid-template-columns:1fr}
+  .xtickets{grid-template-columns:1fr}
+}
+@media (max-width:800px){
+  .lvl{grid-template-columns:1fr;gap:22px}
+  .lvl::before{left:16px;right:auto;top:20px;bottom:20px;width:10px;height:auto}
+  .lvl li{grid-template-columns:42px minmax(0,1fr);justify-items:start;text-align:left;column-gap:18px;padding:0}
+  .lvl li::before{grid-row:1/span 2;margin:0}
+  .lvl p{margin-top:0}
+}
+@media (max-width:700px){
+  .formats,.facts,.figs{grid-template-columns:1fr}
+  .fmt:last-child{grid-column:auto}
+  .xt{grid-template-columns:1fr}
+  .xt-stub{border-left:0;border-top:2px dashed #c9ccdb;grid-auto-flow:column;align-items:baseline;place-content:center;gap:12px;padding:18px 12px}
+  .xt-stub::before{top:-14px;left:-15px}
+  .xt-stub::after{top:-14px;bottom:auto;left:auto;right:-15px}
+  .feats{grid-template-columns:1fr}
+  .route>li{padding-left:52px}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{transition:none!important;animation:none!important}
+  .btn:hover{transform:none}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Saltar al contenido</a>
+<header>
+  <nav aria-label="Principal">
+    <a class="brand" href="f-metro.html"><img src="seal.png" alt="">Lingolandias</a>
+    <div class="links"><a href="f-metro.html" style="--nc:#ffffff">Inicio</a><a href="f-clases.html" style="--nc:#f08a3c">Clases</a><a href="f-nosotros.html" style="--nc:#ff7a83">Nosotros</a><a href="f-examen.html" style="--nc:#3cc4b0" aria-current="page">Examen</a></div>
+    <div class="nav-r">
+      <button class="lang" type="button" aria-label="Idioma del sitio: español">ES<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+      <a class="btn btn-sm" href="https://wa.me/447578146264">Contacto</a>
+      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="mnav" aria-label="Abrir menú">
+        <svg class="i-open" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        <svg class="i-close" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </div>
+  </nav>
+  <div class="mnav" id="mnav" hidden>
+    <a href="f-metro.html" style="--nc:#ffffff"><i aria-hidden="true"></i>Inicio</a><a href="f-clases.html" style="--nc:#f08a3c"><i aria-hidden="true"></i>Clases</a><a href="f-nosotros.html" style="--nc:#ff7a83"><i aria-hidden="true"></i>Nosotros</a><a href="f-examen.html" style="--nc:#3cc4b0" aria-current="page"><i aria-hidden="true"></i>Examen</a>
+    <a class="btn btn-sm" href="https://wa.me/447578146264">Contacto por WhatsApp</a>
+  </div>
+</header>
+
+<main id="main">
+<section class="hero sub">
+  <div>
+    <h1><span>¿Cuál es tu</span><span class="l2">nivel de idioma?</span></h1>
+    <p class="lede">Descubre tu nivel real con nuestros tests interactivos y recibe <b>recomendaciones personalizadas</b> para saber en qué estación subir.</p>
+    <div class="ctas">
+      <a class="btn btn-main" href="#andenes">Elegir examen <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+    <p class="proof"><span><b>15</b> minutos</span><span><b>A1–C2</b> niveles evaluados</span><span><b>Gratis</b> asesoramiento incluido</span></p>
+  </div>
+  <svg class="exam-map" viewBox="0 0 600 340" role="img" aria-label="Desde ti salen dos líneas: Inglés, 10 preguntas, y Español, 30 preguntas">
+    <path d="M90 170 H200 L270 90 H540" fill="none" stroke="var(--en)" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M90 170 H200 L270 250 H540" fill="none" stroke="var(--es)" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="380" cy="90" r="10" fill="#fff" stroke="var(--en)" stroke-width="5"/>
+    <circle cx="540" cy="90" r="24" fill="#fff" stroke="var(--en)" stroke-width="8"/>
+    <text x="540" y="97" text-anchor="middle" font-size="18" font-weight="900">1</text>
+    <text x="380" y="58" text-anchor="middle" font-size="18" font-weight="900">Inglés</text>
+    <text x="380" y="128" text-anchor="middle" font-size="15">10 preguntas</text>
+    <circle cx="380" cy="250" r="10" fill="#fff" stroke="var(--es)" stroke-width="5"/>
+    <circle cx="540" cy="250" r="24" fill="#fff" stroke="var(--es)" stroke-width="8"/>
+    <text x="540" y="257" text-anchor="middle" font-size="18" font-weight="900">2</text>
+    <text x="380" y="218" text-anchor="middle" font-size="18" font-weight="900">Español</text>
+    <text x="380" y="288" text-anchor="middle" font-size="15">30 preguntas</text>
+    <circle cx="90" cy="170" r="30" fill="#fff" stroke="var(--ink)" stroke-width="7"/>
+    <rect x="44" y="160" width="92" height="20" rx="3" fill="var(--ink)"/>
+    <text x="90" y="175" text-anchor="middle" font-size="12" font-weight="900" style="fill:#fff">TÚ</text>
+    <text x="90" y="228" text-anchor="middle" font-size="14" font-weight="900">Estás aquí</text>
+  </svg>
+</section>
+
+<!-- ============ ANDENES: elegir examen ============ -->
+<section class="sec" id="andenes">
+  <div class="sec-head">
+    <h2><span class="rnd" aria-hidden="true"></span>Elige tu examen.</h2>
+    <p>Dos andenes, dos idiomas. El resultado te llega por email y, si quieres, lo comentamos juntos en una consulta gratuita.</p>
+  </div>
+  <div class="xtickets">
+    <article class="xt" style="--c:var(--en)" aria-labelledby="x-en">
+      <div class="xt-main">
+        <div class="xt-head"><span class="plat" aria-hidden="true">1</span><h3 id="x-en">Examen de Inglés</h3></div>
+        <p>Evalúa tu inglés: traducciones, gramática, completar huecos y emparejar expresiones. Resultado enviado a tu email.</p>
+        <ul class="feats">
+          <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>10 preguntas</li>
+          <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Tipos de tareas variados</li>
+          <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Resultado por email</li>
+          <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Para hablantes de polaco</li>
+        </ul>
+        <a class="btn btn-main" href="/english-quiz">Comenzar examen de inglés <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+      <div class="xt-stub" aria-hidden="true"><b>10</b><span>preguntas</span></div>
+    </article>
+    <article class="xt" style="--c:var(--es)" aria-labelledby="x-es">
+      <div class="xt-main">
+        <div class="xt-head"><span class="plat" aria-hidden="true">2</span><h3 id="x-es">Examen de Español</h3></div>
+        <p>Pon a prueba tu español con 30 preguntas de opción múltiple. Cubre gramática, vocabulario y comprensión. Resultado enviado a tu email.</p>
+        <ul class="feats">
+          <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>30 preguntas</li>
+          <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Opción múltiple</li>
+          <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Resultado por email</li>
+          <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Gramática y vocabulario</li>
+        </ul>
+        <a class="btn btn-main" href="/spanish-quiz">Comenzar examen de español <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+      <div class="xt-stub" aria-hidden="true"><b>30</b><span>preguntas</span></div>
+    </article>
+  </div>
+</section>
+
+<!-- ============ POR QUÉ ============ -->
+<section class="sec" id="porque">
+  <div class="sec-head">
+    <h2><span class="rnd" aria-hidden="true"></span>¿Por qué hacer nuestro test?</h2>
+    <p>Un trayecto corto que te dice dónde estás hoy, para que empieces en la estación correcta.</p>
+  </div>
+  <div class="links-map">
+    <svg class="spine" viewBox="0 0 1000 40" preserveAspectRatio="none" aria-hidden="true"><path d="M0 20H1000" stroke="var(--ink)" stroke-width="8"/></svg>
+    <div class="hub"><span class="ix" aria-hidden="true"></span><h3>Preciso</h3><p>Basado en el MCER, el Marco Común Europeo de Referencia para las lenguas.</p></div>
+    <div class="hub"><span class="ix" aria-hidden="true"></span><h3>Rápido</h3><p>Solo 15 minutos.</p></div>
+    <div class="hub"><span class="ix" aria-hidden="true"></span><h3>Detallado</h3><p>Un análisis completo de tus respuestas.</p></div>
+    <div class="hub"><span class="ix" aria-hidden="true"></span><h3>Asesoramiento gratuito</h3><p>Incluido con tu resultado.</p></div>
+  </div>
+</section>
+
+<!-- ============ NIVELES ============ -->
+<section class="sec" id="niveles">
+  <div class="sec-head">
+    <h2><span class="rnd" aria-hidden="true"></span>Seis estaciones, de A1 a C2.</h2>
+    <p>Los niveles del Marco Común Europeo. El examen te dice en cuál estás; tú decides hasta dónde quieres llegar.</p>
+  </div>
+  <ol class="lvl">
+    <li><h3><span class="code">A1</span><span class="nm">Principiante</span></h3><p>Te presentas, pides un café y entiendes frases sencillas del día a día.</p></li>
+    <li><h3><span class="code">A2</span><span class="nm">Elemental</span></h3><p>Te mueves en situaciones cotidianas: compras, citas, pequeñas conversaciones.</p></li>
+    <li><h3><span class="code">B1</span><span class="nm">Intermedio</span></h3><p>Hablas de tu trabajo, tus planes y lo que sientes, aunque busques palabras.</p></li>
+    <li><h3><span class="code">B2</span><span class="nm">Intermedio alto</span></h3><p>Conversas con nativos con soltura y defiendes tu opinión.</p></li>
+    <li><h3><span class="code">C1</span><span class="nm">Avanzado</span></h3><p>Usas el idioma con flexibilidad en el trabajo, los estudios y la vida social.</p></li>
+    <li><h3><span class="code">C2</span><span class="nm">Maestría</span></h3><p>Te expresas con precisión y matices, como en tu propio idioma.</p></li>
+  </ol>
+</section>
+
+<!-- ============ CTA FINAL ============ -->
+<section class="final">
+  <div class="wrap">
+    <div class="next">
+      <h2>¿Prefieres hablarlo primero?</h2>
+      <p>Reserva una consulta gratuita: cuéntanos tus objetivos y te recomendamos tu línea y tu estación.</p>
+      <div class="ctas">
+        <a class="btn btn-light" href="https://wa.me/447578146264">Reserva una consulta gratuita</a>
+        <a class="btn btn-ghost-l" href="f-clases.html">Ver las clases</a>
+      </div>
+    </div>
+    <svg class="final-map" viewBox="0 0 400 260" aria-hidden="true">
+      <path d="M20 130H380" stroke="var(--en)" stroke-width="10" stroke-linecap="round"/>
+      <path d="M20 130H100L160 70H380" stroke="var(--es)" stroke-width="10" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M20 130H100L160 190H380" stroke="var(--pl)" stroke-width="10" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="300" cy="130" r="22" fill="#fff" stroke="#fff" stroke-width="2"/>
+      <circle cx="300" cy="130" r="16" fill="none" stroke="var(--ink)" stroke-width="7"/>
+      <text x="300" y="176" text-anchor="middle" fill="#fff" font-family="Red Hat Display" font-weight="900" font-size="15">Tú, hablando</text>
+    </svg>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="fb"><a class="brand" href="f-metro.html"><img src="seal.png" alt="">Lingolandias</a><p>Online language school. Clases en vivo, 100% online.</p></div>
+    <div><h3>Líneas</h3><a href="f-clases.html#ingles">Inglés</a><a href="f-clases.html#espanol">Español</a><a href="f-clases.html#italiano">Italiano</a><a href="f-clases.html#polaco">Polaco</a><a href="f-clases.html#indonesio">Indonesio</a></div>
+    <div><h3>Escuela</h3><a href="f-clases.html#formatos">Formatos</a><a href="f-clases.html#talleres">Talleres</a><a href="f-nosotros.html">Nosotros</a><a href="f-examen.html">Examen de nivel</a></div>
+    <div><h3>Contacto</h3><a href="https://wa.me/447578146264">WhatsApp +44 7578 146264</a><a href="https://www.instagram.com/lingolandias/">Instagram @lingolandias</a><a href="#">Facebook</a></div>
+  </div>
+  <div class="legal"><span>© 2026 Lingolandias</span><span>ES · EN · PL</span></div>
+</footer>
+
+
+<nav class="switcher" aria-label="Opciones de diseño">
+  <a class="on" href="f-metro.html">F · Metro</a><a href="g-nevera.html">G · Nevera</a>
+</nav>
+<script>
+(()=>{const b=document.querySelector('.menu-btn'),p=document.getElementById('mnav');
+const set=o=>{b.setAttribute('aria-expanded',o);b.setAttribute('aria-label',o?'Cerrar menú':'Abrir menú');p.hidden=!o};
+b.addEventListener('click',()=>set(b.getAttribute('aria-expanded')!=='true'));
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!p.hidden){set(false);b.focus()}});})();
+</script>
+</body>
+</html>

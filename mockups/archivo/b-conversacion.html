@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Lingolandias — B · Conversación</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#efe7fb; --ink:#26093f; --muted:#5f4a74; --violet:#6b1fa6; --amber:#f2a531; --teal:#17766c; --line:#d9cbee;
+  --f:"Bricolage Grotesque",system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0}
+body{font-family:var(--f);background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased}
+::selection{background:var(--violet);color:#fff}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid var(--violet);outline-offset:3px;border-radius:6px}
+
+nav:not(.switcher){display:flex;justify-content:space-between;align-items:center;padding:20px clamp(16px,4vw,56px);max-width:1440px;margin:0 auto}
+.brand{display:flex;gap:10px;align-items:center;font-weight:800;font-size:20px;letter-spacing:-.01em}
+.brand img{width:38px;height:38px;border-radius:50%}
+.links{display:flex;gap:28px;font-size:15px;font-weight:600;color:var(--muted)}
+.links a:hover{color:var(--ink)}
+.right{display:flex;gap:10px;align-items:center}
+.lang{font:600 13px var(--f);background:none;border:1px solid var(--line);color:var(--ink);padding:9px 12px;border-radius:999px}
+.btn{display:inline-flex;align-items:center;gap:10px;font-weight:600;border-radius:14px;transition:transform .2s cubic-bezier(.2,.8,.2,1),background .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn-ink{background:var(--ink);color:#fff;padding:17px 24px;font-size:16px}
+.btn-ink:hover{background:var(--violet)}
+.btn-line{border:1.5px solid var(--ink);padding:15.5px 22px;font-size:16px}
+.btn-line:hover{background:#fff}
+.btn-sm{padding:10px 16px;font-size:14px;border-radius:12px}
+
+.hero{max-width:1440px;margin:0 auto;padding:clamp(24px,5vh,72px) clamp(16px,4vw,56px) clamp(48px,8vh,96px);display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:clamp(32px,5vw,80px);align-items:center}
+h1{font-weight:800;font-size:clamp(2.6rem,6vw,5.4rem);line-height:.95;letter-spacing:-.035em;text-wrap:balance}
+h1 span{display:block}
+h1 .v{color:var(--violet)}
+h1 .o{color:#c4620f}
+.lede{margin-top:26px;font-size:clamp(1.05rem,1.3vw,1.22rem);line-height:1.55;max-width:50ch;color:var(--muted)}
+.lede b{color:var(--ink)}
+.ctas{margin-top:32px;display:flex;flex-wrap:wrap;gap:12px}
+.meta{margin-top:30px;display:flex;flex-wrap:wrap;gap:10px}
+.pill{background:#fff;border:1px solid var(--line);padding:8px 14px;border-radius:999px;font-size:14px;font-weight:600}
+.pill i{font-style:normal;color:var(--violet)}
+
+/* phone thread */
+.phone{justify-self:center;width:min(390px,100%);background:#fff;border-radius:34px;padding:12px;box-shadow:0 2px 0 var(--line),0 40px 80px -30px rgba(38,9,63,.35)}
+.screen{background:#f7f3fc;border-radius:24px;overflow:hidden}
+.top{display:flex;gap:12px;align-items:center;padding:14px 16px;background:#fff;border-bottom:1px solid #eee5f7}
+.top img{width:36px;height:36px;border-radius:50%}
+.top b{display:block;font-size:15px}
+.top small{color:var(--teal);font-weight:600;font-size:12px}
+.thread{padding:16px 14px 18px;display:grid;gap:10px}
+.msg{max-width:84%;padding:10px 14px;border-radius:18px;font-size:15px;line-height:1.4;opacity:0;transform:translateY(10px);animation:in .5s cubic-bezier(.2,.8,.2,1) forwards}
+.me{justify-self:end;background:var(--ink);color:#fff;border-bottom-right-radius:6px}
+.them{justify-self:start;background:#fff;border:1px solid #eadff5;border-bottom-left-radius:6px}
+.msg small{display:block;font-size:12px;opacity:.8;margin-top:4px}
+.fix{background:#fff6e6;border-radius:8px;padding:1px 5px;box-decoration-break:clone}
+.fix s{opacity:.55}
+.voice{display:flex;align-items:center;gap:10px}
+.voice .play{width:30px;height:30px;border-radius:50%;background:#fff;color:var(--ink);display:grid;place-items:center;flex:none}
+.wave{display:flex;gap:2px;align-items:center;height:22px}
+.wave i{width:3px;border-radius:2px;background:rgba(255,255,255,.75)}
+.typing{justify-self:start;background:#fff;border:1px solid #eadff5;padding:12px 14px;border-radius:18px;display:flex;gap:4px;opacity:0;animation:in .4s forwards}
+.typing i{width:6px;height:6px;border-radius:50%;background:#b7a3cb;animation:b 1.2s infinite}
+.typing i:nth-child(2){animation-delay:.15s}.typing i:nth-child(3){animation-delay:.3s}
+@keyframes in{to{opacity:1;transform:none}}
+@keyframes b{0%,60%,100%{transform:none}30%{transform:translateY(-4px)}}
+.note{text-align:center;font-size:12px;color:var(--muted);margin-top:10px}
+
+/* language ribbon */
+.ribbon{border-block:1px solid var(--line);background:#fff;overflow:hidden}
+.track{display:flex;gap:48px;padding:18px 0;white-space:nowrap;font-weight:800;font-size:clamp(1.3rem,2.4vw,2rem);letter-spacing:-.02em;animation:m 40s linear infinite;width:max-content}
+.track span{display:flex;gap:14px;align-items:baseline}
+.track small{font-size:.5em;font-weight:600;color:var(--muted);letter-spacing:0}
+@keyframes m{to{transform:translateX(-50%)}}
+
+.after{max-width:1200px;margin:0 auto;padding:clamp(56px,9vw,110px) clamp(16px,4vw,56px);display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(24px,4vw,56px)}
+.after h3{font-size:1.35rem;font-weight:800;letter-spacing:-.02em;margin-bottom:10px}
+.after p{color:var(--muted);line-height:1.6;font-size:16px}
+.after .n{font-size:2.6rem;font-weight:800;color:var(--violet);letter-spacing:-.04em;line-height:1;margin-bottom:12px}
+
+.switcher{position:fixed;bottom:14px;left:50%;transform:translateX(-50%);z-index:50;display:flex;gap:4px;background:rgba(15,10,20,.86);backdrop-filter:blur(8px);padding:5px;border-radius:999px;font:600 12px/1 system-ui;box-shadow:0 8px 24px rgba(0,0,0,.35)}
+.switcher a{color:#cfc6d8;padding:8px 12px;border-radius:999px}
+.switcher a.on{background:#fff;color:#111}
+
+@media (max-width:960px){.links{display:none}.hero{grid-template-columns:1fr}.after{grid-template-columns:1fr}}
+@media (max-width:560px){.right .btn{display:none}.ctas .btn{width:100%;justify-content:center}}
+@media (prefers-reduced-motion:reduce){.msg,.typing{animation:none;opacity:1;transform:none}.track{animation:none}}
+</style>
+</head>
+<body>
+<nav>
+  <a class="brand" href="#"><img src="seal.png" alt="">Lingolandias</a>
+  <div class="links"><a href="#">Idiomas</a><a href="#">Cómo enseñamos</a><a href="#">Talleres</a><a href="#">Profesores</a><a href="#">Comunidad</a></div>
+  <div class="right"><button class="lang">ES</button><a class="btn btn-ink btn-sm" href="#">Test de nivel</a></div>
+</nav>
+
+<section class="hero">
+  <div>
+    <h1><span>Habla desde el corazón.</span><span class="v">Vive con autenticidad.</span><span class="o">Crea tu realidad.</span></h1>
+    <p class="lede">Clases de idiomas en vivo, online, con profesores que <b>te corrigen sin juzgarte.</b> Para quienes viven fuera y necesitan el idioma para trabajar, hacer trámites y sentirse en casa.</p>
+    <div class="ctas">
+      <a class="btn btn-ink" href="#">Haz el test de nivel gratis
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a class="btn btn-line" href="#">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M4 20l1.3-3.9A8 8 0 1 1 8 19z"/></svg>
+        Pregúntanos por WhatsApp</a>
+    </div>
+    <div class="meta"><span class="pill"><i>300+</i> estudiantes</span><span class="pill"><i>5+</i> años</span><span class="pill">Clases en vivo</span><span class="pill">Grupos gratuitos</span></div>
+  </div>
+
+  <div>
+    <div class="phone" aria-label="Ejemplo de conversación con una profesora">
+      <div class="screen">
+        <div class="top"><img src="seal.png" alt=""><div><b>Lingolandias · Inglés B1</b><small>clase en vivo · 18:30</small></div></div>
+        <div class="thread">
+          <div class="msg me" style="animation-delay:.2s"><div class="voice"><span class="play"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M7 4l13 8-13 8z"/></svg></span><span class="wave" id="wave"></span></div><small>0:14 · nota de voz</small></div>
+          <div class="msg me" style="animation-delay:.9s">I have an interview tomorrow and I am nervous for it 😬</div>
+          <div class="msg them" style="animation-delay:1.7s">¡Qué bien! Una cosita: <span class="fix"><s>nervous for it</s> → nervous <b>about</b> it</span>. Lo demás, perfecto.</div>
+          <div class="msg them" style="animation-delay:2.5s">Mañana practicamos la entrevista en clase. Trae tus preguntas 💜</div>
+          <div class="typing" style="animation-delay:3.3s"><i></i><i></i><i></i></div>
+        </div>
+      </div>
+    </div>
+    <p class="note">Conversación de ejemplo</p>
+  </div>
+</section>
+
+<div class="ribbon" aria-label="Idiomas">
+  <div class="track">
+    <span>Inglés <small>todos los niveles</small></span><span>Español <small>a través del inglés</small></span><span>Italiano <small>a través del inglés</small></span><span>Polaco <small>niños, teens y adultos</small></span><span>Indonesio <small>¿por qué no?</small></span>
+    <span>Inglés <small>todos los niveles</small></span><span>Español <small>a través del inglés</small></span><span>Italiano <small>a través del inglés</small></span><span>Polaco <small>niños, teens y adultos</small></span><span>Indonesio <small>¿por qué no?</small></span>
+  </div>
+</div>
+
+<section class="after">
+  <div><p class="n">01</p><h3>Equivocarte está bien</h3><p>Los errores no son fracasos. Son parte del proceso, y aquí nadie pone los ojos en blanco.</p></div>
+  <div><p class="n">02</p><h3>Nativos y no nativos</h3><p>Idioma real con nativos, y la empatía de profesores que estuvieron exactamente donde estás tú.</p></div>
+  <div><p class="n">03</p><h3>Una comunidad, no un curso</h3><p>Grupos gratuitos, retos lingüísticos, talleres y encuentros “Spill the Tea”.</p></div>
+</section>
+
+<nav class="switcher" aria-label="Opciones de diseño">
+  <a class="on" href="b-conversacion.html">B · Conversación</a><a href="e-cuaderno.html">E · Cuaderno</a><a href="f-metro.html">F · Metro</a><a href="g-nevera.html">G · Nevera</a>
+</nav>
+<script>
+const w=document.getElementById('wave');[6,12,18,9,15,20,11,7,16,13,19,8,14,10,17,6,12,9].forEach(h=>{const i=document.createElement('i');i.style.height=h+'px';w.appendChild(i)})
+</script>
+</body>
+</html>

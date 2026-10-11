@@ -1,0 +1,748 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Clases · Lingolandias — F · Metro</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@500;700;900&family=Red+Hat+Text:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#ffffff; --ink:#141a3c; --muted:#4e5576; --rule:#e4e6ef;
+  --en:#6b1fa6; --es:#d26a1c; --it:#14907f; --pl:#d0343f; --id:#2c6fd1;
+  --es-ink:#a84f0e; --it-ink:#0f7566;
+  --d:"Red Hat Display",system-ui,sans-serif; --t:"Red Hat Text",system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0}
+body{font-family:var(--t);color:var(--ink);background:var(--bg);-webkit-font-smoothing:antialiased}
+::selection{background:var(--en);color:#fff}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:3px solid var(--es);outline-offset:3px;border-radius:4px}
+
+/* platform-sign nav */
+body>header{background:var(--ink);color:#fff}
+body>header nav{max-width:1440px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:14px clamp(16px,4vw,48px)}
+.brand{display:flex;gap:10px;align-items:center;font-family:var(--d);font-weight:900;font-size:20px}
+.brand img{width:36px;height:36px;border-radius:50%}
+.links{display:flex;gap:4px;font-family:var(--d);font-weight:700;font-size:15px}
+.links a{padding:8px 12px;border-radius:6px}
+.links a:hover{background:rgba(255,255,255,.1)}
+.btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--d);font-weight:700;border-radius:999px;transition:transform .2s cubic-bezier(.2,.8,.2,1),background .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn-sm{background:#fff;color:var(--ink);padding:10px 18px;font-size:14px}
+.btn-main{background:var(--ink);color:#fff;padding:17px 26px;font-size:16px}
+.btn-main:hover{background:var(--en)}
+.btn-out{border:2px solid var(--ink);padding:15px 24px;font-size:16px}
+.btn-out:hover{background:#f1f2f8}
+
+.hero{max-width:1440px;margin:0 auto;padding:clamp(36px,6vh,72px) clamp(16px,4vw,48px) 24px;display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(24px,4vw,56px);align-items:center}
+h1{font-family:var(--d);font-weight:900;font-size:clamp(2.6rem,5vw,4.7rem);line-height:.98;letter-spacing:-.035em;text-wrap:balance}
+h1 span{display:block}
+h1 .l2{color:var(--en)}
+.lede{margin-top:24px;font-size:clamp(1.05rem,1.3vw,1.2rem);line-height:1.6;color:var(--muted);max-width:48ch}
+.lede b{color:var(--ink)}
+.ctas{margin-top:30px;display:flex;flex-wrap:wrap;gap:12px}
+.proof{margin-top:26px;display:flex;gap:22px;flex-wrap:wrap;font-size:15px;color:var(--muted)}
+.proof b{font-family:var(--d);font-weight:900;color:var(--ink);font-size:1.15em}
+
+/* map */
+.map{position:relative}
+.map svg{width:100%;height:auto;display:block;overflow:visible}
+.line path{fill:none;stroke-width:9;stroke-linecap:round;stroke-linejoin:round;transition:opacity .3s}
+.line .st{fill:#fff;stroke-width:4;transition:opacity .3s}
+.line text{font-family:var(--d);font-weight:700;font-size:13px;fill:var(--ink);transition:opacity .3s}
+.line .nm{font-weight:900;font-size:15px}
+.map.focus .line{opacity:.18}
+.map.focus .line.on{opacity:1}
+.line{cursor:pointer;transition:opacity .3s}
+.you text{font-family:var(--d);font-weight:900;font-size:14px;fill:var(--ink)}
+.legend{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+.legend button{font:700 14px var(--d);display:flex;gap:8px;align-items:center;border:2px solid var(--rule);background:#fff;border-radius:999px;padding:7px 14px 7px 10px;cursor:pointer;color:var(--ink);transition:border-color .2s}
+.legend button i{width:22px;height:6px;border-radius:3px}
+.legend button[aria-pressed="true"]{border-color:var(--ink)}
+.cap{font-size:15px;color:var(--muted);margin-top:10px}
+
+/* service board */
+.board{background:var(--ink);color:#fff;margin-top:clamp(28px,5vh,56px)}
+.board .wrap{max-width:1440px;margin:0 auto;padding:clamp(40px,6vw,72px) clamp(16px,4vw,48px);display:grid;grid-template-columns:1fr 1.4fr;gap:clamp(24px,5vw,72px)}
+.board h2{font-family:var(--d);font-weight:900;font-size:clamp(1.8rem,3vw,2.6rem);line-height:1.05;letter-spacing:-.025em}
+.rows{display:grid}
+.rows div{display:grid;grid-template-columns:auto 1fr auto;gap:16px;align-items:center;padding:15px 0;border-bottom:1px solid rgba(255,255,255,.14);font-size:16.5px}
+.rows .dot{width:14px;height:14px;border-radius:50%;border:3px solid #fff}
+.rows .ok{font-family:var(--d);font-weight:700;font-size:13px;color:#8ee0b8}
+
+/* ---------- shared section ---------- */
+.sec{max-width:1440px;margin:0 auto;padding:clamp(72px,10vw,128px) clamp(16px,4vw,48px) 0}
+.sec-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px 48px;align-items:end;margin-bottom:clamp(32px,5vw,56px)}
+.sec-head h2,.status h2,.rev-head h2{font-family:var(--d);font-weight:900;font-size:clamp(2rem,4vw,3.4rem);line-height:1;letter-spacing:-.03em;display:flex;align-items:center;gap:16px}
+.sec-head p{color:var(--muted);font-size:clamp(1rem,1.25vw,1.15rem);line-height:1.6;max-width:52ch}
+.rnd{flex:none;position:relative;width:.8em;height:.8em;border-radius:50%;border:.14em solid var(--en)}
+.rnd::after{content:"";position:absolute;left:-.22em;right:-.22em;top:50%;height:.2em;margin-top:-.1em;background:var(--ink)}
+
+/* ---------- line strips ---------- */
+.strips{display:grid;border-top:2px solid var(--ink)}
+.strip{display:grid;grid-template-columns:minmax(200px,1.1fr) minmax(0,2fr) auto;gap:24px;align-items:center;padding:26px 0;border-bottom:1px solid var(--rule);transition:background .2s}
+.strip:hover{background:#fafbfe}
+.strip header h3{font-family:var(--d);font-weight:900;font-size:1.6rem;letter-spacing:-.02em;color:var(--c)}
+.strip header span{display:block;margin-top:4px;color:var(--muted);font-size:15px;line-height:1.45}
+.stops{list-style:none;padding:0;display:flex;justify-content:space-between;position:relative;margin:0 6px}
+.stops::before{content:"";position:absolute;left:0;right:0;top:8px;height:8px;border-radius:4px;background:var(--c)}
+.stops li{position:relative;padding-top:28px;font-family:var(--d);font-weight:700;font-size:14px;text-align:center;min-width:24px}
+.stops li::before{content:"";position:absolute;top:2px;left:50%;width:20px;height:20px;margin-left:-10px;border-radius:50%;background:#fff;border:4px solid var(--c);box-sizing:border-box}
+.go{font-family:var(--d);font-weight:700;font-size:14.5px;border:2px solid var(--ink);border-radius:999px;padding:9px 16px;white-space:nowrap;transition:background .2s,color .2s}
+.go:hover{background:var(--ink);color:#fff}
+
+/* ---------- status / incidents ---------- */
+.status{background:var(--ink);color:#fff;margin-top:clamp(72px,10vw,128px)}
+.status .wrap{max-width:1440px;margin:0 auto;padding:clamp(56px,8vw,104px) clamp(16px,4vw,48px)}
+.status-head{display:grid;grid-template-columns:1fr 1fr;gap:24px 48px;align-items:end;margin-bottom:40px}
+.status-head p{color:#c3c7dd;font-size:1.1rem;line-height:1.6;max-width:50ch}
+.incidents{display:grid;grid-template-columns:1fr 1fr;gap:0 48px}
+.inc{border-bottom:1px solid rgba(255,255,255,.14)}
+.inc button{all:unset;cursor:pointer;display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:center;width:100%;padding:18px 0;font-size:17px;font-weight:500;box-sizing:border-box}
+.inc button:focus-visible{outline:2px solid var(--es);outline-offset:2px}
+.inc .sig{width:12px;height:12px;border-radius:50%;background:var(--es);transition:background .3s}
+.inc .lbl{font-family:var(--d);font-weight:700;font-size:12.5px;color:#ffc896;letter-spacing:.02em;transition:color .3s}
+.inc .sol{display:grid;grid-template-rows:0fr;transition:grid-template-rows .4s cubic-bezier(.2,.8,.2,1)}
+.inc .sol p{overflow:hidden;color:#dfe2f0;line-height:1.55;padding-left:26px}
+.inc.open .sol{grid-template-rows:1fr}
+.inc.open .sol p{padding-bottom:18px}
+.inc.open .sig{background:#3ccf8e}
+.inc.open .lbl{color:#8ee0b8}
+
+/* ---------- philosophy ---------- */
+.departures{background:#0b0f26;color:#fff;border-radius:14px;padding:10px 0;font-family:var(--d);overflow:hidden}
+.dep-row{display:grid;grid-template-columns:200px 1fr 160px;gap:20px;padding:18px 28px;align-items:center;font-size:clamp(1.05rem,1.8vw,1.5rem);font-weight:700}
+.dep-row + .dep-row{border-top:1px solid rgba(255,255,255,.1)}
+.dep-h{font-size:12.5px;font-weight:700;color:#9aa0c3;letter-spacing:.08em;text-transform:uppercase;padding-block:10px}
+.dep-row.old span:nth-child(-n+2){color:#7c82a6;text-decoration:line-through;text-decoration-thickness:2px}
+.st{font-size:14px;justify-self:start;padding:6px 12px;border-radius:6px}
+.st.cancel{background:#3a1a24;color:#ff9aa4}
+.st.ok{background:#163a2c;color:#8ee0b8}
+.philo-text{display:grid;grid-template-columns:1fr 1fr;gap:24px 56px;margin-top:clamp(36px,5vw,56px);align-items:start}
+.philo-text .big{font-family:var(--d);font-weight:900;font-size:clamp(1.6rem,2.8vw,2.4rem);line-height:1.1;letter-spacing:-.025em;color:var(--en)}
+.philo-text div p{color:var(--muted);line-height:1.65;font-size:1.05rem}
+.philo-text div p+p{margin-top:14px}
+
+/* ---------- crew ---------- */
+.crew{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(14px,2vw,24px)}
+.crew figure{margin:0}
+.crew img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:14px;display:block;background:#eef0f6;border-bottom:8px solid var(--c)}
+.crew figcaption{padding-top:12px;display:grid;gap:2px}
+.crew b{font-family:var(--d);font-weight:900;font-size:1.15rem}
+.crew span{display:flex;align-items:center;gap:7px;font-family:var(--d);font-weight:700;font-size:13.5px}
+.crew span i{width:16px;height:6px;border-radius:3px;background:var(--c)}
+.crew small{color:var(--muted);font-size:14px}
+
+/* ---------- community ---------- */
+.links-map{position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.spine{position:absolute;left:0;right:0;top:4px;width:100%;height:40px}
+.hub{position:relative;padding-top:64px}
+.ix{position:absolute;top:6px;left:0;width:36px;height:36px;border-radius:50%;background:#fff;border:7px solid var(--ink)}
+.hub:nth-child(3) .ix{border-color:var(--it)}
+.hub:nth-child(4) .ix{border-color:var(--es)}
+.hub:nth-child(5) .ix{border-color:var(--pl)}
+.hub h3{font-family:var(--d);font-weight:900;font-size:1.3rem;letter-spacing:-.02em}
+.hub p{margin-top:6px;color:var(--muted);line-height:1.55}
+
+/* ---------- reviews ---------- */
+.rev-head{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;margin-bottom:40px}
+.score{display:flex;align-items:baseline;gap:12px}
+.score b{font-family:var(--d);font-weight:900;font-size:3rem;letter-spacing:-.03em}
+.score span{color:var(--muted)}
+.tickets{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.ticket{margin:0;position:relative;background:#fff;border:2px solid var(--ink);border-radius:14px;padding:28px 24px 20px;display:flex;flex-direction:column;justify-content:space-between;gap:24px;
+  -webkit-mask:radial-gradient(circle 12px at 0 70%,#0000 98%,#000) left/51% 100% no-repeat,radial-gradient(circle 12px at 100% 70%,#0000 98%,#000) right/51% 100% no-repeat;
+          mask:radial-gradient(circle 12px at 0 70%,#0000 98%,#000) left/51% 100% no-repeat,radial-gradient(circle 12px at 100% 70%,#0000 98%,#000) right/51% 100% no-repeat}
+.ticket::before{content:"";position:absolute;left:0;right:0;top:0;height:10px;background:var(--c)}
+.ticket p{font-size:1.08rem;line-height:1.55}
+.ticket footer{display:flex;justify-content:space-between;border-top:2px dashed var(--rule);padding-top:14px;font-size:15px;color:var(--muted)}
+.ticket footer b{font-family:var(--d);color:var(--ink)}
+.more{display:inline-block;margin-top:28px;font-family:var(--d);font-weight:700;text-decoration:underline;text-underline-offset:5px}
+
+/* ---------- final ---------- */
+.final{background:var(--en);color:#fff;margin-top:clamp(72px,10vw,128px)}
+.final .wrap{max-width:1440px;margin:0 auto;padding:clamp(56px,8vw,104px) clamp(16px,4vw,48px);display:grid;grid-template-columns:1.2fr .8fr;gap:48px;align-items:center}
+.nx{display:inline-block;font-family:var(--d);font-weight:700;font-size:14px;background:#fff;color:var(--ink);padding:6px 12px;border-radius:6px}
+.final h2{margin-top:18px;font-family:var(--d);font-weight:900;font-size:clamp(2.2rem,4.6vw,4rem);line-height:1;letter-spacing:-.035em}
+.final p{margin-top:18px;font-size:1.15rem;line-height:1.6;color:#eadcff;max-width:46ch}
+.btn-light{background:#fff;color:var(--ink);padding:17px 26px;font-size:16px}
+.btn-ghost-l{border:2px solid rgba(255,255,255,.8);color:#fff;padding:15px 24px;font-size:16px}
+.btn-ghost-l:hover{background:rgba(255,255,255,.12)}
+.final-map{width:100%;height:auto}
+
+/* ---------- footer ---------- */
+.foot{background:var(--ink);color:#c3c7dd}
+.foot .wrap{max-width:1440px;margin:0 auto;padding:64px clamp(16px,4vw,48px) 40px;display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:32px}
+.foot .brand{color:#fff}
+.foot .fb p{margin-top:14px;line-height:1.55;max-width:32ch}
+.foot h3{font-family:var(--d);font-weight:900;color:#fff;font-size:15px;margin-bottom:12px}
+.foot .wrap>div:not(.fb) a{display:block;padding:5px 0}
+.foot a:hover{color:#fff}
+.legal{max-width:1440px;margin:0 auto;padding:18px clamp(16px,4vw,48px) 80px;border-top:1px solid rgba(255,255,255,.12);display:flex;justify-content:space-between;font-size:15px}
+
+@media (max-width:1000px){
+  .sec-head,.status-head,.philo-text,.final .wrap{grid-template-columns:1fr}
+  .incidents{grid-template-columns:1fr}
+  .crew{grid-template-columns:repeat(2,1fr)}
+  .links-map{grid-template-columns:1fr 1fr;row-gap:40px}
+  .spine{display:none}
+  .tickets{grid-template-columns:1fr}
+  .foot .wrap{grid-template-columns:1fr 1fr}
+}
+@media (max-width:700px){
+  .strip{grid-template-columns:1fr;gap:16px}
+  .go{justify-self:start}
+  .dep-row{grid-template-columns:1fr;gap:6px;padding:16px 20px}
+  .dep-h{display:none}
+  .links-map{grid-template-columns:1fr}
+}
+
+/* ---------- levels trunk ---------- */
+.trunk{position:relative}
+.trunk-line{position:absolute;left:0;right:0;top:22px;height:12px;border-radius:6px;background:#e9e6f3;overflow:hidden}
+.trunk-line .fill{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--es),var(--en));transition:width .6s cubic-bezier(.2,.8,.2,1)}
+.stations{position:relative;display:grid;grid-template-columns:repeat(6,1fr)}
+.stn{all:unset;cursor:pointer;display:grid;justify-items:center;gap:10px;text-align:center;padding-bottom:8px}
+.stn:focus-visible{outline:3px solid var(--es);outline-offset:4px;border-radius:8px}
+.stn .o{width:44px;height:44px;border-radius:50%;background:#fff;border:7px solid #cfcbe0;box-sizing:border-box;transition:border-color .3s,transform .3s}
+.stn b{font-family:var(--d);font-weight:900;font-size:clamp(1.3rem,2.2vw,1.9rem);letter-spacing:-.02em}
+.stn small{color:var(--muted);font-size:14px}
+.stn.past .o{border-color:var(--en)}
+.stn[aria-selected="true"] .o{border-color:var(--ink);transform:scale(1.18)}
+.stn .pop{font-family:var(--d);font-weight:700;font-size:11.5px;background:var(--es);color:#fff;padding:3px 8px;border-radius:999px}
+.station-card{margin-top:32px;display:grid;grid-template-columns:auto 1fr auto;gap:28px;align-items:center;background:#f6f5fb;border-radius:16px;padding:28px clamp(20px,3vw,40px)}
+.station-card .big{font-family:var(--d);font-weight:900;font-size:clamp(3rem,6vw,5rem);line-height:.9;letter-spacing:-.04em;color:var(--en)}
+.station-card h3{font-family:var(--d);font-weight:900;font-size:1.4rem}
+.station-card p{color:var(--muted);line-height:1.55;margin-top:6px;max-width:60ch}
+
+/* ---------- voices ---------- */
+.voices{display:grid;grid-template-columns:1.5fr 1fr;gap:clamp(20px,3vw,40px);align-items:start}
+.screen{background:var(--ink);border-radius:18px;padding:10px}
+.screen-bar{display:flex;align-items:center;gap:12px;color:#fff;font-family:var(--d);font-weight:700;padding:8px 10px 12px}
+.screen-bar .vline{margin-left:auto;font-size:13px;background:var(--en);padding:4px 10px;border-radius:999px}
+.dot-live{width:10px;height:10px;border-radius:50%;background:#3ccf8e}
+.screen video{width:100%;aspect-ratio:16/9;border-radius:10px;background:#000;display:block}
+.vlist{display:grid;gap:12px}
+.vcard{all:unset;cursor:pointer;display:grid;grid-template-columns:auto 1fr;gap:16px;padding:20px;border:2px solid var(--rule);border-radius:16px;transition:border-color .2s,background .2s}
+.vcard:focus-visible{outline:3px solid var(--es);outline-offset:2px}
+.vcard[aria-pressed="true"]{border-color:var(--ink);background:#f6f5fb}
+.vcard .av{width:46px;height:46px;border-radius:50%;display:grid;place-items:center;font-family:var(--d);font-weight:900;color:#fff;background:var(--c)}
+.vcard b{font-family:var(--d);font-weight:900;font-size:1.05rem}
+.vcard small{display:block;color:var(--muted);font-size:13.5px;margin-top:2px}
+.vcard p{grid-column:1/-1;line-height:1.55;font-size:15.5px}
+
+/* ---------- motto ---------- */
+.motto{max-width:1100px;margin:0 auto;padding:clamp(80px,11vw,140px) clamp(16px,4vw,48px) 0;text-align:center}
+.motto blockquote{margin:0}
+.motto p{font-family:var(--d);font-weight:900;font-size:clamp(2rem,4.6vw,4rem);line-height:1.04;letter-spacing:-.035em;text-wrap:balance}
+.motto footer{margin-top:20px;color:var(--muted);font-weight:500}
+
+@media (max-width:1000px){.voices{grid-template-columns:1fr}.station-card{grid-template-columns:1fr}}
+@media (max-width:640px){.stn small,.stn .pop{display:none}.stn .o{width:32px;height:32px;border-width:6px}.trunk-line{top:13px}}
+
+.switcher{position:fixed;bottom:14px;left:50%;transform:translateX(-50%);z-index:50;display:flex;gap:4px;background:rgba(15,10,20,.88);backdrop-filter:blur(8px);padding:5px;border-radius:999px;font:600 12px/1 system-ui;box-shadow:0 8px 24px rgba(0,0,0,.35);white-space:nowrap}
+.switcher a{color:#cfc6d8;padding:8px 12px;border-radius:999px}
+.switcher a.on{background:#fff;color:#111}
+
+@media (max-width:1000px){.links{display:none}.hero{grid-template-columns:1fr}.board .wrap{grid-template-columns:1fr}}
+@media (max-width:560px){.ctas .btn{width:100%;justify-content:center}}
+
+/* =====================================================================
+   MULTI-PAGE SHARED (Inicio · Clases · Nosotros · Examen)
+   ===================================================================== */
+html{scroll-padding-top:88px}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+.skip{position:absolute;left:12px;top:-80px;z-index:100;background:#fff;color:var(--ink);font:700 15px var(--d);padding:10px 16px;border-radius:8px}
+.skip:focus{top:12px}
+body>header{position:relative;z-index:40}
+body>header :focus-visible,.status :focus-visible,.board :focus-visible,.final :focus-visible,.foot :focus-visible{outline-color:#ffb27a}
+
+/* nav: current page = a line under the link */
+.links a{position:relative;color:#d9dcef}
+.links a:hover{color:#fff}
+.links a[aria-current="page"]{color:#fff}
+.links a[aria-current="page"]::after{content:"";position:absolute;left:12px;right:12px;bottom:-14px;height:5px;border-radius:3px 3px 0 0;background:var(--nc)}
+.nav-r{display:flex;align-items:center;gap:10px}
+.lang{display:inline-flex;align-items:center;gap:6px;font:700 14px var(--d);color:#fff;background:transparent;border:2px solid rgba(255,255,255,.35);border-radius:999px;padding:7px 12px;cursor:pointer}
+.lang:hover{border-color:#fff}
+.menu-btn{display:none;place-items:center;width:44px;height:44px;border-radius:50%;background:transparent;color:#fff;border:2px solid rgba(255,255,255,.35);cursor:pointer}
+.menu-btn:hover{border-color:#fff}
+.menu-btn .i-close,.menu-btn[aria-expanded="true"] .i-open{display:none}
+.menu-btn[aria-expanded="true"] .i-close{display:block}
+.mnav{border-top:1px solid rgba(255,255,255,.14);padding:4px clamp(16px,4vw,48px) 22px}
+.mnav a:not(.btn){display:flex;align-items:center;gap:14px;padding:15px 2px;font:700 18px var(--d);color:#d9dcef;border-bottom:1px solid rgba(255,255,255,.1)}
+.mnav a i{flex:none;width:26px;height:6px;border-radius:3px;background:var(--nc)}
+.mnav a[aria-current="page"]{color:#fff}
+.mnav a[aria-current="page"]::after{content:"Estás aquí";margin-left:auto;font:500 15px var(--t);color:#c3c7dd}
+.mnav .btn{margin-top:18px}
+@media (max-width:1000px){.menu-btn{display:grid}}
+@media (min-width:1001px){.mnav{display:none!important}}
+@media (max-width:560px){.nav-r .btn-sm{display:none}}
+
+.status+.final{margin-top:0}
+/* home: Conócenos teaser */
+.teaser{max-width:1440px;margin:clamp(72px,10vw,128px) auto 0;padding:0 clamp(16px,4vw,48px)}
+.teaser-in{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:20px 48px;align-items:center;border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);padding:36px 0}
+.teaser h2{font-family:var(--d);font-weight:900;font-size:clamp(1.8rem,3vw,2.6rem);letter-spacing:-.03em;line-height:1;display:flex;align-items:center;gap:14px}
+.teaser .rnd{border-color:var(--pl)}
+.teaser p{color:var(--muted);font-size:1.075rem;line-height:1.6;max-width:64ch}
+.teaser p b{color:var(--ink)}
+@media (max-width:1000px){.teaser-in{grid-template-columns:1fr}.teaser .btn{justify-self:start}}
+
+/* sub-page hero */
+.hero.sub{padding-bottom:0;align-items:end}
+.hero.sub h1{font-size:clamp(2.4rem,4.6vw,4.3rem)}
+
+/* route diagram (vertical line with stations) */
+.route{list-style:none;padding:0;position:relative;z-index:0}
+.route>li{position:relative;padding:0 0 32px 60px}
+.route>li::before{content:"";position:absolute;left:3px;top:2px;width:28px;height:28px;border-radius:50%;background:#fff;border:6px solid var(--c);box-sizing:border-box}
+.route>li:not(:last-child)::after{content:"";position:absolute;z-index:-1;left:13px;top:16px;height:100%;width:8px;background:var(--c)}
+.route h3{font-family:var(--d);font-weight:900;font-size:1.25rem;letter-spacing:-.01em;line-height:1.25}
+.route p{margin-top:6px;color:var(--muted);line-height:1.6;font-size:1.02rem;max-width:60ch}
+.route>li.xc{padding-bottom:0}
+.route>li.xc::before{left:-3px;top:-4px;width:40px;height:40px;border:8px solid var(--ink)}
+.route .go{display:inline-block;margin-top:14px}
+
+/* clases: legend key in hero */
+.key{list-style:none;padding:0;border-top:2px solid var(--ink)}
+.key a{display:grid;grid-template-columns:56px minmax(0,1fr) auto;gap:18px;align-items:center;padding:15px 4px;border-bottom:1px solid var(--rule);transition:background .2s}
+.key a:hover{background:#fafbfe}
+.key i{height:10px;border-radius:5px;background:var(--c)}
+.key b{color:var(--ink);font-family:var(--d);font-weight:900;font-size:1.25rem;letter-spacing:-.01em}
+.key span{display:block;color:var(--muted);font-size:15px;margin-top:2px}
+
+/* clases: sticky line selector */
+.picker{position:sticky;top:0;z-index:30;background:rgba(255,255,255,.97);border-bottom:1px solid var(--rule);margin-top:clamp(40px,6vw,72px)}
+.picker-in{max-width:1440px;margin:0 auto;padding:12px clamp(16px,4vw,48px);display:flex;gap:8px;overflow-x:auto;scrollbar-width:none}
+.picker-in::-webkit-scrollbar{display:none}
+.picker a{flex:none;display:inline-flex;align-items:center;gap:9px;font:700 15px var(--d);padding:9px 16px 9px 12px;border:2px solid var(--rule);border-radius:999px;transition:border-color .2s,background .2s,color .2s}
+.picker a i{width:22px;height:6px;border-radius:3px;background:var(--c)}
+.picker a:hover{border-color:var(--c)}
+.picker a[aria-current="true"]{background:var(--ink);border-color:var(--ink);color:#fff}
+.picker a:focus-visible{outline-offset:1px}
+
+/* clases: one section per line */
+.lang-sec{max-width:1440px;margin:0 auto;padding:clamp(64px,9vw,112px) clamp(16px,4vw,48px) 0;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:40px clamp(32px,5vw,88px);align-items:start}
+.lang-sec+.lang-sec>.lang-head{border-top:0}
+.lang-head h2{font-family:var(--d);font-weight:900;font-size:clamp(2.2rem,4.4vw,3.6rem);line-height:1;letter-spacing:-.03em;display:flex;align-items:center;gap:16px}
+.lang-head .rnd{border-color:var(--c)}
+.lang-head .sub{margin-top:14px;font-family:var(--d);font-weight:700;font-size:clamp(1.15rem,1.6vw,1.4rem);line-height:1.3}
+.lang-head .intro{margin-top:16px;color:var(--muted);font-size:1.075rem;line-height:1.65;max-width:56ch}
+.why{margin-top:24px;border-left:6px solid var(--c);padding:2px 0 2px 20px}
+.why h3{font-family:var(--d);font-weight:900;font-size:1.1rem}
+.why p{margin-top:6px;color:var(--muted);line-height:1.6;font-size:1rem;max-width:56ch}
+.why p.say{font-family:var(--d);font-weight:700;color:var(--ink);font-size:1.2rem;line-height:1.4;margin-top:0}
+.offer h3.offer-t{font-family:var(--d);font-weight:900;font-size:1.05rem;color:var(--muted);margin-bottom:22px}
+.lang-sec .rule{grid-column:1/-1;height:8px;border-radius:4px;background:var(--c);opacity:.18;margin-top:clamp(24px,4vw,48px)}
+
+/* clases: formats */
+.formats{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:20px}
+.fmt{grid-column:span 2;position:relative;overflow:hidden;border:2px solid var(--ink);border-radius:14px;padding:36px 26px 28px;display:flex;flex-direction:column;gap:12px}
+.fmt:nth-child(n+4){grid-column:span 3}
+.fmt::before{content:"";position:absolute;left:0;right:0;top:0;height:10px;background:var(--c)}
+.fmt svg{width:34px;height:34px}
+.fmt h3{font-family:var(--d);font-weight:900;font-size:1.35rem;letter-spacing:-.015em;line-height:1.2}
+.fmt p{color:var(--muted);line-height:1.6;font-size:1.02rem}
+
+/* dark band facts (talleres) */
+.facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0 32px}
+.fact{padding:24px 0;border-top:1px solid rgba(255,255,255,.18)}
+.fact svg{width:34px;height:34px;color:#fff}
+.fact h3{margin-top:14px;font-family:var(--d);font-weight:900;font-size:1.2rem}
+.fact p{margin-top:6px;color:#c3c7dd;line-height:1.55;font-size:1rem}
+.band-why{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1fr) minmax(0,1fr);gap:24px 40px;margin-top:48px;padding-top:40px;border-top:1px solid rgba(255,255,255,.18)}
+.band-why h3{font-family:var(--d);font-weight:900;font-size:clamp(1.4rem,2.2vw,1.9rem);letter-spacing:-.02em;line-height:1.1}
+.band-why p{color:#dfe2f0;line-height:1.65;font-size:1.05rem}
+.status .ctas{margin-top:40px}
+
+/* nosotros: story + mottos + voice + figures + revolution */
+.story{max-width:880px}
+.story>li{padding-bottom:44px}
+.story h3{font-size:clamp(1.4rem,2.2vw,1.8rem)}
+.story p{font-size:1.1rem;color:var(--ink);line-height:1.7;max-width:62ch}
+.story p+p{margin-top:12px}
+.story p.sign{font-family:var(--d);font-weight:700;color:var(--muted);font-size:1rem}
+.mottos>li{padding-bottom:26px}
+.mottos .m{margin:0;font-family:var(--d);font-weight:900;font-size:clamp(1.4rem,2.4vw,2rem);letter-spacing:-.02em;line-height:1.1;color:var(--ink)}
+.mottos .m+p{margin-top:4px;font-size:15.5px}
+.voice{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:32px clamp(32px,5vw,88px);align-items:start}
+.voice blockquote{margin:0;border-left:10px solid var(--pl);padding:4px 0 4px 28px}
+.voice blockquote p{font-family:var(--d);font-weight:900;font-size:clamp(1.6rem,2.8vw,2.4rem);line-height:1.12;letter-spacing:-.025em}
+.voice blockquote footer{margin-top:16px;color:var(--muted);font-weight:500}
+.voice .txt p{color:var(--muted);font-size:1.075rem;line-height:1.65}
+.voice .txt p+p{margin-top:14px}
+.voice .txt p.hi{color:var(--ink);font-family:var(--d);font-weight:700;font-size:1.2rem;line-height:1.4}
+.voice .txt .btn{margin-top:26px}
+.nots{list-style:none;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 32px}
+.nots li{display:flex;gap:16px;align-items:center;font-family:var(--d);font-weight:700;font-size:clamp(1.1rem,1.6vw,1.35rem);line-height:1.25;padding:22px 0;border-top:1px solid rgba(255,255,255,.18)}
+.noentry{flex:none;position:relative;width:34px;height:34px;border-radius:50%;background:var(--pl)}
+.noentry::after{content:"";position:absolute;left:7px;right:7px;top:50%;height:6px;margin-top:-3px;border-radius:2px;background:#fff}
+.rev-sub{margin-top:32px;font-size:1.2rem;line-height:1.6;color:#dfe2f0;max-width:62ch}
+.rev-sub b{color:#fff}
+.figs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;border-top:2px solid var(--ink)}
+.fig{padding-top:28px}
+.fig i{display:block;width:56px;height:10px;border-radius:5px;background:var(--c);margin-bottom:18px}
+.fig b{display:block;font-family:var(--d);font-weight:900;font-size:clamp(3.4rem,7vw,6rem);line-height:.9;letter-spacing:-.045em}
+.fig span{display:block;margin-top:12px;font-family:var(--d);font-weight:700;font-size:1.15rem;color:var(--muted)}
+
+/* examen: platform tickets */
+.xtickets{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+.xt{position:relative;display:grid;grid-template-columns:minmax(0,1fr) 150px;border:2px solid var(--ink);border-radius:18px;overflow:hidden;background:#fff}
+.xt::before{content:"";position:absolute;left:0;right:0;top:0;height:12px;background:var(--c)}
+.xt-main{padding:44px clamp(22px,3vw,36px) 32px}
+.xt-head{display:flex;align-items:center;gap:16px}
+.plat{flex:none;width:54px;height:54px;border-radius:50%;border:8px solid var(--c);display:grid;place-items:center;font-family:var(--d);font-weight:900;font-size:1.2rem}
+.xt h3{font-family:var(--d);font-weight:900;font-size:clamp(1.6rem,2.6vw,2.2rem);letter-spacing:-.02em;line-height:1.05}
+.xt-main>p{margin-top:18px;color:var(--muted);line-height:1.6;font-size:1.05rem;max-width:52ch}
+.feats{list-style:none;padding:0;margin-top:20px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 16px}
+.feats li{display:flex;gap:10px;align-items:center;font-size:15.5px;font-weight:500}
+.feats svg{flex:none;color:var(--c)}
+.xt .btn{margin-top:28px}
+.xt-stub{position:relative;border-left:2px dashed #c9ccdb;display:grid;place-content:center;text-align:center;gap:8px;padding:24px 12px}
+.xt-stub b{font-family:var(--d);font-weight:900;font-size:clamp(3rem,5vw,4.4rem);line-height:.9;letter-spacing:-.04em}
+.xt-stub span{font-family:var(--d);font-weight:700;font-size:15px;color:var(--muted)}
+.xt-stub::before,.xt-stub::after{content:"";position:absolute;left:-15px;width:26px;height:26px;border-radius:50%;background:#fff;border:2px solid var(--ink)}
+.xt-stub::before{top:-15px}
+.xt-stub::after{bottom:-15px}
+.exam-map{width:100%;height:auto;display:block}
+.exam-map text{font-family:var(--d);font-weight:700;fill:var(--ink)}
+
+/* examen: static levels line */
+.lvl{list-style:none;padding:0;position:relative;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));z-index:0}
+.lvl::before{content:"";position:absolute;z-index:-1;left:calc(100%/12);right:calc(100%/12);top:16px;height:10px;border-radius:5px;background:var(--ink)}
+.lvl li{display:grid;justify-items:center;align-content:start;gap:4px;text-align:center;padding:0 10px}
+.lvl li::before{content:"";width:42px;height:42px;border-radius:50%;background:#fff;border:7px solid var(--ink);box-sizing:border-box;margin-bottom:12px}
+.lvl li:nth-child(-n+2)::before{border-color:var(--es)}
+.lvl li:nth-child(n+3):nth-child(-n+4)::before{border-color:var(--pl)}
+.lvl li:nth-child(n+5)::before{border-color:var(--en)}
+.lvl h3{display:grid;gap:2px;font-family:var(--d);font-weight:900}
+.lvl h3 .code{font-size:clamp(1.5rem,2.4vw,2rem);letter-spacing:-.02em;line-height:1}
+.lvl h3 .nm{font-size:1.05rem}
+.lvl p{margin-top:6px;color:var(--muted);font-size:15px;line-height:1.5}
+
+@media (max-width:1000px){
+  .lang-sec,.voice,.band-why{grid-template-columns:1fr}
+  .formats{grid-template-columns:1fr 1fr}
+  .fmt,.fmt:nth-child(n+4){grid-column:auto}
+  .fmt:last-child{grid-column:1/-1}
+  .facts{grid-template-columns:1fr 1fr}
+  .nots{grid-template-columns:1fr}
+  .xtickets{grid-template-columns:1fr}
+}
+@media (max-width:800px){
+  .lvl{grid-template-columns:1fr;gap:22px}
+  .lvl::before{left:16px;right:auto;top:20px;bottom:20px;width:10px;height:auto}
+  .lvl li{grid-template-columns:42px minmax(0,1fr);justify-items:start;text-align:left;column-gap:18px;padding:0}
+  .lvl li::before{grid-row:1/span 2;margin:0}
+  .lvl p{margin-top:0}
+}
+@media (max-width:700px){
+  .formats,.facts,.figs{grid-template-columns:1fr}
+  .fmt:last-child{grid-column:auto}
+  .xt{grid-template-columns:1fr}
+  .xt-stub{border-left:0;border-top:2px dashed #c9ccdb;grid-auto-flow:column;align-items:baseline;place-content:center;gap:12px;padding:18px 12px}
+  .xt-stub::before{top:-14px;left:-15px}
+  .xt-stub::after{top:-14px;bottom:auto;left:auto;right:-15px}
+  .feats{grid-template-columns:1fr}
+  .route>li{padding-left:52px}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{transition:none!important;animation:none!important}
+  .btn:hover{transform:none}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Saltar al contenido</a>
+<header>
+  <nav aria-label="Principal">
+    <a class="brand" href="f-metro.html"><img src="seal.png" alt="">Lingolandias</a>
+    <div class="links"><a href="f-metro.html" style="--nc:#ffffff">Inicio</a><a href="f-clases.html" style="--nc:#f08a3c" aria-current="page">Clases</a><a href="f-nosotros.html" style="--nc:#ff7a83">Nosotros</a><a href="f-examen.html" style="--nc:#3cc4b0">Examen</a></div>
+    <div class="nav-r">
+      <button class="lang" type="button" aria-label="Idioma del sitio: español">ES<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+      <a class="btn btn-sm" href="https://wa.me/447578146264">Contacto</a>
+      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="mnav" aria-label="Abrir menú">
+        <svg class="i-open" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        <svg class="i-close" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </div>
+  </nav>
+  <div class="mnav" id="mnav" hidden>
+    <a href="f-metro.html" style="--nc:#ffffff"><i aria-hidden="true"></i>Inicio</a><a href="f-clases.html" style="--nc:#f08a3c" aria-current="page"><i aria-hidden="true"></i>Clases</a><a href="f-nosotros.html" style="--nc:#ff7a83"><i aria-hidden="true"></i>Nosotros</a><a href="f-examen.html" style="--nc:#3cc4b0"><i aria-hidden="true"></i>Examen</a>
+    <a class="btn btn-sm" href="https://wa.me/447578146264">Contacto por WhatsApp</a>
+  </div>
+</header>
+
+<main id="main">
+<section class="hero sub">
+  <div>
+    <h1><span>Cinco líneas.</span><span class="l2">Una sola dirección:</span><span>hablar.</span></h1>
+    <p class="lede">No aprendes un idioma “solo porque sí”. Quieres hablar libremente: en el trabajo, en el aeropuerto, en la tienda, con tu vecino en el extranjero. <b>Te preparamos para la vida real, no para un examen.</b></p>
+    <div class="ctas">
+      <a class="btn btn-main" href="https://wa.me/447578146264">Reserva una consulta gratuita <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a class="btn btn-out" href="f-examen.html">Haz el examen de nivel</a>
+    </div>
+  </div>
+  <ul class="key" aria-label="Leyenda de líneas">
+    <li><a href="#ingles" style="--c:var(--en)"><i aria-hidden="true"></i><span><b>Inglés</b><span>Conversaciones reales, a tu ritmo</span></span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
+    <li><a href="#espanol" style="--c:var(--es)"><i aria-hidden="true"></i><span><b>Español</b><span>A través del inglés</span></span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
+    <li><a href="#italiano" style="--c:var(--it)"><i aria-hidden="true"></i><span><b>Italiano</b><span>A través del inglés</span></span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
+    <li><a href="#polaco" style="--c:var(--pl)"><i aria-hidden="true"></i><span><b>Polaco</b><span>Segundo idioma · niños, adolescentes y adultos</span></span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
+    <li><a href="#indonesio" style="--c:var(--id)"><i aria-hidden="true"></i><span><b>Indonesio</b><span>A través del inglés</span></span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
+  </ul>
+</section>
+
+<nav class="picker" aria-label="Ir a una línea">
+  <div class="picker-in" id="picker">
+    <a href="#ingles" style="--c:var(--en)"><i aria-hidden="true"></i>Inglés</a>
+    <a href="#espanol" style="--c:var(--es)"><i aria-hidden="true"></i>Español</a>
+    <a href="#italiano" style="--c:var(--it)"><i aria-hidden="true"></i>Italiano</a>
+    <a href="#polaco" style="--c:var(--pl)"><i aria-hidden="true"></i>Polaco</a>
+    <a href="#indonesio" style="--c:var(--id)"><i aria-hidden="true"></i>Indonesio</a>
+  </div>
+</nav>
+
+<!-- ============ INGLÉS ============ -->
+<section class="lang-sec" id="ingles" style="--c:var(--en)" aria-labelledby="h-en">
+  <div class="lang-head">
+    <h2 id="h-en"><span class="rnd" aria-hidden="true"></span>Inglés</h2>
+    <p class="sub">Conversaciones reales, vida real, a tu propio ritmo.</p>
+    <p class="intro">No aprendes inglés “solo porque sí”. Quieres hablar libremente: en el trabajo, en el aeropuerto, en la tienda, con tu vecino en el extranjero. Para eso exactamente te preparamos: para la vida real, no para un examen.</p>
+    <div class="why"><p class="say">Sin notas, sin presión: solo progreso real que sentirás en la conversación.</p></div>
+  </div>
+  <div class="offer">
+    <h3 class="offer-t">¿Qué hay en nuestra oferta?</h3>
+    <ol class="route">
+      <li><h3>Lecciones 1:1</h3><p>Tu ritmo, tus objetivos, tu energía. Nos adaptamos a ti, no al revés.</p></li>
+      <li><h3>Sesiones grupales gratuitas</h3><p>Para todos los estudiantes individuales, sin cargos adicionales.</p></li>
+      <li><h3>Spill the Tea</h3><p>Hablamos de la vida, y el idioma viene naturalmente.</p></li>
+      <li><h3>Encuentros culturales</h3><p>Conversaciones reales con profesores de todo el mundo.</p></li>
+      <li><h3>Grupo privado con desafíos gratuitos</h3><p>Práctica lingüística diaria en un espacio seguro. <a class="more" style="margin-top:0" href="#formatos">Ver todos los formatos</a></p></li>
+      <li class="xc"><h3>¿Listo/a para empezar?</h3><p>Reserva una consulta gratuita. Hablaremos sobre tus objetivos y te emparejamos con el profesor y el camino de aprendizaje adecuados.</p><a class="go" href="https://wa.me/447578146264">Reserva una consulta gratuita</a></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============ ESPAÑOL ============ -->
+<section class="lang-sec" id="espanol" style="--c:var(--es)" aria-labelledby="h-es">
+  <div class="lang-head">
+    <h2 id="h-es"><span class="rnd" aria-hidden="true"></span>Español</h2>
+    <p class="sub">A través del inglés: dos idiomas, una experiencia.</p>
+    <p class="intro">Aquí no solo aprendes español. Aprendes a pensar en dos idiomas, y eso es algo que ninguna escuela tradicional puede ofrecer.</p>
+    <div class="why"><h3>¿Cómo funciona?</h3><p>Las clases las imparten hablantes nativos de español, pero en inglés, no en polaco. Así aprendes español y practicas tu inglés al mismo tiempo. Sin estrés, sin conferencias de gramática: solo práctica natural y real.</p></div>
+    <div class="why"><h3>Por qué funciona</h3><p>Porque tu cerebro empieza a pensar en varios idiomas. Porque dejas de traducir y empiezas a entender. Porque aprendes a través de la experiencia, no del análisis.</p></div>
+    <div class="why"><h3>Solo tú y tu profesor</h3><p>Las lecciones son exclusivamente individuales: espacio para ser tú mismo/a, preguntar, intentar y equivocarte en un ambiente seguro.</p></div>
+  </div>
+  <div class="offer">
+    <h3 class="offer-t">Lo que obtienes</h3>
+    <ol class="route">
+      <li><h3>Sesiones 1:1 con hablantes nativos</h3><p>Llenas de idioma y cultura auténticos.</p></li>
+      <li><h3>Nuestro método único</h3><p>Basado en relaciones, emociones y comunicación, no en tablas.</p></li>
+      <li><h3>Contacto diario por WhatsApp</h3><p>No solo “una lección por semana”, sino apoyo y orientación constantes.</p></li>
+      <li><h3>Materiales personalizados</h3><p>Juegos, ejercicios, podcasts, presentaciones y videos hechos por nosotros.</p></li>
+      <li><h3>100% práctica, cero polaco</h3><p>Aprendes como los niños: de manera natural, en acción.</p></li>
+      <li class="xc"><h3>¿Listo/a para comenzar con español?</h3><p>Cuéntanos qué te motiva y te emparejamos con el profesor y el ritmo de aprendizaje ideales.</p><a class="go" href="https://wa.me/447578146264">Reserva una consulta gratuita</a></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============ ITALIANO ============ -->
+<section class="lang-sec" id="italiano" style="--c:var(--it)" aria-labelledby="h-it">
+  <div class="lang-head">
+    <h2 id="h-it"><span class="rnd" aria-hidden="true"></span>Italiano</h2>
+    <p class="sub">A través del inglés: un idioma que sabe a vida.</p>
+    <p class="intro">El italiano no son solo palabras. Son gestos, emociones, el aroma del café y conversaciones que empiezan con “ciao” y duran horas. Y lo aprendes en inglés: fortaleces ambos idiomas a la vez, sin traducciones, sin caos.</p>
+    <div class="why"><h3>Por qué funciona</h3><p>Porque aprendes haciendo. Porque no traduces: piensas en italiano a través del inglés. Funciona incluso si alguna vez pensaste que “los idiomas no eran para ti”.</p></div>
+    <div class="why"><h3>Solo tú y tu profesor</h3><p>Lecciones exclusivamente individuales, a tu ritmo, sin comparaciones ni presión. Espacio para preguntas, errores, risas y progreso.</p></div>
+  </div>
+  <div class="offer">
+    <h3 class="offer-t">Lo que ofrecemos</h3>
+    <ol class="route">
+      <li><h3>Lecciones 1:1 con un hablante nativo</h3><p>Llenas de vida, pasión y sin estrés.</p></li>
+      <li><h3>Aprendizaje en inglés</h3><p>Fortalece ambos idiomas y piensa en multilingüe.</p></li>
+      <li><h3>Nuestro método único</h3><p>Basado en emociones, relaciones y comunicación auténtica.</p></li>
+      <li><h3>Contacto diario por WhatsApp</h3><p>No solo “una lección por semana”, sino apoyo constante.</p></li>
+      <li><h3>Materiales personalizados</h3><p>Podcasts, juegos, presentaciones, ejercicios y videos hechos por nosotros.</p></li>
+      <li><h3>Sin polaco, cero memorización</h3><p>100% práctica: aprendes como en la vida real, sin situaciones artificiales.</p></li>
+      <li class="xc"><h3>¿Listo/a para hablar italiano?</h3><p>Hablaremos sobre tus objetivos y tu motivación, y te emparejamos con el profesor y el plan adecuados. Y tu inglés también sube de nivel.</p><a class="go" href="https://wa.me/447578146264">Reserva una consulta gratuita</a></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============ POLACO ============ -->
+<section class="lang-sec" id="polaco" style="--c:var(--pl)" aria-labelledby="h-pl">
+  <div class="lang-head">
+    <h2 id="h-pl"><span class="rnd" aria-hidden="true"></span>Polaco</h2>
+    <p class="sub">Como segundo idioma: para niños, adolescentes y adultos.</p>
+    <p class="intro">Para quienes viven en Polonia o planean quedarse. Para niños criados en familias multilingües. Para adolescentes que se preparan para exámenes. Para adultos que simplemente quieren comunicarse y sentirse cómodos. Enseñamos con empatía: el polaco puede parecer difícil, pero al ritmo adecuado y con apoyo, todo es posible.</p>
+    <div class="why"><p class="say">No se trata de hablar perfectamente. Se trata de entender y ser entendido. En la tienda. En el trabajo. En casa. En la vida.</p></div>
+  </div>
+  <div class="offer">
+    <h3 class="offer-t">Lo que ofrecemos</h3>
+    <ol class="route">
+      <li><h3>Lecciones 1:1</h3><p>100% enfoque en el estudiante, su ritmo y sus necesidades.</p></li>
+      <li><h3>Polaco para niños</h3><p>A través del juego, las emociones y el movimiento. El habla crece junto con la confianza.</p></li>
+      <li><h3>Polaco para adolescentes</h3><p>Sin aburrimiento ni estrés con libros de texto. También preparamos exámenes, incluido GCSE Polish.</p></li>
+      <li><h3>Polaco para adultos</h3><p>Conversaciones de la vida real y apoyo para superar la barrera lingüística.</p></li>
+      <li><h3>Materiales personalizados</h3><p>Juegos, presentaciones y tareas que van más allá del papel.</p></li>
+      <li class="xc"><h3>¿Listo/a para empezar con el polaco?</h3><p>Te ayudamos a elegir la forma, el profesor y el plan correctos.</p><a class="go" href="https://wa.me/447578146264">Reserva una consulta gratuita</a></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============ INDONESIO ============ -->
+<section class="lang-sec" id="indonesio" style="--c:var(--id)" aria-labelledby="h-id">
+  <div class="lang-head">
+    <h2 id="h-id"><span class="rnd" aria-hidden="true"></span>Indonesio</h2>
+    <p class="sub">A través del inglés: un idioma exótico que puede volverse tu día a día.</p>
+    <p class="intro">Si buscas un idioma que suene a sol, a aventura y a una cultura distinta a todo lo que conoces, el indonesio es para ti. Lo aprendes a través del inglés, con un hablante nativo que vive el idioma cada día.</p>
+    <div class="why"><p class="say">El indonesio es fonéticamente simple, melódico y agradable de aprender. Sin estrés. Sin calificaciones.</p></div>
+  </div>
+  <div class="offer">
+    <h3 class="offer-t">Lo que encontrarás</h3>
+    <ol class="route">
+      <li><h3>Lecciones 1:1 con un hablante nativo</h3><p>Completamente individualizadas, con total inmersión lingüística.</p></li>
+      <li><h3>Aprendizaje a través del inglés</h3><p>Así también practicas tu inglés al mismo tiempo.</p></li>
+      <li><h3>Materiales personalizados</h3><p>Podcasts, juegos, ejercicios y diálogos creados por nosotros.</p></li>
+      <li><h3>Contacto fuera de las lecciones</h3><p>Haz preguntas, practica y mantente en el idioma todo el tiempo.</p></li>
+      <li class="xc"><h3>¿Listo/a para explorar el indonesio?</h3><p>Te ayudamos a comenzar este viaje. ¡Empecemos a hablar indonesio!</p><a class="go" href="https://wa.me/447578146264">Reserva una consulta gratuita</a></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============ FORMATOS ============ -->
+<section class="sec" id="formatos">
+  <div class="sec-head">
+    <h2><span class="rnd" aria-hidden="true"></span>Formatos.</h2>
+    <p>Cómo puedes viajar por tu línea. Las sesiones grupales y el grupo de desafíos no tienen coste adicional para los estudiantes individuales.</p>
+  </div>
+  <div class="formats">
+    <article class="fmt" style="--c:var(--en)">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="8" r="3"/><circle cx="16" cy="8" r="3"/><path d="M3 20c0-3 2.2-5 5-5s5 2 5 5M11 20c0-3 2.2-5 5-5s5 2 5 5"/></svg>
+      <h3>Lecciones 1:1</h3>
+      <p>Tu ritmo, tus objetivos, tu energía. Nos adaptamos a ti, no al revés. Sin notas, sin presión: solo progreso real que sentirás en la conversación.</p>
+    </article>
+    <article class="fmt" style="--c:var(--it)">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="7" r="3"/><circle cx="5" cy="10" r="2.2"/><circle cx="19" cy="10" r="2.2"/><path d="M7 20c0-3 2.2-5 5-5s5 2 5 5M1.5 19c0-2.2 1.5-3.8 3.5-3.8M22.5 19c0-2.2-1.5-3.8-3.5-3.8"/></svg>
+      <h3>Sesiones grupales gratuitas</h3>
+      <p>Disponibles para todos los estudiantes individuales, sin cargos adicionales. Una forma relajada y social de aprender con otros en el mismo viaje. Más risas que nervios, más conexión que corrección.</p>
+    </article>
+    <article class="fmt" style="--c:var(--es)">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9h13v5a6 6 0 0 1-6 6h-1a6 6 0 0 1-6-6V9z"/><path d="M17 11h1.5a2.5 2.5 0 0 1 0 5H16.5"/><path d="M8 3v3M12 3v3"/></svg>
+      <h3>Spill the Tea</h3>
+      <p>Conversaciones con un profesor bilingüe que puede explicarte algo en español cuando lo necesitas. Hablamos de la vida y el idioma viene solo: sin juicios, buena conversación con aprendizaje real por debajo.</p>
+    </article>
+    <article class="fmt" style="--c:var(--id)">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></svg>
+      <h3>Encuentros culturales</h3>
+      <p>Práctica auténtica de inglés: conversaciones reales con profesores de todo el mundo que han recorrido tu camino y ahora hablan con fluidez. Una forma asequible de ganar confianza y disfrutar del intercambio cultural.</p>
+    </article>
+    <article class="fmt" style="--c:var(--pl)">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1.1-4.6A8 8 0 1 1 21 12z"/><path d="M9 12l2 2 4-4"/></svg>
+      <h3>Grupo privado con desafíos gratuitos</h3>
+      <p>Práctica lingüística diaria en un espacio seguro. A veces divertido, a veces profundo, siempre efectivo.</p>
+    </article>
+  </div>
+</section>
+
+<!-- ============ TALLERES ============ -->
+<section class="status" id="talleres" aria-labelledby="h-wsh">
+  <div class="wrap">
+    <div class="status-head">
+      <h2 id="h-wsh">Talleres de desarrollo personal.</h2>
+      <p>Talleres mensuales donde no solo aprendes cómo hablar, sino también cómo ser tú mismo/a en la vida cotidiana. Crece con tu idioma.</p>
+    </div>
+    <div class="facts">
+      <div class="fact">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><path d="M16 4.5a3.2 3.2 0 0 1 0 6.3M18 14.3c1.8.8 3 2.7 3 5.7"/></svg>
+        <h3>Grupos de hasta 10 personas</h3>
+        <p>Grupos pequeños e íntimos, con pleno espacio para hablar, compartir y crecer.</p>
+      </div>
+      <div class="fact">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>
+        <h3>Un tema nuevo cada mes</h3>
+        <p>Confianza, trabajo con el cuerpo, gestión del estrés o técnicas para aprender idiomas más rápido.</p>
+      </div>
+      <div class="fact">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3C7 3 3 6.7 3 11.3c0 2.6 1.3 4.9 3.3 6.4V21l3.1-1.7c.8.2 1.7.3 2.6.3 5 0 9-3.7 9-8.3S17 3 12 3z"/><path d="M7.5 13l3-3 2.5 2.2L16.5 9"/></svg>
+        <h3>Inscripción por Messenger</h3>
+        <p>Escríbenos y tendremos una breve consulta para adaptar el taller a tus necesidades.</p>
+      </div>
+      <div class="fact">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17 7h.01"/></svg>
+        <h3>Avisos en Instagram</h3>
+        <p>Anunciamos cada nuevo taller en @lingolandias, para que nunca te pierdas el siguiente.</p>
+      </div>
+    </div>
+    <div class="band-why">
+      <h3>¿Por qué vale la pena?</h3>
+      <p>Nuestros talleres combinan el aprendizaje de idiomas con el desarrollo personal. Aprenderás a gestionar emociones, a usar técnicas que aceleran el aprendizaje y a mejorar tus habilidades comunicativas en todas las áreas de la vida.</p>
+      <p>Con nosotros no solo aprendes un idioma: aprendes a vivir más plenamente. Únete a nuestra comunidad y encuentra equilibrio y confianza en cada etapa de tu viaje.</p>
+    </div>
+    <div class="ctas">
+      <a class="btn btn-light" href="https://wa.me/447578146264">Pregunta por el próximo taller</a>
+      <a class="btn btn-ghost-l" href="https://www.instagram.com/lingolandias/">Ver avisos en Instagram</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA FINAL ============ -->
+<section class="final">
+  <div class="wrap">
+    <div class="next">
+      <h2>Reserva una consulta gratuita.</h2>
+      <p>Hablaremos sobre tus objetivos y te emparejamos con el profesor y el camino de aprendizaje adecuados. Encontremos tu voz: a tu manera, en tus términos.</p>
+      <div class="ctas">
+        <a class="btn btn-light" href="https://wa.me/447578146264">Reserva una consulta gratuita</a>
+        <a class="btn btn-ghost-l" href="f-examen.html">Haz el examen de nivel</a>
+      </div>
+    </div>
+    <svg class="final-map" viewBox="0 0 400 260" aria-hidden="true">
+      <path d="M20 130H380" stroke="var(--en)" stroke-width="10" stroke-linecap="round"/>
+      <path d="M20 130H100L160 70H380" stroke="var(--es)" stroke-width="10" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M20 130H100L160 190H380" stroke="var(--pl)" stroke-width="10" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="300" cy="130" r="22" fill="#fff" stroke="#fff" stroke-width="2"/>
+      <circle cx="300" cy="130" r="16" fill="none" stroke="var(--ink)" stroke-width="7"/>
+      <text x="300" y="176" text-anchor="middle" fill="#fff" font-family="Red Hat Display" font-weight="900" font-size="15">Tú, hablando</text>
+    </svg>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="fb"><a class="brand" href="f-metro.html"><img src="seal.png" alt="">Lingolandias</a><p>Online language school. Clases en vivo, 100% online.</p></div>
+    <div><h3>Líneas</h3><a href="f-clases.html#ingles">Inglés</a><a href="f-clases.html#espanol">Español</a><a href="f-clases.html#italiano">Italiano</a><a href="f-clases.html#polaco">Polaco</a><a href="f-clases.html#indonesio">Indonesio</a></div>
+    <div><h3>Escuela</h3><a href="f-clases.html#formatos">Formatos</a><a href="f-clases.html#talleres">Talleres</a><a href="f-nosotros.html">Nosotros</a><a href="f-examen.html">Examen de nivel</a></div>
+    <div><h3>Contacto</h3><a href="https://wa.me/447578146264">WhatsApp +44 7578 146264</a><a href="https://www.instagram.com/lingolandias/">Instagram @lingolandias</a><a href="#">Facebook</a></div>
+  </div>
+  <div class="legal"><span>© 2026 Lingolandias</span><span>ES · EN · PL</span></div>
+</footer>
+
+
+<nav class="switcher" aria-label="Opciones de diseño">
+  <a class="on" href="f-metro.html">F · Metro</a><a href="g-nevera.html">G · Nevera</a>
+</nav>
+<script>
+(()=>{const b=document.querySelector('.menu-btn'),p=document.getElementById('mnav');
+const set=o=>{b.setAttribute('aria-expanded',o);b.setAttribute('aria-label',o?'Cerrar menú':'Abrir menú');p.hidden=!o};
+b.addEventListener('click',()=>set(b.getAttribute('aria-expanded')!=='true'));
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!p.hidden){set(false);b.focus()}});})();
+</script>
+<script>
+// line selector: highlight the line currently in view
+(()=>{const links=[...document.querySelectorAll('#picker a')];
+const secs=links.map(a=>document.querySelector(a.getAttribute('href')));
+const set=id=>links.forEach(a=>a.setAttribute('aria-current',a.getAttribute('href')==='#'+id?'true':'false'));
+const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)set(e.target.id)})},{rootMargin:'-30% 0px -60% 0px'});
+secs.forEach(s=>io.observe(s));
+const out=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)set('')})},{rootMargin:'-30% 0px -60% 0px'});
+['formatos','talleres'].forEach(id=>out.observe(document.getElementById(id)));
+const h=document.querySelector('.hero');new IntersectionObserver(es=>{if(es[0].isIntersecting)set('')}).observe(h);
+})();
+</script>
+</body>
+</html>

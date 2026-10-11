@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Lingolandias — D · Amanecer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@400;500;600;700&family=Martian+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --night:#07060d; --cobalt:#2b3fd1; --violet:#6b1fa6; --rose:#f06a8c; --amber:#f2a531; --day:#fff8f1; --ink:#14101f;
+  --f:"Familjen Grotesk",system-ui,sans-serif; --m:"Martian Mono",ui-monospace,monospace;
+  --p:0; /* 0 = night, 1 = day; driven by scroll */
+}
+*{box-sizing:border-box;margin:0}
+body{font-family:var(--f);background:var(--night);color:#fff;-webkit-font-smoothing:antialiased}
+::selection{background:var(--rose);color:#fff}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid var(--amber);outline-offset:3px;border-radius:4px}
+
+nav:not(.switcher){position:fixed;inset:0 0 auto;z-index:20;display:flex;justify-content:space-between;align-items:center;padding:18px clamp(16px,4vw,48px)}
+.brand{display:flex;gap:10px;align-items:center;font-weight:700;font-size:19px}
+.brand img{width:36px;height:36px;border-radius:50%}
+.links{display:flex;gap:26px;font-size:15px;font-weight:500;opacity:.9}
+.links a:hover{text-decoration:underline;text-underline-offset:6px}
+.btn{display:inline-flex;align-items:center;gap:10px;border-radius:999px;font-weight:600;transition:transform .25s cubic-bezier(.2,.8,.2,1),background .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn-day{background:#fff;color:var(--ink);padding:16px 26px;font-size:16px}
+.btn-line{border:1px solid rgba(255,255,255,.5);padding:15px 24px;font-size:16px}
+.btn-line:hover{background:rgba(255,255,255,.1)}
+.btn-sm{padding:10px 18px;font-size:14px}
+
+/* cyclorama */
+.cyc{position:relative;height:220vh}
+.sticky{position:sticky;top:0;height:100svh;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end}
+.sky{position:absolute;inset:0;z-index:-1;
+  background:
+    linear-gradient(to top,
+      color-mix(in oklab, var(--cobalt) calc(30% + var(--p)*40%), var(--night)) 0%,
+      color-mix(in oklab, var(--rose) calc(var(--p)*85%), var(--night)) calc(28% + var(--p)*14%),
+      color-mix(in oklab, var(--amber) calc(var(--p)*55%), var(--night)) calc(55% + var(--p)*20%),
+      color-mix(in oklab, #ffd9b8 calc(var(--p)*70%), var(--night)) 100%)}
+.horizon{position:absolute;left:0;right:0;bottom:0;height:calc(18% + var(--p)*10%);z-index:-1;
+  background:linear-gradient(to top, color-mix(in oklab,var(--cobalt) 90%, #000), transparent)}
+.content{padding:0 clamp(16px,4vw,48px) clamp(28px,6vh,64px);max-width:1440px;width:100%;margin:0 auto}
+.cues{display:grid;gap:clamp(6px,1.4vh,14px)}
+.cue{display:grid;grid-template-columns:clamp(110px,14vw,190px) 1fr;align-items:baseline;gap:16px;transition:opacity .6s,color .6s}
+.cue small{font-family:var(--m);font-size:12px;letter-spacing:.04em;opacity:.8;font-variant-numeric:tabular-nums}
+.cue h1,.cue p.l{font-weight:700;font-size:clamp(2.4rem,6.6vw,6rem);line-height:.95;letter-spacing:-.035em}
+.cue.dim{opacity:.32}
+.bottom{margin-top:clamp(24px,5vh,48px);display:grid;grid-template-columns:1fr auto;gap:24px;align-items:end;border-top:1px solid rgba(255,255,255,.3);padding-top:22px}
+.bottom p{max-width:56ch;font-size:clamp(1rem,1.3vw,1.15rem);line-height:1.55}
+.ctas{display:flex;gap:12px;flex-wrap:wrap;justify-content:flex-end}
+
+.day{background:var(--day);color:var(--ink);padding:clamp(56px,9vw,120px) clamp(16px,4vw,48px)}
+.day .wrap{max-width:1200px;margin:0 auto}
+.day h2{font-size:clamp(2rem,4vw,3.4rem);font-weight:700;letter-spacing:-.03em;line-height:1;max-width:18ch}
+.grid{margin-top:56px;display:grid;grid-template-columns:repeat(5,1fr);border-top:2px solid var(--ink)}
+.grid div{padding:20px 18px 8px 0}
+.grid small{font-family:var(--m);font-size:12px;color:#6a5a7a}
+.grid h3{font-size:1.5rem;font-weight:700;letter-spacing:-.02em;margin:8px 0 6px}
+.grid p{color:#4b3f59;line-height:1.5;font-size:15px}
+.facts{margin-top:56px;display:flex;flex-wrap:wrap;gap:12px 40px;font-size:17px}
+.facts b{font-weight:700}
+
+.switcher{position:fixed;bottom:14px;left:50%;transform:translateX(-50%);z-index:50;display:flex;gap:4px;background:rgba(15,10,20,.86);backdrop-filter:blur(8px);padding:5px;border-radius:999px;font:600 12px/1 system-ui;box-shadow:0 8px 24px rgba(0,0,0,.35)}
+.switcher a{color:#cfc6d8;padding:8px 12px;border-radius:999px}
+.switcher a.on{background:#fff;color:#111}
+
+@media (max-width:960px){.links{display:none}.bottom{grid-template-columns:1fr}.ctas{justify-content:flex-start}.grid{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.cue{grid-template-columns:1fr;gap:2px}nav .btn{display:none}.ctas .btn{width:100%;justify-content:center}.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<nav>
+  <a class="brand" href="#"><img src="seal.png" alt="">Lingolandias</a>
+  <div class="links"><a href="#">Idiomas</a><a href="#">Cómo enseñamos</a><a href="#">Talleres</a><a href="#">Profesores</a><a href="#">Comunidad</a></div>
+  <a class="btn btn-day btn-sm" href="#">Test de nivel</a>
+</nav>
+
+<section class="cyc" id="cyc">
+  <div class="sticky">
+    <div class="sky" aria-hidden="true"></div>
+    <div class="horizon" aria-hidden="true"></div>
+    <div class="content">
+      <div class="cues" role="heading" aria-level="1">
+        <div class="cue" data-at="0"><small>01 · Silencio</small><p class="l">Habla desde el corazón.</p></div>
+        <div class="cue dim" data-at=".35"><small>02 · Primera palabra</small><p class="l">Vive con autenticidad.</p></div>
+        <div class="cue dim" data-at=".7"><small>03 · Conversación</small><p class="l">Crea tu realidad.</p></div>
+      </div>
+      <div class="bottom">
+        <p>Escuela de idiomas online, con clases en vivo. Te acompañamos desde el miedo a abrir la boca hasta la conversación real: con atención a tus emociones, cuerpo y mente.</p>
+        <div class="ctas">
+          <a class="btn btn-day" href="#">Descubre tu nivel gratis</a>
+          <a class="btn btn-line" href="#">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="day">
+  <div class="wrap">
+    <h2>Cinco idiomas. Un lugar donde equivocarte está bien.</h2>
+    <div class="grid">
+      <div><small>EN</small><h3>Inglés</h3><p>Todos los niveles. No necesitas ser avanzado para empezar.</p></div>
+      <div><small>ES</small><h3>Español</h3><p>A través del inglés: practicas dos idiomas a la vez.</p></div>
+      <div><small>IT</small><h3>Italiano</h3><p>También a través del inglés.</p></div>
+      <div><small>PL</small><h3>Polaco</h3><p>Segundo idioma para niños, teens y adultos. GCSE Polish.</p></div>
+      <div><small>ID</small><h3>Indonesio</h3><p>¿Por qué no? Algo distinto que se vuelve parte de tu vida.</p></div>
+    </div>
+    <p class="facts"><span><b>300+</b> estudiantes</span><span><b>5+</b> años</span><span>Profesores nativos y no nativos</span><span>Grupos y retos gratuitos</span></p>
+  </div>
+</section>
+
+<nav class="switcher" aria-label="Opciones de diseño">
+  <a href="a-sello-pintado.html">A · Sello pintado</a><a href="b-conversacion.html">B · Conversación</a><a href="c-linear.html">C · Linear</a><a class="on" href="d-amanecer.html">D · Amanecer</a>
+</nav>
+<script>
+const cyc=document.getElementById('cyc'),cues=[...document.querySelectorAll('.cue')];
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+function tick(){
+  const r=cyc.getBoundingClientRect(),span=r.height-innerHeight;
+  const p=reduce?1:Math.min(1,Math.max(0,-r.top/span));
+  document.documentElement.style.setProperty('--p',p.toFixed(3));
+  cues.forEach(c=>c.classList.toggle('dim',p<+c.dataset.at));
+}
+addEventListener('scroll',tick,{passive:true});tick();
+</script>
+</body>
+</html>
