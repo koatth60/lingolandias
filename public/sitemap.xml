@@ -8,7 +8,7 @@
     <priority>1.0</priority>
   </url>
 
-  <!-- Courses page -->
+  <!-- Classes: English, Spanish, Italian, Polish, Indonesian -->
   <url>
     <loc>https://lingolandias.net/courses</loc>
     <changefreq>weekly</changefreq>
@@ -20,6 +20,13 @@
     <loc>https://lingolandias.net/test</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+  </url>
+
+  <!-- About the school and its founder -->
+  <url>
+    <loc>https://lingolandias.net/about</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
 
   <!-- English quiz / level test -->
@@ -34,27 +41,6 @@
     <loc>https://lingolandias.net/spanish-quiz</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-  </url>
-
-  <!-- Meet the teachers -->
-  <url>
-    <loc>https://lingolandias.net/team</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <!-- English teachers -->
-  <url>
-    <loc>https://lingolandias.net/enteachers</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <!-- Spanish teachers -->
-  <url>
-    <loc>https://lingolandias.net/esteachers</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
   </url>
 
   <!-- Contact page -->

@@ -1,5 +1,5 @@
 import React, { Suspense, lazy, useEffect } from "react";
-import { createBrowserRouter, RouterProvider, Outlet, useLocation } from "react-router-dom";
+import { createBrowserRouter, RouterProvider, Outlet, useLocation, Navigate } from "react-router-dom";
 import { createRoot } from "react-dom/client";
 
 import "./index.css";
@@ -16,20 +16,14 @@ const LevelTest = lazy(() => import("./nevera/pages/LevelTest.jsx"));
 const NEVERA_PATHS = ["/", "/courses", "/about", "/test", "/english-quiz", "/spanish-quiz", "/contact"];
 
 // All other pages load only when the user navigates to them
-const Team         = lazy(() => import("./pages/Team.jsx"));
 const Contact      = lazy(() => import("./pages/Contact.jsx"));
 const Collaboration = lazy(() => import("./pages/Collaboration.jsx"));
-const Workshops     = lazy(() => import("./pages/Workshops.jsx"));
-const EnglishTeachers = lazy(() => import("./nested-routes/EnglishTeachers.jsx"));
-const CarouselCustomArrows = lazy(() =>
-  import("./nested-routes/SpanishTeachers.jsx").then(m => ({ default: m.CarouselCustomArrows }))
-);
 const SpanishQuiz  = lazy(() => import("./nested-routes/SpanishQuiz.jsx"));
 const EnglishQuiz  = lazy(() => import("./nested-routes/EnglishQuiz.jsx"));
 
 const PageLoader = () => (
-  <div className="min-h-screen flex items-center justify-center" style={{ background: "radial-gradient(circle at 30% 40%, #0B1E33, #1A2F4F, #2C3E6E)" }}>
-    <div className="w-12 h-12 border-4 border-orange-500 border-t-transparent rounded-full animate-spin"></div>
+  <div className="min-h-screen flex items-center justify-center" style={{ background: "#2e0d4f" }}>
+    <div className="w-12 h-12 border-4 border-t-transparent rounded-full animate-spin" style={{ borderColor: "#ffc14d", borderTopColor: "transparent" }}></div>
   </div>
 );
 
@@ -111,15 +105,17 @@ const router = createBrowserRouter([
       { path: "/",             element: <Home /> },
       { path: "/courses",      element: <Classes /> },
       { path: "/about",        element: <About /> },
-      { path: "/team",         element: <Team /> },
       { path: "/contact",      element: <Contact /> },
-      { path: "/enteachers",   element: <EnglishTeachers /> },
-      { path: "/esteachers",   element: <CarouselCustomArrows /> },
       { path: "/test",         element: <LevelTest /> },
       { path: "/spanish-quiz", element: <SpanishQuiz /> },
       { path: "/english-quiz", element: <EnglishQuiz /> },
       { path: "/collaboration", element: <Collaboration /> },
-      { path: "/workshops",    element: <Workshops /> },
+      // Old URLs: the redesign has no teachers section and workshops live on /courses
+      { path: "/team",         element: <Navigate to="/about" replace /> },
+      { path: "/enteachers",   element: <Navigate to="/about" replace /> },
+      { path: "/esteachers",   element: <Navigate to="/about" replace /> },
+      { path: "/workshops",    element: <Navigate to="/courses#workshops" replace /> },
+      { path: "*",             element: <Navigate to="/" replace /> },
     ]
   }
 ]);
