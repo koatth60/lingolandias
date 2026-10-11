@@ -1,0 +1,57 @@
+/* Classes page (/courses): extras on top of nevera.css */
+.nv .cls-eyebrow,.nv .tx p.cls-eyebrow{font-family:var(--h);font-size:clamp(1.4rem,2vw,1.8rem);line-height:1.1;color:var(--amber);margin-bottom:14px}
+.nv .enamel .cls-eyebrow,.nv .enamel .tx p.cls-eyebrow{color:var(--wall2)}
+.nv .cls-pills{display:flex;flex-wrap:wrap;gap:10px}
+.nv .cls-pills span{border:1.5px solid rgba(255,255,255,.4);border-radius:999px;padding:8px 14px;font-weight:700;font-size:14px;line-height:1.1;color:#efe7fa}
+
+/* six tabs: five languages + workshops */
+.nv .cls-tabs{grid-template-columns:repeat(6,minmax(0,1fr))}
+.nv .tab .tab-ico{display:block;height:1.7rem;color:var(--wall2)}
+.nv .tab .tab-ico .ico{width:28px;height:28px}
+
+.nv .tx .cls-h3{margin-top:30px;font-weight:800;font-size:1.3rem;line-height:1.25}
+.nv .cls-cta{margin-top:34px;padding:24px 24px 26px;border-radius:14px;max-width:58ch}
+.nv .enamel .cls-cta{background:#fff;box-shadow:0 18px 30px -20px rgba(46,13,79,.45)}
+.nv .wall .cls-cta{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16)}
+.nv .cls-cta p{font-size:1.05rem;line-height:1.6}
+.nv .enamel .cls-cta p{color:#4a3c5e}
+.nv .wall .cls-cta p{color:#e0d3f2}
+.nv .cls-cta p + p{margin-top:8px}
+.nv .cls-cta .q{font-weight:800;font-size:1.25rem;line-height:1.3}
+.nv .enamel .cls-cta .q{color:var(--ink)}
+.nv .wall .cls-cta .q{color:#fff}
+.nv .cls-cta .btn{margin-top:20px;max-width:100%;white-space:normal;text-align:center;line-height:1.25}
+
+/* long-text notes: keep them nearly straight */
+.nv .cls-note.say p{margin-top:0;font-weight:700;font-size:1.08rem;line-height:1.5;color:var(--ink)}
+
+/* workshops */
+.nv .cls-wh2 span{display:block}
+.nv .cls-wh2 span + span{color:var(--wall2)}
+.nv .cls-quote{margin-top:30px}
+.nv .tx .cls-quote p{margin-top:8px}
+.nv .tx .cls-quote .big{margin-top:0;font-weight:700;font-size:1.3rem;line-height:1.4;color:var(--ink)}
+.nv .cls-wside{display:grid;gap:clamp(24px,3vw,36px)}
+.nv .cls-link{font-weight:700;text-decoration:underline;text-underline-offset:4px}
+.nv .cls-penney{transform:rotate(-.6deg);padding-top:30px}
+.nv .cls-penney blockquote p{font-size:clamp(1.15rem,1.6vw,1.4rem)}
+.nv .cls-penney figcaption{margin-top:14px;font-family:var(--h);font-size:1.4rem;color:#5b1a96}
+
+.nv .motto blockquote{display:grid;justify-items:center}
+
+@media (max-width:1100px){.nv .cls-tabs{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:640px){
+  .nv .cls-tabs{grid-template-columns:1fr 1fr}
+  .nv .cls-cta{padding:20px 18px 22px}
+  .nv .cls-cta .btn{width:100%;justify-content:center}
+}
+.nv .tx p.cls-eyebrow{margin-top:0;max-width:none}
+.nv .lsec .sub::first-letter{text-transform:uppercase}
+
+/* CTA box sits under the text on desktop, after the offer card on mobile */
+.nv .gsec .wrap.cls-grid{grid-template-areas:"tx side" "cta side";grid-template-rows:auto 1fr;row-gap:0}
+.nv .cls-grid > .tx{grid-area:tx}
+.nv .cls-grid > .side{grid-area:side}
+.nv .cls-grid > .cls-cta{grid-area:cta;align-self:start}
+@media (max-width:1000px){.nv .gsec .wrap.cls-grid{grid-template-areas:"tx" "side" "cta";grid-template-rows:none;row-gap:clamp(36px,5vw,56px)}
+  .nv .cls-grid > .cls-cta{margin-top:0}}
