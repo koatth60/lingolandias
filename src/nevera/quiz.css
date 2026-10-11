@@ -11,7 +11,7 @@
 .nv .qprogress{display:flex;align-items:center;gap:16px;margin-bottom:28px}
 .nv .qprogress .count{font-family:var(--h);font-size:1.5rem;white-space:nowrap;color:var(--wall2)}
 .nv .qprogress .bar{flex:1;height:14px;border-radius:4px;background:repeating-linear-gradient(90deg,transparent 0 9px,rgba(31,15,51,.18) 9px 10px),#e4ddee;overflow:hidden}
-.nv .qprogress .bar span{display:block;height:100%;background:repeating-linear-gradient(90deg,transparent 0 9px,rgba(31,15,51,.22) 9px 10px),var(--amber);transition:width .5s cubic-bezier(.2,.8,.2,1)}
+.nv .qprogress .bar span{display:block;height:100%;background:repeating-linear-gradient(90deg,transparent 0 9px,rgba(31,15,51,.22) 9px 10px),var(--amber);width:100%;transform-origin:left;transition:transform .5s cubic-bezier(.2,.8,.2,1)}
 
 /* the question card: white note with a magnet */
 .nv .qcard{position:relative;background:#fff;color:var(--ink);padding:clamp(30px,4vw,44px) clamp(20px,4vw,40px) clamp(24px,3vw,32px);box-shadow:0 22px 36px -20px rgba(46,13,79,.45)}

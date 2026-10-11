@@ -25,7 +25,7 @@ export function QuizProgress({ current, total, label }) {
     <div className="qprogress">
       <span className="count">{label} {Math.min(current, total)}/{total}</span>
       <div className="bar" role="progressbar" aria-valuemin={0} aria-valuemax={total} aria-valuenow={current - 1} aria-label={`${label} ${current}/${total}`}>
-        <span style={{ width: `${pct}%` }} />
+        <span style={{ transform: `scaleX(${pct / 100})` }} />
       </div>
     </div>
   );
