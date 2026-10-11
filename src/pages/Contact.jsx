@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import Layout from '../nevera/Layout.jsx';
-import { Arrow, ICON, INSTAGRAM, Sticky, WA } from '../nevera/ui.jsx';
+import { Arrow, ICON, INSTAGRAM, MESSENGER, SectionHead, Sticky, WA } from '../nevera/ui.jsx';
 import '../nevera/quiz.css';
 import '../nevera/contact.css';
 
@@ -63,6 +63,21 @@ const Contact = () => {
         </div>
       </section>
 
+      <section className="gsec enamel" id="ways">
+        <div className="wrap">
+          <SectionHead title={t('contactWhatFind')} text={t('contactAvailable')} />
+          <div className="whys">
+            <Sticky c="var(--teal)" m="#6b1fa6" r={-1.5}>{ICON.chat}<h3>{t('contactCard1Title')}</h3><p>{t('contactCard1P')}</p>
+              <a href={MESSENGER} target="_blank" rel="noopener noreferrer">{t('contactMessenger')} <Arrow /></a></Sticky>
+            <Sticky c="var(--amber)" m="#d0343f" r={1}>{ICON.calendar}<h3>{t('contactCard2Title')}</h3><p>{t('contactCard2P')}</p>
+              <a href={WA} target="_blank" rel="noopener noreferrer">WhatsApp <Arrow /></a></Sticky>
+            <Sticky c="var(--pink)" m="#2c6fd1" r={-1}>{ICON.person}<h3>{t('contactCard3Title')}</h3><p>{t('contactCard3P')}</p>
+              <a href="tel:+447578146264">+44 7578 146264 <Arrow /></a></Sticky>
+            <Sticky c="var(--lilac)" m="#e8792a" r={1.5}>{ICON.clock}<h3>{t('contactAvailShort')}</h3><p>{t('contactAvailP')}</p></Sticky>
+          </div>
+        </div>
+      </section>
+
       <section className="gsec enamel">
         <div className="wrap contact-grid">
           <div className="qcard contact-card">
@@ -78,7 +93,7 @@ const Contact = () => {
               <label>
                 <span>{t('phoneLabel')} <span className="opt">{t('optional')}</span></span>
                 <input className="qinput" type="tel" name="phone" autoComplete="tel" value={formData.phone} onChange={handleChange}
-                  placeholder="+44 7578 146264" />
+                  placeholder="+44 7700 900123" />
               </label>
 
               <label>
@@ -133,11 +148,30 @@ const Contact = () => {
               <p>{nv('footer.tagline')}</p>
             </Sticky>
             <Sticky c="var(--lilac)" m="#e8792a" r={1.5}>
-              {ICON.clock}
-              <h3>{t('contactAvailShort')}</h3>
-              <p>{t('contactAvailP')}</p>
+              {ICON.chat}
+              <h3>Messenger</h3>
+              <p>{t('contactMessengerSub')}</p>
+              <a href={MESSENGER} target="_blank" rel="noopener noreferrer">{t('contactMessenger')} <Arrow /></a>
+            </Sticky>
+            <Sticky c="var(--orange)" m="#127a6e" r={-1}>
+              {ICON.person}
+              <h3>{t('contactCard3Title')}</h3>
+              <p>{t('contactPhone')}</p>
+              <a href="tel:+447578146264">+44 7578 146264 <Arrow /></a>
             </Sticky>
           </aside>
+        </div>
+      </section>
+
+      <section className="gsec wall" id="steps">
+        <div className="wrap">
+          <SectionHead title={t('contactHowHelp')} />
+          <ol className="steps">
+            {[1, 2, 3].map((n) => (
+              <li key={n}><span className="no" aria-hidden="true">{n}</span><h3>{t(`contactStep${n}Title`)}</h3><p>{t(`contactStep${n}P`)}</p></li>
+            ))}
+          </ol>
+          <p className="closing hand">{t('contactClosing')}</p>
         </div>
       </section>
     </Layout>

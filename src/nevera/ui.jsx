@@ -2,8 +2,11 @@ import { useTranslation } from "react-i18next";
 
 export const WA = "https://wa.me/447578146264";
 export const INSTAGRAM = "https://www.instagram.com/lingolandias";
-// PENDIENTE: URL real de Facebook (reseñas y pie de página)
-export const FACEBOOK = "#";
+export const FACEBOOK = "https://www.facebook.com/lingolandias";
+export const TWITTER = "https://twitter.com/lingolandias";
+export const LINKEDIN = "https://linkedin.com/company/lingolandias";
+export const MESSENGER = "https://m.me/lingolandias";
+export const PLATFORM = "https://lingolandias.com";
 export const VIDEO_BASE = "https://lingolandias-academy.s3.eu-north-1.amazonaws.com/general-videos/";
 
 // Five languages in a fixed order; colour = note, m = magnet, id = anchor on /courses
@@ -59,3 +62,6 @@ export const SectionHead = ({ title, text, single }) => (
     {text && <Html as="p" html={text} />}
   </div>
 );
+
+// Legacy production strings carry emoji and ✦ ornaments; the Nevera design shows the words only
+export const plain = (s) => String(s ?? "").replace(/[\u{1F000}-\u{1FAFF}\u{2600}-\u{27BF}\u{2B00}-\u{2BFF}\u{FE0F}\u{2726}]/gu, "").replace(/\s{2,}/g, " ").trim();

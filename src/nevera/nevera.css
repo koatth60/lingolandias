@@ -382,3 +382,35 @@ body.nv-body::before,body.nv-body::after{display:none}
 .nv{position:relative;z-index:3;isolation:isolate}
 .nv .lcard h3{hyphens:auto;overflow-wrap:break-word}
 @media (max-width:640px){.nv .lvls li{padding-top:0}}
+/* footer: production description, newsletter, wider legal line */
+.nv .gfoot .fb p+p{margin-top:10px}
+.nv .gfoot .fb-meta{font-size:14px;color:#bfaedb}
+.nv .nl-wrap{padding-top:0;padding-bottom:32px;display:block}
+.nv .nl{display:grid;gap:10px;max-width:520px}
+.nv .nl label{font-weight:800;font-size:15px;color:#fff}
+.nv .nl-row{display:flex;gap:10px;flex-wrap:wrap}
+.nv .nl-row input{flex:1 1 220px;min-height:46px;padding:10px 14px;border-radius:999px;border:1.5px solid rgba(255,255,255,.45);background:rgba(255,255,255,.08);color:#fff;font:inherit}
+.nv .nl-row input::placeholder{color:#cdbfe3}
+.nv .nl-row input:focus{outline:none;border-color:var(--amber)}
+.nv .nl-row .btn{min-height:46px}
+.nv .nl-status{min-height:1.4em;font-size:14px;color:var(--amber)}
+.nv .gfoot .legal{flex-wrap:wrap;gap:8px 20px}
+/* production content blocks on home */
+.nv .hand-line{margin-top:10px;font-family:var(--h);font-size:clamp(1.3rem,1.8vw,1.6rem);color:var(--amber)}
+.nv .eyebrow{font-family:var(--h);font-size:1.4rem;color:#6b1fa6;margin-bottom:6px}
+.nv .wall .eyebrow{color:var(--amber)}
+.nv .after-row{margin-top:clamp(28px,4vw,44px);display:flex;flex-wrap:wrap;align-items:center;gap:14px 24px}
+.nv .after-row p{font-size:1.1rem;line-height:1.5;color:#3a2a52;max-width:52ch}
+.nv .after-row.on-wall p{color:#e0d3f2}
+.nv .after-row.on-wall b{color:#fff}
+.nv .findlist{list-style:none;padding:clamp(22px,3vw,34px);margin:0 0 clamp(28px,4vw,44px);background:#fff;box-shadow:0 20px 40px -24px rgba(46,13,79,.4);display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 36px}
+.nv .findlist li{position:relative;padding-left:26px;font-size:15.5px;line-height:1.5;color:#3a2a52}
+.nv .findlist li::before{content:"";position:absolute;left:0;top:.45em;width:12px;height:12px;border-radius:3px;background:var(--amber);transform:rotate(-8deg)}
+.nv .findlist li:nth-child(5n+2)::before{background:var(--teal)}
+.nv .findlist li:nth-child(5n+3)::before{background:var(--pink)}
+.nv .findlist li:nth-child(5n+4)::before{background:var(--lilac)}
+.nv .findlist li:nth-child(5n+5)::before{background:var(--orange)}
+.nv .findlist b{color:var(--ink)}
+@media (max-width:760px){.nv .findlist{grid-template-columns:minmax(0,1fr)}}
+@media (min-width:1001px){.nv #reviews .letters{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.nv .exam .evaluated{margin:-8px 0 22px;font-size:15px;color:#2e1f45}

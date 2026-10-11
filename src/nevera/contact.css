@@ -35,3 +35,11 @@
   .nv .contact-notes{grid-template-columns:minmax(0,1fr)}
   .nv .contact-card .qactions .btn{width:100%;justify-content:center}
 }
+.nv #ways .sticky a{display:inline-flex;align-items:center;gap:6px;margin-top:12px;font-weight:700;text-decoration:underline;text-underline-offset:4px}
+.nv .steps{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(18px,3vw,32px)}
+.nv .steps li{background:#fffdf6;color:var(--ink);padding:28px 24px 24px;box-shadow:0 18px 28px -14px rgba(0,0,0,.6)}
+.nv .steps .no{font-family:var(--h);font-size:2.2rem;line-height:1;color:#6b1fa6}
+.nv .steps h3{margin-top:6px;font-weight:800;font-size:1.2rem}
+.nv .steps p{margin-top:8px;line-height:1.55;color:#3d2f52}
+.nv #steps .closing{margin-top:clamp(28px,4vw,44px);font-size:clamp(1.4rem,2.4vw,1.9rem);line-height:1.25;color:var(--amber);max-width:40ch}
+@media (max-width:760px){.nv .steps{grid-template-columns:minmax(0,1fr)}}

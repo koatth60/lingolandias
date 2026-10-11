@@ -3,7 +3,8 @@ import { Link, NavLink, useLocation } from "react-router-dom";
 import "./nevera.css";
 import { SITE_LANGS, setSiteLanguage } from "./i18n.js";
 import seal from "../assets/seal-96.webp";
-import { FACEBOOK, INSTAGRAM, LANGS, WA, useNv } from "./ui.jsx";
+import { useTranslation } from "react-i18next";
+import { FACEBOOK, INSTAGRAM, LANGS, LINKEDIN, TWITTER, WA, plain, useNv } from "./ui.jsx";
 
 const PAGES = [
   ["/", "home"],
@@ -40,9 +41,11 @@ function Header() {
     return () => document.removeEventListener("keydown", onKey);
   }, [open]);
 
-  const links = PAGES.map(([to, key]) => (
-    <NavLink key={to} to={to} end>{t(`nav.${key}`)}</NavLink>
-  ));
+  const links = PAGES.flatMap(([to, key]) => [
+    <NavLink key={to} to={to} end>{t(`nav.${key}`)}</NavLink>,
+    // workshops live inside /courses; plain link so it never shows as the current page
+    ...(key === "classes" ? [<Link key="ws" to="/courses#workshops">{t("footer.workshops")}</Link>] : []),
+  ]);
 
   return (
     <header className="top">
@@ -68,26 +71,74 @@ function Header() {
   );
 }
 
+function Newsletter() {
+  const { t } = useTranslation();
+  const [email, setEmail] = useState("");
+  const [status, setStatus] = useState(null); // null | "sending" | "ok" | "ko"
+  const submit = async (e) => {
+    e.preventDefault();
+    if (!email.trim()) return;
+    setStatus("sending");
+    try {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/newsletter`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      });
+      if (!res.ok) throw new Error(String(res.status));
+      setStatus("ok");
+      setEmail("");
+    } catch {
+      setStatus("ko");
+    }
+  };
+  return (
+    <form className="nl" onSubmit={submit}>
+      <label htmlFor="nl-email">{plain(t("footerNewsletter"))}</label>
+      <div className="nl-row">
+        <input id="nl-email" type="email" required autoComplete="email" placeholder={t("footerEmailPlaceholder")}
+          value={email} onChange={(e) => { setEmail(e.target.value); setStatus(null); }} />
+        <button className="btn btn-amber btn-sm" type="submit" disabled={status === "sending"}>{t("footerSend")}</button>
+      </div>
+      <p className="nl-status" role="status">{status === "ok" ? t("nlSuccess") : status === "ko" ? t("nlError") : ""}</p>
+    </form>
+  );
+}
+
 function Footer() {
   const { t } = useNv();
+  const { t: tl } = useTranslation();
   return (
     <footer className="gfoot">
       <div className="wrap">
-        <div className="fb"><Link className="brand" to="/"><img src={seal} alt="" width="38" height="38" />Lingolandias</Link><p>{t("footer.tagline")}</p></div>
+        <div className="fb">
+          <Link className="brand" to="/"><img src={seal} alt="" width="38" height="38" />Lingolandias</Link>
+          <p>{tl("footerDesc")}</p>
+          <p>{t("footer.tagline")}</p>
+          <p className="fb-meta">{plain(tl("footerAllLevels"))} · 5.0 Facebook{plain(tl("footerReviews"))}</p>
+        </div>
         <div><h2>{t("footer.languages")}</h2>{LANGS.map((l) => <Link key={l.code} to={`/courses#${l.id}`}>{t(`langs.${l.code}`)}</Link>)}</div>
         <div><h2>{t("footer.school")}</h2>
           <Link to="/courses">{t("nav.classes")}</Link>
           <Link to="/courses#workshops">{t("footer.workshops")}</Link>
           <Link to="/about">{t("nav.about")}</Link>
           <Link to="/test">{t("nav.test")}</Link>
+          <Link to="/contact">{t("footer.contact")}</Link>
         </div>
         <div><h2>{t("footer.contact")}</h2>
           <a href={WA}>WhatsApp +44 7578 146264</a>
           <a href={INSTAGRAM}>Instagram @lingolandias</a>
           <a href={FACEBOOK}>Facebook</a>
+          <a href={TWITTER}>X (Twitter)</a>
+          <a href={LINKEDIN}>LinkedIn</a>
         </div>
       </div>
-      <div className="legal"><span>{t("footer.rights")}</span><span lang="en">Human-centered online</span></div>
+      <div className="wrap nl-wrap"><Newsletter /></div>
+      <div className="legal">
+        <span>{t("footer.rights")} · {tl("footerRights")}</span>
+        <span>{plain(tl("footerConnecting"))}</span>
+        <span>{tl("footerMadeWith")} ♥ {tl("footerInBerlin")} · <span lang="en">Human-centered online</span></span>
+      </div>
     </footer>
   );
 }

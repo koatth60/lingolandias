@@ -2,7 +2,8 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import Layout from "../Layout.jsx";
 import { FinalNote, Levels } from "../blocks.jsx";
-import { Arrow, FACEBOOK, Html, LANGS, MAGNETS, SectionHead, Sticky, VIDEO_BASE, WA, useNv } from "../ui.jsx";
+import { useTranslation } from "react-i18next";
+import { Arrow, FACEBOOK, Html, LANGS, MAGNETS, SectionHead, Sticky, VIDEO_BASE, WA, plain, useNv } from "../ui.jsx";
 
 // One phrase per note, shown first in the note's own language; tapping cycles all five.
 const ORDER = ["en", "es", "pl", "it", "id"];
@@ -75,28 +76,41 @@ function Fridge() {
 const FEAR_TILT = [-1.5, 1, -0.5, 1.5, -1, 0.5, -1.5, 1, -0.5, 1.5];
 const WEEK = ["var(--lilac)", "var(--teal)", "var(--amber)", "var(--pink)", null, "var(--orange)", null];
 const POEM_TILT = [-3, 2, -1, 3, -2, 1, -2.5, 2, -1.5, 1, -2];
+// Production Facebook reviews (review1-8 keys), same authors and dates as the old site
+const REVIEWS = [
+  ["Rozalia P.", "24.02.2026"], ["Maria B.", "09.02.2026"], ["Julita K.", "08.01.2026"], ["Ella B.", "18.12.2025"],
+  ["Katarzyna W.", "08.07.2025"], ["Magdalena S.", "20.01.2025"], ["Joanna K.", "06.09.2024"], ["Kasia T.", "26.08.2024"],
+];
+const REVIEW_TILT = [-1.5, 1, -0.5, 1.5, -1, 0.5, -1.5, 1];
+const VOICES = [["Magda", "videoComment1", "videoRole1"], ["Marta", "videoComment2", "videoRole2"], [null, "videoComment3", "videoRole3"]];
+
+// "Title – rest" strings from the old site: bold the part before the dash
+const Split = ({ text }) => {
+  const s = plain(text);
+  const i = s.indexOf(" – ");
+  return i > 0 ? <><b>{s.slice(0, i)}</b> – {s.slice(i + 3)}</> : <>{s}</>;
+};
 
 export default function Home() {
   const { t } = useNv();
-  const h1 = t("home.h1", { returnObjects: true });
-  const fears = t("home.fears.items", { returnObjects: true });
-  const voices = t("home.voices.items", { returnObjects: true });
+  const { t: tl } = useTranslation();
   const days = t("home.community.days", { returnObjects: true });
   const events = t("home.community.events", { returnObjects: true });
-  const reviews = t("home.reviews.items", { returnObjects: true });
-  const poem = t("home.motto.words", { returnObjects: true });
+  const poem = plain(tl("quote")).split(" ");
+  const proof = ["heroActiveStudents", "heroOnline", "heroLiveClasses", "heroCertification", "heroYearsExp"].map((k) => plain(tl(k)));
 
   return (
     <Layout>
       <section className="hero">
         <div>
-          <h1><span>{h1[0]}</span><span className="a">{h1[1]}</span><span>{h1[2]}</span></h1>
-          <p className="lede">{t("home.lede")} <b>{t("home.ledeB")}</b></p>
+          <h1><span>{tl("heroLine1")}</span><span className="a">{tl("heroLine2")}</span><span>{tl("heroLine3")}</span></h1>
+          <p className="lede">{tl("hero2")} <b>{tl("hero2Span")}</b></p>
+          <p className="hand-line">{tl("hero3")}</p>
           <div className="ctas">
-            <Link className="btn btn-amber" to="/test">{t("cta.testFree")} <Arrow /></Link>
+            <Link className="btn btn-amber" to="/test">{tl("startNow")} <Arrow /></Link>
             <a className="btn btn-line" href={WA}>{t("cta.writeWa")}</a>
           </div>
-          <Html as="p" className="proof" html={t("home.proof")} />
+          <p className="proof">{proof.join(" · ")}</p>
         </div>
         <Fridge />
       </section>
@@ -117,46 +131,61 @@ export default function Home() {
         </div>
       </section>
 
-      <Levels title={t("home.levels.title")} text={t("home.levels.text")} note={t("home.levels.note")} ctaTo="/test" ctaLabel={t("cta.test")} />
+      <Levels title={tl("levelsTitle")} text={t("home.levels.text")} note={plain(tl("discoverLevelFirst"))} ctaTo="/test" ctaLabel={tl("levelsEvaluate")} />
 
       <section className="gsec enamel" id="fears">
         <div className="wrap">
-          <SectionHead title={t("home.fears.title")} text={t("home.fears.text")} />
+          <p className="eyebrow">{plain(tl("solveYourDoubts"))}</p>
+          <SectionHead title={tl("methodH")} text={tl("methodP")} />
           <ul className="fears">
-            {fears.map(([q, a], i) => (
-              <li key={q} className="fear" style={{ "--r": `${FEAR_TILT[i]}deg`, "--m": MAGNETS[i % 5] }}>
-                <h3>“{q}”</h3><p>{a}</p>
+            {FEAR_TILT.map((r, i) => (
+              <li key={i} className="fear" style={{ "--r": `${r}deg`, "--m": MAGNETS[i % 5] }}>
+                <h3>“{tl(`methodQ${i + 1}`)}”</h3><p>{tl(`methodQ${i + 1}P`)}</p>
               </li>
             ))}
           </ul>
+          <div className="after-row">
+            <p>{tl("readyToStart")}</p>
+            <a className="btn btn-ink" href={WA}>{plain(tl("methodBtn")).replace(/\s*→$/, "")} <Arrow /></a>
+          </div>
         </div>
       </section>
 
       <section className="gsec wall" id="voices">
         <div className="wrap">
-          <SectionHead title={t("home.voices.title")} text={t("home.voices.text")} />
+          <SectionHead title={t("home.voices.title")} text={`${tl("videosTheyAlready")} ${tl("videosLiveChange")}.`} />
           <div className="voices">
-            {voices.map((v, i) => (
-              <div className="vcol" key={v.name}>
-                <div className="phone" style={{ "--r": `${[-1.5, 1.5, -1][i]}deg` }}>
-                  <span className="mag" style={{ "--m": ["#ffc14d", "#5fd3c1", "#ff9ec4"][i] }} aria-hidden="true" />
-                  {/* PENDIENTE: poster (imagen de portada) y subtítulos <track> para cada video */}
-                  <video controls preload="metadata" playsInline aria-label={t("home.voices.videoLabel", { name: v.name })}
-                    src={`${VIDEO_BASE}lingolandias-video${i + 1}.mp4#t=0.5`} />
+            {VOICES.map(([name, comment, role], i) => {
+              const who = name || tl("videoName3");
+              return (
+                <div className="vcol" key={comment}>
+                  <div className="phone" style={{ "--r": `${[-1.5, 1.5, -1][i]}deg` }}>
+                    <span className="mag" style={{ "--m": ["#ffc14d", "#5fd3c1", "#ff9ec4"][i] }} aria-hidden="true" />
+                    {/* PENDIENTE: poster (imagen de portada) y subtítulos <track> para cada video */}
+                    <video controls preload="metadata" playsInline aria-label={t("home.voices.videoLabel", { name: who })}
+                      src={`${VIDEO_BASE}lingolandias-video${i + 1}.mp4#t=0.5`} />
+                  </div>
+                  <blockquote className="vnote taped" style={{ "--r": `${[1.5, -2, 1.5][i]}deg` }}>
+                    <p>“{plain(tl(comment))}”</p>
+                    <footer><b>{who}</b><span>{tl(role)}</span></footer>
+                  </blockquote>
                 </div>
-                <blockquote className="vnote taped" style={{ "--r": `${[1.5, -2, 1.5][i]}deg` }}>
-                  <p>“{v.quote}”</p>
-                  <footer><b>{v.name}</b><span>{v.role}</span></footer>
-                </blockquote>
-              </div>
-            ))}
+              );
+            })}
+          </div>
+          <div className="after-row on-wall">
+            <p><b>{tl("videosCTATitle")}</b> {tl("videosCTASub")}</p>
+            <a className="btn btn-amber" href={WA}>{tl("videosCTABtn")} <Arrow /></a>
           </div>
         </div>
       </section>
 
       <section className="gsec enamel" id="community">
         <div className="wrap comm">
-          <SectionHead single title={t("home.community.title")} text={t("home.community.text")} />
+          <SectionHead single title={tl("whatFindTitle")} text={tl("whatFindP")} />
+          <ul className="findlist">
+            {Array.from({ length: 15 }, (_, i) => <li key={i}><Split text={tl(`whatFindItem${i + 1}`)} /></li>)}
+          </ul>
           <div className="planner" role="group" aria-label={t("home.community.label")}>
             <div className="pl-top"><span>{t("home.community.week")}</span><small>{t("home.community.example")}</small></div>
             <div className="days">
@@ -167,7 +196,10 @@ export default function Home() {
                 </div>
               ))}
             </div>
-            <p className="pl-note">{t("home.community.goal")}</p>
+          </div>
+          <div className="after-row">
+            <p><b>{tl("whatFindCTA")}</b></p>
+            <a className="btn btn-ink" href={WA}>{tl("whatFindBtn")} <Arrow /></a>
           </div>
         </div>
       </section>
@@ -189,17 +221,21 @@ export default function Home() {
 
       <section className="gsec enamel" id="reviews">
         <div className="wrap">
-          <SectionHead title={t("home.reviews.title")} text={t("home.reviews.text")} />
+          <SectionHead title={t("home.reviews.title")}
+            text={`<b class="five">5.0</b> ${tl("fbRating")} ${plain(tl("footerReviews"))} · ${plain(tl("recommendSchool"))}`} />
           <div className="letters">
-            {reviews.map(([q, by], i) => (
-              <blockquote key={by} style={{ "--r": `${[-2, 1.5, -1][i]}deg` }}><p>“{q}”</p><footer>{by}</footer></blockquote>
+            {REVIEWS.map(([by, date], i) => (
+              <blockquote key={by} style={{ "--r": `${REVIEW_TILT[i]}deg` }}>
+                <p>“{plain(tl(`review${i + 1}`))}”</p>
+                <footer>{by} · {date}</footer>
+              </blockquote>
             ))}
           </div>
-          <a className="more" href={FACEBOOK}>{t("home.reviews.more")}</a>
+          <a className="more" href={FACEBOOK}>{tl("viewLingoPage")}</a>
         </div>
       </section>
 
-      <section className="gsec wall motto" aria-label={t("home.motto.label")}>
+      <section className="gsec wall motto" aria-label={tl("moto")}>
         <div className="wrap">
           <blockquote>
             <p className="poem">
@@ -207,7 +243,7 @@ export default function Home() {
                 <span key={i} className={i >= poem.length - 2 ? "k" : undefined} style={{ "--r": `${POEM_TILT[i % POEM_TILT.length]}deg` }}>{w}</span>
               ))}
             </p>
-            <footer>{t("home.motto.author")}</footer>
+            <footer>— {plain(tl("autor")).replace(/-+$/, "")}</footer>
           </blockquote>
         </div>
       </section>
