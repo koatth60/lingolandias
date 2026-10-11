@@ -18,8 +18,8 @@ const NEVERA_PATHS = ["/", "/courses", "/about", "/test", "/english-quiz", "/spa
 // All other pages load only when the user navigates to them
 const Contact      = lazy(() => import("./pages/Contact.jsx"));
 const Collaboration = lazy(() => import("./pages/Collaboration.jsx"));
-const SpanishQuiz  = lazy(() => import("./nested-routes/SpanishQuiz.jsx"));
-const EnglishQuiz  = lazy(() => import("./nested-routes/EnglishQuiz.jsx"));
+const SpanishQuiz  = lazy(() => import("./tests/SpanishTest.jsx"));
+const EnglishQuiz  = lazy(() => import("./tests/EnglishTest.jsx"));
 
 const PageLoader = () => (
   <div className="min-h-screen flex items-center justify-center" style={{ background: "#2e0d4f" }}>

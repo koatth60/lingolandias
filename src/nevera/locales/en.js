@@ -324,23 +324,26 @@ export default {
     },
   },
   test: {
+    time: "20–25 minutes",
+    questionsInfo: "English and Spanish: about 32 questions across 4 skills.",
+    adaptive: ["Adaptive","The questions adjust to you, as in official exams. About 20–25 minutes."],
     h1: ["What’s your", "language level?"],
     lede: "Find out your real level with our interactive tests and get personalised recommendations. Free, online and no pressure.",
-    facts: ["At your own pace", "Result by email", "Free advice"],
+    facts: ["At your own pace", "Result on screen and by email", "Free advice"],
     fridgeLabel: "Notes on the fridge about the test",
-    fridgeNotes: ["No marks.", "No pass or fail.", "Just knowing where to start.", "English: 10 questions<br>Spanish: 30 questions"],
+    fridgeNotes: ["No marks.", "No pass or fail.", "Just knowing where to start.", "Adaptive:<br>A1 to C2"],
     pick: { title: "Choose your test.", text: "Two notes on the fridge, one per language. When you finish, we’ll email you your result." },
     en: {
       title: "English test", hand: "Let’s see where you are.",
-      text: "Assess your English: translations, grammar, gap-fills and matching expressions. Result sent to your email.",
+      text: "Adaptive test from A1 to C2: grammar, vocabulary, reading and listening. You see your level when you finish and we email it to you.",
       // PENDIENTE: confirmar si el test de inglés es solo para hablantes de polaco
-      items: ["10 questions", "Varied task types", "Result by email", "For Polish speakers"],
+      items: ["Adapts to your answers", "4 skills, about 32 questions", "Result on screen and by email", "Instructions in your language"],
       start: "Start test", startSr: " (English)",
     },
     es: {
       title: "Spanish test", hand: "¿Dónde estás hoy?",
-      text: "Test your Spanish with 30 multiple-choice questions. Covers grammar, vocabulary and comprehension. Result sent to your email.",
-      items: ["30 questions", "Multiple choice", "Result by email", "Grammar and vocabulary"],
+      text: "Adaptive test from A1 to C2, based on the CEFR and the Instituto Cervantes curriculum: grammar, vocabulary, reading and listening. You see your level when you finish and we email it to you.",
+      items: ["Adapts to your answers", "4 skills, about 32 questions", "Result by email", "Instructions in your language"],
       start: "Start test", startSr: " (Spanish)",
     },
     why: {
@@ -354,5 +357,92 @@ export default {
     },
     levels: { title: "The six levels.", text: "This is how we measure the journey on the fridge ruler: from your first “hello” to thinking in another language.", note: "The CEFR has six levels, from A1 to C2." },
     final: { title: "Any questions?", text: "Message us and we’ll help you choose the test and your next step. The advice is free." },
+  },
+  // adaptive level tests (src/tests)
+  lt: {
+    "en": {
+      "hand": "English test",
+      "title": "What's your English level?"
+    },
+    "es": {
+      "hand": "Spanish test",
+      "title": "What's your Spanish level?"
+    },
+    "intro": {
+      "lede": "An adaptive test, like official exams: the questions adjust to your answers to place you between A1 and C2.",
+      "time": "About 20–25 minutes",
+      "parts": [
+        [
+          "Grammar and vocabulary",
+          "It starts easy and gets harder. Then you get questions close to your level."
+        ],
+        [
+          "Reading",
+          "A short text matched to your level, with questions."
+        ],
+        [
+          "Listening",
+          "Short recordings. You can listen to each one twice."
+        ]
+      ],
+      "rules": [
+        "No dictionary or translator: we want to see where you are today.",
+        "If you don't know an answer, tap “I don't know”. Guessing makes the estimate worse.",
+        "There's no mark and no pass or fail: the result is a starting point."
+      ],
+      "soundCheck": "Test your sound",
+      "soundSample": {
+        "en": "Hello! If you can hear this, your sound is working.",
+        "es": "¡Hola! Si oyes esto, el sonido funciona."
+      },
+      "noAudio": "Your browser can't play audio in this language, so we'll skip the listening part this time.",
+      "start": "Start the test",
+      "resume": "Continue where I left off",
+      "restart": "Start again"
+    },
+    "parts": [
+      "Grammar and vocabulary",
+      "Reading",
+      "Listening"
+    ],
+    "partOf": "Part {{n}} of {{total}}",
+    "question": "Question",
+    "next": "Next",
+    "finish": "Finish",
+    "dontKnow": "I don't know",
+    "chooseOrSkip": "Choose an answer or tap “I don't know”.",
+    "typeHere": "Type here",
+    "play": "Listen",
+    "playsLeft": "{{count}} left",
+    "noPlaysLeft": "You've already listened twice.",
+    "listenFirst": "Listen to the recording before you answer.",
+    "readingHint": "Read the text and answer. You can go back to the text at any time.",
+    "details": {
+      "title": "Done! One more thing.",
+      "text": "We'll email you the full report, and Agata will look at it to recommend where to start.",
+      "name": "Name",
+      "email": "Email",
+      "consent": "I agree that Lingolandias may send me my result and write to me about classes.",
+      "send": "Send and see my result",
+      "skip": "See my result without sending it"
+    },
+    "result": {
+      "hand": "Your estimated level",
+      "plus": "You're on your way to the next level.",
+      "summary": "{{correct}} correct answers out of {{total}}",
+      "skills": {
+        "grammar": "Grammar",
+        "vocabulary": "Vocabulary",
+        "reading": "Reading",
+        "listening": "Listening"
+      },
+      "note": "This is an estimate. In the free conversation we confirm it with you, by talking.",
+      "sent": "We've sent your result to {{email}}.",
+      "sendError": "We couldn't send the email. Your result is here anyway; write to us on WhatsApp if you like.",
+      "next": "Next step",
+      "talk": "Book a free conversation",
+      "classes": "See classes",
+      "retake": "Take the test again"
+    }
   },
 };

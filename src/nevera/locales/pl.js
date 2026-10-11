@@ -324,23 +324,26 @@ export default {
     },
   },
   test: {
+    time: "20–25 minut",
+    questionsInfo: "Angielski i hiszpański: około 32 pytań z 4 umiejętności.",
+    adaptive: ["Adaptacyjny","Pytania dopasowują się do ciebie, jak na oficjalnych egzaminach. Około 20–25 minut."],
     h1: ["Jaki jest twój", "poziom językowy?"],
     lede: "Poznaj swój prawdziwy poziom dzięki naszym interaktywnym testom i otrzymaj spersonalizowane rekomendacje. Bezpłatnie, online i bez presji.",
-    facts: ["We własnym tempie", "Wynik e-mailem", "Bezpłatna konsultacja"],
+    facts: ["We własnym tempie", "Wynik od razu i e-mailem", "Bezpłatna konsultacja"],
     fridgeLabel: "Karteczki na lodówce o teście",
-    fridgeNotes: ["Bez ocen.", "Nikt tu nie oblewa.", "Tylko wiedza, od czego zacząć.", "Angielski: 10 pytań<br>Hiszpański: 30 pytań"],
+    fridgeNotes: ["Bez ocen.", "Nikt tu nie oblewa.", "Tylko wiedza, od czego zacząć.", "Adaptacyjny:<br>od A1 do C2"],
     pick: { title: "Wybierz swój test.", text: "Dwie karteczki na lodówce, po jednej na język. Po zakończeniu wyślemy ci wynik e-mailem." },
     en: {
       title: "Test z angielskiego", hand: "Let’s see where you are.",
-      text: "Sprawdź swój angielski: tłumaczenia, gramatyka, uzupełnianie luk i dopasowywanie wyrażeń. Wynik wysyłamy na twój e-mail.",
+      text: "Test adaptacyjny od A1 do C2: gramatyka, słownictwo, czytanie i słuchanie. Wynik widzisz od razu, a my wysyłamy go e-mailem.",
       // PENDIENTE: confirmar si el test de inglés es solo para hablantes de polaco
-      items: ["10 pytań", "Różne typy zadań", "Wynik e-mailem", "Dla osób mówiących po polsku"],
+      items: ["Dopasowuje się do odpowiedzi", "4 umiejętności, ok. 32 pytań", "Wynik od razu i e-mailem", "Instrukcje w twoim języku"],
       start: "Rozpocznij test", startSr: " z angielskiego",
     },
     es: {
       title: "Test z hiszpańskiego", hand: "¿Dónde estás hoy?",
-      text: "Sprawdź swój hiszpański w 30 pytaniach wielokrotnego wyboru. Obejmuje gramatykę, słownictwo i rozumienie. Wynik wysyłamy na twój e-mail.",
-      items: ["30 pytań", "Wielokrotny wybór", "Wynik e-mailem", "Gramatyka i słownictwo"],
+      text: "Test adaptacyjny od A1 do C2, zgodny z CEFR i programem Instituto Cervantes: gramatyka, słownictwo, czytanie i słuchanie. Wynik widzisz od razu, a my wysyłamy go e-mailem.",
+      items: ["Dopasowuje się do odpowiedzi", "4 umiejętności, ok. 32 pytań", "Wynik e-mailem", "Instrukcje w twoim języku"],
       start: "Rozpocznij test", startSr: " z hiszpańskiego",
     },
     why: {
@@ -354,5 +357,92 @@ export default {
     },
     levels: { title: "Sześć poziomów.", text: "Tak mierzymy drogę na miarce na lodówce: od pierwszego „cześć” do myślenia w innym języku.", note: "CEFR ma sześć poziomów, od A1 do C2." },
     final: { title: "Masz pytania?", text: "Napisz do nas, a pomożemy ci wybrać test i następny krok. Konsultacja jest bezpłatna." },
+  },
+  // adaptive level tests (src/tests)
+  lt: {
+    "en": {
+      "hand": "Test z angielskiego",
+      "title": "Jaki jest twój poziom angielskiego?"
+    },
+    "es": {
+      "hand": "Test z hiszpańskiego",
+      "title": "Jaki jest twój poziom hiszpańskiego?"
+    },
+    "intro": {
+      "lede": "Test adaptacyjny, jak na oficjalnych egzaminach: pytania dopasowują się do twoich odpowiedzi i określają poziom od A1 do C2.",
+      "time": "Około 20–25 minut",
+      "parts": [
+        [
+          "Gramatyka i słownictwo",
+          "Zaczynamy łatwo i stopniowo podnosimy poziom. Potem dostajesz pytania blisko twojego poziomu."
+        ],
+        [
+          "Czytanie",
+          "Krótki tekst dopasowany do twojego poziomu, z pytaniami."
+        ],
+        [
+          "Słuchanie",
+          "Krótkie nagrania. Każde możesz odsłuchać dwa razy."
+        ]
+      ],
+      "rules": [
+        "Bez słownika i tłumacza: chcemy zobaczyć, gdzie jesteś dziś.",
+        "Jeśli nie znasz odpowiedzi, kliknij „Nie wiem”. Zgadywanie psuje wynik.",
+        "Tu nie ma ocen ani „zdał/nie zdał”: wynik to punkt startu."
+      ],
+      "soundCheck": "Sprawdź dźwięk",
+      "soundSample": {
+        "en": "Hello! If you can hear this, your sound is working.",
+        "es": "¡Hola! Si oyes esto, el sonido funciona."
+      },
+      "noAudio": "Twoja przeglądarka nie odtwarza dźwięku w tym języku, więc tym razem pominiemy część ze słuchaniem.",
+      "start": "Zacznij test",
+      "resume": "Kontynuuj od miejsca, w którym skończyłem/am",
+      "restart": "Zacznij od nowa"
+    },
+    "parts": [
+      "Gramatyka i słownictwo",
+      "Czytanie",
+      "Słuchanie"
+    ],
+    "partOf": "Część {{n}} z {{total}}",
+    "question": "Pytanie",
+    "next": "Dalej",
+    "finish": "Zakończ",
+    "dontKnow": "Nie wiem",
+    "chooseOrSkip": "Wybierz odpowiedź albo kliknij „Nie wiem”.",
+    "typeHere": "Wpisz tutaj",
+    "play": "Odsłuchaj",
+    "playsLeft": "Zostało: {{count}}",
+    "noPlaysLeft": "Nagranie odsłuchano już dwa razy.",
+    "listenFirst": "Najpierw odsłuchaj nagranie.",
+    "readingHint": "Przeczytaj tekst i odpowiedz. Możesz do niego wracać w każdej chwili.",
+    "details": {
+      "title": "Gotowe! Jeszcze jedno.",
+      "text": "Wyślemy ci pełny raport e-mailem, a Agata go przejrzy i doradzi, od czego zacząć.",
+      "name": "Imię",
+      "email": "E-mail",
+      "consent": "Zgadzam się, żeby Lingolandias wysłało mi wynik i pisało do mnie w sprawie zajęć.",
+      "send": "Wyślij i zobacz wynik",
+      "skip": "Zobacz wynik bez wysyłania"
+    },
+    "result": {
+      "hand": "Twój szacowany poziom",
+      "plus": "Jesteś w drodze na kolejny poziom.",
+      "summary": "{{correct}} poprawnych odpowiedzi na {{total}}",
+      "skills": {
+        "grammar": "Gramatyka",
+        "vocabulary": "Słownictwo",
+        "reading": "Czytanie",
+        "listening": "Słuchanie"
+      },
+      "note": "To szacunek. Podczas bezpłatnej rozmowy potwierdzimy go z tobą, rozmawiając.",
+      "sent": "Wysłaliśmy wynik na adres {{email}}.",
+      "sendError": "Nie udało się wysłać e-maila. Twój wynik i tak jest tutaj; jeśli chcesz, napisz do nas na WhatsApp.",
+      "next": "Następny krok",
+      "talk": "Umów bezpłatną rozmowę",
+      "classes": "Zobacz zajęcia",
+      "retake": "Powtórz test"
+    }
   },
 };

@@ -324,23 +324,26 @@ export default {
     },
   },
   test: {
+    time: "20–25 minutos",
+    questionsInfo: "Inglés y español: unas 32 preguntas en 4 destrezas.",
+    adaptive: ["Adaptativo","Las preguntas se ajustan a ti, como en los exámenes oficiales. Unos 20–25 minutos."],
     h1: ["¿Cuál es tu", "nivel de idioma?"],
     lede: "Descubre tu nivel real con nuestros tests interactivos y recibe recomendaciones personalizadas. Gratis, online y sin presión.",
-    facts: ["A tu ritmo", "Resultado por email", "Asesoramiento gratuito"],
+    facts: ["A tu ritmo", "Resultado al momento y por email", "Asesoramiento gratuito"],
     fridgeLabel: "Notas en la nevera sobre el test",
-    fridgeNotes: ["Sin nota.", "Sin aprobar ni suspender.", "Solo saber por dónde empezar.", "Inglés: 10 preguntas<br>Español: 30 preguntas"],
+    fridgeNotes: ["Sin nota.", "Sin aprobar ni suspender.", "Solo saber por dónde empezar.", "Adaptativo:<br>de A1 a C2"],
     pick: { title: "Elige tu test.", text: "Dos notas en la nevera, una por idioma. Al terminar te enviamos el resultado por email." },
     en: {
       title: "Test de inglés", hand: "Let’s see where you are.",
-      text: "Evalúa tu inglés: traducciones, gramática, completar huecos y emparejamiento de expresiones. Resultado enviado a tu email.",
+      text: "Test adaptativo de A1 a C2: gramática, vocabulario, comprensión lectora y comprensión auditiva. Ves tu nivel al terminar y te lo enviamos por email.",
       // PENDIENTE: confirmar si el test de inglés es solo para hablantes de polaco
-      items: ["10 preguntas", "Tipos de tareas variados", "Resultado por email", "Para hablantes de polaco"],
+      items: ["Se adapta a tus respuestas", "4 destrezas, unas 32 preguntas", "Resultado al momento y por email", "Instrucciones en tu idioma"],
       start: "Comenzar test", startSr: " de inglés",
     },
     es: {
       title: "Test de español", hand: "¿Dónde estás hoy?",
-      text: "Pon a prueba tu español con 30 preguntas de opción múltiple. Cubre gramática, vocabulario y comprensión. Resultado enviado a tu email.",
-      items: ["30 preguntas", "Opción múltiple", "Resultado por email", "Gramática y vocabulario"],
+      text: "Test adaptativo de A1 a C2, según el MCER y el Plan Curricular del Instituto Cervantes: gramática, vocabulario, lectura y audición. Ves tu nivel al terminar y te lo enviamos por email.",
+      items: ["Se adapta a tus respuestas", "4 destrezas, unas 32 preguntas", "Resultado por email", "Instrucciones en tu idioma"],
       start: "Comenzar test", startSr: " de español",
     },
     why: {
@@ -354,5 +357,92 @@ export default {
     },
     levels: { title: "Los seis niveles.", text: "Así medimos el camino en la regla de la nevera: del primer “hola” a pensar en otro idioma.", note: "El MCER tiene seis niveles, de A1 a C2." },
     final: { title: "¿Dudas?", text: "Escríbenos y te ayudamos a elegir el test y el siguiente paso. El asesoramiento es gratuito." },
+  },
+  // adaptive level tests (src/tests)
+  lt: {
+    "en": {
+      "hand": "Test de inglés",
+      "title": "¿Cuál es tu nivel de inglés?"
+    },
+    "es": {
+      "hand": "Test de español",
+      "title": "¿Cuál es tu nivel de español?"
+    },
+    "intro": {
+      "lede": "Un test adaptativo, como los de los exámenes oficiales: las preguntas se ajustan a tus respuestas para situarte entre A1 y C2.",
+      "time": "Unos 20–25 minutos",
+      "parts": [
+        [
+          "Gramática y vocabulario",
+          "Empieza fácil y sube de nivel. Luego te damos preguntas cerca de tu nivel."
+        ],
+        [
+          "Comprensión lectora",
+          "Un texto corto adaptado a tu nivel, con preguntas."
+        ],
+        [
+          "Comprensión auditiva",
+          "Grabaciones breves. Puedes escuchar cada una dos veces."
+        ]
+      ],
+      "rules": [
+        "Sin diccionario ni traductor: queremos ver dónde estás hoy.",
+        "Si no sabes una respuesta, pulsa «No lo sé». Adivinar empeora la estimación.",
+        "No hay nota ni aprobado: el resultado es un punto de partida."
+      ],
+      "soundCheck": "Probar el sonido",
+      "soundSample": {
+        "en": "Hello! If you can hear this, your sound is working.",
+        "es": "¡Hola! Si oyes esto, el sonido funciona."
+      },
+      "noAudio": "Tu navegador no puede leer audio en este idioma, así que esta vez no haremos la parte auditiva.",
+      "start": "Empezar el test",
+      "resume": "Continuar donde lo dejé",
+      "restart": "Empezar de nuevo"
+    },
+    "parts": [
+      "Gramática y vocabulario",
+      "Comprensión lectora",
+      "Comprensión auditiva"
+    ],
+    "partOf": "Parte {{n}} de {{total}}",
+    "question": "Pregunta",
+    "next": "Siguiente",
+    "finish": "Terminar",
+    "dontKnow": "No lo sé",
+    "chooseOrSkip": "Elige una respuesta o pulsa «No lo sé».",
+    "typeHere": "Escribe aquí",
+    "play": "Escuchar",
+    "playsLeft": "Te quedan {{count}}",
+    "noPlaysLeft": "Ya has escuchado la grabación dos veces.",
+    "listenFirst": "Escucha la grabación antes de responder.",
+    "readingHint": "Lee el texto y responde. Puedes volver al texto cuando quieras.",
+    "details": {
+      "title": "¡Terminado! Una cosa más.",
+      "text": "Te enviamos el informe completo por email y Agata lo revisa para recomendarte por dónde empezar.",
+      "name": "Nombre",
+      "email": "Email",
+      "consent": "Acepto que Lingolandias me envíe mi resultado y me escriba sobre las clases.",
+      "send": "Enviar y ver mi resultado",
+      "skip": "Ver el resultado sin enviarlo"
+    },
+    "result": {
+      "hand": "Tu nivel estimado",
+      "plus": "Vas camino del siguiente nivel.",
+      "summary": "{{correct}} respuestas correctas de {{total}}",
+      "skills": {
+        "grammar": "Gramática",
+        "vocabulary": "Vocabulario",
+        "reading": "Comprensión lectora",
+        "listening": "Comprensión auditiva"
+      },
+      "note": "Es una estimación orientativa. En la conversación gratuita la confirmamos contigo, hablando.",
+      "sent": "Te hemos enviado el resultado a {{email}}.",
+      "sendError": "No hemos podido enviar el email. Tu resultado está aquí igualmente; si quieres, escríbenos por WhatsApp.",
+      "next": "Siguiente paso",
+      "talk": "Reserva una conversación gratuita",
+      "classes": "Ver clases",
+      "retake": "Repetir el test"
+    }
   },
 };

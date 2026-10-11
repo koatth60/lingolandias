@@ -2,12 +2,12 @@ import { Link } from "react-router-dom";
 import Layout from "../Layout.jsx";
 import { FinalNote, Levels, ShortFridge } from "../blocks.jsx";
 import { useTranslation } from "react-i18next";
-import { Arrow, Check, ICON, SectionHead, Sticky, WA, plain, useNv } from "../ui.jsx";
+import { Arrow, Check, ICON, SectionHead, Sticky, WA, useNv } from "../ui.jsx";
 
 const FACT_ICONS = [ICON.clock, ICON.mail, ICON.chat];
 const WHY = [["var(--teal)", "#6b1fa6", -1.5, ICON.target], ["var(--lilac)", "#e8792a", 1, ICON.clock], ["var(--amber)", "#d0343f", -1, ICON.list], ["var(--orange)", "#127a6e", 1.5, ICON.chat]];
 const EXAMS = [
-  { key: "en", to: "/english-quiz", c: "var(--amber)", r: -1.2, handLang: "en", levels: "A1 · A2 · B1 · B2" },
+  { key: "en", to: "/english-quiz", c: "var(--amber)", r: -1.2, handLang: "en", levels: "A1 · A2 · B1 · B2 · C1 · C2" },
   { key: "es", to: "/spanish-quiz", c: "var(--pink)", r: 1.2, levels: "A1 · A2 · B1 · B2 · C1 · C2" },
 ];
 
@@ -16,9 +16,10 @@ export default function LevelTest() {
   const { t: tl } = useTranslation();
   const h1 = t("test.h1", { returnObjects: true });
   // production facts: 15 minutes, result by email (sent, not instant), free guidance
-  const facts = [tl("testTime"), t("test.facts", { returnObjects: true })[1], tl("testGuidance")];
+  const facts = [t("test.time"), t("test.facts", { returnObjects: true })[1], tl("testGuidance")];
   const fn = t("test.fridgeNotes", { returnObjects: true });
-  const why = [["testAccurate", "testAccurateSub"], ["testFast", "testFastSub"], ["testDetailed", "testDetailedSub"], ["testGuidance", "testGuidanceSub"]].map(([a, b]) => [tl(a), tl(b)]);
+  const why = [["testAccurate", "testAccurateSub"], null, ["testDetailed", "testDetailedSub"], ["testGuidance", "testGuidanceSub"]]
+    .map((pair) => (pair ? [tl(pair[0]), tl(pair[1])] : t("test.adaptive", { returnObjects: true })));
   const notes = [
     { text: fn[0], x: 9, y: 9, r: -4, c: "var(--amber)", m: "#d0343f" },
     { text: fn[1], x: 52, y: 12, r: 3, c: "var(--teal)", m: "#2c6fd1" },
@@ -66,7 +67,7 @@ export default function LevelTest() {
 
       <section className="gsec enamel tight" id="why">
         <div className="wrap">
-          <SectionHead single title={tl("whyTakeTest")} text={plain(tl("testQuestionsInfo"))} />
+          <SectionHead single title={tl("whyTakeTest")} text={t("test.questionsInfo")} />
           <div className="whys">
             {why.map(([h, p], i) => (
               <Sticky key={h} c={WHY[i][0]} m={WHY[i][1]} r={WHY[i][2]}>{WHY[i][3]}<h3>{h}</h3><p>{p}</p></Sticky>
