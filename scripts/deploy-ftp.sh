@@ -15,8 +15,25 @@ REMOTE=""
 cd "$(dirname "$0")/.."
 [ -f dist/index.html ] || { echo "dist/ not found: run npx vite build first"; exit 1; }
 
-read -r -s -p "FTP password for $USER_NAME: " PASS; echo
+# The password is kept encrypted with Windows DPAPI (only this Windows user on this PC can read it).
+# First run asks for it and saves it; delete the file to be asked again (e.g. after changing it in hPanel).
+CRED_FILE="$HOME/.lingolandias-ftp.cred"
+ps() { powershell.exe -NoProfile -NonInteractive -Command "$1" | tr -d '\r'; }
+if [ -f "$CRED_FILE" ]; then
+  PASS=$(ps "\$s = Get-Content -Raw '$(cygpath -w "$CRED_FILE")' | ConvertTo-SecureString; [Runtime.InteropServices.Marshal]::PtrToStringBSTR([Runtime.InteropServices.Marshal]::SecureStringToBSTR(\$s))")
+  echo "Using the saved FTP password ($CRED_FILE)."
+else
+  read -r -s -p "FTP password for $USER_NAME: " PASS; echo
+  printf '%s' "$PASS" | powershell.exe -NoProfile -NonInteractive -Command "[Console]::In.ReadToEnd() | ConvertTo-SecureString -AsPlainText -Force | ConvertFrom-SecureString | Set-Content -NoNewline '$(cygpath -w "$CRED_FILE")'"
+  echo "Saved encrypted for next time."
+fi
 CREDS="$USER_NAME:$PASS"
+# check the login before uploading anything; a rejected saved password is forgotten
+if ! curl --silent --fail --ftp-pasv --connect-timeout 15 --user "$CREDS" -l "$HOST/" -o /dev/null; then
+  rm -f "$CRED_FILE"
+  echo "FTP login failed. The saved password was removed; run the script again to enter it."
+  exit 1
+fi
 
 # $1 = folder inside dist ("" for the root), rest = file names in that folder
 upload_dir() {
