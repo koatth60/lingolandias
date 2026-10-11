@@ -18,16 +18,16 @@
     Header set Cache-Control "no-cache, no-store, must-revalidate"
   </FilesMatch>
 
-  # Hashed JS/CSS assets - 1 year immutable (filename changes on every build)
-  <FilesMatch "assets/.*\.(js|css)$">
+  # JS/CSS - 1 year immutable (Vite puts a content hash in every file name)
+  <FilesMatch "\.(js|css)$">
     ExpiresDefault "access plus 1 year"
     Header set Cache-Control "public, max-age=31536000, immutable"
   </FilesMatch>
 
-  # Images - 1 year
+  # Images - 1 week (favicon and logo keep fixed names, so they must be able to change)
   <FilesMatch "\.(webp|jpg|jpeg|png|gif|ico|svg)$">
-    ExpiresDefault "access plus 1 year"
-    Header set Cache-Control "public, max-age=31536000, immutable"
+    ExpiresDefault "access plus 7 days"
+    Header set Cache-Control "public, max-age=604800"
   </FilesMatch>
 
   # Fonts - 1 year

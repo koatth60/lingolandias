@@ -9,6 +9,8 @@ export default defineConfig({
     compression({ algorithm: 'brotliCompress', ext: '.br' }),
   ],
   build: {
+    // hashed files live in /static (the old /assets folder on the server is retired)
+    assetsDir: 'static',
     rollupOptions: {
       output: {
         manualChunks: {

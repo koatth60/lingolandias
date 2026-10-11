@@ -17,7 +17,6 @@ const NEVERA_PATHS = ["/", "/courses", "/about", "/test", "/english-quiz", "/spa
 
 // All other pages load only when the user navigates to them
 const Contact      = lazy(() => import("./pages/Contact.jsx"));
-const Collaboration = lazy(() => import("./pages/Collaboration.jsx"));
 const SpanishQuiz  = lazy(() => import("./tests/SpanishTest.jsx"));
 const EnglishQuiz  = lazy(() => import("./tests/EnglishTest.jsx"));
 
@@ -109,7 +108,7 @@ const router = createBrowserRouter([
       { path: "/test",         element: <LevelTest /> },
       { path: "/spanish-quiz", element: <SpanishQuiz /> },
       { path: "/english-quiz", element: <EnglishQuiz /> },
-      { path: "/collaboration", element: <Collaboration /> },
+      { path: "/collaboration", element: <Navigate to="/" replace /> },
       // Old URLs: the redesign has no teachers section and workshops live on /courses
       { path: "/team",         element: <Navigate to="/about" replace /> },
       { path: "/enteachers",   element: <Navigate to="/about" replace /> },
