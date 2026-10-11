@@ -5,7 +5,8 @@
 # visitors never load a page whose assets are not uploaded yet.
 set -euo pipefail
 
-HOST="ftp://lingolandias.net"
+# the domain resolves to Hostinger's CDN, which does not carry FTP: use the FTP IP from hPanel
+HOST="ftp://141.136.39.225"
 USER_NAME="u192979876"
 REMOTE="public_html"
 
@@ -16,7 +17,7 @@ read -r -s -p "FTP password for $USER_NAME: " PASS; echo
 CREDS="$USER_NAME:$PASS"
 
 upload() { # $1 = path inside dist
-  curl --silent --show-error --fail --ftp-create-dirs --ftp-pasv \
+  curl --silent --show-error --fail --ftp-create-dirs --ftp-pasv --connect-timeout 15 --max-time 120 \
     --user "$CREDS" -T "dist/$1" "$HOST/$REMOTE/$1"
 }
 
