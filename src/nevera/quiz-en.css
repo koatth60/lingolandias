@@ -1,0 +1,77 @@
+/* English level test: extras on top of quiz.css (word bank, inline blanks, matching, odd-one-out grid). Scoped under .nv .qen. */
+.nv .qen{scroll-margin-top:16px}
+.nv .qen :focus-visible{outline-color:var(--wall2)}
+.nv .qen .qhelp{margin-top:6px;color:#6b5a80;font-size:.95rem;line-height:1.5}
+.nv .qen .qhelp b{color:var(--wall2)}
+
+/* word bank for drag and drop */
+.nv .qbank{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0 22px;padding:16px;background:#f6f2fb;border-radius:12px}
+.nv .qbank .qtile{min-height:46px;padding:8px 16px;font-size:1rem;transform:rotate(var(--r,0deg));transition:opacity .2s,transform .2s}
+.nv .qbank .qtile[data-dragging=true]{opacity:.35}
+.nv .qbank .qtile[data-state=matched]{opacity:.3;box-shadow:none}
+
+/* inline blank inside a passage or sentence */
+.nv .qpassage{font-size:1.05rem;line-height:3;color:#3a2a52}
+.nv .qblank{display:inline-flex;align-items:center;justify-content:center;vertical-align:middle;min-width:92px;min-height:44px;margin:2px 4px;padding:4px 12px;border:2px dashed #cbbfdd;border-radius:10px;background:#faf8fc;color:#a397b3;font-weight:700;line-height:1.2;transition:border-color .2s,background .2s}
+.nv .qblank[data-over=true]{border-color:var(--wall2);background:#f3ecfc}
+.nv .qblank[data-filled=true]{border-style:solid;border-color:var(--teal);background:#effbf8;color:var(--ink)}
+
+/* sentences list (Q10) */
+.nv .qlines{display:grid;gap:10px;margin:0;padding:0;list-style:none}
+.nv .qline{position:relative;padding:6px 14px 6px 46px;border:1.5px solid #e4ddee;border-radius:10px;background:#fbf9fd;font-size:1.02rem;line-height:2.9;color:#3a2a52}
+.nv .qline .qletter{position:absolute;left:16px;top:6px;font-weight:800;color:var(--wall2)}
+
+/* click-to-match (Q5, Q6) */
+.nv .qmatch{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:18px}
+.nv .qcol{display:grid;gap:10px;align-content:start;margin:0;padding:0;list-style:none}
+.nv .qcolhead{font-family:var(--h);font-size:1.3rem;color:var(--wall2);text-align:center}
+.nv .qpick{display:flex;align-items:center;gap:10px;width:100%;min-height:52px;padding:10px 12px;border:2px solid #e4ddee;border-radius:12px;background:#fff;text-align:left;font-size:1rem;line-height:1.35;color:var(--ink);transition:border-color .2s,background .2s}
+.nv .qpick:hover{border-color:var(--lilac)}
+.nv .qpick .chip{flex:none;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;font-weight:800;font-size:13px;background:#efe9f7;color:var(--wall2)}
+.nv .qpick[data-state=selected]{border-color:var(--wall2);background:#f6f1fd;box-shadow:0 0 0 3px rgba(107,31,166,.18)}
+.nv .qpick[data-state=selected] .chip{background:var(--wall2);color:#fff}
+.nv .qpick[data-state=matched]{border-color:transparent;background:var(--c)}
+.nv .qpick[data-state=matched] .chip{background:rgba(255,255,255,.7);color:var(--ink)}
+.nv .qpick.word{font-weight:700}
+
+/* sub-questions (Q7) */
+.nv .qsubs{display:grid;gap:26px;margin-top:20px}
+.nv .qsub{border:0;padding:0;min-width:0}
+.nv .qsub legend{padding:0;font-weight:700;font-size:1.05rem;color:var(--ink)}
+.nv .qsub .qopts{margin-top:10px}
+
+/* fill-in pairs (Q8) */
+.nv .qpair{display:flex;align-items:center;gap:12px}
+.nv .qpair .who{flex:none;width:52px;font-weight:800;font-size:1.1rem;color:var(--wall2)}
+
+/* odd word out (Q9): labelled radios */
+.nv .qrows{display:grid;gap:12px;margin-top:18px}
+.nv .qrow{display:grid;grid-template-columns:32px minmax(0,1fr);align-items:center;gap:8px}
+.nv .qrow .qletter{font-weight:800;color:var(--wall2)}
+.nv .qrow .choices{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.nv .qchoice{position:relative;display:flex;align-items:center;justify-content:center;min-height:48px;padding:8px 6px;border:2px solid #e4ddee;border-radius:10px;background:#fff;text-align:center;font-size:.98rem;line-height:1.25;overflow-wrap:anywhere;cursor:pointer;transition:border-color .2s,background .2s}
+.nv .qchoice:hover{border-color:var(--lilac)}
+.nv .qchoice input{position:absolute;opacity:0;pointer-events:none}
+.nv .qchoice:has(input:checked){border-color:var(--wall2);background:var(--amber);font-weight:700}
+.nv .qchoice:has(input:focus-visible){outline:3px solid var(--wall2);outline-offset:2px}
+
+/* results */
+.nv .qresult{display:grid;justify-items:center;text-align:center;gap:12px}
+.nv .qresult h2{font-weight:800;font-size:clamp(1.9rem,5vw,2.6rem);line-height:1.05;letter-spacing:-.03em;color:var(--ink)}
+.nv .qresult .qtext{max-width:46ch}
+.nv .qresult .qsource{width:100%;margin:6px 0;overflow-wrap:anywhere}
+.nv .qresult .qform{width:100%;max-width:460px;grid-template-columns:minmax(0,1fr) auto;align-items:stretch}
+.nv .qresult .qform .btn{justify-content:center}
+.nv .qresult .qnote{color:#6b5a80;font-size:.95rem}
+
+@media (max-width:560px){
+  .nv .qmatch{gap:8px}
+  .nv .qpick{padding:8px 10px;gap:8px;font-size:.95rem}
+  .nv .qpair .who{width:44px}
+  .nv .qresult .qform{grid-template-columns:minmax(0,1fr)}
+  .nv .qresult .btn{width:100%;justify-content:center}
+}
+@media (max-width:480px){
+  .nv .qrow{grid-template-columns:minmax(0,1fr);gap:4px}
+}
+@media (prefers-reduced-motion:reduce){.nv .qbank .qtile,.nv .qblank,.nv .qpick,.nv .qchoice{transition:none}}

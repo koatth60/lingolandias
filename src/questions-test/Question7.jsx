@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { useTranslation } from 'react-i18next';
+import { Option } from "../nevera/QuizShell";
+import { Arrow } from "../nevera/ui";
 
 const subQuestions = [
   {
@@ -49,16 +51,18 @@ const correctAnswers = ["a", "a", "a", "a", "a"];
 const Question7 = ({ onNext }) => {
   const { t } = useTranslation();
   const [selectedAnswers, setSelectedAnswers] = useState(Array(subQuestions.length).fill(null));
+  const [hint, setHint] = useState(false);
 
   const handleAnswerSelection = (questionIndex, answer) => {
     const newSelectedAnswers = [...selectedAnswers];
     newSelectedAnswers[questionIndex] = answer;
     setSelectedAnswers(newSelectedAnswers);
+    setHint(false);
   };
 
   const handleNext = () => {
     if (selectedAnswers.includes(null)) {
-      alert(t("pleaseAnswerAll"));
+      setHint(true);
       return;
     }
     const allCorrect = selectedAnswers.every((answer, index) => answer === correctAnswers[index]);
@@ -66,42 +70,34 @@ const Question7 = ({ onNext }) => {
   };
 
   return (
-    <div className="relative bg-gradient-to-br from-purple-900/90 to-purple-800/90 backdrop-blur-xl rounded-2xl border border-white/20 p-8 shadow-2xl">
-      <div className="h-1 bg-gradient-to-r from-purple-500 to-blue-500 absolute top-0 left-0 right-0 rounded-t-2xl"></div>
+    <div className="qcard" style={{ "--qm": "#2c6fd1" }}>
+      <h2 className="qprompt">Choose the correct answer for each question:</h2>
 
-      <p className="text-white/80 text-lg font-medium mb-6 mt-2">Choose the correct answer for each question:</p>
-
-      <div className="space-y-8">
+      <div className="qsubs" lang="en">
         {subQuestions.map((sq, qIndex) => (
-          <div key={qIndex} className="bg-white/5 rounded-xl border border-white/10 p-5">
-            <p className="text-white font-semibold mb-4">{sq.question}</p>
-            <div className="space-y-2">
+          <fieldset key={qIndex} className="qsub">
+            <legend>{sq.question}</legend>
+            <div className="qopts">
               {sq.options.map((opt) => (
-                <label
+                <Option
                   key={opt.value}
-                  className={`flex items-center gap-3 px-4 py-3 rounded-lg border cursor-pointer transition-all duration-300
-                    ${selectedAnswers[qIndex] === opt.value
-                      ? "border-purple-400/70 bg-purple-500/20"
-                      : "border-white/10 bg-white/5 hover:bg-white/10 hover:border-purple-400/30"
-                    }`}
+                  letter={opt.value.toUpperCase()}
+                  state={selectedAnswers[qIndex] === opt.value ? "selected" : "idle"}
+                  aria-pressed={selectedAnswers[qIndex] === opt.value}
+                  onClick={() => handleAnswerSelection(qIndex, opt.value)}
                 >
-                  <input type="radio" name={`answer${qIndex}`} value={opt.value} onChange={() => handleAnswerSelection(qIndex, opt.value)} className="hidden" />
-                  <div className={`w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0 border-2 transition-all
-                    ${selectedAnswers[qIndex] === opt.value ? "bg-purple-500 border-purple-400 text-white" : "bg-purple-900/60 border-white/20 text-white/60"}`}>
-                    {opt.value.toUpperCase()}
-                  </div>
-                  <span className="text-white/90 text-sm">{opt.label}</span>
-                </label>
+                  {opt.label}
+                </Option>
               ))}
             </div>
-          </div>
+          </fieldset>
         ))}
       </div>
 
-      <div className="flex justify-end mt-6">
-        <button onClick={handleNext} className="group px-8 py-4 bg-gradient-to-r from-purple-500 to-blue-500 rounded-xl text-white font-semibold hover:scale-105 transition-transform shadow-xl inline-flex items-center gap-3">
-          <span>{t("next")}</span>
-          <span className="text-xl group-hover:translate-x-1 transition-transform">→</span>
+      <div className="qactions">
+        {hint && <p className="qhint" role="alert">{t("pleaseAnswerAll")}</p>}
+        <button type="button" className="btn btn-ink" onClick={handleNext}>
+          {t("next")} <Arrow />
         </button>
       </div>
     </div>

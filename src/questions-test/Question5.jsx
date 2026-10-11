@@ -1,5 +1,8 @@
 import { useState } from "react";
 import { useTranslation } from 'react-i18next';
+import { Arrow, NOTE_COLORS } from "../nevera/ui";
+
+const LETTERS = "ABCDEF";
 
 const Question5 = ({ onNext }) => {
   const { t } = useTranslation();
@@ -8,17 +11,13 @@ const Question5 = ({ onNext }) => {
 
   const [selectedPhrase, setSelectedPhrase] = useState(null);
   const [matches, setMatches] = useState(Array(phrases.length).fill(null));
-  const [matchColors] = useState([
-    "from-purple-500 to-blue-500",
-    "from-orange-500 to-pink-500",
-    "from-green-500 to-teal-500",
-    "from-yellow-500 to-orange-500",
-    "from-pink-500 to-purple-500",
-    "from-blue-500 to-cyan-500",
-  ]);
+  const [hint, setHint] = useState(false);
+  // one note colour per pair, so a matched phrase and its translation share a colour (and a letter)
+  const [matchColors] = useState([...NOTE_COLORS, "#a9d8ff"]);
 
   const handlePhraseClick = (index) => {
     if (selectedPhrase === null) setSelectedPhrase(index);
+    setHint(false);
   };
 
   const handleTranslationClick = (index) => {
@@ -27,12 +26,13 @@ const Question5 = ({ onNext }) => {
       newMatches[selectedPhrase] = index;
       setMatches(newMatches);
       setSelectedPhrase(null);
+      setHint(false);
     }
   };
 
   const handleNext = () => {
     if (matches.includes(null)) {
-      alert(t("pleaseMatchAll"));
+      setHint(true);
       return;
     }
     const correctMatches = { Always: "zawsze", Usually: "zazwyczaj", Often: "często", Rarely: "rzadko", Never: "nigdy", Sometimes: "czasami" };
@@ -41,60 +41,70 @@ const Question5 = ({ onNext }) => {
   };
 
   return (
-    <div className="relative bg-gradient-to-br from-purple-900/90 to-purple-800/90 backdrop-blur-xl rounded-2xl border border-white/20 p-8 shadow-2xl">
-      <div className="h-1 bg-gradient-to-r from-purple-500 to-blue-500 absolute top-0 left-0 right-0 rounded-t-2xl"></div>
+    <div className="qcard" style={{ "--qm": "#127a6e" }}>
+      <h2 className="qprompt">Match the phrases with their translations:</h2>
+      <p className="qhelp">Click a phrase on the left, then click its matching translation on the right.</p>
 
-      <p className="text-white/80 text-lg font-medium mb-2 mt-2">Match the phrases with their translations:</p>
-      <p className="text-white/50 text-sm mb-6">Click a phrase on the left, then click its matching translation on the right.</p>
-
-      <div className="flex gap-6 justify-center mb-6">
+      <div className="qmatch">
         {/* Phrases column */}
-        <div className="space-y-2 flex-1">
-          <p className="text-white/40 text-xs uppercase tracking-wider text-center mb-3">{t("phrases")}</p>
-          {phrases.map((phrase, index) => {
-            const matchedColor = matches[index] !== null ? matchColors[index] : null;
-            const isSelected = selectedPhrase === index;
-            return (
-              <div
-                key={index}
-                onClick={() => handlePhraseClick(index)}
-                className={`px-4 py-3 rounded-xl border cursor-pointer text-center font-medium transition-all duration-200
-                  ${isSelected ? "border-yellow-400 bg-yellow-400/20 text-yellow-300 scale-105" : ""}
-                  ${!isSelected && matchedColor ? `border-white/30 bg-gradient-to-r ${matchedColor} bg-opacity-20 text-white` : ""}
-                  ${!isSelected && !matchedColor ? "border-white/20 bg-white/5 text-white/80 hover:bg-white/10" : ""}
-                `}
-              >
-                {phrase}
-              </div>
-            );
-          })}
+        <div>
+          <p className="qcolhead" id="q5-phrases">{t("phrases")}</p>
+          <ul className="qcol" aria-labelledby="q5-phrases">
+            {phrases.map((phrase, index) => {
+              const isMatched = matches[index] !== null;
+              const isSelected = selectedPhrase === index;
+              return (
+                <li key={index}>
+                  <button
+                    type="button"
+                    className="qpick word"
+                    lang="en"
+                    data-state={isSelected ? "selected" : isMatched ? "matched" : "idle"}
+                    style={{ "--c": matchColors[index] }}
+                    aria-pressed={isSelected}
+                    onClick={() => handlePhraseClick(index)}
+                  >
+                    <span className="chip" aria-hidden="true">{LETTERS[index]}</span>
+                    <span>{phrase}</span>
+                  </button>
+                </li>
+              );
+            })}
+          </ul>
         </div>
 
         {/* Translations column */}
-        <div className="space-y-2 flex-1">
-          <p className="text-white/40 text-xs uppercase tracking-wider text-center mb-3">{t("translations")}</p>
-          {translations.map((translation, index) => {
-            const matchedByPhrase = matches.indexOf(index);
-            const matchedColor = matchedByPhrase !== -1 ? matchColors[matchedByPhrase] : null;
-            return (
-              <div
-                key={index}
-                onClick={() => handleTranslationClick(index)}
-                className={`px-4 py-3 rounded-xl border cursor-pointer text-center transition-all duration-200
-                  ${matchedColor ? `border-white/30 bg-gradient-to-r ${matchedColor} bg-opacity-20 text-white font-medium` : "border-white/20 bg-white/5 text-white/80 hover:bg-white/10 hover:border-purple-400/40"}
-                `}
-              >
-                {translation}
-              </div>
-            );
-          })}
+        <div>
+          <p className="qcolhead" id="q5-translations">{t("translations")}</p>
+          <ul className="qcol" aria-labelledby="q5-translations">
+            {translations.map((translation, index) => {
+              const matchedByPhrase = matches.indexOf(index);
+              const isMatched = matchedByPhrase !== -1;
+              return (
+                <li key={index}>
+                  <button
+                    type="button"
+                    className="qpick"
+                    lang="pl"
+                    data-state={isMatched ? "matched" : "idle"}
+                    style={isMatched ? { "--c": matchColors[matchedByPhrase] } : undefined}
+                    onClick={() => handleTranslationClick(index)}
+                  >
+                    <span className="chip" aria-hidden="true">{isMatched ? LETTERS[matchedByPhrase] : ""}</span>
+                    <span>{translation}</span>
+                    {isMatched && <span className="sr" lang="en">{` = ${phrases[matchedByPhrase]}`}</span>}
+                  </button>
+                </li>
+              );
+            })}
+          </ul>
         </div>
       </div>
 
-      <div className="flex justify-end mt-4">
-        <button onClick={handleNext} className="group px-8 py-4 bg-gradient-to-r from-purple-500 to-blue-500 rounded-xl text-white font-semibold hover:scale-105 transition-transform shadow-xl inline-flex items-center gap-3">
-          <span>{t("next")}</span>
-          <span className="text-xl group-hover:translate-x-1 transition-transform">→</span>
+      <div className="qactions">
+        {hint && <p className="qhint" role="alert">{t("pleaseMatchAll")}</p>}
+        <button type="button" className="btn btn-ink" onClick={handleNext}>
+          {t("next")} <Arrow />
         </button>
       </div>
     </div>
