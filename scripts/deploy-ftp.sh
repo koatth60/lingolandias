@@ -24,7 +24,9 @@ if [ -f "$CRED_FILE" ]; then
   echo "Using the saved FTP password ($CRED_FILE)."
 else
   read -r -s -p "FTP password for $USER_NAME: " PASS; echo
-  printf '%s' "$PASS" | powershell.exe -NoProfile -NonInteractive -Command "[Console]::In.ReadToEnd() | ConvertTo-SecureString -AsPlainText -Force | ConvertFrom-SecureString | Set-Content -NoNewline '$(cygpath -w "$CRED_FILE")'"
+  [ -n "$PASS" ] || { echo "Empty password, nothing saved."; exit 1; }
+  # handed over in an environment variable that only this child process sees
+  FTP_PW="$PASS" powershell.exe -NoProfile -NonInteractive -Command "\$env:FTP_PW | ConvertTo-SecureString -AsPlainText -Force | ConvertFrom-SecureString | Set-Content -NoNewline '$(cygpath -w "$CRED_FILE")'"
   echo "Saved encrypted for next time."
 fi
 CREDS="$USER_NAME:$PASS"
