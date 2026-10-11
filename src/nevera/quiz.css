@@ -1,0 +1,77 @@
+/* Level-test quizzes: one paper card on the enamel, options as tappable strips. Scoped under .nv. */
+.nv .qpage{background:var(--enamel);color:var(--ink);padding:clamp(40px,6vw,72px) clamp(16px,4vw,48px) clamp(64px,8vw,104px)}
+.nv .qwrap{max-width:760px;margin:0 auto}
+.nv .qhead{background:var(--wall);color:#fff;padding:clamp(24px,4vw,48px) clamp(16px,4vw,48px) clamp(36px,5vw,56px)}
+.nv .qhead .qwrap{display:grid;gap:12px}
+.nv .qhead .hand{font-size:1.5rem;color:var(--amber)}
+.nv .qhead h1{font-weight:800;font-size:clamp(2.1rem,5vw,3.4rem);line-height:1;letter-spacing:-.035em}
+.nv .qhead p{color:#e0d3f2;font-size:1.05rem;line-height:1.55;max-width:56ch}
+
+/* progress: count in handwriting + amber ruler */
+.nv .qprogress{display:flex;align-items:center;gap:16px;margin-bottom:28px}
+.nv .qprogress .count{font-family:var(--h);font-size:1.5rem;white-space:nowrap;color:var(--wall2)}
+.nv .qprogress .bar{flex:1;height:14px;border-radius:4px;background:repeating-linear-gradient(90deg,transparent 0 9px,rgba(31,15,51,.18) 9px 10px),#e4ddee;overflow:hidden}
+.nv .qprogress .bar span{display:block;height:100%;background:repeating-linear-gradient(90deg,transparent 0 9px,rgba(31,15,51,.22) 9px 10px),var(--amber);transition:width .5s cubic-bezier(.2,.8,.2,1)}
+
+/* the question card: white note with a magnet */
+.nv .qcard{position:relative;background:#fff;color:var(--ink);padding:clamp(30px,4vw,44px) clamp(20px,4vw,40px) clamp(24px,3vw,32px);box-shadow:0 22px 36px -20px rgba(46,13,79,.45)}
+.nv .qcard::before{content:"";position:absolute;top:-11px;left:50%;width:40px;height:20px;margin-left:-20px;border-radius:7px;background:linear-gradient(180deg,rgba(255,255,255,.38),rgba(255,255,255,0) 55%),var(--qm,#6b1fa6);box-shadow:0 3px 0 color-mix(in srgb,var(--qm,#6b1fa6) 62%,#000),0 7px 9px -2px rgba(0,0,0,.3)}
+.nv .qprompt{font-weight:700;font-size:1.15rem;line-height:1.4;color:#3a2a52}
+.nv .qsource{margin:14px 0 22px;background:var(--amber);padding:16px 20px;font-family:var(--h);font-size:clamp(1.35rem,2.6vw,1.75rem);line-height:1.2;text-align:center;transform:rotate(-.6deg)}
+.nv .qsource.teal{background:var(--teal)}
+.nv .qsource.pink{background:var(--pink)}
+.nv .qtext{font-size:1.05rem;line-height:1.6;color:#3a2a52}
+
+/* options */
+.nv .qopts{display:grid;gap:10px;margin-top:18px;list-style:none;padding:0}
+.nv .qopt{display:flex;align-items:center;gap:14px;width:100%;min-height:56px;padding:12px 16px;border:2px solid #e4ddee;border-radius:12px;background:#fff;text-align:left;font-size:1rem;line-height:1.45;color:var(--ink);cursor:pointer;transition:border-color .2s,background .2s,transform .2s}
+.nv .qopt:hover{border-color:var(--lilac);background:#faf7ff}
+.nv .qopt .chip{flex:none;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;font-weight:800;font-size:14px;background:#efe9f7;color:var(--wall2);transition:background .2s,color .2s}
+.nv .qopt[data-state=selected]{border-color:var(--wall2);background:#f6f1fd}
+.nv .qopt[data-state=selected] .chip{background:var(--wall2);color:#fff}
+.nv .qopt[data-state=correct]{border-color:#1f8a5b;background:#eaf8f1}
+.nv .qopt[data-state=correct] .chip{background:#1f8a5b;color:#fff}
+.nv .qopt[data-state=wrong]{border-color:#c4364a;background:#fdeef0}
+.nv .qopt[data-state=wrong] .chip{background:#c4364a;color:#fff}
+.nv .qopt[data-state=dim]{opacity:.55;cursor:default}
+.nv .qopt:disabled{cursor:default}
+.nv .qopt input{position:absolute;opacity:0;pointer-events:none}
+.nv .qopt:has(input:focus-visible){outline:3px solid var(--wall2);outline-offset:2px}
+
+/* text inputs and selects */
+.nv .qinput{width:100%;min-height:52px;padding:12px 14px;border:2px solid #d9cfe6;border-radius:10px;background:#fff;color:var(--ink);font:inherit;font-size:1.05rem}
+.nv .qinput:focus{outline:none;border-color:var(--wall2);box-shadow:0 0 0 3px rgba(107,31,166,.18)}
+.nv .qinput::placeholder{color:#8a7d9c}
+.nv select.qinput{appearance:auto}
+
+/* matching / drag and drop */
+.nv .qgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:18px}
+.nv .qtile{display:flex;align-items:center;justify-content:center;min-height:52px;padding:10px 14px;background:var(--c,var(--lilac));color:var(--ink);font-weight:600;line-height:1.3;text-align:center;box-shadow:0 8px 14px -8px rgba(46,13,79,.45);cursor:grab;touch-action:none;user-select:none}
+.nv .qtile[data-state=selected]{outline:3px solid var(--wall2);outline-offset:2px}
+.nv .qtile[data-state=matched]{opacity:.5;cursor:default}
+.nv .qdrop{min-height:56px;padding:10px 14px;border:2px dashed #cbbfdd;border-radius:10px;background:#faf8fc;display:flex;align-items:center;gap:10px;color:#6b5a80}
+.nv .qdrop[data-over=true]{border-color:var(--wall2);background:#f3ecfc}
+.nv .qdrop[data-filled=true]{border-style:solid;border-color:var(--teal);background:#effbf8;color:var(--ink)}
+
+/* footer of a card: hint + next */
+.nv .qactions{display:flex;flex-wrap:wrap;align-items:center;justify-content:flex-end;gap:12px 20px;margin-top:26px}
+.nv .qhint{margin-right:auto;font-family:var(--h);font-size:1.25rem;color:#b02a3e}
+.nv .qfeedback{margin-top:16px;padding:12px 16px;border-radius:10px;font-weight:600;line-height:1.45}
+.nv .qfeedback.ok{background:#eaf8f1;color:#17663f}
+.nv .qfeedback.ko{background:#fdeef0;color:#9c2334}
+
+/* results */
+.nv .qscore{display:grid;justify-items:center;text-align:center;gap:8px;padding:8px 0 12px}
+.nv .qscore .big{font-weight:800;font-size:clamp(3.4rem,10vw,5.5rem);line-height:1;letter-spacing:-.04em}
+.nv .qscore .hand{font-size:1.6rem;color:var(--wall2)}
+.nv .qform{display:grid;gap:14px;margin-top:22px}
+.nv .qform label{display:grid;gap:6px;font-weight:700;font-size:.95rem;color:#3a2a52}
+.nv .qstatus{font-weight:600}
+.nv .qstatus.ok{color:#17663f}
+.nv .qstatus.ko{color:#9c2334}
+
+@media (max-width:560px){
+  .nv .qgrid{grid-template-columns:minmax(0,1fr)}
+  .nv .qactions .btn{width:100%;justify-content:center}
+}
+@media (prefers-reduced-motion:reduce){.nv .qprogress .bar span,.nv .qopt{transition:none}}

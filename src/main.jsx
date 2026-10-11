@@ -13,7 +13,7 @@ import Home from "./nevera/pages/Home.jsx";
 const Classes   = lazy(() => import("./nevera/pages/Classes.jsx"));
 const About     = lazy(() => import("./nevera/pages/About.jsx"));
 const LevelTest = lazy(() => import("./nevera/pages/LevelTest.jsx"));
-const NEVERA_PATHS = ["/", "/courses", "/about", "/test"];
+const NEVERA_PATHS = ["/", "/courses", "/about", "/test", "/english-quiz", "/spanish-quiz", "/contact"];
 
 // All other pages load only when the user navigates to them
 const Team         = lazy(() => import("./pages/Team.jsx"));
