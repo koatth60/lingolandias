@@ -138,6 +138,16 @@ export default {
     lede: "Chcesz mówić swobodnie: w pracy, na lotnisku, w sklepie, z sąsiadem. Wybierz swój język i zobacz, co jest dla ciebie na lodówce.",
     tabsLabel: "Wybierz język",
     tabs: { en: "Każdy poziom", es: "Przez angielski", it: "Przez angielski", pl: "Drugi język", id: "Przez angielski" },
+    common: {
+      title: "Każde zajęcia to także:",
+      text: "Niezależnie od języka, to zawsze jest w pakiecie. Zajęcia odbywają się na żywo, na platformie lingolandias.com.",
+      items: [
+        ["Lekcje 1:1", "w twoim tempie, z twoimi celami i twoją energią."],
+        ["Kontakt z nauczycielem przez WhatsApp", "nie tylko „jedna lekcja w tygodniu”: wsparcie między zajęciami."],
+        ["Własne materiały", "gry, podcasty, prezentacje, ćwiczenia i filmy stworzone przez nas."],
+        ["Nasza metoda", "oparta na rozmowie, relacjach i emocjach, nie na tabelkach."],
+      ],
+    },
     sections: {
       en: {
         title: "Angielski", sub: "Prawdziwe rozmowy, prawdziwe życie, własne tempo.",
@@ -234,7 +244,7 @@ export default {
     },
     formats: {
       title: "Formy zajęć.",
-      text: "Pięć sposobów, by ćwiczyć język z nami, na zajęciach i poza nimi.",
+      text: "Pięć sposobów, by ćwiczyć angielski z nami, na zajęciach i poza nimi.",
       items: [
         ["Lekcje 1:1", "Twoje tempo, twoje cele, twoja energia. Dopasowujemy się do ciebie, nie odwrotnie. Bez ocen, bez presji: tylko prawdziwy postęp, który poczujesz w rozmowie."],
         ["Bezpłatne zajęcia grupowe", "Dla wszystkich uczniów indywidualnych, bez dodatkowych opłat. Więcej śmiechu niż nerwów, więcej połączenia niż korekty."],

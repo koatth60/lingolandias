@@ -138,6 +138,16 @@ export default {
     lede: "Quieres hablar libremente: en el trabajo, en el aeropuerto, en la tienda, con tu vecino. Elige tu idioma y mira qué hay en la nevera para ti.",
     tabsLabel: "Elige un idioma",
     tabs: { en: "Todos los niveles", es: "A través del inglés", it: "A través del inglés", pl: "Segundo idioma", id: "A través del inglés" },
+    common: {
+      title: "Todas las clases incluyen.",
+      text: "Elijas el idioma que elijas, esto viene siempre. Las clases son en vivo, en la plataforma lingolandias.com.",
+      items: [
+        ["Lecciones 1:1", "a tu ritmo, con tus objetivos y tu energía."],
+        ["Contacto con tu profesor por WhatsApp", "no solo “una lección por semana”: apoyo entre clases."],
+        ["Materiales propios", "juegos, podcasts, presentaciones, ejercicios y videos hechos por nosotros."],
+        ["Nuestro método", "basado en la conversación, las relaciones y las emociones, no en tablas."],
+      ],
+    },
     sections: {
       en: {
         title: "Inglés", sub: "Conversaciones reales, vida real, a tu propio ritmo.",
@@ -234,7 +244,7 @@ export default {
     },
     formats: {
       title: "Formatos.",
-      text: "Cinco maneras de practicar tu idioma con nosotros, dentro y fuera de la clase.",
+      text: "Cinco maneras de practicar inglés con nosotros, dentro y fuera de la clase.",
       items: [
         ["Lecciones 1:1", "Tu ritmo, tus objetivos, tu energía. Nos adaptamos a ti, no al revés. Sin notas, sin presión: solo progreso real que sentirás en la conversación."],
         ["Sesiones grupales gratuitas", "Para todos los estudiantes individuales, sin cargos adicionales. Más risas que nervios, más conexión que corrección."],

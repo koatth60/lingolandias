@@ -138,6 +138,16 @@ export default {
     lede: "You want to speak freely: at work, at the airport, in the shop, with your neighbour. Choose your language and see what’s on the fridge for you.",
     tabsLabel: "Choose a language",
     tabs: { en: "All levels", es: "Through English", it: "Through English", pl: "Second language", id: "Through English" },
+    common: {
+      title: "What every class includes.",
+      text: "Whichever language you choose, this always comes with it. Classes are live, on the lingolandias.com platform.",
+      items: [
+        ["1:1 lessons", "at your pace, with your goals and your energy."],
+        ["WhatsApp contact with your teacher", "not just “one lesson a week”: support between classes."],
+        ["Our own materials", "games, podcasts, presentations, exercises and videos made by us."],
+        ["Our method", "built on conversation, relationships and emotions, not tables."],
+      ],
+    },
     sections: {
       en: {
         title: "English", sub: "Real conversations, real life, at your own pace.",
@@ -234,7 +244,7 @@ export default {
     },
     formats: {
       title: "Formats.",
-      text: "Five ways to practise your language with us, in and out of class.",
+      text: "Five ways to practise English with us, in and out of class.",
       items: [
         ["1:1 lessons", "Your pace, your goals, your energy. We adapt to you, not the other way round. No marks, no pressure: just real progress you’ll feel in conversation."],
         ["Free group sessions", "For all individual students, at no extra cost. More laughter than nerves, more connection than correction."],

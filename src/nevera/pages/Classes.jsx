@@ -5,13 +5,17 @@ import { Arrow, Check, Html, ICON, INSTAGRAM, LANGS, MAGNETS, NOTE_COLORS, Secti
 const TAB_TILT = [-2, 1.5, -1, 2, -1.5];
 const FORMAT_ICONS = [ICON.person, ICON.group, ICON.cup, ICON.globe, ICON.chat];
 const WORKSHOP_ICONS = [null, ICON.calendar, ICON.chat, ICON.insta];
+const COMMON = [[ICON.person, "var(--amber)", "#d0343f", -1.5], [ICON.chat, "var(--teal)", "#6b1fa6", 1], [ICON.list, "var(--pink)", "#2c6fd1", -1], [ICON.globe, "var(--lilac)", "#e8792a", 1.5]];
+// Items already covered by "every class includes" are hidden per language (indexes into each list)
+const KEEP = { en: [1, 2, 3, 4], es: [0, 4], it: [0, 1, 5], pl: [1, 2, 3], id: [0, 1] };
 
 function LangSection({ lang, index }) {
   const { t } = useNv();
   const s = t(`classes.sections.${lang.code}`, { returnObjects: true });
   const wall = index % 2 === 1;
+  const items = KEEP[lang.code].map((i) => s.items[i]).filter(Boolean);
   return (
-    <section className={`gsec ${wall ? "wall" : "enamel"} lsec`} id={lang.id}>
+    <section className={`gsec ${wall ? "wall" : "enamel"} lsec${index === 0 ? " tight" : ""}`} id={lang.id}>
       <div className="wrap">
         <div className="tx">
           <h2 className="h2">{s.title}</h2>
@@ -23,7 +27,7 @@ function LangSection({ lang, index }) {
           <article className="recipe" style={{ "--c": lang.c, "--r": `${index % 2 ? -1 : 1}deg` }}>
             <header><h3>{s.cardTitle}</h3><span className="hand" lang={lang.code} aria-hidden="true">{lang.hello}</span></header>
             <ul>
-              {s.items.map(([b, rest]) => <li key={b}><Check /><span><b>{b}</b> – {rest}</span></li>)}
+              {items.map(([b, rest]) => <li key={b}><Check /><span><b>{b}</b> – {rest}</span></li>)}
             </ul>
             {s.formatsLink && <p className="foot"><a href="#formats">{s.formatsLink}</a></p>}
           </article>
@@ -43,6 +47,7 @@ export default function Classes() {
   const h1 = t("classes.h1", { returnObjects: true });
   const formats = t("classes.formats.items", { returnObjects: true });
   const w = t("classes.workshops", { returnObjects: true });
+  const common = t("classes.common", { returnObjects: true });
 
   return (
     <Layout>
@@ -59,6 +64,17 @@ export default function Classes() {
               </a>
             ))}
           </nav>
+        </div>
+      </section>
+
+      <section className="gsec enamel" id="included">
+        <div className="wrap">
+          <SectionHead title={common.title} text={common.text} />
+          <div className="whys">
+            {common.items.map(([h, p], i) => (
+              <Sticky key={h} c={COMMON[i][1]} m={COMMON[i][2]} r={COMMON[i][3]}>{COMMON[i][0]}<h3>{h}</h3><p>{p}</p></Sticky>
+            ))}
+          </div>
         </div>
       </section>
 

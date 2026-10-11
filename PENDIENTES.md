@@ -27,7 +27,4 @@ Los textos están en `src/nevera/locales/es.js`, `en.js` y `pl.js`: hay que camb
 
 ## Cosas que quedan fuera de este cambio
 
-- Las páginas antiguas (`/team`, `/enteachers`, `/esteachers`, `/contact`, `/workshops`, `/collaboration` y los quizzes `/english-quiz`, `/spanish-quiz`) siguen con el diseño espacial antiguo y su menú viejo. Los quizzes son los únicos enlazados desde el diseño nuevo, así que son los siguientes que habría que pasar a Nevera.
-- `src/App.jsx`, `src/pages/Courses.jsx` y `src/pages/Test.jsx` ya no se usan en las rutas. No los he borrado.
-- Los metadatos SEO de `index.html` (título, descripción, JSON-LD) solo hablan de inglés y español.
-- La página de Clases repite mucho ("Lecciones 1:1", "Materiales personalizados"…). Se puede acortar con una nota común de "todas las clases incluyen".
+- `/team`, `/enteachers` y `/esteachers` redirigen a `/about`, y `/workshops` a `/courses#workshops`. `/collaboration` sigue con el diseño antiguo (no está enlazada en ningún menú).
