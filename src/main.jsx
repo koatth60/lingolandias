@@ -4,15 +4,20 @@ import { createRoot } from "react-dom/client";
 
 import "./index.css";
 import "./i18n.js"
+import "./nevera/i18n.js";
 
 // Landing page loads immediately — it's what every user sees first
-import App from "./App.jsx";
+import Home from "./nevera/pages/Home.jsx";
+
+// Nevera redesign pages (2026). Legacy pages below keep their old look until they are redesigned.
+const Classes   = lazy(() => import("./nevera/pages/Classes.jsx"));
+const About     = lazy(() => import("./nevera/pages/About.jsx"));
+const LevelTest = lazy(() => import("./nevera/pages/LevelTest.jsx"));
+const NEVERA_PATHS = ["/", "/courses", "/about", "/test"];
 
 // All other pages load only when the user navigates to them
-const Courses      = lazy(() => import("./pages/Courses.jsx"));
 const Team         = lazy(() => import("./pages/Team.jsx"));
 const Contact      = lazy(() => import("./pages/Contact.jsx"));
-const Test         = lazy(() => import("./pages/Test.jsx"));
 const Collaboration = lazy(() => import("./pages/Collaboration.jsx"));
 const Workshops     = lazy(() => import("./pages/Workshops.jsx"));
 const EnglishTeachers = lazy(() => import("./nested-routes/EnglishTeachers.jsx"));
@@ -29,10 +34,24 @@ const PageLoader = () => (
 );
 
 const ScrollToTop = () => {
-  const { pathname } = useLocation();
-  useEffect(() => { window.scrollTo(0, 0); }, [pathname]);
+  const { pathname, hash } = useLocation();
+  const nevera = NEVERA_PATHS.includes(pathname);
+
+  // New page: top, or the #section it links to (e.g. /courses#spanish)
+  useEffect(() => {
+    if (!hash) { window.scrollTo(0, 0); return; }
+    // lazy pages mount after Suspense resolves, so wait for the target to exist
+    let tries = 0;
+    const t = setInterval(() => {
+      const el = document.getElementById(decodeURIComponent(hash.slice(1)));
+      if (el) el.scrollIntoView({ behavior: "instant", block: "start" });
+      if (el || ++tries > 40) clearInterval(t);
+    }, 50);
+    return () => clearInterval(t);
+  }, [pathname, hash]);
 
   useEffect(() => {
+    if (nevera) return;
     const container = document.createElement('div');
     container.className = 'particles';
     for (let i = 0; i < 40; i++) {
@@ -49,7 +68,9 @@ const ScrollToTop = () => {
     }
     document.body.appendChild(container);
     return () => { if (document.body.contains(container)) document.body.removeChild(container); };
-  }, []);
+  }, [nevera]);
+
+  if (nevera) return <Outlet />;
 
   return (
     <>
@@ -87,13 +108,14 @@ const router = createBrowserRouter([
   {
     element: <ScrollToTop />,
     children: [
-      { path: "/",             element: <App /> },
-      { path: "/courses",      element: <Courses /> },
+      { path: "/",             element: <Home /> },
+      { path: "/courses",      element: <Classes /> },
+      { path: "/about",        element: <About /> },
       { path: "/team",         element: <Team /> },
       { path: "/contact",      element: <Contact /> },
       { path: "/enteachers",   element: <EnglishTeachers /> },
       { path: "/esteachers",   element: <CarouselCustomArrows /> },
-      { path: "/test",         element: <Test /> },
+      { path: "/test",         element: <LevelTest /> },
       { path: "/spanish-quiz", element: <SpanishQuiz /> },
       { path: "/english-quiz", element: <EnglishQuiz /> },
       { path: "/collaboration", element: <Collaboration /> },
