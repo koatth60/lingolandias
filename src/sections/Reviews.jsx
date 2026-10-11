@@ -119,7 +119,7 @@ const Reviews = () => {
   const visible = filtered.slice(0, visibleCount);
 
   return (
-    <section className="relative pt-14 pb-24 overflow-hidden">
+    <section className="relative pt-8 pb-10 lg:pt-12 lg:pb-16 overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 bg-purple-950/40"></div>
 

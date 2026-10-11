@@ -5,9 +5,9 @@ const CommunitySection = () => {
   const { t } = useTranslation();
 
   const whatFindItems = [
-    { icon: "👁️", key: "whatFindItem1" },
-    { icon: "❌", key: "whatFindItem2" },
-    { icon: "🏡", key: "whatFindItem3" },
+    // { icon: "👁️", key: "whatFindItem1" },
+    // { icon: "❌", key: "whatFindItem2" },
+    // { icon: "🏡", key: "whatFindItem3" },
     { icon: "☕", key: "whatFindItem4" },
     { icon: "🌱", key: "whatFindItem5" },
     { icon: "👥", key: "whatFindItem6" },
@@ -30,14 +30,14 @@ const CommunitySection = () => {
   ];
 
   return (
-    <section className="relative py-24 overflow-hidden">
+    <section className="relative py-10 lg:py-16 overflow-hidden">
       <div className="absolute inset-0 bg-purple-950/40"></div>
 
       {/* Decorative bg */}
       <div className="absolute top-1/3 left-0 w-72 h-72 bg-orange-500/8 rounded-full blur-3xl pointer-events-none"></div>
       <div className="absolute bottom-1/3 right-0 w-72 h-72 bg-purple-600/8 rounded-full blur-3xl pointer-events-none"></div>
 
-      <div className="relative container mx-auto px-4 max-w-7xl space-y-24">
+      <div className="relative container mx-auto px-4 max-w-7xl space-y-12 lg:space-y-20">
 
         {/* ── BLOCK 1: THE LANGUAGE THAT SPEAKS IN YOUR VOICE ── */}
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
@@ -102,7 +102,7 @@ const CommunitySection = () => {
 
         {/* ── BLOCK 2: WHAT YOU'LL FIND WITH US ── */}
         <div>
-          <div className="text-center mb-12">
+          <div className="text-center mb-6 lg:mb-10">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
               {t("whatFindTitle")}
             </h2>

@@ -20,7 +20,7 @@ const Metod = () => {
   ];
 
   return (
-    <section className="relative py-24 overflow-hidden">
+    <section className="relative py-10 lg:py-16 overflow-hidden">
       <div className="absolute inset-0 bg-purple-950/40"></div>
 
       {/* Decorative rings */}
@@ -45,7 +45,7 @@ const Metod = () => {
 
       <div className="relative container mx-auto px-4 max-w-7xl">
         {/* Header */}
-        <div className="text-center mb-16 relative">
+        <div className="text-center mb-8 lg:mb-10 relative">
           <span className="inline-flex items-center gap-2 bg-gradient-to-r from-orange-500/20 to-purple-600/20 backdrop-blur-sm px-5 py-2 rounded-full border border-orange-500/30 text-orange-200 text-sm font-medium tracking-wider mb-6">
             <span className="w-1.5 h-1.5 bg-orange-500 rounded-full animate-pulse"></span>
             {t("solveYourDoubts")}
@@ -69,7 +69,7 @@ const Metod = () => {
         </div>
 
         {/* Questions grid — 2 columns on large screens */}
-        <div className="grid md:grid-cols-2 gap-3 sm:gap-4 mb-12">
+        <div className="grid md:grid-cols-2 gap-3 sm:gap-4 mb-8">
           {questions.map((q) => (
             <div key={q.id} className="group relative">
               <div className={`absolute -inset-0.5 bg-gradient-to-r ${q.color} rounded-2xl blur opacity-0 group-hover:opacity-30 transition duration-500`}></div>
@@ -121,7 +121,7 @@ const Metod = () => {
         </div>
 
         {/* Bottom separator */}
-        <div className="mt-20 relative">
+        <div className="mt-8 lg:mt-12 relative">
           <div className="absolute inset-0 flex items-center">
             <div className="w-full border-t border-white/10"></div>
           </div>

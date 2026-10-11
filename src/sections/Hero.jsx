@@ -39,7 +39,7 @@ const Hero = () => {
       <div className="absolute bottom-[10%] right-[-5%] w-[400px] h-[400px] rounded-full bg-purple-600/10 blur-[100px] pointer-events-none" />
 
       {/* ── MAIN CONTENT ── */}
-      <div className="relative flex-1 flex flex-col justify-center pt-32 pb-24 px-4 sm:px-8 container mx-auto max-w-7xl">
+      <div className="relative flex-1 flex flex-col justify-center pt-32 pb-8 lg:pb-16 px-4 sm:px-8 container mx-auto max-w-7xl">
 
         {/* Top label */}
         <div className="flex items-center gap-3 mb-8">

@@ -5,7 +5,7 @@ const PhilosophySection = () => {
   const { t } = useTranslation();
 
   return (
-    <section className="relative py-24 overflow-hidden">
+    <section className="relative py-10 lg:py-16 overflow-hidden">
       <div className="absolute inset-0 bg-purple-950/30"></div>
 
       {/* Decorative blobs */}
