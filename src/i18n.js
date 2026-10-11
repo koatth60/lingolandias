@@ -6,7 +6,7 @@ import { levels, teachers, spanishTeachers, testCards, polishTestCards, englishT
 i18n
   .use(initReactI18next)
   .init({
-    debug: true,
+    debug: false,
     returnObjects: true,
     fallbackLng: "en",
     lng: localStorage.getItem("selectedLanguage") || "pl",
